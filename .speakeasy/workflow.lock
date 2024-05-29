@@ -1,0 +1,29 @@
+speakeasyVersion: 1.297.0
+sources: {}
+targets: {}
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        ledger:
+            inputs:
+                - location: registry.speakeasyapi.dev/formance/formance/ledger
+        payments:
+            inputs:
+                - location: registry.speakeasyapi.dev/formance/formance/payments
+        reconciliation:
+            inputs:
+                - location: registry.speakeasyapi.dev/formance/formance/reconciliation
+    targets:
+        ts-ledger:
+            target: typescript
+            source: ledger
+            output: ./packages/client-ledger
+        ts-payments:
+            target: typescript
+            source: payments
+            output: ./packages/client-payments
+        ts-reconciliation:
+            target: typescript
+            source: reconciliation
+            output: ./packages/client-reconciliation
