@@ -3,14 +3,17 @@ id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
   docChecksum: 6306162224e9f5a1e6e2206684b80714
   docVersion: 0.0.0
-  speakeasyVersion: 1.297.0
-  generationVersion: 2.338.1
-  releaseVersion: 0.0.2
-  configChecksum: 30c64c1183801af24a7ac6470fab1c25
+  speakeasyVersion: 1.299.3
+  generationVersion: 2.338.7
+  releaseVersion: 0.0.3
+  configChecksum: 9ebbf8055047939f9de63311c4294a68
+  repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
+  repoSubDirectory: packages/client-ledger
+  installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.9.9
+    core: 3.9.10
     errors: 2.81.10
     flattening: 2.81.1
     globalSecurity: 2.82.9

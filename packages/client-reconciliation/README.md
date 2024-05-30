@@ -22,13 +22,13 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET>
+yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
 ```
 <!-- End SDK Installation [installation] -->
 
