@@ -11,16 +11,10 @@ export type TransactionsV1GetRequest = {
 
 /** @internal */
 export namespace TransactionsV1GetRequest$ {
-    export const inboundSchema: z.ZodType<TransactionsV1GetRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<TransactionsV1GetRequest, z.ZodTypeDef, unknown> =
+        z.object({
             ledger: z.string(),
             txid: z.number().int(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                txid: v.txid,
-            };
         });
 
     export type Outbound = {
@@ -28,15 +22,9 @@ export namespace TransactionsV1GetRequest$ {
         txid: number;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsV1GetRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsV1GetRequest> =
+        z.object({
             ledger: z.string(),
             txid: z.number().int(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                txid: v.txid,
-            };
         });
 }

@@ -21,20 +21,12 @@ export type PoliciesV1CreateResponseBody = {
 
 /** @internal */
 export namespace PoliciesV1CreateRequestBody$ {
-    export const inboundSchema: z.ZodType<PoliciesV1CreateRequestBody, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<PoliciesV1CreateRequestBody, z.ZodTypeDef, unknown> =
+        z.object({
             name: z.string(),
             ledgerName: z.string(),
             ledgerQuery: z.record(z.any()),
             paymentsPoolID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                ledgerName: v.ledgerName,
-                ledgerQuery: v.ledgerQuery,
-                paymentsPoolID: v.paymentsPoolID,
-            };
         });
 
     export type Outbound = {
@@ -44,46 +36,28 @@ export namespace PoliciesV1CreateRequestBody$ {
         paymentsPoolID: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1CreateRequestBody> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1CreateRequestBody> =
+        z.object({
             name: z.string(),
             ledgerName: z.string(),
             ledgerQuery: z.record(z.any()),
             paymentsPoolID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                ledgerName: v.ledgerName,
-                ledgerQuery: v.ledgerQuery,
-                paymentsPoolID: v.paymentsPoolID,
-            };
         });
 }
 
 /** @internal */
 export namespace PoliciesV1CreateResponseBody$ {
-    export const inboundSchema: z.ZodType<PoliciesV1CreateResponseBody, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<PoliciesV1CreateResponseBody, z.ZodTypeDef, unknown> =
+        z.object({
             data: components.Policy$.inboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 
     export type Outbound = {
         data: components.Policy$.Outbound;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1CreateResponseBody> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1CreateResponseBody> =
+        z.object({
             data: components.Policy$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 }

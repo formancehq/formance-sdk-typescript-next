@@ -18,40 +18,26 @@ export type CreateTransactionWithNumscript = {
 
 /** @internal */
 export namespace Script$ {
-    export const inboundSchema: z.ZodType<Script, z.ZodTypeDef, unknown> = z
-        .object({
-            plain: z.string(),
-            vars: z.record(z.any()).optional(),
-        })
-        .transform((v) => {
-            return {
-                plain: v.plain,
-                ...(v.vars === undefined ? null : { vars: v.vars }),
-            };
-        });
+    export const inboundSchema: z.ZodType<Script, z.ZodTypeDef, unknown> = z.object({
+        plain: z.string(),
+        vars: z.record(z.any()).optional(),
+    });
 
     export type Outbound = {
         plain: string;
         vars?: { [k: string]: any } | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Script> = z
-        .object({
-            plain: z.string(),
-            vars: z.record(z.any()).optional(),
-        })
-        .transform((v) => {
-            return {
-                plain: v.plain,
-                ...(v.vars === undefined ? null : { vars: v.vars }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Script> = z.object({
+        plain: z.string(),
+        vars: z.record(z.any()).optional(),
+    });
 }
 
 /** @internal */
 export namespace CreateTransactionWithNumscript$ {
-    export const inboundSchema: z.ZodType<CreateTransactionWithNumscript, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<CreateTransactionWithNumscript, z.ZodTypeDef, unknown> =
+        z.object({
             timestamp: z
                 .string()
                 .datetime({ offset: true })
@@ -60,14 +46,6 @@ export namespace CreateTransactionWithNumscript$ {
             reference: z.string().optional(),
             metadata: z.record(z.any()).optional(),
             script: z.lazy(() => Script$.inboundSchema),
-        })
-        .transform((v) => {
-            return {
-                ...(v.timestamp === undefined ? null : { timestamp: v.timestamp }),
-                ...(v.reference === undefined ? null : { reference: v.reference }),
-                ...(v.metadata === undefined ? null : { metadata: v.metadata }),
-                script: v.script,
-            };
         });
 
     export type Outbound = {
@@ -78,22 +56,13 @@ export namespace CreateTransactionWithNumscript$ {
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CreateTransactionWithNumscript> =
-        z
-            .object({
-                timestamp: z
-                    .date()
-                    .transform((v) => v.toISOString())
-                    .optional(),
-                reference: z.string().optional(),
-                metadata: z.record(z.any()).optional(),
-                script: z.lazy(() => Script$.outboundSchema),
-            })
-            .transform((v) => {
-                return {
-                    ...(v.timestamp === undefined ? null : { timestamp: v.timestamp }),
-                    ...(v.reference === undefined ? null : { reference: v.reference }),
-                    ...(v.metadata === undefined ? null : { metadata: v.metadata }),
-                    script: v.script,
-                };
-            });
+        z.object({
+            timestamp: z
+                .date()
+                .transform((v) => v.toISOString())
+                .optional(),
+            reference: z.string().optional(),
+            metadata: z.record(z.any()).optional(),
+            script: z.lazy(() => Script$.outboundSchema),
+        });
 }

@@ -21,35 +21,17 @@ export type CreatePaymentRequest = {
 
 /** @internal */
 export namespace CreatePaymentRequest$ {
-    export const inboundSchema: z.ZodType<CreatePaymentRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            reference: z.string(),
-            connectorID: z.string(),
-            amount: z.number().int(),
-            type: PaymentType$.inboundSchema,
-            status: PaymentStatus$.inboundSchema,
-            scheme: PaymentScheme$.inboundSchema,
-            asset: z.string(),
-            sourceAccountID: z.string().optional(),
-            destinationAccountID: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                reference: v.reference,
-                connectorID: v.connectorID,
-                amount: v.amount,
-                type: v.type,
-                status: v.status,
-                scheme: v.scheme,
-                asset: v.asset,
-                ...(v.sourceAccountID === undefined
-                    ? null
-                    : { sourceAccountID: v.sourceAccountID }),
-                ...(v.destinationAccountID === undefined
-                    ? null
-                    : { destinationAccountID: v.destinationAccountID }),
-            };
-        });
+    export const inboundSchema: z.ZodType<CreatePaymentRequest, z.ZodTypeDef, unknown> = z.object({
+        reference: z.string(),
+        connectorID: z.string(),
+        amount: z.number().int(),
+        type: PaymentType$.inboundSchema,
+        status: PaymentStatus$.inboundSchema,
+        scheme: PaymentScheme$.inboundSchema,
+        asset: z.string(),
+        sourceAccountID: z.string().optional(),
+        destinationAccountID: z.string().optional(),
+    });
 
     export type Outbound = {
         reference: string;
@@ -63,8 +45,8 @@ export namespace CreatePaymentRequest$ {
         destinationAccountID?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CreatePaymentRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CreatePaymentRequest> = z.object(
+        {
             reference: z.string(),
             connectorID: z.string(),
             amount: z.number().int(),
@@ -74,22 +56,6 @@ export namespace CreatePaymentRequest$ {
             asset: z.string(),
             sourceAccountID: z.string().optional(),
             destinationAccountID: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                reference: v.reference,
-                connectorID: v.connectorID,
-                amount: v.amount,
-                type: v.type,
-                status: v.status,
-                scheme: v.scheme,
-                asset: v.asset,
-                ...(v.sourceAccountID === undefined
-                    ? null
-                    : { sourceAccountID: v.sourceAccountID }),
-                ...(v.destinationAccountID === undefined
-                    ? null
-                    : { destinationAccountID: v.destinationAccountID }),
-            };
-        });
+        }
+    );
 }

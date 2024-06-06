@@ -20,23 +20,13 @@ export type CurrencyCloudConfig = {
 
 /** @internal */
 export namespace CurrencyCloudConfig$ {
-    export const inboundSchema: z.ZodType<CurrencyCloudConfig, z.ZodTypeDef, unknown> = z
-        .object({
-            name: z.string(),
-            apiKey: z.string(),
-            loginID: z.string(),
-            pollingPeriod: z.string().default("120s"),
-            endpoint: z.string().default("https://devapi.currencycloud.com"),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                apiKey: v.apiKey,
-                loginID: v.loginID,
-                pollingPeriod: v.pollingPeriod,
-                endpoint: v.endpoint,
-            };
-        });
+    export const inboundSchema: z.ZodType<CurrencyCloudConfig, z.ZodTypeDef, unknown> = z.object({
+        name: z.string(),
+        apiKey: z.string(),
+        loginID: z.string(),
+        pollingPeriod: z.string().default("120s"),
+        endpoint: z.string().default("https://devapi.currencycloud.com"),
+    });
 
     export type Outbound = {
         name: string;
@@ -46,21 +36,11 @@ export namespace CurrencyCloudConfig$ {
         endpoint: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CurrencyCloudConfig> = z
-        .object({
-            name: z.string(),
-            apiKey: z.string(),
-            loginID: z.string(),
-            pollingPeriod: z.string().default("120s"),
-            endpoint: z.string().default("https://devapi.currencycloud.com"),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                apiKey: v.apiKey,
-                loginID: v.loginID,
-                pollingPeriod: v.pollingPeriod,
-                endpoint: v.endpoint,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CurrencyCloudConfig> = z.object({
+        name: z.string(),
+        apiKey: z.string(),
+        loginID: z.string(),
+        pollingPeriod: z.string().default("120s"),
+        endpoint: z.string().default("https://devapi.currencycloud.com"),
+    });
 }

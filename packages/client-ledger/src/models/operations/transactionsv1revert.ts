@@ -20,18 +20,11 @@ export type TransactionsV1RevertResponseBody = {
 
 /** @internal */
 export namespace TransactionsV1RevertRequest$ {
-    export const inboundSchema: z.ZodType<TransactionsV1RevertRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<TransactionsV1RevertRequest, z.ZodTypeDef, unknown> =
+        z.object({
             ledger: z.string(),
             txid: z.number().int(),
             disableChecks: z.boolean().optional(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                txid: v.txid,
-                ...(v.disableChecks === undefined ? null : { disableChecks: v.disableChecks }),
-            };
         });
 
     export type Outbound = {
@@ -40,33 +33,20 @@ export namespace TransactionsV1RevertRequest$ {
         disableChecks?: boolean | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsV1RevertRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsV1RevertRequest> =
+        z.object({
             ledger: z.string(),
             txid: z.number().int(),
             disableChecks: z.boolean().optional(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                txid: v.txid,
-                ...(v.disableChecks === undefined ? null : { disableChecks: v.disableChecks }),
-            };
         });
 }
 
 /** @internal */
 export namespace TransactionsV1RevertResponseBody$ {
     export const inboundSchema: z.ZodType<TransactionsV1RevertResponseBody, z.ZodTypeDef, unknown> =
-        z
-            .object({
-                data: components.Transaction$.inboundSchema,
-            })
-            .transform((v) => {
-                return {
-                    data: v.data,
-                };
-            });
+        z.object({
+            data: components.Transaction$.inboundSchema,
+        });
 
     export type Outbound = {
         data: components.Transaction$.Outbound;
@@ -76,13 +56,7 @@ export namespace TransactionsV1RevertResponseBody$ {
         Outbound,
         z.ZodTypeDef,
         TransactionsV1RevertResponseBody
-    > = z
-        .object({
-            data: components.Transaction$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
-        });
+    > = z.object({
+        data: components.Transaction$.outboundSchema,
+    });
 }

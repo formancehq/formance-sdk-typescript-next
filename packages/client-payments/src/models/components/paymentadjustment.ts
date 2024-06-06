@@ -15,26 +15,16 @@ export type PaymentAdjustment = {
 
 /** @internal */
 export namespace PaymentAdjustment$ {
-    export const inboundSchema: z.ZodType<PaymentAdjustment, z.ZodTypeDef, unknown> = z
-        .object({
-            reference: z.string(),
-            createdAt: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            status: PaymentStatus$.inboundSchema,
-            amount: z.number().int(),
-            raw: z.record(z.any()),
-        })
-        .transform((v) => {
-            return {
-                reference: v.reference,
-                createdAt: v.createdAt,
-                status: v.status,
-                amount: v.amount,
-                raw: v.raw,
-            };
-        });
+    export const inboundSchema: z.ZodType<PaymentAdjustment, z.ZodTypeDef, unknown> = z.object({
+        reference: z.string(),
+        createdAt: z
+            .string()
+            .datetime({ offset: true })
+            .transform((v) => new Date(v)),
+        status: PaymentStatus$.inboundSchema,
+        amount: z.number().int(),
+        raw: z.record(z.any()),
+    });
 
     export type Outbound = {
         reference: string;
@@ -44,21 +34,11 @@ export namespace PaymentAdjustment$ {
         raw: { [k: string]: any };
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentAdjustment> = z
-        .object({
-            reference: z.string(),
-            createdAt: z.date().transform((v) => v.toISOString()),
-            status: PaymentStatus$.outboundSchema,
-            amount: z.number().int(),
-            raw: z.record(z.any()),
-        })
-        .transform((v) => {
-            return {
-                reference: v.reference,
-                createdAt: v.createdAt,
-                status: v.status,
-                amount: v.amount,
-                raw: v.raw,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentAdjustment> = z.object({
+        reference: z.string(),
+        createdAt: z.date().transform((v) => v.toISOString()),
+        status: PaymentStatus$.outboundSchema,
+        amount: z.number().int(),
+        raw: z.record(z.any()),
+    });
 }

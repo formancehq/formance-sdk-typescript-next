@@ -18,54 +18,34 @@ export type PaymentsV1GetResponseBody = {
 
 /** @internal */
 export namespace PaymentsV1GetRequest$ {
-    export const inboundSchema: z.ZodType<PaymentsV1GetRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            payementId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                payementId: v.payementId,
-            };
-        });
+    export const inboundSchema: z.ZodType<PaymentsV1GetRequest, z.ZodTypeDef, unknown> = z.object({
+        payementId: z.string(),
+    });
 
     export type Outbound = {
         payementId: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1GetRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1GetRequest> = z.object(
+        {
             payementId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                payementId: v.payementId,
-            };
-        });
+        }
+    );
 }
 
 /** @internal */
 export namespace PaymentsV1GetResponseBody$ {
-    export const inboundSchema: z.ZodType<PaymentsV1GetResponseBody, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<PaymentsV1GetResponseBody, z.ZodTypeDef, unknown> =
+        z.object({
             data: components.Payment$.inboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 
     export type Outbound = {
         data: components.Payment$.Outbound;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1GetResponseBody> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1GetResponseBody> =
+        z.object({
             data: components.Payment$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 }

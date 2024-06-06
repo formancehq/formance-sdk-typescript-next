@@ -47,10 +47,7 @@ export namespace PaymentError$ {
             errorMessage: z.string(),
         })
         .transform((v) => {
-            return new PaymentError({
-                errorCode: v.errorCode,
-                errorMessage: v.errorMessage,
-            });
+            return new PaymentError(v);
         });
 
     export type Outbound = {
@@ -62,16 +59,9 @@ export namespace PaymentError$ {
         .instanceof(PaymentError)
         .transform((v) => v.data$)
         .pipe(
-            z
-                .object({
-                    errorCode: components.PaymentErrorCodes$.outboundSchema,
-                    errorMessage: z.string(),
-                })
-                .transform((v) => {
-                    return {
-                        errorCode: v.errorCode,
-                        errorMessage: v.errorMessage,
-                    };
-                })
+            z.object({
+                errorCode: components.PaymentErrorCodes$.outboundSchema,
+                errorMessage: z.string(),
+            })
         );
 }

@@ -19,59 +19,37 @@ export type AccountsV1GetResponseBody = {
 
 /** @internal */
 export namespace AccountsV1GetRequest$ {
-    export const inboundSchema: z.ZodType<AccountsV1GetRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            ledger: z.string(),
-            address: z.string(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                address: v.address,
-            };
-        });
+    export const inboundSchema: z.ZodType<AccountsV1GetRequest, z.ZodTypeDef, unknown> = z.object({
+        ledger: z.string(),
+        address: z.string(),
+    });
 
     export type Outbound = {
         ledger: string;
         address: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1GetRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1GetRequest> = z.object(
+        {
             ledger: z.string(),
             address: z.string(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                address: v.address,
-            };
-        });
+        }
+    );
 }
 
 /** @internal */
 export namespace AccountsV1GetResponseBody$ {
-    export const inboundSchema: z.ZodType<AccountsV1GetResponseBody, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<AccountsV1GetResponseBody, z.ZodTypeDef, unknown> =
+        z.object({
             data: components.Account$.inboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 
     export type Outbound = {
         data: components.Account$.Outbound;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1GetResponseBody> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1GetResponseBody> =
+        z.object({
             data: components.Account$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 }

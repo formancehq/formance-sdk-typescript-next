@@ -18,43 +18,27 @@ export type ReconciliationsV1GetResponseBody = {
 
 /** @internal */
 export namespace ReconciliationsV1GetRequest$ {
-    export const inboundSchema: z.ZodType<ReconciliationsV1GetRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<ReconciliationsV1GetRequest, z.ZodTypeDef, unknown> =
+        z.object({
             reconciliationId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                reconciliationId: v.reconciliationId,
-            };
         });
 
     export type Outbound = {
         reconciliationId: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconciliationsV1GetRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconciliationsV1GetRequest> =
+        z.object({
             reconciliationId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                reconciliationId: v.reconciliationId,
-            };
         });
 }
 
 /** @internal */
 export namespace ReconciliationsV1GetResponseBody$ {
     export const inboundSchema: z.ZodType<ReconciliationsV1GetResponseBody, z.ZodTypeDef, unknown> =
-        z
-            .object({
-                data: components.Reconciliation$.inboundSchema,
-            })
-            .transform((v) => {
-                return {
-                    data: v.data,
-                };
-            });
+        z.object({
+            data: components.Reconciliation$.inboundSchema,
+        });
 
     export type Outbound = {
         data: components.Reconciliation$.Outbound;
@@ -64,13 +48,7 @@ export namespace ReconciliationsV1GetResponseBody$ {
         Outbound,
         z.ZodTypeDef,
         ReconciliationsV1GetResponseBody
-    > = z
-        .object({
-            data: components.Reconciliation$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
-        });
+    > = z.object({
+        data: components.Reconciliation$.outboundSchema,
+    });
 }

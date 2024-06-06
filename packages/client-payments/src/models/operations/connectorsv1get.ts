@@ -43,33 +43,22 @@ export type ConnectorsV1GetResponseBody = {
 
 /** @internal */
 export namespace ConnectorsV1GetRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsV1GetRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<ConnectorsV1GetRequest, z.ZodTypeDef, unknown> = z.object(
+        {
             connector: components.Connector$.inboundSchema,
             connectorId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorId: v.connectorId,
-            };
-        });
+        }
+    );
 
     export type Outbound = {
         connector: string;
         connectorId: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1GetRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1GetRequest> =
+        z.object({
             connector: components.Connector$.outboundSchema,
             connectorId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorId: v.connectorId,
-            };
         });
 }
 
@@ -118,8 +107,8 @@ export namespace ConnectorsV1GetData$ {
 
 /** @internal */
 export namespace ConnectorsV1GetResponseBody$ {
-    export const inboundSchema: z.ZodType<ConnectorsV1GetResponseBody, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<ConnectorsV1GetResponseBody, z.ZodTypeDef, unknown> =
+        z.object({
             data: z.union([
                 components.WiseConfig$.inboundSchema,
                 components.StripeConfig$.inboundSchema,
@@ -133,11 +122,6 @@ export namespace ConnectorsV1GetResponseBody$ {
                 components.AtlarConfig$.inboundSchema,
                 components.BankingCircleConfig$.inboundSchema,
             ]),
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 
     export type Outbound = {
@@ -155,8 +139,8 @@ export namespace ConnectorsV1GetResponseBody$ {
             | components.BankingCircleConfig$.Outbound;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1GetResponseBody> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1GetResponseBody> =
+        z.object({
             data: z.union([
                 components.WiseConfig$.outboundSchema,
                 components.StripeConfig$.outboundSchema,
@@ -170,10 +154,5 @@ export namespace ConnectorsV1GetResponseBody$ {
                 components.AtlarConfig$.outboundSchema,
                 components.BankingCircleConfig$.outboundSchema,
             ]),
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 }

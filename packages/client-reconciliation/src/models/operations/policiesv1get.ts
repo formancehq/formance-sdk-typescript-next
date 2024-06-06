@@ -18,54 +18,34 @@ export type PoliciesV1GetResponseBody = {
 
 /** @internal */
 export namespace PoliciesV1GetRequest$ {
-    export const inboundSchema: z.ZodType<PoliciesV1GetRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            policyID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                policyID: v.policyID,
-            };
-        });
+    export const inboundSchema: z.ZodType<PoliciesV1GetRequest, z.ZodTypeDef, unknown> = z.object({
+        policyID: z.string(),
+    });
 
     export type Outbound = {
         policyID: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1GetRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1GetRequest> = z.object(
+        {
             policyID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                policyID: v.policyID,
-            };
-        });
+        }
+    );
 }
 
 /** @internal */
 export namespace PoliciesV1GetResponseBody$ {
-    export const inboundSchema: z.ZodType<PoliciesV1GetResponseBody, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<PoliciesV1GetResponseBody, z.ZodTypeDef, unknown> =
+        z.object({
             data: components.Policy$.inboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 
     export type Outbound = {
         data: components.Policy$.Outbound;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1GetResponseBody> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1GetResponseBody> =
+        z.object({
             data: components.Policy$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 }

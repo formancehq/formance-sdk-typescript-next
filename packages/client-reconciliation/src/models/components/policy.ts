@@ -15,28 +15,17 @@ export type Policy = {
 
 /** @internal */
 export namespace Policy$ {
-    export const inboundSchema: z.ZodType<Policy, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            name: z.string(),
-            createdAt: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            ledgerName: z.string(),
-            ledgerQuery: z.record(z.any()),
-            paymentsPoolID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                name: v.name,
-                createdAt: v.createdAt,
-                ledgerName: v.ledgerName,
-                ledgerQuery: v.ledgerQuery,
-                paymentsPoolID: v.paymentsPoolID,
-            };
-        });
+    export const inboundSchema: z.ZodType<Policy, z.ZodTypeDef, unknown> = z.object({
+        id: z.string(),
+        name: z.string(),
+        createdAt: z
+            .string()
+            .datetime({ offset: true })
+            .transform((v) => new Date(v)),
+        ledgerName: z.string(),
+        ledgerQuery: z.record(z.any()),
+        paymentsPoolID: z.string(),
+    });
 
     export type Outbound = {
         id: string;
@@ -47,23 +36,12 @@ export namespace Policy$ {
         paymentsPoolID: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Policy> = z
-        .object({
-            id: z.string(),
-            name: z.string(),
-            createdAt: z.date().transform((v) => v.toISOString()),
-            ledgerName: z.string(),
-            ledgerQuery: z.record(z.any()),
-            paymentsPoolID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                name: v.name,
-                createdAt: v.createdAt,
-                ledgerName: v.ledgerName,
-                ledgerQuery: v.ledgerQuery,
-                paymentsPoolID: v.paymentsPoolID,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Policy> = z.object({
+        id: z.string(),
+        name: z.string(),
+        createdAt: z.date().transform((v) => v.toISOString()),
+        ledgerName: z.string(),
+        ledgerQuery: z.record(z.any()),
+        paymentsPoolID: z.string(),
+    });
 }

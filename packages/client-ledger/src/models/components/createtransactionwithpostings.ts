@@ -14,8 +14,8 @@ export type CreateTransactionWithPostings = {
 
 /** @internal */
 export namespace CreateTransactionWithPostings$ {
-    export const inboundSchema: z.ZodType<CreateTransactionWithPostings, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<CreateTransactionWithPostings, z.ZodTypeDef, unknown> =
+        z.object({
             timestamp: z
                 .string()
                 .datetime({ offset: true })
@@ -24,14 +24,6 @@ export namespace CreateTransactionWithPostings$ {
             reference: z.string().optional(),
             metadata: z.record(z.any()).optional(),
             postings: z.array(Posting$.inboundSchema),
-        })
-        .transform((v) => {
-            return {
-                ...(v.timestamp === undefined ? null : { timestamp: v.timestamp }),
-                ...(v.reference === undefined ? null : { reference: v.reference }),
-                ...(v.metadata === undefined ? null : { metadata: v.metadata }),
-                postings: v.postings,
-            };
         });
 
     export type Outbound = {
@@ -42,22 +34,13 @@ export namespace CreateTransactionWithPostings$ {
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CreateTransactionWithPostings> =
-        z
-            .object({
-                timestamp: z
-                    .date()
-                    .transform((v) => v.toISOString())
-                    .optional(),
-                reference: z.string().optional(),
-                metadata: z.record(z.any()).optional(),
-                postings: z.array(Posting$.outboundSchema),
-            })
-            .transform((v) => {
-                return {
-                    ...(v.timestamp === undefined ? null : { timestamp: v.timestamp }),
-                    ...(v.reference === undefined ? null : { reference: v.reference }),
-                    ...(v.metadata === undefined ? null : { metadata: v.metadata }),
-                    postings: v.postings,
-                };
-            });
+        z.object({
+            timestamp: z
+                .date()
+                .transform((v) => v.toISOString())
+                .optional(),
+            reference: z.string().optional(),
+            metadata: z.record(z.any()).optional(),
+            postings: z.array(Posting$.outboundSchema),
+        });
 }

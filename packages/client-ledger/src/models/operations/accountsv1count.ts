@@ -12,19 +12,13 @@ export type AccountsV1CountRequest = {
 
 /** @internal */
 export namespace AccountsV1CountRequest$ {
-    export const inboundSchema: z.ZodType<AccountsV1CountRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<AccountsV1CountRequest, z.ZodTypeDef, unknown> = z.object(
+        {
             ledger: z.string(),
             address: z.string(),
             metadata: z.record(z.any()),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                address: v.address,
-                metadata: v.metadata,
-            };
-        });
+        }
+    );
 
     export type Outbound = {
         ledger: string;
@@ -32,17 +26,10 @@ export namespace AccountsV1CountRequest$ {
         metadata: { [k: string]: any };
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1CountRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1CountRequest> =
+        z.object({
             ledger: z.string(),
             address: z.string(),
             metadata: z.record(z.any()),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                address: v.address,
-                metadata: v.metadata,
-            };
         });
 }

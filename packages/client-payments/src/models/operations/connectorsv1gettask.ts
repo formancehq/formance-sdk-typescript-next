@@ -38,18 +38,11 @@ export type ConnectorsV1GetTaskResponseBody = {
 
 /** @internal */
 export namespace ConnectorsV1GetTaskRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsV1GetTaskRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<ConnectorsV1GetTaskRequest, z.ZodTypeDef, unknown> =
+        z.object({
             connector: components.Connector$.inboundSchema,
             connectorId: z.string(),
             taskId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorId: v.connectorId,
-                taskId: v.taskId,
-            };
         });
 
     export type Outbound = {
@@ -58,18 +51,11 @@ export namespace ConnectorsV1GetTaskRequest$ {
         taskId: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1GetTaskRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1GetTaskRequest> =
+        z.object({
             connector: components.Connector$.outboundSchema,
             connectorId: z.string(),
             taskId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorId: v.connectorId,
-                taskId: v.taskId,
-            };
         });
 }
 
@@ -113,24 +99,18 @@ export namespace ConnectorsV1GetTaskData$ {
 /** @internal */
 export namespace ConnectorsV1GetTaskResponseBody$ {
     export const inboundSchema: z.ZodType<ConnectorsV1GetTaskResponseBody, z.ZodTypeDef, unknown> =
-        z
-            .object({
-                data: z.union([
-                    components.TaskStripe$.inboundSchema,
-                    components.TaskWise$.inboundSchema,
-                    components.TaskCurrencyCloud$.inboundSchema,
-                    components.TaskDummyPay$.inboundSchema,
-                    components.TaskModulr$.inboundSchema,
-                    components.TaskBankingCircle$.inboundSchema,
-                    components.TaskMangoPay$.inboundSchema,
-                    components.TaskMoneyCorp$.inboundSchema,
-                ]),
-            })
-            .transform((v) => {
-                return {
-                    data: v.data,
-                };
-            });
+        z.object({
+            data: z.union([
+                components.TaskStripe$.inboundSchema,
+                components.TaskWise$.inboundSchema,
+                components.TaskCurrencyCloud$.inboundSchema,
+                components.TaskDummyPay$.inboundSchema,
+                components.TaskModulr$.inboundSchema,
+                components.TaskBankingCircle$.inboundSchema,
+                components.TaskMangoPay$.inboundSchema,
+                components.TaskMoneyCorp$.inboundSchema,
+            ]),
+        });
 
     export type Outbound = {
         data:
@@ -148,22 +128,16 @@ export namespace ConnectorsV1GetTaskResponseBody$ {
         Outbound,
         z.ZodTypeDef,
         ConnectorsV1GetTaskResponseBody
-    > = z
-        .object({
-            data: z.union([
-                components.TaskStripe$.outboundSchema,
-                components.TaskWise$.outboundSchema,
-                components.TaskCurrencyCloud$.outboundSchema,
-                components.TaskDummyPay$.outboundSchema,
-                components.TaskModulr$.outboundSchema,
-                components.TaskBankingCircle$.outboundSchema,
-                components.TaskMangoPay$.outboundSchema,
-                components.TaskMoneyCorp$.outboundSchema,
-            ]),
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
-        });
+    > = z.object({
+        data: z.union([
+            components.TaskStripe$.outboundSchema,
+            components.TaskWise$.outboundSchema,
+            components.TaskCurrencyCloud$.outboundSchema,
+            components.TaskDummyPay$.outboundSchema,
+            components.TaskModulr$.outboundSchema,
+            components.TaskBankingCircle$.outboundSchema,
+            components.TaskMangoPay$.outboundSchema,
+            components.TaskMoneyCorp$.outboundSchema,
+        ]),
+    });
 }

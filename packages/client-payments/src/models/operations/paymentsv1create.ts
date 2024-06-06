@@ -14,27 +14,17 @@ export type PaymentsV1CreateResponseBody = {
 
 /** @internal */
 export namespace PaymentsV1CreateResponseBody$ {
-    export const inboundSchema: z.ZodType<PaymentsV1CreateResponseBody, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<PaymentsV1CreateResponseBody, z.ZodTypeDef, unknown> =
+        z.object({
             data: components.Payment$.inboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 
     export type Outbound = {
         data: components.Payment$.Outbound;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1CreateResponseBody> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1CreateResponseBody> =
+        z.object({
             data: components.Payment$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
         });
 }

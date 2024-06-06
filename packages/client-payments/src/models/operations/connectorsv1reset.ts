@@ -12,16 +12,10 @@ export type ConnectorsV1ResetRequest = {
 
 /** @internal */
 export namespace ConnectorsV1ResetRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsV1ResetRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<ConnectorsV1ResetRequest, z.ZodTypeDef, unknown> =
+        z.object({
             connector: components.Connector$.inboundSchema,
             connectorId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorId: v.connectorId,
-            };
         });
 
     export type Outbound = {
@@ -29,15 +23,9 @@ export namespace ConnectorsV1ResetRequest$ {
         connectorId: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1ResetRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1ResetRequest> =
+        z.object({
             connector: components.Connector$.outboundSchema,
             connectorId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorId: v.connectorId,
-            };
         });
 }

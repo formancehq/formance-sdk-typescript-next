@@ -52,11 +52,7 @@ export namespace ReconciliationError$ {
             details: z.string().optional(),
         })
         .transform((v) => {
-            return new ReconciliationError({
-                errorCode: v.errorCode,
-                errorMessage: v.errorMessage,
-                ...(v.details === undefined ? null : { details: v.details }),
-            });
+            return new ReconciliationError(v);
         });
 
     export type Outbound = {
@@ -69,18 +65,10 @@ export namespace ReconciliationError$ {
         .instanceof(ReconciliationError)
         .transform((v) => v.data$)
         .pipe(
-            z
-                .object({
-                    errorCode: z.string(),
-                    errorMessage: z.string(),
-                    details: z.string().optional(),
-                })
-                .transform((v) => {
-                    return {
-                        errorCode: v.errorCode,
-                        errorMessage: v.errorMessage,
-                        ...(v.details === undefined ? null : { details: v.details }),
-                    };
-                })
+            z.object({
+                errorCode: z.string(),
+                errorMessage: z.string(),
+                details: z.string().optional(),
+            })
         );
 }

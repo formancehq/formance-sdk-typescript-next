@@ -15,3 +15,11 @@ Based on:
 - Speakeasy CLI 1.299.6 (2.338.12) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.0.4] ./packages/client-payments
+
+## 2024-06-06 00:15:16
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.300.0 (2.338.14) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.0.5] ./packages/client-reconciliation

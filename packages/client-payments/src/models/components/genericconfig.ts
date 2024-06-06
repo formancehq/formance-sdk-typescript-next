@@ -16,21 +16,12 @@ export type GenericConfig = {
 
 /** @internal */
 export namespace GenericConfig$ {
-    export const inboundSchema: z.ZodType<GenericConfig, z.ZodTypeDef, unknown> = z
-        .object({
-            name: z.string(),
-            pollingPeriod: z.string().default("120s"),
-            apiKey: z.string(),
-            endpoint: z.string(),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                pollingPeriod: v.pollingPeriod,
-                apiKey: v.apiKey,
-                endpoint: v.endpoint,
-            };
-        });
+    export const inboundSchema: z.ZodType<GenericConfig, z.ZodTypeDef, unknown> = z.object({
+        name: z.string(),
+        pollingPeriod: z.string().default("120s"),
+        apiKey: z.string(),
+        endpoint: z.string(),
+    });
 
     export type Outbound = {
         name: string;
@@ -39,19 +30,10 @@ export namespace GenericConfig$ {
         endpoint: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GenericConfig> = z
-        .object({
-            name: z.string(),
-            pollingPeriod: z.string().default("120s"),
-            apiKey: z.string(),
-            endpoint: z.string(),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                pollingPeriod: v.pollingPeriod,
-                apiKey: v.apiKey,
-                endpoint: v.endpoint,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GenericConfig> = z.object({
+        name: z.string(),
+        pollingPeriod: z.string().default("120s"),
+        apiKey: z.string(),
+        endpoint: z.string(),
+    });
 }

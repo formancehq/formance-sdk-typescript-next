@@ -12,16 +12,10 @@ export type ConnectorsV1UninstallRequest = {
 
 /** @internal */
 export namespace ConnectorsV1UninstallRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsV1UninstallRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<ConnectorsV1UninstallRequest, z.ZodTypeDef, unknown> =
+        z.object({
             connector: components.Connector$.inboundSchema,
             connectorID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorID: v.connectorID,
-            };
         });
 
     export type Outbound = {
@@ -29,15 +23,9 @@ export namespace ConnectorsV1UninstallRequest$ {
         connectorID: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1UninstallRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsV1UninstallRequest> =
+        z.object({
             connector: components.Connector$.outboundSchema,
             connectorID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                connector: v.connector,
-                connectorID: v.connectorID,
-            };
         });
 }

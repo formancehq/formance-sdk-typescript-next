@@ -53,11 +53,7 @@ export namespace LedgerError$ {
             details: z.string().optional(),
         })
         .transform((v) => {
-            return new LedgerError({
-                errorCode: v.errorCode,
-                errorMessage: v.errorMessage,
-                ...(v.details === undefined ? null : { details: v.details }),
-            });
+            return new LedgerError(v);
         });
 
     export type Outbound = {
@@ -70,18 +66,10 @@ export namespace LedgerError$ {
         .instanceof(LedgerError)
         .transform((v) => v.data$)
         .pipe(
-            z
-                .object({
-                    errorCode: components.LedgerErrors$.outboundSchema,
-                    errorMessage: z.string(),
-                    details: z.string().optional(),
-                })
-                .transform((v) => {
-                    return {
-                        errorCode: v.errorCode,
-                        errorMessage: v.errorMessage,
-                        ...(v.details === undefined ? null : { details: v.details }),
-                    };
-                })
+            z.object({
+                errorCode: components.LedgerErrors$.outboundSchema,
+                errorMessage: z.string(),
+                details: z.string().optional(),
+            })
         );
 }

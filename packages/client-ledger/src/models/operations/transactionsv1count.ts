@@ -17,8 +17,8 @@ export type TransactionsV1CountRequest = {
 
 /** @internal */
 export namespace TransactionsV1CountRequest$ {
-    export const inboundSchema: z.ZodType<TransactionsV1CountRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<TransactionsV1CountRequest, z.ZodTypeDef, unknown> =
+        z.object({
             ledger: z.string(),
             reference: z.string().optional(),
             account: z.string().optional(),
@@ -27,18 +27,6 @@ export namespace TransactionsV1CountRequest$ {
             startTime: z.string().optional(),
             endTime: z.string().optional(),
             metadata: z.record(z.any()).optional(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                ...(v.reference === undefined ? null : { reference: v.reference }),
-                ...(v.account === undefined ? null : { account: v.account }),
-                ...(v.source === undefined ? null : { source: v.source }),
-                ...(v.destination === undefined ? null : { destination: v.destination }),
-                ...(v.startTime === undefined ? null : { startTime: v.startTime }),
-                ...(v.endTime === undefined ? null : { endTime: v.endTime }),
-                ...(v.metadata === undefined ? null : { metadata: v.metadata }),
-            };
         });
 
     export type Outbound = {
@@ -52,8 +40,8 @@ export namespace TransactionsV1CountRequest$ {
         metadata?: { [k: string]: any } | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsV1CountRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsV1CountRequest> =
+        z.object({
             ledger: z.string(),
             reference: z.string().optional(),
             account: z.string().optional(),
@@ -62,17 +50,5 @@ export namespace TransactionsV1CountRequest$ {
             startTime: z.string().optional(),
             endTime: z.string().optional(),
             metadata: z.record(z.any()).optional(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                ...(v.reference === undefined ? null : { reference: v.reference }),
-                ...(v.account === undefined ? null : { account: v.account }),
-                ...(v.source === undefined ? null : { source: v.source }),
-                ...(v.destination === undefined ? null : { destination: v.destination }),
-                ...(v.startTime === undefined ? null : { startTime: v.startTime }),
-                ...(v.endTime === undefined ? null : { endTime: v.endTime }),
-                ...(v.metadata === undefined ? null : { metadata: v.metadata }),
-            };
         });
 }

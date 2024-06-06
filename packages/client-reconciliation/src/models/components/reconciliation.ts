@@ -19,42 +19,27 @@ export type Reconciliation = {
 
 /** @internal */
 export namespace Reconciliation$ {
-    export const inboundSchema: z.ZodType<Reconciliation, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            policyID: z.string(),
-            createdAt: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            reconciliedAtLedger: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            reconciliedAtPayments: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            status: z.string(),
-            paymentsBalances: z.record(z.number().int()),
-            ledgerBalances: z.record(z.number().int()),
-            driftBalances: z.record(z.number().int()),
-            error: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                policyID: v.policyID,
-                createdAt: v.createdAt,
-                reconciliedAtLedger: v.reconciliedAtLedger,
-                reconciliedAtPayments: v.reconciliedAtPayments,
-                status: v.status,
-                paymentsBalances: v.paymentsBalances,
-                ledgerBalances: v.ledgerBalances,
-                driftBalances: v.driftBalances,
-                ...(v.error === undefined ? null : { error: v.error }),
-            };
-        });
+    export const inboundSchema: z.ZodType<Reconciliation, z.ZodTypeDef, unknown> = z.object({
+        id: z.string(),
+        policyID: z.string(),
+        createdAt: z
+            .string()
+            .datetime({ offset: true })
+            .transform((v) => new Date(v)),
+        reconciliedAtLedger: z
+            .string()
+            .datetime({ offset: true })
+            .transform((v) => new Date(v)),
+        reconciliedAtPayments: z
+            .string()
+            .datetime({ offset: true })
+            .transform((v) => new Date(v)),
+        status: z.string(),
+        paymentsBalances: z.record(z.number().int()),
+        ledgerBalances: z.record(z.number().int()),
+        driftBalances: z.record(z.number().int()),
+        error: z.string().optional(),
+    });
 
     export type Outbound = {
         id: string;
@@ -69,31 +54,16 @@ export namespace Reconciliation$ {
         error?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Reconciliation> = z
-        .object({
-            id: z.string(),
-            policyID: z.string(),
-            createdAt: z.date().transform((v) => v.toISOString()),
-            reconciliedAtLedger: z.date().transform((v) => v.toISOString()),
-            reconciliedAtPayments: z.date().transform((v) => v.toISOString()),
-            status: z.string(),
-            paymentsBalances: z.record(z.number().int()),
-            ledgerBalances: z.record(z.number().int()),
-            driftBalances: z.record(z.number().int()),
-            error: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                policyID: v.policyID,
-                createdAt: v.createdAt,
-                reconciliedAtLedger: v.reconciliedAtLedger,
-                reconciliedAtPayments: v.reconciliedAtPayments,
-                status: v.status,
-                paymentsBalances: v.paymentsBalances,
-                ledgerBalances: v.ledgerBalances,
-                driftBalances: v.driftBalances,
-                ...(v.error === undefined ? null : { error: v.error }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Reconciliation> = z.object({
+        id: z.string(),
+        policyID: z.string(),
+        createdAt: z.date().transform((v) => v.toISOString()),
+        reconciliedAtLedger: z.date().transform((v) => v.toISOString()),
+        reconciliedAtPayments: z.date().transform((v) => v.toISOString()),
+        status: z.string(),
+        paymentsBalances: z.record(z.number().int()),
+        ledgerBalances: z.record(z.number().int()),
+        driftBalances: z.record(z.number().int()),
+        error: z.string().optional(),
+    });
 }

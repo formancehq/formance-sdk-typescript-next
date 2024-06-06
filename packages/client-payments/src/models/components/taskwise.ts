@@ -18,35 +18,22 @@ export type TaskWise = {
 
 /** @internal */
 export namespace TaskWise$ {
-    export const inboundSchema: z.ZodType<TaskWise, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            connectorID: z.string(),
-            createdAt: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            updatedAt: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            status: PaymentStatus$.inboundSchema,
-            state: z.record(z.any()),
-            error: z.string().optional(),
-            descriptor: z.string(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                connectorID: v.connectorID,
-                createdAt: v.createdAt,
-                updatedAt: v.updatedAt,
-                status: v.status,
-                state: v.state,
-                ...(v.error === undefined ? null : { error: v.error }),
-                descriptor: v.descriptor,
-            };
-        });
+    export const inboundSchema: z.ZodType<TaskWise, z.ZodTypeDef, unknown> = z.object({
+        id: z.string(),
+        connectorID: z.string(),
+        createdAt: z
+            .string()
+            .datetime({ offset: true })
+            .transform((v) => new Date(v)),
+        updatedAt: z
+            .string()
+            .datetime({ offset: true })
+            .transform((v) => new Date(v)),
+        status: PaymentStatus$.inboundSchema,
+        state: z.record(z.any()),
+        error: z.string().optional(),
+        descriptor: z.string(),
+    });
 
     export type Outbound = {
         id: string;
@@ -59,27 +46,14 @@ export namespace TaskWise$ {
         descriptor: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TaskWise> = z
-        .object({
-            id: z.string(),
-            connectorID: z.string(),
-            createdAt: z.date().transform((v) => v.toISOString()),
-            updatedAt: z.date().transform((v) => v.toISOString()),
-            status: PaymentStatus$.outboundSchema,
-            state: z.record(z.any()),
-            error: z.string().optional(),
-            descriptor: z.string(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                connectorID: v.connectorID,
-                createdAt: v.createdAt,
-                updatedAt: v.updatedAt,
-                status: v.status,
-                state: v.state,
-                ...(v.error === undefined ? null : { error: v.error }),
-                descriptor: v.descriptor,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TaskWise> = z.object({
+        id: z.string(),
+        connectorID: z.string(),
+        createdAt: z.date().transform((v) => v.toISOString()),
+        updatedAt: z.date().transform((v) => v.toISOString()),
+        status: PaymentStatus$.outboundSchema,
+        state: z.record(z.any()),
+        error: z.string().optional(),
+        descriptor: z.string(),
+    });
 }

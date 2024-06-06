@@ -20,29 +20,16 @@ export type BankingCircleConfig = {
 
 /** @internal */
 export namespace BankingCircleConfig$ {
-    export const inboundSchema: z.ZodType<BankingCircleConfig, z.ZodTypeDef, unknown> = z
-        .object({
-            name: z.string(),
-            pollingPeriod: z.string().default("120s"),
-            username: z.string(),
-            password: z.string(),
-            endpoint: z.string(),
-            authorizationEndpoint: z.string(),
-            userCertificate: z.string(),
-            userCertificateKey: z.string(),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                pollingPeriod: v.pollingPeriod,
-                username: v.username,
-                password: v.password,
-                endpoint: v.endpoint,
-                authorizationEndpoint: v.authorizationEndpoint,
-                userCertificate: v.userCertificate,
-                userCertificateKey: v.userCertificateKey,
-            };
-        });
+    export const inboundSchema: z.ZodType<BankingCircleConfig, z.ZodTypeDef, unknown> = z.object({
+        name: z.string(),
+        pollingPeriod: z.string().default("120s"),
+        username: z.string(),
+        password: z.string(),
+        endpoint: z.string(),
+        authorizationEndpoint: z.string(),
+        userCertificate: z.string(),
+        userCertificateKey: z.string(),
+    });
 
     export type Outbound = {
         name: string;
@@ -55,27 +42,14 @@ export namespace BankingCircleConfig$ {
         userCertificateKey: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankingCircleConfig> = z
-        .object({
-            name: z.string(),
-            pollingPeriod: z.string().default("120s"),
-            username: z.string(),
-            password: z.string(),
-            endpoint: z.string(),
-            authorizationEndpoint: z.string(),
-            userCertificate: z.string(),
-            userCertificateKey: z.string(),
-        })
-        .transform((v) => {
-            return {
-                name: v.name,
-                pollingPeriod: v.pollingPeriod,
-                username: v.username,
-                password: v.password,
-                endpoint: v.endpoint,
-                authorizationEndpoint: v.authorizationEndpoint,
-                userCertificate: v.userCertificate,
-                userCertificateKey: v.userCertificateKey,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankingCircleConfig> = z.object({
+        name: z.string(),
+        pollingPeriod: z.string().default("120s"),
+        username: z.string(),
+        password: z.string(),
+        endpoint: z.string(),
+        authorizationEndpoint: z.string(),
+        userCertificate: z.string(),
+        userCertificateKey: z.string(),
+    });
 }

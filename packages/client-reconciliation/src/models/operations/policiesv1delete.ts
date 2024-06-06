@@ -10,27 +10,17 @@ export type PoliciesV1DeleteRequest = {
 
 /** @internal */
 export namespace PoliciesV1DeleteRequest$ {
-    export const inboundSchema: z.ZodType<PoliciesV1DeleteRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<PoliciesV1DeleteRequest, z.ZodTypeDef, unknown> =
+        z.object({
             policyID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                policyID: v.policyID,
-            };
         });
 
     export type Outbound = {
         policyID: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1DeleteRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1DeleteRequest> =
+        z.object({
             policyID: z.string(),
-        })
-        .transform((v) => {
-            return {
-                policyID: v.policyID,
-            };
         });
 }

@@ -13,27 +13,15 @@ export type InfoResponseBody = {
 
 /** @internal */
 export namespace InfoResponseBody$ {
-    export const inboundSchema: z.ZodType<InfoResponseBody, z.ZodTypeDef, unknown> = z
-        .object({
-            verison: z.string(),
-        })
-        .transform((v) => {
-            return {
-                verison: v.verison,
-            };
-        });
+    export const inboundSchema: z.ZodType<InfoResponseBody, z.ZodTypeDef, unknown> = z.object({
+        verison: z.string(),
+    });
 
     export type Outbound = {
         verison: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InfoResponseBody> = z
-        .object({
-            verison: z.string(),
-        })
-        .transform((v) => {
-            return {
-                verison: v.verison,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InfoResponseBody> = z.object({
+        verison: z.string(),
+    });
 }

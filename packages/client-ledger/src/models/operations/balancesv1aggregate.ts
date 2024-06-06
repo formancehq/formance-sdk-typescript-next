@@ -19,20 +19,11 @@ export type BalancesV1AggregateResponseBody = {
 
 /** @internal */
 export namespace BalancesV1AggregateRequest$ {
-    export const inboundSchema: z.ZodType<BalancesV1AggregateRequest, z.ZodTypeDef, unknown> = z
-        .object({
+    export const inboundSchema: z.ZodType<BalancesV1AggregateRequest, z.ZodTypeDef, unknown> =
+        z.object({
             ledger: z.string(),
             address: z.string().optional(),
             useInsertionData: z.boolean().optional(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                ...(v.address === undefined ? null : { address: v.address }),
-                ...(v.useInsertionData === undefined
-                    ? null
-                    : { useInsertionData: v.useInsertionData }),
-            };
         });
 
     export type Outbound = {
@@ -41,35 +32,20 @@ export namespace BalancesV1AggregateRequest$ {
         useInsertionData?: boolean | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BalancesV1AggregateRequest> = z
-        .object({
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BalancesV1AggregateRequest> =
+        z.object({
             ledger: z.string(),
             address: z.string().optional(),
             useInsertionData: z.boolean().optional(),
-        })
-        .transform((v) => {
-            return {
-                ledger: v.ledger,
-                ...(v.address === undefined ? null : { address: v.address }),
-                ...(v.useInsertionData === undefined
-                    ? null
-                    : { useInsertionData: v.useInsertionData }),
-            };
         });
 }
 
 /** @internal */
 export namespace BalancesV1AggregateResponseBody$ {
     export const inboundSchema: z.ZodType<BalancesV1AggregateResponseBody, z.ZodTypeDef, unknown> =
-        z
-            .object({
-                data: z.record(z.number().int()),
-            })
-            .transform((v) => {
-                return {
-                    data: v.data,
-                };
-            });
+        z.object({
+            data: z.record(z.number().int()),
+        });
 
     export type Outbound = {
         data: { [k: string]: number };
@@ -79,13 +55,7 @@ export namespace BalancesV1AggregateResponseBody$ {
         Outbound,
         z.ZodTypeDef,
         BalancesV1AggregateResponseBody
-    > = z
-        .object({
-            data: z.record(z.number().int()),
-        })
-        .transform((v) => {
-            return {
-                data: v.data,
-            };
-        });
+    > = z.object({
+        data: z.record(z.number().int()),
+    });
 }
