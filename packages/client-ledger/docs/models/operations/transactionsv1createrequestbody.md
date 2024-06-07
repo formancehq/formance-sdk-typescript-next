@@ -1,2 +1,0 @@
-# TransactionsV1CreateRequestBody
-

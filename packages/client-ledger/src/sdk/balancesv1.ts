@@ -69,7 +69,7 @@ export class BalancesV1 extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/{ledger}/aggregate/balances")(
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/aggregate/balances")(
             pathParams$
         );
 
@@ -166,7 +166,7 @@ export class BalancesV1 extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/{ledger}/balances")(pathParams$);
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/balances")(pathParams$);
 
         const query$ = [
             enc$.encodeForm("address", payload$.address, {

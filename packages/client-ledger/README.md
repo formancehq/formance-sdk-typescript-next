@@ -71,6 +71,17 @@ run();
 
 * [info](docs/sdks/ledgerclient/README.md#info)
 
+### [ledgers](docs/sdks/ledgers/README.md)
+
+* [list](docs/sdks/ledgers/README.md#list)
+* [get](docs/sdks/ledgers/README.md#get)
+* [create](docs/sdks/ledgers/README.md#create)
+* [bulk](docs/sdks/ledgers/README.md#bulk)
+* [info](docs/sdks/ledgers/README.md#info)
+* [addMetadata](docs/sdks/ledgers/README.md#addmetadata)
+* [removeMetadata](docs/sdks/ledgers/README.md#removemetadata)
+* [stats](docs/sdks/ledgers/README.md#stats)
+
 ### [accountsV1](docs/sdks/accountsv1/README.md)
 
 * [list](docs/sdks/accountsv1/README.md#list)
@@ -83,15 +94,15 @@ run();
 * [aggregate](docs/sdks/balancesv1/README.md#aggregate)
 * [get](docs/sdks/balancesv1/README.md#get)
 
-### [transactionsV1](docs/sdks/transactionsv1/README.md)
+### [transactions](docs/sdks/transactions/README.md)
 
-* [count](docs/sdks/transactionsv1/README.md#count)
-* [list](docs/sdks/transactionsv1/README.md#list)
-* [create](docs/sdks/transactionsv1/README.md#create)
-* [batchCreate](docs/sdks/transactionsv1/README.md#batchcreate)
-* [get](docs/sdks/transactionsv1/README.md#get)
-* [addMetadata](docs/sdks/transactionsv1/README.md#addmetadata)
-* [revert](docs/sdks/transactionsv1/README.md#revert)
+* [count](docs/sdks/transactions/README.md#count)
+* [list](docs/sdks/transactions/README.md#list)
+* [create](docs/sdks/transactions/README.md#create)
+* [get](docs/sdks/transactions/README.md#get)
+* [addMetadata](docs/sdks/transactions/README.md#addmetadata)
+* [deleteMetadata](docs/sdks/transactions/README.md#deletemetadata)
+* [revert](docs/sdks/transactions/README.md#revert)
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Pagination [pagination] -->
@@ -116,7 +127,7 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-    const result = await ledgerClient.accountsV1.list("<value>", "<value>");
+    const result = await ledgerClient.ledgers.list("<value>", 768578);
 
     for await (const page of result) {
         // handle page
@@ -223,7 +234,7 @@ const ledgerClient = new LedgerClient({
 async function run() {
     let result;
     try {
-        result = await ledgerClient.accountsV1.list("<value>", "<value>");
+        result = await ledgerClient.ledgers.list("<value>", 768578);
     } catch (err) {
         switch (true) {
             case err instanceof errors.SDKValidationError: {

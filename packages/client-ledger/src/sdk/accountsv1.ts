@@ -68,7 +68,7 @@ export class AccountsV1 extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/{ledger}/accounts")(pathParams$);
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/accounts")(pathParams$);
 
         const query$ = [
             enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
@@ -176,7 +176,7 @@ export class AccountsV1 extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/{ledger}/accounts")(pathParams$);
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/accounts")(pathParams$);
 
         const query$ = [
             enc$.encodeForm("address", payload$.address, {
@@ -279,7 +279,7 @@ export class AccountsV1 extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/{ledger}/accounts/{address}")(
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/accounts/{address}")(
             pathParams$
         );
 
@@ -376,9 +376,9 @@ export class AccountsV1 extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/{ledger}/accounts/{address}/metadata")(
-            pathParams$
-        );
+        const path$ = this.templateURLComponent(
+            "/api/ledger/v2/{ledger}/accounts/{address}/metadata"
+        )(pathParams$);
 
         const query$ = "";
 

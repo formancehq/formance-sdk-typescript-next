@@ -8,7 +8,7 @@ import * as z from "zod";
 export type CreateTransactionWithPostings = {
     timestamp?: Date | undefined;
     reference?: string | undefined;
-    metadata?: { [k: string]: any } | undefined;
+    metadata: { [k: string]: string };
     postings: Array<Posting>;
 };
 
@@ -22,14 +22,14 @@ export namespace CreateTransactionWithPostings$ {
                 .transform((v) => new Date(v))
                 .optional(),
             reference: z.string().optional(),
-            metadata: z.record(z.any()).optional(),
+            metadata: z.record(z.string()),
             postings: z.array(Posting$.inboundSchema),
         });
 
     export type Outbound = {
         timestamp?: string | undefined;
         reference?: string | undefined;
-        metadata?: { [k: string]: any } | undefined;
+        metadata: { [k: string]: string };
         postings: Array<Posting$.Outbound>;
     };
 
@@ -40,7 +40,7 @@ export namespace CreateTransactionWithPostings$ {
                 .transform((v) => v.toISOString())
                 .optional(),
             reference: z.string().optional(),
-            metadata: z.record(z.any()).optional(),
+            metadata: z.record(z.string()),
             postings: z.array(Posting$.outboundSchema),
         });
 }

@@ -1,0 +1,11 @@
+# Migration
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `version`                                                                                     | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `date`                                                                                        | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `state`                                                                                       | [components.MigrationState](../../models/components/migrationstate.md)                        | :heavy_check_mark:                                                                            | N/A                                                                                           |

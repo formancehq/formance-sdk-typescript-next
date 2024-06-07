@@ -10,7 +10,8 @@ import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
 import { AccountsV1 } from "./accountsv1";
 import { BalancesV1 } from "./balancesv1";
-import { TransactionsV1 } from "./transactionsv1";
+import { Ledgers } from "./ledgers";
+import { Transactions } from "./transactions";
 
 export class LedgerClient extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
@@ -39,6 +40,11 @@ export class LedgerClient extends ClientSDK {
         void this.options$;
     }
 
+    private _ledgers?: Ledgers;
+    get ledgers(): Ledgers {
+        return (this._ledgers ??= new Ledgers(this.options$));
+    }
+
     private _accountsV1?: AccountsV1;
     get accountsV1(): AccountsV1 {
         return (this._accountsV1 ??= new AccountsV1(this.options$));
@@ -49,9 +55,9 @@ export class LedgerClient extends ClientSDK {
         return (this._balancesV1 ??= new BalancesV1(this.options$));
     }
 
-    private _transactionsV1?: TransactionsV1;
-    get transactionsV1(): TransactionsV1 {
-        return (this._transactionsV1 ??= new TransactionsV1(this.options$));
+    private _transactions?: Transactions;
+    get transactions(): Transactions {
+        return (this._transactions ??= new Transactions(this.options$));
     }
 
     async info(
@@ -61,7 +67,7 @@ export class LedgerClient extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const path$ = this.templateURLComponent("/api/ledger/_info")();
+        const path$ = this.templateURLComponent("/api/ledger/v2/_info")();
 
         const query$ = "";
 

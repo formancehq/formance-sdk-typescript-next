@@ -12,7 +12,7 @@ export type Script = {
 export type CreateTransactionWithNumscript = {
     timestamp?: Date | undefined;
     reference?: string | undefined;
-    metadata?: { [k: string]: any } | undefined;
+    metadata: { [k: string]: string };
     script: Script;
 };
 
@@ -44,14 +44,14 @@ export namespace CreateTransactionWithNumscript$ {
                 .transform((v) => new Date(v))
                 .optional(),
             reference: z.string().optional(),
-            metadata: z.record(z.any()).optional(),
+            metadata: z.record(z.string()),
             script: z.lazy(() => Script$.inboundSchema),
         });
 
     export type Outbound = {
         timestamp?: string | undefined;
         reference?: string | undefined;
-        metadata?: { [k: string]: any } | undefined;
+        metadata: { [k: string]: string };
         script: Script$.Outbound;
     };
 
@@ -62,7 +62,7 @@ export namespace CreateTransactionWithNumscript$ {
                 .transform((v) => v.toISOString())
                 .optional(),
             reference: z.string().optional(),
-            metadata: z.record(z.any()).optional(),
+            metadata: z.record(z.string()),
             script: z.lazy(() => Script$.outboundSchema),
         });
 }

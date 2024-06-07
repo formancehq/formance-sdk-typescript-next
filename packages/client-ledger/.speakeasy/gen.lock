@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
-  docChecksum: 6306162224e9f5a1e6e2206684b80714
+  docChecksum: 0e8cfd45b578929d77808cc23050c197
   docVersion: 0.0.0
-  speakeasyVersion: 1.300.0
-  generationVersion: 2.338.14
-  releaseVersion: 0.0.5
-  configChecksum: 86ebe52e3eecd8e5a53f8637ad9728eb
+  speakeasyVersion: 1.300.1
+  generationVersion: 2.339.1
+  releaseVersion: 0.0.6
+  configChecksum: f11773ad786c4ad4cecc3873e506557a
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
@@ -28,9 +28,10 @@ features:
     sdkHooks: 0.1.0
     unions: 2.85.5
 generatedFiles:
+  - src/sdk/ledgers.ts
   - src/sdk/accountsv1.ts
   - src/sdk/balancesv1.ts
-  - src/sdk/transactionsv1.ts
+  - src/sdk/transactions.ts
   - src/sdk/sdk.ts
   - .eslintrc.js
   - .npmignore
@@ -59,43 +60,125 @@ generatedFiles:
   - src/types/rfcdate.ts
   - tsconfig.json
   - src/models/components/serverinfo.ts
-  - src/models/components/account.ts
+  - src/models/components/ledger.ts
   - src/models/components/ledgererrors.ts
+  - src/models/components/bulkresponse.ts
+  - src/models/components/createtransactionactionresponse.ts
   - src/models/components/transaction.ts
   - src/models/components/posting.ts
+  - src/models/components/reverttransactionactionresponse.ts
+  - src/models/components/addmetadataactionresponse.ts
+  - src/models/components/deletemetadataactionresponse.ts
+  - src/models/components/bulkaction.ts
+  - src/models/components/createtransactionaction.ts
   - src/models/components/createtransactionwithpostings.ts
   - src/models/components/createtransactionwithnumscript.ts
+  - src/models/components/addmetadataaction.ts
+  - src/models/components/addmetadatatarget.ts
+  - src/models/components/addmetadatatargetaccount.ts
+  - src/models/components/addmetadatatargettransaction.ts
+  - src/models/components/reverttransactionaction.ts
+  - src/models/components/deletemetadataaction.ts
+  - src/models/components/deletemetadatatarget.ts
+  - src/models/components/deletemetadatatargetaccount.ts
+  - src/models/components/deletemetadatatargettransaction.ts
+  - src/models/components/ledgerinfo.ts
+  - src/models/components/migration.ts
+  - src/models/components/migrationstate.ts
+  - src/models/components/account.ts
+  - src/models/components/expendedtransaction.ts
   - src/models/components/security.ts
+  - src/models/operations/ledgerslist.ts
+  - src/models/operations/ledgersget.ts
+  - src/models/operations/ledgerscreate.ts
+  - src/models/operations/ledgersbulk.ts
+  - src/models/operations/ledgersinfo.ts
+  - src/models/operations/ledgersaddmetadata.ts
+  - src/models/operations/ledgersremovemetadata.ts
+  - src/models/operations/ledgersstats.ts
   - src/models/operations/accountsv1list.ts
   - src/models/operations/accountsv1count.ts
   - src/models/operations/accountsv1get.ts
   - src/models/operations/accountsv1addmetadata.ts
   - src/models/operations/balancesv1aggregate.ts
   - src/models/operations/balancesv1get.ts
-  - src/models/operations/transactionsv1count.ts
-  - src/models/operations/transactionsv1list.ts
-  - src/models/operations/transactionsv1create.ts
-  - src/models/operations/transactionsv1batchcreate.ts
-  - src/models/operations/transactionsv1get.ts
-  - src/models/operations/transactionsv1addmetadata.ts
-  - src/models/operations/transactionsv1revert.ts
+  - src/models/operations/transactionscount.ts
+  - src/models/operations/transactionslist.ts
+  - src/models/operations/transactionscreate.ts
+  - src/models/operations/transactionsget.ts
+  - src/models/operations/transactionsaddmetadata.ts
+  - src/models/operations/transactionsdeletemetadata.ts
+  - src/models/operations/transactionsrevert.ts
   - src/models/errors/ledgererror.ts
   - src/models/errors/index.ts
   - src/models/components/index.ts
   - src/models/operations/index.ts
   - docs/models/components/serverinfo.md
-  - docs/models/components/account.md
+  - docs/models/components/ledger.md
   - docs/models/components/ledgererrors.md
-  - docs/models/components/precommitvolumes.md
-  - docs/models/components/postcommitvolumes.md
+  - docs/models/components/bulkresponse.md
+  - docs/models/components/responsetype.md
+  - docs/models/components/createtransactionactionresponse.md
   - docs/models/components/transaction.md
   - docs/models/components/posting.md
+  - docs/models/components/reverttransactionactionresponseresponsetype.md
+  - docs/models/components/reverttransactionactionresponse.md
+  - docs/models/components/addmetadataactionresponseresponsetype.md
+  - docs/models/components/addmetadataactionresponse.md
+  - docs/models/components/deletemetadataactionresponseresponsetype.md
+  - docs/models/components/deletemetadataactionresponse.md
+  - docs/models/components/bulkaction.md
+  - docs/models/components/action.md
+  - docs/models/components/data.md
+  - docs/models/components/createtransactionaction.md
   - docs/models/components/createtransactionwithpostings.md
   - docs/models/components/script.md
   - docs/models/components/createtransactionwithnumscript.md
+  - docs/models/components/addmetadataactionaction.md
+  - docs/models/components/addmetadataaction.md
+  - docs/models/components/addmetadatatarget.md
+  - docs/models/components/targettype.md
+  - docs/models/components/addmetadatatargetaccount.md
+  - docs/models/components/addmetadatatargettransactiontargettype.md
+  - docs/models/components/addmetadatatargettransaction.md
+  - docs/models/components/reverttransactionactionaction.md
+  - docs/models/components/reverttransactionactiondata.md
+  - docs/models/components/reverttransactionaction.md
+  - docs/models/components/deletemetadataactionaction.md
+  - docs/models/components/deletemetadataaction.md
+  - docs/models/components/deletemetadatatarget.md
+  - docs/models/components/deletemetadatatargetaccounttargettype.md
+  - docs/models/components/deletemetadatatargetaccount.md
+  - docs/models/components/deletemetadatatargettransactiontargettype.md
+  - docs/models/components/deletemetadatatargettransaction.md
+  - docs/models/components/storage.md
+  - docs/models/components/ledgerinfo.md
+  - docs/models/components/migration.md
+  - docs/models/components/migrationstate.md
+  - docs/models/components/account.md
+  - docs/models/components/precommitvolumes.md
+  - docs/models/components/postcommitvolumes.md
+  - docs/models/components/expendedtransaction.md
   - docs/models/components/security.md
-  - docs/models/operations/accountsv1listrequest.md
+  - docs/models/operations/ledgerslistrequest.md
   - docs/models/operations/cursor.md
+  - docs/models/operations/ledgerslistresponsebody.md
+  - docs/models/operations/ledgerslistresponse.md
+  - docs/models/operations/ledgersgetrequest.md
+  - docs/models/operations/ledgersgetresponsebody.md
+  - docs/models/operations/ledgerscreaterequestbody.md
+  - docs/models/operations/ledgerscreaterequest.md
+  - docs/models/operations/ledgersbulkrequest.md
+  - docs/models/operations/ledgersbulkresponsebody.md
+  - docs/models/operations/ledgersinforequest.md
+  - docs/models/operations/ledgersinforesponsebody.md
+  - docs/models/operations/ledgersaddmetadatarequest.md
+  - docs/models/operations/ledgersremovemetadatarequest.md
+  - docs/models/operations/ledgersstatsrequest.md
+  - docs/models/operations/data.md
+  - docs/models/operations/ledgersstatsresponsebody.md
+  - docs/models/operations/accountsv1listrequest.md
+  - docs/models/operations/accountsv1listcursor.md
   - docs/models/operations/accountsv1listresponsebody.md
   - docs/models/operations/accountsv1listresponse.md
   - docs/models/operations/accountsv1countrequest.md
@@ -109,28 +192,29 @@ generatedFiles:
   - docs/models/operations/balancesv1getcursor.md
   - docs/models/operations/balancesv1getresponsebody.md
   - docs/models/operations/balancesv1getresponse.md
-  - docs/models/operations/transactionsv1countrequest.md
-  - docs/models/operations/transactionsv1listrequest.md
-  - docs/models/operations/transactionsv1listcursor.md
-  - docs/models/operations/transactionsv1listresponsebody.md
-  - docs/models/operations/transactionsv1listresponse.md
-  - docs/models/operations/transactionsv1createrequestbody.md
-  - docs/models/operations/transactionsv1createrequest.md
-  - docs/models/operations/transactionsv1createresponsebody.md
-  - docs/models/operations/transactionsv1batchcreaterequestbody.md
-  - docs/models/operations/transactionsv1batchcreaterequest.md
-  - docs/models/operations/transactionsv1batchcreateresponsebody.md
-  - docs/models/operations/transactionsv1getrequest.md
-  - docs/models/operations/transactionsv1addmetadatarequestbody.md
-  - docs/models/operations/transactionsv1addmetadatarequest.md
-  - docs/models/operations/transactionsv1revertrequest.md
-  - docs/models/operations/transactionsv1revertresponsebody.md
+  - docs/models/operations/transactionscountrequest.md
+  - docs/models/operations/transactionscountresponse.md
+  - docs/models/operations/transactionslistrequest.md
+  - docs/models/operations/transactionslistcursor.md
+  - docs/models/operations/transactionslistresponsebody.md
+  - docs/models/operations/transactionslistresponse.md
+  - docs/models/operations/transactionscreaterequestbody.md
+  - docs/models/operations/transactionscreaterequest.md
+  - docs/models/operations/transactionscreateresponsebody.md
+  - docs/models/operations/transactionsgetrequest.md
+  - docs/models/operations/transactionsgetresponsebody.md
+  - docs/models/operations/transactionsaddmetadatarequestbody.md
+  - docs/models/operations/transactionsaddmetadatarequest.md
+  - docs/models/operations/transactionsdeletemetadatarequest.md
+  - docs/models/operations/transactionsrevertrequest.md
+  - docs/models/operations/transactionsrevertresponsebody.md
   - docs/models/errors/ledgererror.md
   - docs/lib/utils/retryconfig.md
   - docs/sdks/ledgerclient/README.md
+  - docs/sdks/ledgers/README.md
   - docs/sdks/accountsv1/README.md
   - docs/sdks/balancesv1/README.md
-  - docs/sdks/transactionsv1/README.md
+  - docs/sdks/transactions/README.md
   - USAGE.md
   - .gitattributes
   - src/hooks/hooks.ts

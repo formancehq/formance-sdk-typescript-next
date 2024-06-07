@@ -1,0 +1,10 @@
+# RevertTransactionAction
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `action`                                                                                             | [components.RevertTransactionActionAction](../../models/components/reverttransactionactionaction.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `ik`                                                                                                 | *string*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `data`                                                                                               | [components.RevertTransactionActionData](../../models/components/reverttransactionactiondata.md)     | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

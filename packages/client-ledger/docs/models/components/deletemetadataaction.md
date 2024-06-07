@@ -1,0 +1,10 @@
+# DeleteMetadataAction
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `action`                                                                                       | [components.DeleteMetadataActionAction](../../models/components/deletemetadataactionaction.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `ik`                                                                                           | *string*                                                                                       | :heavy_minus_sign:                                                                             | N/A                                                                                            |
+| `data`                                                                                         | *components.DeleteMetadataTarget*                                                              | :heavy_check_mark:                                                                             | N/A                                                                                            |

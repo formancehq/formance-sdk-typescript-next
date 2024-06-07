@@ -5,69 +5,14 @@
 import { Posting, Posting$ } from "./posting";
 import * as z from "zod";
 
-export type PreCommitVolumes = {
-    input: number;
-    output: number;
-    balance?: number | undefined;
-};
-
-export type PostCommitVolumes = {
-    input: number;
-    output: number;
-    balance?: number | undefined;
-};
-
 export type Transaction = {
     timestamp: Date;
     postings: Array<Posting>;
     reference?: string | undefined;
-    metadata?: { [k: string]: any } | undefined;
-    txId: string;
-    preCommitVolumes?: { [k: string]: { [k: string]: PreCommitVolumes } } | undefined;
-    postCommitVolumes?: { [k: string]: { [k: string]: PostCommitVolumes } } | undefined;
+    metadata: { [k: string]: string };
+    id: string;
+    reverted: boolean;
 };
-
-/** @internal */
-export namespace PreCommitVolumes$ {
-    export const inboundSchema: z.ZodType<PreCommitVolumes, z.ZodTypeDef, unknown> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        input: number;
-        output: number;
-        balance?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PreCommitVolumes> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-}
-
-/** @internal */
-export namespace PostCommitVolumes$ {
-    export const inboundSchema: z.ZodType<PostCommitVolumes, z.ZodTypeDef, unknown> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        input: number;
-        output: number;
-        balance?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PostCommitVolumes> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-}
 
 /** @internal */
 export namespace Transaction$ {
@@ -78,39 +23,26 @@ export namespace Transaction$ {
             .transform((v) => new Date(v)),
         postings: z.array(Posting$.inboundSchema),
         reference: z.string().optional(),
-        metadata: z.record(z.any()).optional(),
-        txId: z.string(),
-        preCommitVolumes: z
-            .record(z.record(z.lazy(() => PreCommitVolumes$.inboundSchema)))
-            .optional(),
-        postCommitVolumes: z
-            .record(z.record(z.lazy(() => PostCommitVolumes$.inboundSchema)))
-            .optional(),
+        metadata: z.record(z.string()),
+        id: z.string(),
+        reverted: z.boolean(),
     });
 
     export type Outbound = {
         timestamp: string;
         postings: Array<Posting$.Outbound>;
         reference?: string | undefined;
-        metadata?: { [k: string]: any } | undefined;
-        txId: string;
-        preCommitVolumes?: { [k: string]: { [k: string]: PreCommitVolumes$.Outbound } } | undefined;
-        postCommitVolumes?:
-            | { [k: string]: { [k: string]: PostCommitVolumes$.Outbound } }
-            | undefined;
+        metadata: { [k: string]: string };
+        id: string;
+        reverted: boolean;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Transaction> = z.object({
         timestamp: z.date().transform((v) => v.toISOString()),
         postings: z.array(Posting$.outboundSchema),
         reference: z.string().optional(),
-        metadata: z.record(z.any()).optional(),
-        txId: z.string(),
-        preCommitVolumes: z
-            .record(z.record(z.lazy(() => PreCommitVolumes$.outboundSchema)))
-            .optional(),
-        postCommitVolumes: z
-            .record(z.record(z.lazy(() => PostCommitVolumes$.outboundSchema)))
-            .optional(),
+        metadata: z.record(z.string()),
+        id: z.string(),
+        reverted: z.boolean(),
     });
 }

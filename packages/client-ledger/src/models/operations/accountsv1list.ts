@@ -11,7 +11,7 @@ export type AccountsV1ListRequest = {
     cursor?: string | undefined;
 };
 
-export type Cursor = {
+export type AccountsV1ListCursor = {
     next?: string | undefined;
     data: Array<components.Account>;
 };
@@ -20,7 +20,7 @@ export type Cursor = {
  * The request has succeeded.
  */
 export type AccountsV1ListResponseBody = {
-    cursor: Cursor;
+    cursor: AccountsV1ListCursor;
 };
 
 export type AccountsV1ListResponse = {
@@ -47,8 +47,8 @@ export namespace AccountsV1ListRequest$ {
 }
 
 /** @internal */
-export namespace Cursor$ {
-    export const inboundSchema: z.ZodType<Cursor, z.ZodTypeDef, unknown> = z.object({
+export namespace AccountsV1ListCursor$ {
+    export const inboundSchema: z.ZodType<AccountsV1ListCursor, z.ZodTypeDef, unknown> = z.object({
         next: z.string().optional(),
         data: z.array(components.Account$.inboundSchema),
     });
@@ -58,26 +58,28 @@ export namespace Cursor$ {
         data: Array<components.Account$.Outbound>;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Cursor> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.Account$.outboundSchema),
-    });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1ListCursor> = z.object(
+        {
+            next: z.string().optional(),
+            data: z.array(components.Account$.outboundSchema),
+        }
+    );
 }
 
 /** @internal */
 export namespace AccountsV1ListResponseBody$ {
     export const inboundSchema: z.ZodType<AccountsV1ListResponseBody, z.ZodTypeDef, unknown> =
         z.object({
-            cursor: z.lazy(() => Cursor$.inboundSchema),
+            cursor: z.lazy(() => AccountsV1ListCursor$.inboundSchema),
         });
 
     export type Outbound = {
-        cursor: Cursor$.Outbound;
+        cursor: AccountsV1ListCursor$.Outbound;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsV1ListResponseBody> =
         z.object({
-            cursor: z.lazy(() => Cursor$.outboundSchema),
+            cursor: z.lazy(() => AccountsV1ListCursor$.outboundSchema),
         });
 }
 
