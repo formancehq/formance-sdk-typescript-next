@@ -1,4 +1,4 @@
-# AccountsV1GetResponseBody
+# AccountsGetResponseBody
 
 The request has succeeded.
 

@@ -1,8 +1,10 @@
-# AccountsV1AddMetadataRequestBody
+# BalancesAggregateResponseBody
+
+The request has succeeded.
 
 
 ## Fields
 
 | Field                 | Type                  | Required              | Description           |
 | --------------------- | --------------------- | --------------------- | --------------------- |
-| `metadata`            | Record<string, *any*> | :heavy_check_mark:    | N/A                   |
+| `data`                | Record<string, *any*> | :heavy_check_mark:    | N/A                   |

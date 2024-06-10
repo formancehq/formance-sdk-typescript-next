@@ -8,8 +8,8 @@ import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
-import { AccountsV1 } from "./accountsv1";
-import { BalancesV1 } from "./balancesv1";
+import { Accounts } from "./accounts";
+import { Balances } from "./balances";
 import { Ledgers } from "./ledgers";
 import { Transactions } from "./transactions";
 
@@ -45,14 +45,14 @@ export class LedgerClient extends ClientSDK {
         return (this._ledgers ??= new Ledgers(this.options$));
     }
 
-    private _accountsV1?: AccountsV1;
-    get accountsV1(): AccountsV1 {
-        return (this._accountsV1 ??= new AccountsV1(this.options$));
+    private _accounts?: Accounts;
+    get accounts(): Accounts {
+        return (this._accounts ??= new Accounts(this.options$));
     }
 
-    private _balancesV1?: BalancesV1;
-    get balancesV1(): BalancesV1 {
-        return (this._balancesV1 ??= new BalancesV1(this.options$));
+    private _balances?: Balances;
+    get balances(): Balances {
+        return (this._balances ??= new Balances(this.options$));
     }
 
     private _transactions?: Transactions;

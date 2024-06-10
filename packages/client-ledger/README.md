@@ -82,17 +82,18 @@ run();
 * [removeMetadata](docs/sdks/ledgers/README.md#removemetadata)
 * [stats](docs/sdks/ledgers/README.md#stats)
 
-### [accountsV1](docs/sdks/accountsv1/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
-* [list](docs/sdks/accountsv1/README.md#list)
-* [count](docs/sdks/accountsv1/README.md#count)
-* [get](docs/sdks/accountsv1/README.md#get)
-* [addMetadata](docs/sdks/accountsv1/README.md#addmetadata)
+* [list](docs/sdks/accounts/README.md#list)
+* [count](docs/sdks/accounts/README.md#count)
+* [get](docs/sdks/accounts/README.md#get)
+* [addMetadata](docs/sdks/accounts/README.md#addmetadata)
+* [removeMetadata](docs/sdks/accounts/README.md#removemetadata)
 
-### [balancesV1](docs/sdks/balancesv1/README.md)
+### [balances](docs/sdks/balances/README.md)
 
-* [aggregate](docs/sdks/balancesv1/README.md#aggregate)
-* [get](docs/sdks/balancesv1/README.md#get)
+* [aggregate](docs/sdks/balances/README.md#aggregate)
+* [volumes](docs/sdks/balances/README.md#volumes)
 
 ### [transactions](docs/sdks/transactions/README.md)
 

@@ -3,19 +3,8 @@
  */
 
 import { Posting, Posting$ } from "./posting";
+import { Volume, Volume$ } from "./volume";
 import * as z from "zod";
-
-export type PreCommitVolumes = {
-    input: number;
-    output: number;
-    balance?: number | undefined;
-};
-
-export type PostCommitVolumes = {
-    input: number;
-    output: number;
-    balance?: number | undefined;
-};
 
 export type ExpendedTransaction = {
     timestamp: Date;
@@ -24,51 +13,9 @@ export type ExpendedTransaction = {
     metadata: { [k: string]: string };
     id: string;
     reverted: boolean;
-    preCommitVolumes?: { [k: string]: { [k: string]: PreCommitVolumes } } | undefined;
-    postCommitVolumes?: { [k: string]: { [k: string]: PostCommitVolumes } } | undefined;
+    preCommitVolumes?: { [k: string]: { [k: string]: Volume } } | undefined;
+    postCommitVolumes?: { [k: string]: { [k: string]: Volume } } | undefined;
 };
-
-/** @internal */
-export namespace PreCommitVolumes$ {
-    export const inboundSchema: z.ZodType<PreCommitVolumes, z.ZodTypeDef, unknown> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        input: number;
-        output: number;
-        balance?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PreCommitVolumes> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-}
-
-/** @internal */
-export namespace PostCommitVolumes$ {
-    export const inboundSchema: z.ZodType<PostCommitVolumes, z.ZodTypeDef, unknown> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        input: number;
-        output: number;
-        balance?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PostCommitVolumes> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-}
 
 /** @internal */
 export namespace ExpendedTransaction$ {
@@ -82,12 +29,8 @@ export namespace ExpendedTransaction$ {
         metadata: z.record(z.string()),
         id: z.string(),
         reverted: z.boolean(),
-        preCommitVolumes: z
-            .record(z.record(z.lazy(() => PreCommitVolumes$.inboundSchema)))
-            .optional(),
-        postCommitVolumes: z
-            .record(z.record(z.lazy(() => PostCommitVolumes$.inboundSchema)))
-            .optional(),
+        preCommitVolumes: z.record(z.record(Volume$.inboundSchema)).optional(),
+        postCommitVolumes: z.record(z.record(Volume$.inboundSchema)).optional(),
     });
 
     export type Outbound = {
@@ -97,10 +40,8 @@ export namespace ExpendedTransaction$ {
         metadata: { [k: string]: string };
         id: string;
         reverted: boolean;
-        preCommitVolumes?: { [k: string]: { [k: string]: PreCommitVolumes$.Outbound } } | undefined;
-        postCommitVolumes?:
-            | { [k: string]: { [k: string]: PostCommitVolumes$.Outbound } }
-            | undefined;
+        preCommitVolumes?: { [k: string]: { [k: string]: Volume$.Outbound } } | undefined;
+        postCommitVolumes?: { [k: string]: { [k: string]: Volume$.Outbound } } | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ExpendedTransaction> = z.object({
@@ -110,11 +51,7 @@ export namespace ExpendedTransaction$ {
         metadata: z.record(z.string()),
         id: z.string(),
         reverted: z.boolean(),
-        preCommitVolumes: z
-            .record(z.record(z.lazy(() => PreCommitVolumes$.outboundSchema)))
-            .optional(),
-        postCommitVolumes: z
-            .record(z.record(z.lazy(() => PostCommitVolumes$.outboundSchema)))
-            .optional(),
+        preCommitVolumes: z.record(z.record(Volume$.outboundSchema)).optional(),
+        postCommitVolumes: z.record(z.record(Volume$.outboundSchema)).optional(),
     });
 }

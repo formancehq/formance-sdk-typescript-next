@@ -1,4 +1,4 @@
-# AccountsV1ListCursor
+# AccountsListCursor
 
 
 ## Fields

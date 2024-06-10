@@ -15,7 +15,7 @@ import { createPageIterator, PageIterator, Paginator } from "../types";
 import jp from "jsonpath";
 import * as z from "zod";
 
-export class AccountsV1 extends ClientSDK {
+export class Accounts extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
 
     constructor(options: SDKOptions = {}) {
@@ -43,21 +43,17 @@ export class AccountsV1 extends ClientSDK {
     }
 
     async list(
-        ledger: string,
-        cursor?: string | undefined,
+        request: operations.AccountsListRequest,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<PageIterator<operations.AccountsV1ListResponse>> {
-        const input$: operations.AccountsV1ListRequest = {
-            ledger: ledger,
-            cursor: cursor,
-        };
+    ): Promise<PageIterator<operations.AccountsListResponse>> {
+        const input$ = request;
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsV1ListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsListRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -72,6 +68,12 @@ export class AccountsV1 extends ClientSDK {
 
         const query$ = [
             enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("expand", payload$.expand, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("pageSize", payload$.pageSize, {
+                explode: true,
+                charEncoding: "percent",
+            }),
+            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
         ]
             .filter(Boolean)
             .join("&");
@@ -82,7 +84,7 @@ export class AccountsV1 extends ClientSDK {
                 : this.options$.security;
 
         const context = {
-            operationID: "AccountsV1_list",
+            operationID: "Accounts_list",
             oAuth2Scopes: ["ledger:read", "ledger:read"],
             securitySource: this.options$.security,
         };
@@ -126,12 +128,12 @@ export class AccountsV1 extends ClientSDK {
             HttpMeta: { Response: response, Request: request$ },
         };
 
-        const [result$, raw$] = await this.matcher<operations.AccountsV1ListResponse>()
-            .json(200, operations.AccountsV1ListResponse$, { key: "Result" })
+        const [result$, raw$] = await this.matcher<operations.AccountsListResponse>()
+            .json(200, operations.AccountsListResponse$, { key: "Result" })
             .json("default", errors.LedgerError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
-        const nextFunc = (responseData: unknown): Paginator<operations.AccountsV1ListResponse> => {
+        const nextFunc = (responseData: unknown): Paginator<operations.AccountsListResponse> => {
             const nextCursor = jp.value(responseData, "$.cursor.next");
             if (nextCursor == null) {
                 return () => null;
@@ -141,7 +143,14 @@ export class AccountsV1 extends ClientSDK {
                 return () => null;
             }
 
-            return () => this.list(ledger, nextCursor, options);
+            return () =>
+                this.list(
+                    {
+                        ...input$,
+                        cursor: nextCursor,
+                    },
+                    options
+                );
         };
 
         const page$ = { ...result$, next: nextFunc(raw$) };
@@ -151,13 +160,15 @@ export class AccountsV1 extends ClientSDK {
     async count(
         ledger: string,
         address: string,
-        metadata: { [k: string]: any },
+        query: { [k: string]: any },
+        pit?: Date | undefined,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<number> {
-        const input$: operations.AccountsV1CountRequest = {
+    ): Promise<operations.AccountsCountResponse | undefined> {
+        const input$: operations.AccountsCountRequest = {
             ledger: ledger,
             address: address,
-            metadata: metadata,
+            pit: pit,
+            query: query,
         };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
@@ -165,7 +176,7 @@ export class AccountsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsV1CountRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsCountRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -183,10 +194,8 @@ export class AccountsV1 extends ClientSDK {
                 explode: true,
                 charEncoding: "percent",
             }),
-            enc$.encodeForm("metadata", payload$.metadata, {
-                explode: true,
-                charEncoding: "percent",
-            }),
+            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
         ]
             .filter(Boolean)
             .join("&");
@@ -197,7 +206,7 @@ export class AccountsV1 extends ClientSDK {
                 : this.options$.security;
 
         const context = {
-            operationID: "AccountsV1_count",
+            operationID: "Accounts_count",
             oAuth2Scopes: ["ledger:read", "ledger:read"],
             securitySource: this.options$.security,
         };
@@ -241,8 +250,8 @@ export class AccountsV1 extends ClientSDK {
             HttpMeta: { Response: response, Request: request$ },
         };
 
-        const [result$] = await this.matcher<number>()
-            .json(200, z.number().int())
+        const [result$] = await this.matcher<operations.AccountsCountResponse | undefined>()
+            .void(204, operations.AccountsCountResponse$.inboundSchema.optional(), { hdrs: true })
             .json("default", errors.LedgerError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
@@ -252,11 +261,15 @@ export class AccountsV1 extends ClientSDK {
     async get(
         ledger: string,
         address: string,
+        pit?: Date | undefined,
+        expand?: string | undefined,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<operations.AccountsV1GetResponseBody> {
-        const input$: operations.AccountsV1GetRequest = {
+    ): Promise<operations.AccountsGetResponseBody> {
+        const input$: operations.AccountsGetRequest = {
             ledger: ledger,
             address: address,
+            pit: pit,
+            expand: expand,
         };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
@@ -264,7 +277,7 @@ export class AccountsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsV1GetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsGetRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -283,7 +296,12 @@ export class AccountsV1 extends ClientSDK {
             pathParams$
         );
 
-        const query$ = "";
+        const query$ = [
+            enc$.encodeForm("expand", payload$.expand, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
+        ]
+            .filter(Boolean)
+            .join("&");
 
         const security$ =
             typeof this.options$.security === "function"
@@ -291,7 +309,7 @@ export class AccountsV1 extends ClientSDK {
                 : this.options$.security;
 
         const context = {
-            operationID: "AccountsV1_get",
+            operationID: "Accounts_get",
             oAuth2Scopes: ["ledger:read", "ledger:read"],
             securitySource: this.options$.security,
         };
@@ -335,8 +353,8 @@ export class AccountsV1 extends ClientSDK {
             HttpMeta: { Response: response, Request: request$ },
         };
 
-        const [result$] = await this.matcher<operations.AccountsV1GetResponseBody>()
-            .json(200, operations.AccountsV1GetResponseBody$)
+        const [result$] = await this.matcher<operations.AccountsGetResponseBody>()
+            .json(200, operations.AccountsGetResponseBody$)
             .json("default", errors.LedgerError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
@@ -346,10 +364,10 @@ export class AccountsV1 extends ClientSDK {
     async addMetadata(
         ledger: string,
         address: string,
-        requestBody: operations.AccountsV1AddMetadataRequestBody,
+        requestBody: operations.AccountsAddMetadataRequestBody,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<void> {
-        const input$: operations.AccountsV1AddMetadataRequest = {
+        const input$: operations.AccountsAddMetadataRequest = {
             ledger: ledger,
             address: address,
             requestBody: requestBody,
@@ -361,7 +379,7 @@ export class AccountsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsV1AddMetadataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsAddMetadataRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
@@ -388,7 +406,7 @@ export class AccountsV1 extends ClientSDK {
                 : this.options$.security;
 
         const context = {
-            operationID: "AccountsV1_addMetadata",
+            operationID: "Accounts_addMetadata",
             oAuth2Scopes: ["ledger:read", "ledger:write"],
             securitySource: this.options$.security,
         };
@@ -400,6 +418,106 @@ export class AccountsV1 extends ClientSDK {
             {
                 security: securitySettings$,
                 method: "POST",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+            },
+            options
+        );
+
+        const retryConfig = options?.retries ||
+            this.options$.retryConfig || {
+                strategy: "backoff",
+                backoff: {
+                    initialInterval: 500,
+                    maxInterval: 60000,
+                    exponent: 1.5,
+                    maxElapsedTime: 3600000,
+                },
+                retryConnectionErrors: true,
+            };
+
+        const response = await retries$.retry(
+            () => {
+                const cloned = request$.clone();
+                return this.do$(cloned, doOptions);
+            },
+            { config: retryConfig, statusCodes: ["5XX"] }
+        );
+
+        const responseFields$ = {
+            HttpMeta: { Response: response, Request: request$ },
+        };
+
+        const [result$] = await this.matcher<void>()
+            .void(204, z.void())
+            .json("default", errors.LedgerError$, { err: true })
+            .match(response, { extraFields: responseFields$ });
+
+        return result$;
+    }
+
+    async removeMetadata(
+        ledger: string,
+        address: string,
+        key: string,
+        options?: RequestOptions & { retries?: retries$.RetryConfig }
+    ): Promise<void> {
+        const input$: operations.AccountsRemoveMetadataRequest = {
+            ledger: ledger,
+            address: address,
+            key: key,
+        };
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
+
+        const payload$ = schemas$.parse(
+            input$,
+            (value$) => operations.AccountsRemoveMetadataRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
+        const body$ = null;
+
+        const pathParams$ = {
+            address: enc$.encodeSimple("address", payload$.address, {
+                explode: false,
+                charEncoding: "percent",
+            }),
+            key: enc$.encodeSimple("key", payload$.key, {
+                explode: false,
+                charEncoding: "percent",
+            }),
+            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+                explode: false,
+                charEncoding: "percent",
+            }),
+        };
+        const path$ = this.templateURLComponent(
+            "/api/ledger/v2/{ledger}/accounts/{address}/metatdata/{key}"
+        )(pathParams$);
+
+        const query$ = "";
+
+        const security$ =
+            typeof this.options$.security === "function"
+                ? await this.options$.security()
+                : this.options$.security;
+
+        const context = {
+            operationID: "Accounts_removeMetadata",
+            oAuth2Scopes: ["ledger:read", "ledger:write"],
+            securitySource: this.options$.security,
+        };
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
+
+        const doOptions = { context, errorCodes: ["default"] };
+        const request$ = this.createRequest$(
+            context,
+            {
+                security: securitySettings$,
+                method: "DELETE",
                 path: path$,
                 headers: headers$,
                 query: query$,

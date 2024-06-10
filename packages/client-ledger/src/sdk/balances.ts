@@ -14,7 +14,7 @@ import * as operations from "../models/operations";
 import { createPageIterator, PageIterator, Paginator } from "../types";
 import jp from "jsonpath";
 
-export class BalancesV1 extends ClientSDK {
+export class Balances extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
 
     constructor(options: SDKOptions = {}) {
@@ -43,14 +43,16 @@ export class BalancesV1 extends ClientSDK {
 
     async aggregate(
         ledger: string,
-        address?: string | undefined,
-        useInsertionData?: boolean | undefined,
+        query: { [k: string]: any },
+        pit?: Date | undefined,
+        useInsertionDate?: boolean | undefined,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<operations.BalancesV1AggregateResponseBody> {
-        const input$: operations.BalancesV1AggregateRequest = {
+    ): Promise<operations.BalancesAggregateResponseBody> {
+        const input$: operations.BalancesAggregateRequest = {
             ledger: ledger,
-            address: address,
-            useInsertionData: useInsertionData,
+            pit: pit,
+            useInsertionDate: useInsertionDate,
+            query: query,
         };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
@@ -58,7 +60,7 @@ export class BalancesV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BalancesV1AggregateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BalancesAggregateRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -74,11 +76,9 @@ export class BalancesV1 extends ClientSDK {
         );
 
         const query$ = [
-            enc$.encodeForm("address", payload$.address, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("useInsertionData", payload$.useInsertionData, {
+            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("useInsertionDate", payload$.useInsertionDate, {
                 explode: true,
                 charEncoding: "percent",
             }),
@@ -92,8 +92,8 @@ export class BalancesV1 extends ClientSDK {
                 : this.options$.security;
 
         const context = {
-            operationID: "BalancesV1_aggregate",
-            oAuth2Scopes: ["ledger:read"],
+            operationID: "Balances_aggregate",
+            oAuth2Scopes: ["ledger:read", "ledger:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -136,18 +136,18 @@ export class BalancesV1 extends ClientSDK {
             HttpMeta: { Response: response, Request: request$ },
         };
 
-        const [result$] = await this.matcher<operations.BalancesV1AggregateResponseBody>()
-            .json(200, operations.BalancesV1AggregateResponseBody$)
+        const [result$] = await this.matcher<operations.BalancesAggregateResponseBody>()
+            .json(200, operations.BalancesAggregateResponseBody$)
             .json("default", errors.LedgerError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
     }
 
-    async get(
-        request: operations.BalancesV1GetRequest,
+    async volumes(
+        request: operations.BalancesVolumesRequest,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<PageIterator<operations.BalancesV1GetResponse>> {
+    ): Promise<PageIterator<operations.BalancesVolumesResponse>> {
         const input$ = request;
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
@@ -155,7 +155,7 @@ export class BalancesV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BalancesV1GetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BalancesVolumesRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -166,16 +166,28 @@ export class BalancesV1 extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/balances")(pathParams$);
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/volumes")(pathParams$);
 
         const query$ = [
-            enc$.encodeForm("address", payload$.address, {
+            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("endTime", payload$.endTime, {
                 explode: true,
                 charEncoding: "percent",
             }),
-            enc$.encodeForm("after", payload$.after, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("groupBy", payload$.groupBy, {
+                explode: true,
+                charEncoding: "percent",
+            }),
+            enc$.encodeForm("inseritionDate", payload$.inseritionDate, {
+                explode: true,
+                charEncoding: "percent",
+            }),
             enc$.encodeForm("pageSize", payload$.pageSize, {
+                explode: true,
+                charEncoding: "percent",
+            }),
+            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("startTime", payload$.startTime, {
                 explode: true,
                 charEncoding: "percent",
             }),
@@ -189,8 +201,8 @@ export class BalancesV1 extends ClientSDK {
                 : this.options$.security;
 
         const context = {
-            operationID: "BalancesV1_get",
-            oAuth2Scopes: ["ledger:read"],
+            operationID: "Balances_volumes",
+            oAuth2Scopes: ["ledger:read", "ledger:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -233,12 +245,12 @@ export class BalancesV1 extends ClientSDK {
             HttpMeta: { Response: response, Request: request$ },
         };
 
-        const [result$, raw$] = await this.matcher<operations.BalancesV1GetResponse>()
-            .json(200, operations.BalancesV1GetResponse$, { key: "Result" })
+        const [result$, raw$] = await this.matcher<operations.BalancesVolumesResponse>()
+            .json(200, operations.BalancesVolumesResponse$, { key: "Result" })
             .json("default", errors.LedgerError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
-        const nextFunc = (responseData: unknown): Paginator<operations.BalancesV1GetResponse> => {
+        const nextFunc = (responseData: unknown): Paginator<operations.BalancesVolumesResponse> => {
             const nextCursor = jp.value(responseData, "$.cursor.next");
             if (nextCursor == null) {
                 return () => null;
@@ -249,7 +261,7 @@ export class BalancesV1 extends ClientSDK {
             }
 
             return () =>
-                this.get(
+                this.volumes(
                     {
                         ...input$,
                         cursor: nextCursor,

@@ -31,3 +31,5 @@ export * from "./reverttransactionactionresponse";
 export * from "./security";
 export * from "./serverinfo";
 export * from "./transaction";
+export * from "./volume";
+export * from "./volumeitem";

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
-  docChecksum: 0e8cfd45b578929d77808cc23050c197
+  docChecksum: a4a50db2635fd34fb6b64f2539c195c1
   docVersion: 0.0.0
   speakeasyVersion: 1.300.1
   generationVersion: 2.339.1
-  releaseVersion: 0.0.6
-  configChecksum: f11773ad786c4ad4cecc3873e506557a
+  releaseVersion: 0.0.7
+  configChecksum: 5959afffd3388da601e5b6d948e4f862
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
@@ -29,8 +29,8 @@ features:
     unions: 2.85.5
 generatedFiles:
   - src/sdk/ledgers.ts
-  - src/sdk/accountsv1.ts
-  - src/sdk/balancesv1.ts
+  - src/sdk/accounts.ts
+  - src/sdk/balances.ts
   - src/sdk/transactions.ts
   - src/sdk/sdk.ts
   - .eslintrc.js
@@ -86,6 +86,8 @@ generatedFiles:
   - src/models/components/migration.ts
   - src/models/components/migrationstate.ts
   - src/models/components/account.ts
+  - src/models/components/volume.ts
+  - src/models/components/volumeitem.ts
   - src/models/components/expendedtransaction.ts
   - src/models/components/security.ts
   - src/models/operations/ledgerslist.ts
@@ -96,12 +98,13 @@ generatedFiles:
   - src/models/operations/ledgersaddmetadata.ts
   - src/models/operations/ledgersremovemetadata.ts
   - src/models/operations/ledgersstats.ts
-  - src/models/operations/accountsv1list.ts
-  - src/models/operations/accountsv1count.ts
-  - src/models/operations/accountsv1get.ts
-  - src/models/operations/accountsv1addmetadata.ts
-  - src/models/operations/balancesv1aggregate.ts
-  - src/models/operations/balancesv1get.ts
+  - src/models/operations/accountslist.ts
+  - src/models/operations/accountscount.ts
+  - src/models/operations/accountsget.ts
+  - src/models/operations/accountsaddmetadata.ts
+  - src/models/operations/accountsremovemetadata.ts
+  - src/models/operations/balancesaggregate.ts
+  - src/models/operations/balancesvolumes.ts
   - src/models/operations/transactionscount.ts
   - src/models/operations/transactionslist.ts
   - src/models/operations/transactionscreate.ts
@@ -156,8 +159,8 @@ generatedFiles:
   - docs/models/components/migration.md
   - docs/models/components/migrationstate.md
   - docs/models/components/account.md
-  - docs/models/components/precommitvolumes.md
-  - docs/models/components/postcommitvolumes.md
+  - docs/models/components/volume.md
+  - docs/models/components/volumeitem.md
   - docs/models/components/expendedtransaction.md
   - docs/models/components/security.md
   - docs/models/operations/ledgerslistrequest.md
@@ -177,21 +180,23 @@ generatedFiles:
   - docs/models/operations/ledgersstatsrequest.md
   - docs/models/operations/data.md
   - docs/models/operations/ledgersstatsresponsebody.md
-  - docs/models/operations/accountsv1listrequest.md
-  - docs/models/operations/accountsv1listcursor.md
-  - docs/models/operations/accountsv1listresponsebody.md
-  - docs/models/operations/accountsv1listresponse.md
-  - docs/models/operations/accountsv1countrequest.md
-  - docs/models/operations/accountsv1getrequest.md
-  - docs/models/operations/accountsv1getresponsebody.md
-  - docs/models/operations/accountsv1addmetadatarequestbody.md
-  - docs/models/operations/accountsv1addmetadatarequest.md
-  - docs/models/operations/balancesv1aggregaterequest.md
-  - docs/models/operations/balancesv1aggregateresponsebody.md
-  - docs/models/operations/balancesv1getrequest.md
-  - docs/models/operations/balancesv1getcursor.md
-  - docs/models/operations/balancesv1getresponsebody.md
-  - docs/models/operations/balancesv1getresponse.md
+  - docs/models/operations/accountslistrequest.md
+  - docs/models/operations/accountslistcursor.md
+  - docs/models/operations/accountslistresponsebody.md
+  - docs/models/operations/accountslistresponse.md
+  - docs/models/operations/accountscountrequest.md
+  - docs/models/operations/accountscountresponse.md
+  - docs/models/operations/accountsgetrequest.md
+  - docs/models/operations/accountsgetresponsebody.md
+  - docs/models/operations/accountsaddmetadatarequestbody.md
+  - docs/models/operations/accountsaddmetadatarequest.md
+  - docs/models/operations/accountsremovemetadatarequest.md
+  - docs/models/operations/balancesaggregaterequest.md
+  - docs/models/operations/balancesaggregateresponsebody.md
+  - docs/models/operations/balancesvolumesrequest.md
+  - docs/models/operations/balancesvolumescursor.md
+  - docs/models/operations/balancesvolumesresponsebody.md
+  - docs/models/operations/balancesvolumesresponse.md
   - docs/models/operations/transactionscountrequest.md
   - docs/models/operations/transactionscountresponse.md
   - docs/models/operations/transactionslistrequest.md
@@ -212,8 +217,8 @@ generatedFiles:
   - docs/lib/utils/retryconfig.md
   - docs/sdks/ledgerclient/README.md
   - docs/sdks/ledgers/README.md
-  - docs/sdks/accountsv1/README.md
-  - docs/sdks/balancesv1/README.md
+  - docs/sdks/accounts/README.md
+  - docs/sdks/balances/README.md
   - docs/sdks/transactions/README.md
   - USAGE.md
   - .gitattributes

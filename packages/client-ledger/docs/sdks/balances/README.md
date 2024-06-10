@@ -1,10 +1,10 @@
-# BalancesV1
-(*balancesV1*)
+# Balances
+(*balances*)
 
 ### Available Operations
 
 * [aggregate](#aggregate)
-* [get](#get)
+* [volumes](#volumes)
 
 ## aggregate
 
@@ -20,7 +20,9 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-  const result = await ledgerClient.balancesV1.aggregate("<value>", "<value>", false);
+  const result = await ledgerClient.balances.aggregate("<value>", {
+    "key": "<value>",
+  }, new Date("2024-04-27T06:41:03.617Z"), false);
 
   // Handle the result
   console.log(result)
@@ -34,8 +36,9 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `ledger`                                                                                                                                                                       | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
-| `address`                                                                                                                                                                      | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
-| `useInsertionData`                                                                                                                                                             | *boolean*                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `query`                                                                                                                                                                        | Record<string, *any*>                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `pit`                                                                                                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                  | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `useInsertionDate`                                                                                                                                                             | *boolean*                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -43,7 +46,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.BalancesV1AggregateResponseBody](../../models/operations/balancesv1aggregateresponsebody.md)\>**
+**Promise\<[operations.BalancesAggregateResponseBody](../../models/operations/balancesaggregateresponsebody.md)\>**
 ### Errors
 
 | Error Object       | Status Code        | Content Type       |
@@ -51,7 +54,7 @@ run();
 | errors.LedgerError | default            | application/json   |
 | errors.SDKError    | 4xx-5xx            | */*                |
 
-## get
+## volumes
 
 ### Example Usage
 
@@ -65,8 +68,11 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-  const result = await ledgerClient.balancesV1.get({
+  const result = await ledgerClient.balances.volumes({
     ledger: "<value>",
+    query: {
+      "key": "<value>",
+    },
   });
 
   for await (const page of result) {
@@ -81,7 +87,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.BalancesV1GetRequest](../../models/operations/balancesv1getrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.BalancesVolumesRequest](../../models/operations/balancesvolumesrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -89,7 +95,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.BalancesV1GetResponse](../../models/operations/balancesv1getresponse.md)\>**
+**Promise\<[operations.BalancesVolumesResponse](../../models/operations/balancesvolumesresponse.md)\>**
 ### Errors
 
 | Error Object       | Status Code        | Content Type       |

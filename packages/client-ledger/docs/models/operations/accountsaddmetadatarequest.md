@@ -1,0 +1,10 @@
+# AccountsAddMetadataRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `ledger`                                                                                               | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `address`                                                                                              | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `requestBody`                                                                                          | [operations.AccountsAddMetadataRequestBody](../../models/operations/accountsaddmetadatarequestbody.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
