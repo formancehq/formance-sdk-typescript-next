@@ -78,6 +78,7 @@ run();
 * [create](docs/sdks/ledgers/README.md#create)
 * [bulk](docs/sdks/ledgers/README.md#bulk)
 * [info](docs/sdks/ledgers/README.md#info)
+* [listLogs](docs/sdks/ledgers/README.md#listlogs)
 * [addMetadata](docs/sdks/ledgers/README.md#addmetadata)
 * [removeMetadata](docs/sdks/ledgers/README.md#removemetadata)
 * [stats](docs/sdks/ledgers/README.md#stats)

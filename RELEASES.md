@@ -39,3 +39,11 @@ Based on:
 - Speakeasy CLI 1.300.1 (2.339.1) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.0.5] ./packages/client-reconciliation
+
+## 2024-06-10 15:07:24
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.300.1 (2.339.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.0.5] ./packages/client-reconciliation

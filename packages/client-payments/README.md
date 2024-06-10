@@ -71,15 +71,30 @@ run();
 
 * [info](docs/sdks/paymentsclient/README.md#info)
 
-### [connectorsV1](docs/sdks/connectorsv1/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
-* [install](docs/sdks/connectorsv1/README.md#install)
-* [uninstall](docs/sdks/connectorsv1/README.md#uninstall)
-* [update](docs/sdks/connectorsv1/README.md#update)
-* [get](docs/sdks/connectorsv1/README.md#get)
-* [reset](docs/sdks/connectorsv1/README.md#reset)
-* [listTask](docs/sdks/connectorsv1/README.md#listtask)
-* [getTask](docs/sdks/connectorsv1/README.md#gettask)
+* [list](docs/sdks/accounts/README.md#list)
+* [create](docs/sdks/accounts/README.md#create)
+* [get](docs/sdks/accounts/README.md#get)
+* [balances](docs/sdks/accounts/README.md#balances)
+
+### [bankAccounts](docs/sdks/bankaccounts/README.md)
+
+* [create](docs/sdks/bankaccounts/README.md#create)
+* [list](docs/sdks/bankaccounts/README.md#list)
+* [get](docs/sdks/bankaccounts/README.md#get)
+* [forward](docs/sdks/bankaccounts/README.md#forward)
+* [updateMetatdata](docs/sdks/bankaccounts/README.md#updatemetatdata)
+
+### [connectors](docs/sdks/connectors/README.md)
+
+* [install](docs/sdks/connectors/README.md#install)
+* [uninstall](docs/sdks/connectors/README.md#uninstall)
+* [update](docs/sdks/connectors/README.md#update)
+* [get](docs/sdks/connectors/README.md#get)
+* [reset](docs/sdks/connectors/README.md#reset)
+* [listTask](docs/sdks/connectors/README.md#listtask)
+* [getTask](docs/sdks/connectors/README.md#gettask)
 
 ### [paymentsV1](docs/sdks/paymentsv1/README.md)
 
@@ -87,6 +102,26 @@ run();
 * [list](docs/sdks/paymentsv1/README.md#list)
 * [get](docs/sdks/paymentsv1/README.md#get)
 * [updateMetatdata](docs/sdks/paymentsv1/README.md#updatemetatdata)
+
+### [cashPools](docs/sdks/cashpools/README.md)
+
+* [list](docs/sdks/cashpools/README.md#list)
+* [create](docs/sdks/cashpools/README.md#create)
+* [get](docs/sdks/cashpools/README.md#get)
+* [delete](docs/sdks/cashpools/README.md#delete)
+* [addAccount](docs/sdks/cashpools/README.md#addaccount)
+* [removeAccount](docs/sdks/cashpools/README.md#removeaccount)
+* [balances](docs/sdks/cashpools/README.md#balances)
+
+### [transferInitiations](docs/sdks/transferinitiations/README.md)
+
+* [list](docs/sdks/transferinitiations/README.md#list)
+* [create](docs/sdks/transferinitiations/README.md#create)
+* [get](docs/sdks/transferinitiations/README.md#get)
+* [delete](docs/sdks/transferinitiations/README.md#delete)
+* [retry](docs/sdks/transferinitiations/README.md#retry)
+* [reverse](docs/sdks/transferinitiations/README.md#reverse)
+* [updateStatus](docs/sdks/transferinitiations/README.md#updatestatus)
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Pagination [pagination] -->
@@ -103,7 +138,6 @@ Here's an example of one such pagination call:
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
     security: {
@@ -112,12 +146,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.connectorsV1.listTask(
-        Connector.Wise,
-        "<value>",
-        15,
-        "<value>"
-    );
+    const result = await paymentsClient.accounts.list("<value>", 768578, ["<value>"], "<value>");
 
     for await (const page of result) {
         // handle page
@@ -203,10 +232,10 @@ run();
 
 All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
-| Error Object        | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| errors.PaymentError | default             | application/json    |
-| errors.SDKError     | 4xx-5xx             | */*                 |
+| Error Object         | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| errors.PaymentsError | default              | application/json     |
+| errors.SDKError      | 4xx-5xx              | */*                  |
 
 Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
 
@@ -234,7 +263,7 @@ async function run() {
                 console.error(err.rawValue);
                 return;
             }
-            case err instanceof errors.PaymentError: {
+            case err instanceof errors.PaymentsError: {
                 console.error(err); // handle exception
                 return;
             }

@@ -9,8 +9,12 @@ import * as retries$ from "../lib/retries";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as components from "../models/components";
 import * as errors from "../models/errors";
-import { ConnectorsV1 } from "./connectorsv1";
+import { Accounts } from "./accounts";
+import { BankAccounts } from "./bankaccounts";
+import { CashPools } from "./cashpools";
+import { Connectors } from "./connectors";
 import { PaymentsV1 } from "./paymentsv1";
+import { TransferInitiations } from "./transferinitiations";
 
 export class PaymentsClient extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
@@ -39,14 +43,34 @@ export class PaymentsClient extends ClientSDK {
         void this.options$;
     }
 
-    private _connectorsV1?: ConnectorsV1;
-    get connectorsV1(): ConnectorsV1 {
-        return (this._connectorsV1 ??= new ConnectorsV1(this.options$));
+    private _accounts?: Accounts;
+    get accounts(): Accounts {
+        return (this._accounts ??= new Accounts(this.options$));
+    }
+
+    private _bankAccounts?: BankAccounts;
+    get bankAccounts(): BankAccounts {
+        return (this._bankAccounts ??= new BankAccounts(this.options$));
+    }
+
+    private _connectors?: Connectors;
+    get connectors(): Connectors {
+        return (this._connectors ??= new Connectors(this.options$));
     }
 
     private _paymentsV1?: PaymentsV1;
     get paymentsV1(): PaymentsV1 {
         return (this._paymentsV1 ??= new PaymentsV1(this.options$));
+    }
+
+    private _cashPools?: CashPools;
+    get cashPools(): CashPools {
+        return (this._cashPools ??= new CashPools(this.options$));
+    }
+
+    private _transferInitiations?: TransferInitiations;
+    get transferInitiations(): TransferInitiations {
+        return (this._transferInitiations ??= new TransferInitiations(this.options$));
     }
 
     async info(
@@ -111,7 +135,7 @@ export class PaymentsClient extends ClientSDK {
 
         const [result$] = await this.matcher<components.ServerInfo>()
             .json(200, components.ServerInfo$)
-            .json("default", errors.PaymentError$, { err: true })
+            .json("default", errors.PaymentsError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

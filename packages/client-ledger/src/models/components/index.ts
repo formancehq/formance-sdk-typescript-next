@@ -23,6 +23,8 @@ export * from "./expendedtransaction";
 export * from "./ledger";
 export * from "./ledgererrors";
 export * from "./ledgerinfo";
+export * from "./logentry";
+export * from "./logentrytype";
 export * from "./migration";
 export * from "./migrationstate";
 export * from "./posting";

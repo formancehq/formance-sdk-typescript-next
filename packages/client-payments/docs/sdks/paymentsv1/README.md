@@ -55,10 +55,10 @@ run();
 **Promise\<[operations.PaymentsV1CreateResponseBody](../../models/operations/paymentsv1createresponsebody.md)\>**
 ### Errors
 
-| Error Object        | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| errors.PaymentError | default             | application/json    |
-| errors.SDKError     | 4xx-5xx             | */*                 |
+| Error Object         | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| errors.PaymentsError | default              | application/json     |
+| errors.SDKError      | 4xx-5xx              | */*                  |
 
 ## list
 
@@ -104,10 +104,10 @@ run();
 **Promise\<[operations.PaymentsV1ListResponse](../../models/operations/paymentsv1listresponse.md)\>**
 ### Errors
 
-| Error Object        | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| errors.PaymentError | default             | application/json    |
-| errors.SDKError     | 4xx-5xx             | */*                 |
+| Error Object         | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| errors.PaymentsError | default              | application/json     |
+| errors.SDKError      | 4xx-5xx              | */*                  |
 
 ## get
 
@@ -191,7 +191,7 @@ run();
 **Promise\<void\>**
 ### Errors
 
-| Error Object        | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| errors.PaymentError | default             | application/json    |
-| errors.SDKError     | 4xx-5xx             | */*                 |
+| Error Object         | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| errors.PaymentsError | default              | application/json     |
+| errors.SDKError      | 4xx-5xx              | */*                  |

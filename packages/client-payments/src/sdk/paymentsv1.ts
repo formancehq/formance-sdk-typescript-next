@@ -116,7 +116,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const [result$] = await this.matcher<operations.PaymentsV1CreateResponseBody>()
             .json(200, operations.PaymentsV1CreateResponseBody$)
-            .json("default", errors.PaymentError$, { err: true })
+            .json("default", errors.PaymentsError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -212,7 +212,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const [result$, raw$] = await this.matcher<operations.PaymentsV1ListResponse>()
             .json(200, operations.PaymentsV1ListResponse$, { key: "Result" })
-            .json("default", errors.PaymentError$, { err: true })
+            .json("default", errors.PaymentsError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.PaymentsV1ListResponse> => {
@@ -399,7 +399,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentError$, { err: true })
+            .json("default", errors.PaymentsError$, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

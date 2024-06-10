@@ -44,7 +44,7 @@ run();
 **Promise\<[components.ServerInfo](../../models/components/serverinfo.md)\>**
 ### Errors
 
-| Error Object        | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| errors.PaymentError | default             | application/json    |
-| errors.SDKError     | 4xx-5xx             | */*                 |
+| Error Object         | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| errors.PaymentsError | default              | application/json     |
+| errors.SDKError      | 4xx-5xx              | */*                  |

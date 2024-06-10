@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
-  docChecksum: a4a50db2635fd34fb6b64f2539c195c1
+  docChecksum: ad6c0921832d37a12a25013040fc4d86
   docVersion: 0.0.0
   speakeasyVersion: 1.300.1
   generationVersion: 2.339.1
-  releaseVersion: 0.0.7
-  configChecksum: 5959afffd3388da601e5b6d948e4f862
+  releaseVersion: 0.0.8
+  configChecksum: 2961f7ead6dde83c66fea8a821fd1d2d
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
@@ -85,6 +85,8 @@ generatedFiles:
   - src/models/components/ledgerinfo.ts
   - src/models/components/migration.ts
   - src/models/components/migrationstate.ts
+  - src/models/components/logentry.ts
+  - src/models/components/logentrytype.ts
   - src/models/components/account.ts
   - src/models/components/volume.ts
   - src/models/components/volumeitem.ts
@@ -95,6 +97,7 @@ generatedFiles:
   - src/models/operations/ledgerscreate.ts
   - src/models/operations/ledgersbulk.ts
   - src/models/operations/ledgersinfo.ts
+  - src/models/operations/ledgerslistlogs.ts
   - src/models/operations/ledgersaddmetadata.ts
   - src/models/operations/ledgersremovemetadata.ts
   - src/models/operations/ledgersstats.ts
@@ -158,6 +161,8 @@ generatedFiles:
   - docs/models/components/ledgerinfo.md
   - docs/models/components/migration.md
   - docs/models/components/migrationstate.md
+  - docs/models/components/logentry.md
+  - docs/models/components/logentrytype.md
   - docs/models/components/account.md
   - docs/models/components/volume.md
   - docs/models/components/volumeitem.md
@@ -175,6 +180,10 @@ generatedFiles:
   - docs/models/operations/ledgersbulkresponsebody.md
   - docs/models/operations/ledgersinforequest.md
   - docs/models/operations/ledgersinforesponsebody.md
+  - docs/models/operations/ledgerslistlogsrequest.md
+  - docs/models/operations/ledgerslistlogscursor.md
+  - docs/models/operations/ledgerslistlogsresponsebody.md
+  - docs/models/operations/ledgerslistlogsresponse.md
   - docs/models/operations/ledgersaddmetadatarequest.md
   - docs/models/operations/ledgersremovemetadatarequest.md
   - docs/models/operations/ledgersstatsrequest.md

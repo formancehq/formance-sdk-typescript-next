@@ -15,6 +15,7 @@ export * from "./ledgerscreate";
 export * from "./ledgersget";
 export * from "./ledgersinfo";
 export * from "./ledgerslist";
+export * from "./ledgerslistlogs";
 export * from "./ledgersremovemetadata";
 export * from "./ledgersstats";
 export * from "./transactionsaddmetadata";

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
-  docChecksum: 4fab63c899ad9f7b03fb20285b52c089
+  docChecksum: 8a32d8c232fa74f77a0e3276045bd246
   docVersion: 0.0.0
-  speakeasyVersion: 1.300.0
-  generationVersion: 2.338.14
-  releaseVersion: 0.0.5
-  configChecksum: 6afdf51a012b791a6f636f4e5399d04e
+  speakeasyVersion: 1.300.1
+  generationVersion: 2.339.1
+  releaseVersion: 0.1.0
+  configChecksum: 2fe4abea251d1958467276fb7dde4bdd
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-payments
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
@@ -15,6 +15,7 @@ features:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
     core: 3.9.12
+    deprecations: 2.81.1
     errors: 2.81.10
     flattening: 2.81.1
     globalSecurity: 2.82.9
@@ -29,8 +30,12 @@ features:
     sdkHooks: 0.1.0
     unions: 2.85.5
 generatedFiles:
-  - src/sdk/connectorsv1.ts
+  - src/sdk/accounts.ts
+  - src/sdk/bankaccounts.ts
+  - src/sdk/connectors.ts
   - src/sdk/paymentsv1.ts
+  - src/sdk/cashpools.ts
+  - src/sdk/transferinitiations.ts
   - src/sdk/sdk.ts
   - .eslintrc.js
   - .npmignore
@@ -60,6 +65,12 @@ generatedFiles:
   - tsconfig.json
   - src/models/components/serverinfo.ts
   - src/models/components/paymenterrorcodes.ts
+  - src/models/components/account.ts
+  - src/models/components/accounttype.ts
+  - src/models/components/connector.ts
+  - src/models/components/accountbalance.ts
+  - src/models/components/bankaccount.ts
+  - src/models/components/bankaccountrelatedaccount.ts
   - src/models/components/stripeconfig.ts
   - src/models/components/dumypayconfig.ts
   - src/models/components/wiseconfig.ts
@@ -71,7 +82,6 @@ generatedFiles:
   - src/models/components/atlarconfig.ts
   - src/models/components/adyenconfig.ts
   - src/models/components/genericconfig.ts
-  - src/models/components/connector.ts
   - src/models/components/taskstripe.ts
   - src/models/components/paymentstatus.ts
   - src/models/components/taskwise.ts
@@ -86,24 +96,60 @@ generatedFiles:
   - src/models/components/paymentscheme.ts
   - src/models/components/paymenttype.ts
   - src/models/components/createpaymentrequest.ts
+  - src/models/components/cashpool.ts
+  - src/models/components/poolbalance.ts
+  - src/models/components/transferinitiation.ts
+  - src/models/components/transferinitiationpayment.ts
+  - src/models/components/transferinitiationstatus.ts
+  - src/models/components/transferinitiationtype.ts
+  - src/models/components/transferinitiationwritablestatus.ts
   - src/models/components/security.ts
-  - src/models/errors/paymenterror.ts
-  - src/models/operations/connectorsv1install.ts
-  - src/models/operations/connectorsv1uninstall.ts
-  - src/models/operations/connectorsv1update.ts
-  - src/models/operations/connectorsv1get.ts
-  - src/models/operations/connectorsv1reset.ts
-  - src/models/operations/connectorsv1listtask.ts
-  - src/models/operations/connectorsv1gettask.ts
+  - src/models/errors/paymentserror.ts
+  - src/models/operations/accountslist.ts
+  - src/models/operations/accountscreate.ts
+  - src/models/operations/accountsget.ts
+  - src/models/operations/accountsbalances.ts
+  - src/models/operations/bankaccountscreate.ts
+  - src/models/operations/bankaccountslist.ts
+  - src/models/operations/bankaccountsget.ts
+  - src/models/operations/bankaccountsforward.ts
+  - src/models/operations/bankaccountsupdatemetatdata.ts
+  - src/models/operations/connectorsinstall.ts
+  - src/models/operations/connectorsuninstall.ts
+  - src/models/operations/connectorsupdate.ts
+  - src/models/operations/connectorsget.ts
+  - src/models/operations/connectorsreset.ts
+  - src/models/operations/connectorslisttask.ts
+  - src/models/operations/connectorsgettask.ts
   - src/models/operations/paymentsv1create.ts
   - src/models/operations/paymentsv1list.ts
   - src/models/operations/paymentsv1get.ts
   - src/models/operations/paymentsv1updatemetatdata.ts
+  - src/models/operations/cashpoolslist.ts
+  - src/models/operations/cashpoolscreate.ts
+  - src/models/operations/cashpoolsget.ts
+  - src/models/operations/cashpoolsdelete.ts
+  - src/models/operations/cashpoolsaddaccount.ts
+  - src/models/operations/cashpoolsremoveaccount.ts
+  - src/models/operations/cashpoolsbalances.ts
+  - src/models/operations/transferinitiationslist.ts
+  - src/models/operations/transferinitiationscreate.ts
+  - src/models/operations/transferinitiationsget.ts
+  - src/models/operations/transferinitiationsdelete.ts
+  - src/models/operations/transferinitiationsretry.ts
+  - src/models/operations/transferinitiationsreverse.ts
+  - src/models/operations/transferinitiationsupdatestatus.ts
   - src/models/errors/index.ts
   - src/models/components/index.ts
   - src/models/operations/index.ts
   - docs/models/components/serverinfo.md
   - docs/models/components/paymenterrorcodes.md
+  - docs/models/components/account.md
+  - docs/models/components/accounttype.md
+  - docs/models/components/connector.md
+  - docs/models/components/accountbalance.md
+  - docs/models/components/bankaccount.md
+  - docs/models/components/bankaccountrelatedaccount.md
   - docs/models/components/stripeconfig.md
   - docs/models/components/dumypayconfig.md
   - docs/models/components/wiseconfig.md
@@ -115,7 +161,6 @@ generatedFiles:
   - docs/models/components/atlarconfig.md
   - docs/models/components/adyenconfig.md
   - docs/models/components/genericconfig.md
-  - docs/models/components/connector.md
   - docs/models/components/taskstripe.md
   - docs/models/components/paymentstatus.md
   - docs/models/components/taskwise.md
@@ -130,27 +175,59 @@ generatedFiles:
   - docs/models/components/paymentscheme.md
   - docs/models/components/paymenttype.md
   - docs/models/components/createpaymentrequest.md
+  - docs/models/components/cashpool.md
+  - docs/models/components/poolbalance.md
+  - docs/models/components/transferinitiation.md
+  - docs/models/components/transferinitiationpayment.md
+  - docs/models/components/transferinitiationstatus.md
+  - docs/models/components/transferinitiationtype.md
+  - docs/models/components/transferinitiationwritablestatus.md
   - docs/models/components/security.md
-  - docs/models/errors/paymenterror.md
-  - docs/models/operations/connectorsv1installrequestbody.md
-  - docs/models/operations/connectorsv1installrequest.md
-  - docs/models/operations/data.md
-  - docs/models/operations/connectorsv1installresponsebody.md
-  - docs/models/operations/connectorsv1uninstallrequest.md
-  - docs/models/operations/connectorsv1updaterequestbody.md
-  - docs/models/operations/connectorsv1updaterequest.md
-  - docs/models/operations/connectorsv1getrequest.md
-  - docs/models/operations/connectorsv1getdata.md
-  - docs/models/operations/connectorsv1getresponsebody.md
-  - docs/models/operations/connectorsv1resetrequest.md
-  - docs/models/operations/connectorsv1listtaskrequest.md
-  - docs/models/operations/connectorsv1listtaskdata.md
+  - docs/models/errors/paymentserror.md
+  - docs/models/operations/accountslistrequest.md
   - docs/models/operations/cursor.md
-  - docs/models/operations/connectorsv1listtaskresponsebody.md
-  - docs/models/operations/connectorsv1listtaskresponse.md
-  - docs/models/operations/connectorsv1gettaskrequest.md
-  - docs/models/operations/connectorsv1gettaskdata.md
-  - docs/models/operations/connectorsv1gettaskresponsebody.md
+  - docs/models/operations/accountslistresponsebody.md
+  - docs/models/operations/accountslistresponse.md
+  - docs/models/operations/accountscreaterequestbody.md
+  - docs/models/operations/accountscreateresponsebody.md
+  - docs/models/operations/accountsgetrequest.md
+  - docs/models/operations/accountsgetresponsebody.md
+  - docs/models/operations/accountsbalancesrequest.md
+  - docs/models/operations/accountsbalancescursor.md
+  - docs/models/operations/accountsbalancesresponsebody.md
+  - docs/models/operations/accountsbalancesresponse.md
+  - docs/models/operations/bankaccountscreaterequestbody.md
+  - docs/models/operations/bankaccountscreateresponsebody.md
+  - docs/models/operations/bankaccountslistrequest.md
+  - docs/models/operations/bankaccountslistcursor.md
+  - docs/models/operations/bankaccountslistresponsebody.md
+  - docs/models/operations/bankaccountslistresponse.md
+  - docs/models/operations/bankaccountsgetrequest.md
+  - docs/models/operations/bankaccountsgetresponsebody.md
+  - docs/models/operations/bankaccountsforwardrequestbody.md
+  - docs/models/operations/bankaccountsforwardrequest.md
+  - docs/models/operations/bankaccountsforwardresponsebody.md
+  - docs/models/operations/bankaccountsupdatemetatdatarequestbody.md
+  - docs/models/operations/bankaccountsupdatemetatdatarequest.md
+  - docs/models/operations/connectorsinstallrequestbody.md
+  - docs/models/operations/connectorsinstallrequest.md
+  - docs/models/operations/data.md
+  - docs/models/operations/connectorsinstallresponsebody.md
+  - docs/models/operations/connectorsuninstallrequest.md
+  - docs/models/operations/connectorsupdaterequestbody.md
+  - docs/models/operations/connectorsupdaterequest.md
+  - docs/models/operations/connectorsgetrequest.md
+  - docs/models/operations/connectorsgetdata.md
+  - docs/models/operations/connectorsgetresponsebody.md
+  - docs/models/operations/connectorsresetrequest.md
+  - docs/models/operations/connectorslisttaskrequest.md
+  - docs/models/operations/connectorslisttaskdata.md
+  - docs/models/operations/connectorslisttaskcursor.md
+  - docs/models/operations/connectorslisttaskresponsebody.md
+  - docs/models/operations/connectorslisttaskresponse.md
+  - docs/models/operations/connectorsgettaskrequest.md
+  - docs/models/operations/connectorsgettaskdata.md
+  - docs/models/operations/connectorsgettaskresponsebody.md
   - docs/models/operations/paymentsv1createresponsebody.md
   - docs/models/operations/paymentsv1listrequest.md
   - docs/models/operations/paymentsv1listcursor.md
@@ -159,10 +236,43 @@ generatedFiles:
   - docs/models/operations/paymentsv1getrequest.md
   - docs/models/operations/paymentsv1getresponsebody.md
   - docs/models/operations/paymentsv1updatemetatdatarequest.md
+  - docs/models/operations/cashpoolslistrequest.md
+  - docs/models/operations/cashpoolslistcursor.md
+  - docs/models/operations/cashpoolslistresponsebody.md
+  - docs/models/operations/cashpoolslistresponse.md
+  - docs/models/operations/cashpoolscreaterequestbody.md
+  - docs/models/operations/cashpoolscreateresponsebody.md
+  - docs/models/operations/cashpoolsgetrequest.md
+  - docs/models/operations/cashpoolsgetresponsebody.md
+  - docs/models/operations/cashpoolsdeleterequest.md
+  - docs/models/operations/cashpoolsaddaccountrequestbody.md
+  - docs/models/operations/cashpoolsaddaccountrequest.md
+  - docs/models/operations/cashpoolsremoveaccountrequest.md
+  - docs/models/operations/cashpoolsbalancesrequest.md
+  - docs/models/operations/cashpoolsbalancesdata.md
+  - docs/models/operations/cashpoolsbalancesresponsebody.md
+  - docs/models/operations/transferinitiationslistrequest.md
+  - docs/models/operations/transferinitiationslistcursor.md
+  - docs/models/operations/transferinitiationslistresponsebody.md
+  - docs/models/operations/transferinitiationslistresponse.md
+  - docs/models/operations/transferinitiationscreaterequestbody.md
+  - docs/models/operations/transferinitiationscreateresponsebody.md
+  - docs/models/operations/transferinitiationsgetrequest.md
+  - docs/models/operations/transferinitiationsgetresponsebody.md
+  - docs/models/operations/transferinitiationsdeleterequest.md
+  - docs/models/operations/transferinitiationsretryrequest.md
+  - docs/models/operations/transferinitiationsreverserequestbody.md
+  - docs/models/operations/transferinitiationsreverserequest.md
+  - docs/models/operations/transferinitiationsupdatestatusrequestbody.md
+  - docs/models/operations/transferinitiationsupdatestatusrequest.md
   - docs/lib/utils/retryconfig.md
   - docs/sdks/paymentsclient/README.md
-  - docs/sdks/connectorsv1/README.md
+  - docs/sdks/accounts/README.md
+  - docs/sdks/bankaccounts/README.md
+  - docs/sdks/connectors/README.md
   - docs/sdks/paymentsv1/README.md
+  - docs/sdks/cashpools/README.md
+  - docs/sdks/transferinitiations/README.md
   - USAGE.md
   - .gitattributes
   - src/hooks/hooks.ts

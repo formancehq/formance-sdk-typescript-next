@@ -497,6 +497,118 @@ export class Ledgers extends ClientSDK {
         return result$;
     }
 
+    async listLogs(
+        ledger: string,
+        cursor?: string | undefined,
+        pageSize?: number | undefined,
+        options?: RequestOptions & { retries?: retries$.RetryConfig }
+    ): Promise<PageIterator<operations.LedgersListLogsResponse>> {
+        const input$: operations.LedgersListLogsRequest = {
+            ledger: ledger,
+            cursor: cursor,
+            pageSize: pageSize,
+        };
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
+
+        const payload$ = schemas$.parse(
+            input$,
+            (value$) => operations.LedgersListLogsRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
+        const body$ = null;
+
+        const pathParams$ = {
+            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+                explode: false,
+                charEncoding: "percent",
+            }),
+        };
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/logs")(pathParams$);
+
+        const query$ = [
+            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("pageSize", payload$.pageSize, {
+                explode: true,
+                charEncoding: "percent",
+            }),
+        ]
+            .filter(Boolean)
+            .join("&");
+
+        const security$ =
+            typeof this.options$.security === "function"
+                ? await this.options$.security()
+                : this.options$.security;
+
+        const context = {
+            operationID: "Ledgers_listLogs",
+            oAuth2Scopes: ["ledger:read", "ledger:read"],
+            securitySource: this.options$.security,
+        };
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
+
+        const doOptions = { context, errorCodes: ["default"] };
+        const request$ = this.createRequest$(
+            context,
+            {
+                security: securitySettings$,
+                method: "GET",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+            },
+            options
+        );
+
+        const retryConfig = options?.retries ||
+            this.options$.retryConfig || {
+                strategy: "backoff",
+                backoff: {
+                    initialInterval: 500,
+                    maxInterval: 60000,
+                    exponent: 1.5,
+                    maxElapsedTime: 3600000,
+                },
+                retryConnectionErrors: true,
+            };
+
+        const response = await retries$.retry(
+            () => {
+                const cloned = request$.clone();
+                return this.do$(cloned, doOptions);
+            },
+            { config: retryConfig, statusCodes: ["5XX"] }
+        );
+
+        const responseFields$ = {
+            HttpMeta: { Response: response, Request: request$ },
+        };
+
+        const [result$, raw$] = await this.matcher<operations.LedgersListLogsResponse>()
+            .json(200, operations.LedgersListLogsResponse$, { key: "Result" })
+            .fail("default")
+            .match(response, { extraFields: responseFields$ });
+
+        const nextFunc = (responseData: unknown): Paginator<operations.LedgersListLogsResponse> => {
+            const nextCursor = jp.value(responseData, "$.cursor.next");
+            if (nextCursor == null) {
+                return () => null;
+            }
+            const results = jp.value(responseData, "$.cursor.data");
+            if (!results.length) {
+                return () => null;
+            }
+
+            return () => this.listLogs(ledger, nextCursor, pageSize, options);
+        };
+
+        const page$ = { ...result$, next: nextFunc(raw$) };
+        return { ...page$, ...createPageIterator(page$) };
+    }
+
     async addMetadata(
         ledger: string,
         requestBody: { [k: string]: string },

@@ -1,2 +1,0 @@
-# ConnectorsV1GetData
-
