@@ -4,7 +4,7 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import { encodeJSON as encodeJSON$, encodeSimple as encodeSimple$ } from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -138,10 +138,10 @@ export class ReconciliationClient extends ClientSDK {
             (value$) => operations.ReconcileRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            policyID: enc$.encodeSimple("policyID", payload$.policyID, {
+            policyID: encodeSimple$("policyID", payload$.policyID, {
                 explode: false,
                 charEncoding: "percent",
             }),

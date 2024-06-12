@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -57,7 +61,7 @@ export class PoliciesV1 extends ClientSDK {
             (value$) => operations.PoliciesV1CreateRequestBody$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$, { explode: true });
+        const body$ = encodeJSON$("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/api/reconciliation/policies")();
 
@@ -143,15 +147,10 @@ export class PoliciesV1 extends ClientSDK {
 
         const path$ = this.templateURLComponent("/api/reconciliation/policies")();
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pageSize: payload$.pageSize,
+            cursor: payload$.cursor,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -244,7 +243,7 @@ export class PoliciesV1 extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            policyID: enc$.encodeSimple("policyID", payload$.policyID, {
+            policyID: encodeSimple$("policyID", payload$.policyID, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -332,7 +331,7 @@ export class PoliciesV1 extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            policyID: enc$.encodeSimple("policyID", payload$.policyID, {
+            policyID: encodeSimple$("policyID", payload$.policyID, {
                 explode: false,
                 charEncoding: "percent",
             }),

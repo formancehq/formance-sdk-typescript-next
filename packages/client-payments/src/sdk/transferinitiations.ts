@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -68,17 +72,12 @@ export class TransferInitiations extends ClientSDK {
 
         const path$ = this.templateURLComponent("/api/payments/transfer-initiations")();
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("sort", payload$.sort, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            query: payload$.query,
+            cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
+            sort: payload$.sort,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -170,7 +169,7 @@ export class TransferInitiations extends ClientSDK {
                 operations.TransferInitiationsCreateRequestBody$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$, { explode: true });
+        const body$ = encodeJSON$("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/api/payments/transfer-initiations")();
 
@@ -253,7 +252,7 @@ export class TransferInitiations extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            transferId: enc$.encodeSimple("transferId", payload$.transferId, {
+            transferId: encodeSimple$("transferId", payload$.transferId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -341,7 +340,7 @@ export class TransferInitiations extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            transferId: enc$.encodeSimple("transferId", payload$.transferId, {
+            transferId: encodeSimple$("transferId", payload$.transferId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -429,7 +428,7 @@ export class TransferInitiations extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            transferId: enc$.encodeSimple("transferId", payload$.transferId, {
+            transferId: encodeSimple$("transferId", payload$.transferId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -517,10 +516,10 @@ export class TransferInitiations extends ClientSDK {
             (value$) => operations.TransferInitiationsReverseRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            transferId: enc$.encodeSimple("transferId", payload$.transferId, {
+            transferId: encodeSimple$("transferId", payload$.transferId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -609,10 +608,10 @@ export class TransferInitiations extends ClientSDK {
                 operations.TransferInitiationsUpdateStatusRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            transferId: enc$.encodeSimple("transferId", payload$.transferId, {
+            transferId: encodeSimple$("transferId", payload$.transferId, {
                 explode: false,
                 charEncoding: "percent",
             }),

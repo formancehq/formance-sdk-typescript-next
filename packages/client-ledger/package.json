@@ -1,6 +1,6 @@
 {
   "name": "@formance/sdk-ledger",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Formance",  
   "main": "./index.js",
   "sideEffects": false,

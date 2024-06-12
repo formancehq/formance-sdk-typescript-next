@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -58,7 +62,7 @@ export class PaymentsV1 extends ClientSDK {
             (value$) => components.CreatePaymentRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$, { explode: true });
+        const body$ = encodeJSON$("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/api/payments/payments")();
 
@@ -148,17 +152,12 @@ export class PaymentsV1 extends ClientSDK {
 
         const path$ = this.templateURLComponent("/api/payments/payments")();
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("sort", payload$.sort, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pageSize: payload$.pageSize,
+            cursor: payload$.cursor,
+            sort: payload$.sort,
+            query: payload$.query,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -251,7 +250,7 @@ export class PaymentsV1 extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            payementId: enc$.encodeSimple("payementId", payload$.payementId, {
+            payementId: encodeSimple$("payementId", payload$.payementId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -333,10 +332,10 @@ export class PaymentsV1 extends ClientSDK {
             (value$) => operations.PaymentsV1UpdateMetatdataRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            paymentId: enc$.encodeSimple("paymentId", payload$.paymentId, {
+            paymentId: encodeSimple$("paymentId", payload$.paymentId, {
                 explode: false,
                 charEncoding: "percent",
             }),

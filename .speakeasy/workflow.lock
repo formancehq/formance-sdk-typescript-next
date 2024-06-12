@@ -1,6 +1,15 @@
-speakeasyVersion: 1.300.1
+speakeasyVersion: 1.305.0
 sources: {}
-targets: {}
+targets:
+    ts-ledger:
+        source: ledger
+        outLocation: ./packages/client-ledger
+    ts-payments:
+        source: payments
+        outLocation: ./packages/client-payments
+    ts-reconciliation:
+        source: reconciliation
+        outLocation: ./packages/client-reconciliation
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

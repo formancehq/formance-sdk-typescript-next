@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -64,15 +68,10 @@ export class CashPools extends ClientSDK {
 
         const path$ = this.templateURLComponent("/api/payments/pools")();
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pageSize: payload$.pageSize,
+            cursor: payload$.cursor,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -161,7 +160,7 @@ export class CashPools extends ClientSDK {
             (value$) => operations.CashPoolsCreateRequestBody$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$, { explode: true });
+        const body$ = encodeJSON$("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/api/payments/pools")();
 
@@ -244,7 +243,7 @@ export class CashPools extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            poolId: enc$.encodeSimple("poolId", payload$.poolId, {
+            poolId: encodeSimple$("poolId", payload$.poolId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -330,7 +329,7 @@ export class CashPools extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            poolId: enc$.encodeSimple("poolId", payload$.poolId, {
+            poolId: encodeSimple$("poolId", payload$.poolId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -416,10 +415,10 @@ export class CashPools extends ClientSDK {
             (value$) => operations.CashPoolsAddAccountRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            poolId: enc$.encodeSimple("poolId", payload$.poolId, {
+            poolId: encodeSimple$("poolId", payload$.poolId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -509,11 +508,11 @@ export class CashPools extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            accountId: enc$.encodeSimple("accountId", payload$.accountId, {
+            accountId: encodeSimple$("accountId", payload$.accountId, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            poolId: enc$.encodeSimple("poolId", payload$.poolId, {
+            poolId: encodeSimple$("poolId", payload$.poolId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -603,7 +602,7 @@ export class CashPools extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            poolId: enc$.encodeSimple("poolId", payload$.poolId, {
+            poolId: encodeSimple$("poolId", payload$.poolId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -612,11 +611,9 @@ export class CashPools extends ClientSDK {
             pathParams$
         );
 
-        const query$ = [
-            enc$.encodeForm("at", payload$.at, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            at: payload$.at,
+        });
 
         const security$ =
             typeof this.options$.security === "function"

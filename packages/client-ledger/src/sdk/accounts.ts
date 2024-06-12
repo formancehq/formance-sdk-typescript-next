@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -59,24 +63,19 @@ export class Accounts extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
         const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/accounts")(pathParams$);
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("expand", payload$.expand, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
+            pit: payload$.pit,
+            expand: payload$.expand,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -182,23 +181,18 @@ export class Accounts extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
         const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/accounts")(pathParams$);
 
-        const query$ = [
-            enc$.encodeForm("address", payload$.address, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            query: payload$.query,
+            address: payload$.address,
+            pit: payload$.pit,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -283,11 +277,11 @@ export class Accounts extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            address: enc$.encodeSimple("address", payload$.address, {
+            address: encodeSimple$("address", payload$.address, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -296,12 +290,10 @@ export class Accounts extends ClientSDK {
             pathParams$
         );
 
-        const query$ = [
-            enc$.encodeForm("expand", payload$.expand, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pit: payload$.pit,
+            expand: payload$.expand,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -382,14 +374,14 @@ export class Accounts extends ClientSDK {
             (value$) => operations.AccountsAddMetadataRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            address: enc$.encodeSimple("address", payload$.address, {
+            address: encodeSimple$("address", payload$.address, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -481,15 +473,12 @@ export class Accounts extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            address: enc$.encodeSimple("address", payload$.address, {
+            address: encodeSimple$("address", payload$.address, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            key: enc$.encodeSimple("key", payload$.key, {
-                explode: false,
-                charEncoding: "percent",
-            }),
-            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+            key: encodeSimple$("key", payload$.key, { explode: false, charEncoding: "percent" }),
+            ledger: encodeSimple$("ledger", payload$.ledger, {
                 explode: false,
                 charEncoding: "percent",
             }),

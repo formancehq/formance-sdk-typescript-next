@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -57,7 +61,7 @@ export class BankAccounts extends ClientSDK {
             (value$) => operations.BankAccountsCreateRequestBody$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$, { explode: true });
+        const body$ = encodeJSON$("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/api/payments/bank-accounts")();
 
@@ -145,16 +149,11 @@ export class BankAccounts extends ClientSDK {
 
         const path$ = this.templateURLComponent("/api/payments/bank-accounts")();
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("sort", payload$.sort, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pageSize: payload$.pageSize,
+            sort: payload$.sort,
+            cursor: payload$.cursor,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -249,7 +248,7 @@ export class BankAccounts extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            bankAccountId: enc$.encodeSimple("bankAccountId", payload$.bankAccountId, {
+            bankAccountId: encodeSimple$("bankAccountId", payload$.bankAccountId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -337,10 +336,10 @@ export class BankAccounts extends ClientSDK {
             (value$) => operations.BankAccountsForwardRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            bankAccountId: enc$.encodeSimple("bankAccountId", payload$.bankAccountId, {
+            bankAccountId: encodeSimple$("bankAccountId", payload$.bankAccountId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -428,10 +427,10 @@ export class BankAccounts extends ClientSDK {
             (value$) => operations.BankAccountsUpdateMetatdataRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            bankAccountId: enc$.encodeSimple("bankAccountId", payload$.bankAccountId, {
+            bankAccountId: encodeSimple$("bankAccountId", payload$.bankAccountId, {
                 explode: false,
                 charEncoding: "percent",
             }),

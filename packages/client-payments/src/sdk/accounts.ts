@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -67,17 +71,12 @@ export class Accounts extends ClientSDK {
 
         const path$ = this.templateURLComponent("/api/payments/accounts")();
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("sort", payload$.sort, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pageSize: payload$.pageSize,
+            sort: payload$.sort,
+            query: payload$.query,
+            cursor: payload$.cursor,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -166,7 +165,7 @@ export class Accounts extends ClientSDK {
             (value$) => operations.AccountsCreateRequestBody$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$, { explode: true });
+        const body$ = encodeJSON$("body", payload$, { explode: true });
 
         const path$ = this.templateURLComponent("/api/payments/accounts")();
 
@@ -249,7 +248,7 @@ export class Accounts extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            accountId: enc$.encodeSimple("accountId", payload$.accountId, {
+            accountId: encodeSimple$("accountId", payload$.accountId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -333,7 +332,7 @@ export class Accounts extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            accountId: enc$.encodeSimple("accountId", payload$.accountId, {
+            accountId: encodeSimple$("accountId", payload$.accountId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -342,20 +341,15 @@ export class Accounts extends ClientSDK {
             pathParams$
         );
 
-        const query$ = [
-            enc$.encodeForm("asset", payload$.asset, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("from", payload$.from, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("limit", payload$.limit, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("sort", payload$.sort, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("to", payload$.to, { explode: true, charEncoding: "percent" }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            asset: payload$.asset,
+            from: payload$.from,
+            to: payload$.to,
+            sort: payload$.sort,
+            cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
+            limit: payload$.limit,
+        });
 
         const security$ =
             typeof this.options$.security === "function"

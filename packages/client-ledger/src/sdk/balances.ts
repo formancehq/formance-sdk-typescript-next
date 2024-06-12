@@ -4,7 +4,10 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -66,7 +69,7 @@ export class Balances extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -75,16 +78,11 @@ export class Balances extends ClientSDK {
             pathParams$
         );
 
-        const query$ = [
-            enc$.encodeForm("pit", payload$.pit, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("useInsertionDate", payload$.useInsertionDate, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pit: payload$.pit,
+            useInsertionDate: payload$.useInsertionDate,
+            query: payload$.query,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -161,39 +159,22 @@ export class Balances extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            ledger: enc$.encodeSimple("ledger", payload$.ledger, {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
         const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/volumes")(pathParams$);
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("endTime", payload$.endTime, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("groupBy", payload$.groupBy, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("inseritionDate", payload$.inseritionDate, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-            enc$.encodeForm("query", payload$.query, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("startTime", payload$.startTime, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            endTime: payload$.endTime,
+            inseritionDate: payload$.inseritionDate,
+            groupBy: payload$.groupBy,
+            query: payload$.query,
+            cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
+            startTime: payload$.startTime,
+        });
 
         const security$ =
             typeof this.options$.security === "function"

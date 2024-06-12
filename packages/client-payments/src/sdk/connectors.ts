@@ -4,7 +4,11 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeJSON as encodeJSON$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -62,10 +66,10 @@ export class Connectors extends ClientSDK {
             (value$) => operations.ConnectorsInstallRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            connector: enc$.encodeSimple("connector", payload$.connector, {
+            connector: encodeSimple$("connector", payload$.connector, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -155,11 +159,11 @@ export class Connectors extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            connector: enc$.encodeSimple("connector", payload$.connector, {
+            connector: encodeSimple$("connector", payload$.connector, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            connectorID: enc$.encodeSimple("connectorID", payload$.connectorID, {
+            connectorID: encodeSimple$("connectorID", payload$.connectorID, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -249,14 +253,14 @@ export class Connectors extends ClientSDK {
             (value$) => operations.ConnectorsUpdateRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {
-            connector: enc$.encodeSimple("connector", payload$.connector, {
+            connector: encodeSimple$("connector", payload$.connector, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            connectorID: enc$.encodeSimple("connectorID", payload$.connectorID, {
+            connectorID: encodeSimple$("connectorID", payload$.connectorID, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -346,11 +350,11 @@ export class Connectors extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            connector: enc$.encodeSimple("connector", payload$.connector, {
+            connector: encodeSimple$("connector", payload$.connector, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            connectorId: enc$.encodeSimple("connectorId", payload$.connectorId, {
+            connectorId: encodeSimple$("connectorId", payload$.connectorId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -440,11 +444,11 @@ export class Connectors extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            connector: enc$.encodeSimple("connector", payload$.connector, {
+            connector: encodeSimple$("connector", payload$.connector, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            connectorId: enc$.encodeSimple("connectorId", payload$.connectorId, {
+            connectorId: encodeSimple$("connectorId", payload$.connectorId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -538,11 +542,11 @@ export class Connectors extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            connector: enc$.encodeSimple("connector", payload$.connector, {
+            connector: encodeSimple$("connector", payload$.connector, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            connectorId: enc$.encodeSimple("connectorId", payload$.connectorId, {
+            connectorId: encodeSimple$("connectorId", payload$.connectorId, {
                 explode: false,
                 charEncoding: "percent",
             }),
@@ -551,15 +555,10 @@ export class Connectors extends ClientSDK {
             "/api/payments/connectors/{connector}/{connectorId}/tasks"
         )(pathParams$);
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pageSize: payload$.pageSize,
+            cursor: payload$.cursor,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -658,15 +657,15 @@ export class Connectors extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            connector: enc$.encodeSimple("connector", payload$.connector, {
+            connector: encodeSimple$("connector", payload$.connector, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            connectorId: enc$.encodeSimple("connectorId", payload$.connectorId, {
+            connectorId: encodeSimple$("connectorId", payload$.connectorId, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            taskId: enc$.encodeSimple("taskId", payload$.taskId, {
+            taskId: encodeSimple$("taskId", payload$.taskId, {
                 explode: false,
                 charEncoding: "percent",
             }),

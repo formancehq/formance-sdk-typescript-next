@@ -3,10 +3,10 @@ id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
   docChecksum: 8a32d8c232fa74f77a0e3276045bd246
   docVersion: 0.0.0
-  speakeasyVersion: 1.300.1
-  generationVersion: 2.339.1
-  releaseVersion: 0.1.0
-  configChecksum: 2fe4abea251d1958467276fb7dde4bdd
+  speakeasyVersion: 1.305.0
+  generationVersion: 2.340.3
+  releaseVersion: 0.1.1
+  configChecksum: 0a69e8ade9a50faa5ad9bc7c4b6243c6
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-payments
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
-    core: 3.9.12
+    core: 3.9.13
     deprecations: 2.81.1
     errors: 2.81.10
     flattening: 2.81.1

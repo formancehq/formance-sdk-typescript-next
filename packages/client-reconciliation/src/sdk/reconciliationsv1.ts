@@ -4,7 +4,10 @@
 
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
-import * as enc$ from "../lib/encodings";
+import {
+    encodeFormQuery as encodeFormQuery$,
+    encodeSimple as encodeSimple$,
+} from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
 import * as retries$ from "../lib/retries";
 import * as schemas$ from "../lib/schemas";
@@ -63,15 +66,10 @@ export class ReconciliationsV1 extends ClientSDK {
 
         const path$ = this.templateURLComponent("/api/reconciliation/reconciliations")();
 
-        const query$ = [
-            enc$.encodeForm("cursor", payload$.cursor, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("pageSize", payload$.pageSize, {
-                explode: true,
-                charEncoding: "percent",
-            }),
-        ]
-            .filter(Boolean)
-            .join("&");
+        const query$ = encodeFormQuery$({
+            pageSize: payload$.pageSize,
+            cursor: payload$.cursor,
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -166,7 +164,7 @@ export class ReconciliationsV1 extends ClientSDK {
         const body$ = null;
 
         const pathParams$ = {
-            reconciliationId: enc$.encodeSimple("reconciliationId", payload$.reconciliationId, {
+            reconciliationId: encodeSimple$("reconciliationId", payload$.reconciliationId, {
                 explode: false,
                 charEncoding: "percent",
             }),
