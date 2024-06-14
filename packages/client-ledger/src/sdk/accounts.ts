@@ -72,9 +72,9 @@ export class Accounts extends ClientSDK {
 
         const query$ = encodeFormQuery$({
             cursor: payload$.cursor,
+            expand: payload$.expand,
             pageSize: payload$.pageSize,
             pit: payload$.pit,
-            expand: payload$.expand,
         });
 
         const security$ =
@@ -189,9 +189,9 @@ export class Accounts extends ClientSDK {
         const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/accounts")(pathParams$);
 
         const query$ = encodeFormQuery$({
-            query: payload$.query,
             address: payload$.address,
             pit: payload$.pit,
+            query: payload$.query,
         });
 
         const security$ =
@@ -291,8 +291,8 @@ export class Accounts extends ClientSDK {
         );
 
         const query$ = encodeFormQuery$({
-            pit: payload$.pit,
             expand: payload$.expand,
+            pit: payload$.pit,
         });
 
         const security$ =

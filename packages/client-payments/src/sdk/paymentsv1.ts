@@ -153,10 +153,10 @@ export class PaymentsV1 extends ClientSDK {
         const path$ = this.templateURLComponent("/api/payments/payments")();
 
         const query$ = encodeFormQuery$({
-            pageSize: payload$.pageSize,
             cursor: payload$.cursor,
-            sort: payload$.sort,
+            pageSize: payload$.pageSize,
             query: payload$.query,
+            sort: payload$.sort,
         });
 
         const security$ =

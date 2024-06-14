@@ -80,8 +80,8 @@ export class Balances extends ClientSDK {
 
         const query$ = encodeFormQuery$({
             pit: payload$.pit,
-            useInsertionDate: payload$.useInsertionDate,
             query: payload$.query,
+            useInsertionDate: payload$.useInsertionDate,
         });
 
         const security$ =
@@ -167,12 +167,12 @@ export class Balances extends ClientSDK {
         const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/volumes")(pathParams$);
 
         const query$ = encodeFormQuery$({
-            endTime: payload$.endTime,
-            inseritionDate: payload$.inseritionDate,
-            groupBy: payload$.groupBy,
-            query: payload$.query,
             cursor: payload$.cursor,
+            endTime: payload$.endTime,
+            groupBy: payload$.groupBy,
+            inseritionDate: payload$.inseritionDate,
             pageSize: payload$.pageSize,
+            query: payload$.query,
             startTime: payload$.startTime,
         });
 

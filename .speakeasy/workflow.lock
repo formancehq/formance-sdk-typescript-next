@@ -1,4 +1,4 @@
-speakeasyVersion: 1.305.0
+speakeasyVersion: 1.308.0
 sources: {}
 targets:
     ts-ledger:

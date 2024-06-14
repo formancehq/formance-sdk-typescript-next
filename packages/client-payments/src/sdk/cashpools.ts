@@ -69,8 +69,8 @@ export class CashPools extends ClientSDK {
         const path$ = this.templateURLComponent("/api/payments/pools")();
 
         const query$ = encodeFormQuery$({
-            pageSize: payload$.pageSize,
             cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
         });
 
         const security$ =

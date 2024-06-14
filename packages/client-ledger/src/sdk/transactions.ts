@@ -170,10 +170,10 @@ export class Transactions extends ClientSDK {
         );
 
         const query$ = encodeFormQuery$({
-            expand: payload$.expand,
-            pit: payload$.pit,
             cursor: payload$.cursor,
+            expand: payload$.expand,
             pageSize: payload$.pageSize,
+            pit: payload$.pit,
             query: payload$.query,
         });
 
@@ -689,8 +689,8 @@ export class Transactions extends ClientSDK {
         );
 
         const query$ = encodeFormQuery$({
-            force: payload$.force,
             atEffectiveDate: payload$.atEffectiveDate,
+            force: payload$.force,
         });
 
         const security$ =

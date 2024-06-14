@@ -150,9 +150,9 @@ export class BankAccounts extends ClientSDK {
         const path$ = this.templateURLComponent("/api/payments/bank-accounts")();
 
         const query$ = encodeFormQuery$({
+            cursor: payload$.cursor,
             pageSize: payload$.pageSize,
             sort: payload$.sort,
-            cursor: payload$.cursor,
         });
 
         const security$ =

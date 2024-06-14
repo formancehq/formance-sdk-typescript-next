@@ -556,8 +556,8 @@ export class Connectors extends ClientSDK {
         )(pathParams$);
 
         const query$ = encodeFormQuery$({
-            pageSize: payload$.pageSize,
             cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
         });
 
         const security$ =

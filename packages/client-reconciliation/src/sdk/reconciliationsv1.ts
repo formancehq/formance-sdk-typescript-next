@@ -67,8 +67,8 @@ export class ReconciliationsV1 extends ClientSDK {
         const path$ = this.templateURLComponent("/api/reconciliation/reconciliations")();
 
         const query$ = encodeFormQuery$({
-            pageSize: payload$.pageSize,
             cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
         });
 
         const security$ =

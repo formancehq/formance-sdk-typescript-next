@@ -73,9 +73,9 @@ export class TransferInitiations extends ClientSDK {
         const path$ = this.templateURLComponent("/api/payments/transfer-initiations")();
 
         const query$ = encodeFormQuery$({
-            query: payload$.query,
             cursor: payload$.cursor,
             pageSize: payload$.pageSize,
+            query: payload$.query,
             sort: payload$.sort,
         });
 

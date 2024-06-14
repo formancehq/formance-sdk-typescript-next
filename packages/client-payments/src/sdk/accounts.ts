@@ -72,10 +72,10 @@ export class Accounts extends ClientSDK {
         const path$ = this.templateURLComponent("/api/payments/accounts")();
 
         const query$ = encodeFormQuery$({
-            pageSize: payload$.pageSize,
-            sort: payload$.sort,
-            query: payload$.query,
             cursor: payload$.cursor,
+            pageSize: payload$.pageSize,
+            query: payload$.query,
+            sort: payload$.sort,
         });
 
         const security$ =
@@ -343,12 +343,12 @@ export class Accounts extends ClientSDK {
 
         const query$ = encodeFormQuery$({
             asset: payload$.asset,
-            from: payload$.from,
-            to: payload$.to,
-            sort: payload$.sort,
             cursor: payload$.cursor,
-            pageSize: payload$.pageSize,
+            from: payload$.from,
             limit: payload$.limit,
+            pageSize: payload$.pageSize,
+            sort: payload$.sort,
+            to: payload$.to,
         });
 
         const security$ =
