@@ -7,6 +7,9 @@ management:
   generationVersion: 2.342.6
   releaseVersion: 0.0.9
   configChecksum: 952ae57b98edbff60deace940ecfc13e
+  repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
+  repoSubDirectory: packages/client-wallets
+  installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
 features:
   typescript:
     additionalDependencies: 0.1.0

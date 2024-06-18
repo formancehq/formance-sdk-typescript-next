@@ -63,3 +63,11 @@ Based on:
 - Speakeasy CLI 1.308.0 (2.342.2) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.0.7] ./packages/client-reconciliation
+
+## 2024-06-18 14:05:58
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.308.2 (2.342.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.0.9] ./packages/client-wallets
