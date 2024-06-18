@@ -13,6 +13,9 @@ sources:
     wallets:
         inputs:
             - location: registry.speakeasyapi.dev/formance/formance/wallets
+    auth:
+        inputs:
+            - location: registry.speakeasyapi.dev/formance/formance/auth
 targets:
     ts-ledger:
         target: typescript
@@ -30,3 +33,7 @@ targets:
         target: typescript
         source: wallets
         output: ./packages/client-wallets
+    ts-auth:
+        target: typescript
+        source: auth
+        output: ./packages/client-auth
