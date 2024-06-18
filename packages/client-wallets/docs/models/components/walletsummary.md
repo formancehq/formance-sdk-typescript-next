@@ -1,0 +1,12 @@
+# WalletSummary
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `balances`                                                                     | [components.BalancesWithAssets](../../models/components/balanceswithassets.md) | :heavy_check_mark:                                                             | N/A                                                                            |
+| `availableFunds`                                                               | Record<string, *number*>                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `expiredFunds`                                                                 | Record<string, *number*>                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `expirableFunds`                                                               | Record<string, *number*>                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `holdFunds`                                                                    | Record<string, *number*>                                                       | :heavy_check_mark:                                                             | N/A                                                                            |

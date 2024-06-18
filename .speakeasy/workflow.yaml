@@ -10,6 +10,9 @@ sources:
     reconciliation:
         inputs:
             - location: registry.speakeasyapi.dev/formance/formance/reconciliation
+    wallets:
+        inputs:
+            - location: registry.speakeasyapi.dev/formance/formance/wallets
 targets:
     ts-ledger:
         target: typescript
@@ -23,3 +26,7 @@ targets:
         target: typescript
         source: reconciliation
         output: ./packages/client-reconciliation
+    ts-wallets:
+        target: typescript
+        source: wallets
+        output: ./packages/client-wallets

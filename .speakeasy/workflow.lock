@@ -1,4 +1,4 @@
-speakeasyVersion: 1.308.0
+speakeasyVersion: 1.308.2
 sources: {}
 targets:
     ts-ledger:
@@ -10,6 +10,9 @@ targets:
     ts-reconciliation:
         source: reconciliation
         outLocation: ./packages/client-reconciliation
+    ts-wallets:
+        source: wallets
+        outLocation: ./packages/client-wallets
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -23,6 +26,9 @@ workflow:
         reconciliation:
             inputs:
                 - location: registry.speakeasyapi.dev/formance/formance/reconciliation
+        wallets:
+            inputs:
+                - location: registry.speakeasyapi.dev/formance/formance/wallets
     targets:
         ts-ledger:
             target: typescript
@@ -36,3 +42,7 @@ workflow:
             target: typescript
             source: reconciliation
             output: ./packages/client-reconciliation
+        ts-wallets:
+            target: typescript
+            source: wallets
+            output: ./packages/client-wallets
