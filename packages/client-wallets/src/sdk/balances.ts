@@ -85,7 +85,7 @@ export class Balances extends ClientSDK {
 
         const context = {
             operationID: "Balances_create",
-            oAuth2Scopes: ["wallets:read", "wallets:write"],
+            oAuth2Scopes: ["wallets:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -180,7 +180,7 @@ export class Balances extends ClientSDK {
 
         const context = {
             operationID: "Balances_list",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -288,7 +288,7 @@ export class Balances extends ClientSDK {
 
         const context = {
             operationID: "Balances_get",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

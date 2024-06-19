@@ -87,7 +87,7 @@ export class Connectors extends ClientSDK {
 
         const context = {
             operationID: "Connectors_install",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -181,7 +181,7 @@ export class Connectors extends ClientSDK {
 
         const context = {
             operationID: "Connectors_uninstall",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -278,7 +278,7 @@ export class Connectors extends ClientSDK {
 
         const context = {
             operationID: "Connectors_update",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -372,7 +372,7 @@ export class Connectors extends ClientSDK {
 
         const context = {
             operationID: "Connectors_get",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -466,7 +466,7 @@ export class Connectors extends ClientSDK {
 
         const context = {
             operationID: "Connectors_reset",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -567,7 +567,7 @@ export class Connectors extends ClientSDK {
 
         const context = {
             operationID: "Connectors_listTask",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -683,7 +683,7 @@ export class Connectors extends ClientSDK {
 
         const context = {
             operationID: "Connectors_getTask",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

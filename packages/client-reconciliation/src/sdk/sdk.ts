@@ -69,7 +69,7 @@ export class ReconciliationClient extends ClientSDK {
 
         const context = {
             operationID: "_info",
-            oAuth2Scopes: ["reconciliation:read", "reconciliation:read"],
+            oAuth2Scopes: ["reconciliation:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -159,7 +159,7 @@ export class ReconciliationClient extends ClientSDK {
 
         const context = {
             operationID: "_reconcile",
-            oAuth2Scopes: ["reconciliation:read"],
+            oAuth2Scopes: [],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

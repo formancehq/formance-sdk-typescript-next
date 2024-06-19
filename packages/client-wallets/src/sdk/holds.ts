@@ -83,7 +83,7 @@ export class Holds extends ClientSDK {
 
         const context = {
             operationID: "Holds_list",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -183,7 +183,7 @@ export class Holds extends ClientSDK {
 
         const context = {
             operationID: "Holds_get",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -272,7 +272,7 @@ export class Holds extends ClientSDK {
 
         const context = {
             operationID: "Holds_confirm",
-            oAuth2Scopes: ["wallets:read", "wallets:write"],
+            oAuth2Scopes: ["wallets:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -358,7 +358,7 @@ export class Holds extends ClientSDK {
 
         const context = {
             operationID: "Holds_cancel",
-            oAuth2Scopes: ["wallets:read", "wallets:write"],
+            oAuth2Scopes: ["wallets:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

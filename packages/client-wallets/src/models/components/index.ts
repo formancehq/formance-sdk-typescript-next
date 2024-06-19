@@ -5,6 +5,7 @@
 export * from "./balance.js";
 export * from "./balanceswithassets.js";
 export * from "./hold.js";
+export * from "./schemeformanceoauth.js";
 export * from "./security.js";
 export * from "./serverinfo.js";
 export * from "./wallet.js";

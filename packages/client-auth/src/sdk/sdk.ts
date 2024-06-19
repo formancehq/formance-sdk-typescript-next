@@ -72,7 +72,7 @@ export class AuthClient extends ClientSDK {
 
         const context = {
             operationID: "_info",
-            oAuth2Scopes: ["auth:read", "auth:read"],
+            oAuth2Scopes: ["auth:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

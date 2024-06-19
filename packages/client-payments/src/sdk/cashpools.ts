@@ -80,7 +80,7 @@ export class CashPools extends ClientSDK {
 
         const context = {
             operationID: "CashPools_list",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -173,7 +173,7 @@ export class CashPools extends ClientSDK {
 
         const context = {
             operationID: "CashPools_create",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -259,7 +259,7 @@ export class CashPools extends ClientSDK {
 
         const context = {
             operationID: "CashPools_get",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -345,7 +345,7 @@ export class CashPools extends ClientSDK {
 
         const context = {
             operationID: "CashPools_delete",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -436,7 +436,7 @@ export class CashPools extends ClientSDK {
 
         const context = {
             operationID: "CashPools_addAccount",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -530,7 +530,7 @@ export class CashPools extends ClientSDK {
 
         const context = {
             operationID: "CashPools_removeAccount",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -622,7 +622,7 @@ export class CashPools extends ClientSDK {
 
         const context = {
             operationID: "CashPools_balances",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

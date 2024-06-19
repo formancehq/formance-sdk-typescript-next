@@ -5,8 +5,8 @@ management:
   docVersion: 0.0.0
   speakeasyVersion: 1.309.1
   generationVersion: 2.347.4
-  releaseVersion: 0.1.0
-  configChecksum: b5ed564c420588fe72041c2a900c015b
+  releaseVersion: 0.1.1
+  configChecksum: 81cfbc7ead114c3c266b6a69faec01bb
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger

@@ -74,7 +74,7 @@ export class PoliciesV1 extends ClientSDK {
 
         const context = {
             operationID: "PoliciesV1_create",
-            oAuth2Scopes: ["reconciliation:read", "reconciliation:read"],
+            oAuth2Scopes: ["reconciliation:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -159,7 +159,7 @@ export class PoliciesV1 extends ClientSDK {
 
         const context = {
             operationID: "PoliciesV1_list",
-            oAuth2Scopes: ["reconciliation:read", "reconciliation:read"],
+            oAuth2Scopes: ["reconciliation:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -261,7 +261,7 @@ export class PoliciesV1 extends ClientSDK {
 
         const context = {
             operationID: "PoliciesV1_delete",
-            oAuth2Scopes: ["reconciliation:read", "reconciliation:write"],
+            oAuth2Scopes: ["reconciliation:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -349,7 +349,7 @@ export class PoliciesV1 extends ClientSDK {
 
         const context = {
             operationID: "PoliciesV1_get",
-            oAuth2Scopes: ["reconciliation:read", "reconciliation:read"],
+            oAuth2Scopes: ["reconciliation:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

@@ -20,7 +20,11 @@ import { LedgerWallets } from "@formance/sdk-wallets";
 
 const ledgerWallets = new LedgerWallets({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -69,7 +73,11 @@ import { LedgerWallets } from "@formance/sdk-wallets";
 
 const ledgerWallets = new LedgerWallets({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -116,7 +124,11 @@ import { LedgerWallets } from "@formance/sdk-wallets";
 
 const ledgerWallets = new LedgerWallets({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -159,7 +171,11 @@ import { LedgerWallets } from "@formance/sdk-wallets";
 
 const ledgerWallets = new LedgerWallets({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -202,7 +218,11 @@ import { WalletCounterpartWalletType } from "@formance/sdk-wallets/models/compon
 
 const ledgerWallets = new LedgerWallets({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -257,7 +277,11 @@ import { LedgerWallets } from "@formance/sdk-wallets";
 
 const ledgerWallets = new LedgerWallets({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -309,7 +333,11 @@ import { LedgerWallets } from "@formance/sdk-wallets";
 
 const ledgerWallets = new LedgerWallets({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 

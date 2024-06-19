@@ -20,7 +20,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -72,7 +76,11 @@ import { TransferInitiationType } from "@formance/sdk-payments/models/components
 
 const paymentsClient = new PaymentsClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -125,7 +133,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -168,7 +180,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -210,7 +226,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -252,7 +272,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 
@@ -301,7 +325,11 @@ import { TransferInitiationWritableStatus } from "@formance/sdk-payments/models/
 
 const paymentsClient = new PaymentsClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
   },
 });
 

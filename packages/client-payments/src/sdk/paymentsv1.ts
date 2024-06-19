@@ -75,7 +75,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const context = {
             operationID: "PaymentsV1_create",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -166,7 +166,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const context = {
             operationID: "PaymentsV1_list",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -266,7 +266,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const context = {
             operationID: "PaymentsV1_get",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -353,7 +353,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const context = {
             operationID: "PaymentsV1_updateMetatdata",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

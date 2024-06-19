@@ -26,6 +26,7 @@ export * from "./paymentscheme.js";
 export * from "./paymentstatus.js";
 export * from "./paymenttype.js";
 export * from "./poolbalance.js";
+export * from "./schemeformanceoauth.js";
 export * from "./security.js";
 export * from "./serverinfo.js";
 export * from "./stripeconfig.js";

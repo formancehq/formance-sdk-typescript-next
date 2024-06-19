@@ -85,7 +85,7 @@ export class Accounts extends ClientSDK {
 
         const context = {
             operationID: "Accounts_list",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -178,7 +178,7 @@ export class Accounts extends ClientSDK {
 
         const context = {
             operationID: "Accounts_create",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -264,7 +264,7 @@ export class Accounts extends ClientSDK {
 
         const context = {
             operationID: "Accounts_get",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -358,7 +358,7 @@ export class Accounts extends ClientSDK {
 
         const context = {
             operationID: "Accounts_balances",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

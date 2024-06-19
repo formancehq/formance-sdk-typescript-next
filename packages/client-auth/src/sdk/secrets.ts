@@ -77,7 +77,7 @@ export class Secrets extends ClientSDK {
 
         const context = {
             operationID: "Secrets_create",
-            oAuth2Scopes: ["auth:read", "auth:write"],
+            oAuth2Scopes: ["auth:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -167,7 +167,7 @@ export class Secrets extends ClientSDK {
 
         const context = {
             operationID: "Secrets_delete",
-            oAuth2Scopes: ["auth:read", "auth:write"],
+            oAuth2Scopes: ["auth:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

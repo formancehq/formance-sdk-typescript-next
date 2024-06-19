@@ -4,6 +4,7 @@
 
 export * from "./client.js";
 export * from "./clientdata.js";
+export * from "./schemeformanceoauth.js";
 export * from "./secret.js";
 export * from "./security.js";
 export * from "./serverinfo.js";

@@ -80,7 +80,7 @@ export class Clients extends ClientSDK {
 
         const context = {
             operationID: "Clients_list",
-            oAuth2Scopes: ["auth:read", "auth:read"],
+            oAuth2Scopes: ["auth:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -173,7 +173,7 @@ export class Clients extends ClientSDK {
 
         const context = {
             operationID: "Clients_create",
-            oAuth2Scopes: ["auth:read", "auth:write"],
+            oAuth2Scopes: ["auth:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -252,7 +252,7 @@ export class Clients extends ClientSDK {
 
         const context = {
             operationID: "Clients_get",
-            oAuth2Scopes: ["auth:read", "auth:read"],
+            oAuth2Scopes: ["auth:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -334,7 +334,7 @@ export class Clients extends ClientSDK {
 
         const context = {
             operationID: "Clients_update",
-            oAuth2Scopes: ["auth:read", "auth:write"],
+            oAuth2Scopes: ["auth:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -413,7 +413,7 @@ export class Clients extends ClientSDK {
 
         const context = {
             operationID: "Clients_delete",
-            oAuth2Scopes: ["auth:read", "auth:write"],
+            oAuth2Scopes: ["auth:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

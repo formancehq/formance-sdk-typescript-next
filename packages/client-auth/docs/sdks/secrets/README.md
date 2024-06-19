@@ -15,7 +15,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -60,7 +60,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 

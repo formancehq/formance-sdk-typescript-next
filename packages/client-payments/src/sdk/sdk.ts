@@ -91,7 +91,7 @@ export class PaymentsClient extends ClientSDK {
 
         const context = {
             operationID: "_info",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

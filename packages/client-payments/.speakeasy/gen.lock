@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
-  docChecksum: 8a32d8c232fa74f77a0e3276045bd246
+  docChecksum: 00309fe8f1f0a66ef07772d3cff3db4c
   docVersion: 0.0.0
   speakeasyVersion: 1.309.1
   generationVersion: 2.347.4
-  releaseVersion: 0.2.0
-  configChecksum: 1b00750ca929d055a3f9a2bfd23ce72b
+  releaseVersion: 0.2.1
+  configChecksum: 1c977feb688ca76dbdb1912572c2fbfb
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-payments
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
@@ -104,6 +104,7 @@ generatedFiles:
   - src/models/components/transferinitiationtype.ts
   - src/models/components/transferinitiationwritablestatus.ts
   - src/models/components/security.ts
+  - src/models/components/schemeformanceoauth.ts
   - src/models/errors/paymentserror.ts
   - src/models/operations/accountslist.ts
   - src/models/operations/accountscreate.ts
@@ -183,6 +184,7 @@ generatedFiles:
   - docs/models/components/transferinitiationtype.md
   - docs/models/components/transferinitiationwritablestatus.md
   - docs/models/components/security.md
+  - docs/models/components/schemeformanceoauth.md
   - docs/models/errors/paymentserror.md
   - docs/models/operations/accountslistrequest.md
   - docs/models/operations/cursor.md

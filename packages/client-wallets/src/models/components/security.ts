@@ -3,47 +3,42 @@
  */
 
 import { remap as remap$ } from "../../lib/primitives.js";
+import { SchemeFormanceOAuth, SchemeFormanceOAuth$ } from "./schemeformanceoauth.js";
 import * as z from "zod";
 
 export type Security = {
-    clientID?: string | undefined;
-    clientSecret?: string | undefined;
-    tokenURL?: "/api/auth/oauth/token" | undefined;
+    formanceOAuth?: SchemeFormanceOAuth | undefined;
+    bearerAuth?: string | undefined;
 };
 
 /** @internal */
 export namespace Security$ {
     export const inboundSchema: z.ZodType<Security, z.ZodTypeDef, unknown> = z
         .object({
-            ClientID: z.string().optional(),
-            ClientSecret: z.string().optional(),
-            TokenURL: z.literal("/api/auth/oauth/token").optional(),
+            FormanceOAuth: SchemeFormanceOAuth$.inboundSchema.optional(),
+            BearerAuth: z.string().optional(),
         })
         .transform((v) => {
             return remap$(v, {
-                ClientID: "clientID",
-                ClientSecret: "clientSecret",
-                TokenURL: "tokenURL",
+                FormanceOAuth: "formanceOAuth",
+                BearerAuth: "bearerAuth",
             });
         });
 
     export type Outbound = {
-        ClientID?: string | undefined;
-        ClientSecret?: string | undefined;
-        TokenURL: "/api/auth/oauth/token";
+        FormanceOAuth?: SchemeFormanceOAuth$.Outbound | undefined;
+        BearerAuth?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Security> = z
         .object({
-            clientID: z.string().optional(),
-            clientSecret: z.string().optional(),
-            tokenURL: z.literal("/api/auth/oauth/token").default("/api/auth/oauth/token" as const),
+            formanceOAuth: SchemeFormanceOAuth$.outboundSchema.optional(),
+            bearerAuth: z.string().optional(),
         })
         .transform((v) => {
             return remap$(v, {
-                clientID: "ClientID",
-                clientSecret: "ClientSecret",
-                tokenURL: "TokenURL",
+                formanceOAuth: "FormanceOAuth",
+                bearerAuth: "BearerAuth",
             });
         });
 }

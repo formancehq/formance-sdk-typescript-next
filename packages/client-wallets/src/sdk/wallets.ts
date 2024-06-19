@@ -86,7 +86,7 @@ export class Wallets extends ClientSDK {
 
         const context = {
             operationID: "wallets_list",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -179,7 +179,7 @@ export class Wallets extends ClientSDK {
 
         const context = {
             operationID: "wallets_create",
-            oAuth2Scopes: ["wallets:read", "wallets:write"],
+            oAuth2Scopes: ["wallets:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -262,7 +262,7 @@ export class Wallets extends ClientSDK {
 
         const context = {
             operationID: "wallets_get",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -349,7 +349,7 @@ export class Wallets extends ClientSDK {
 
         const context = {
             operationID: "wallets_update",
-            oAuth2Scopes: ["wallets:read", "wallets:write"],
+            oAuth2Scopes: ["wallets:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -431,7 +431,7 @@ export class Wallets extends ClientSDK {
 
         const context = {
             operationID: "wallets_credit",
-            oAuth2Scopes: ["wallets:read", "wallets:write"],
+            oAuth2Scopes: ["wallets:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -517,7 +517,7 @@ export class Wallets extends ClientSDK {
 
         const context = {
             operationID: "wallets_debit",
-            oAuth2Scopes: ["wallets:read", "wallets:write"],
+            oAuth2Scopes: ["wallets:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -601,7 +601,7 @@ export class Wallets extends ClientSDK {
 
         const context = {
             operationID: "wallets_summary",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

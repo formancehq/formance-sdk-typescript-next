@@ -78,7 +78,7 @@ export class ReconciliationsV1 extends ClientSDK {
 
         const context = {
             operationID: "ReconciliationsV1_list",
-            oAuth2Scopes: ["reconciliation:read"],
+            oAuth2Scopes: [],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -182,7 +182,7 @@ export class ReconciliationsV1 extends ClientSDK {
 
         const context = {
             operationID: "ReconciliationsV1_get",
-            oAuth2Scopes: ["reconciliation:read"],
+            oAuth2Scopes: [],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

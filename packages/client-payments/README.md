@@ -63,7 +63,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 
@@ -156,7 +160,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 
@@ -184,7 +192,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 
@@ -226,7 +238,11 @@ const paymentsClient = new PaymentsClient({
         retryConnectionErrors: false,
     },
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 
@@ -261,7 +277,11 @@ import { SDKValidationError } from "@formance/sdk-payments/models/errors";
 
 const paymentsClient = new PaymentsClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 
@@ -314,7 +334,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 const paymentsClient = new PaymentsClient({
     serverIdx: 0,
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 
@@ -340,7 +364,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 const paymentsClient = new PaymentsClient({
     serverURL: "http://localhost",
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 
@@ -412,10 +440,10 @@ const sdk = new PaymentsClient({ httpClient });
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `clientID`     | oauth2         | OAuth2 token   |
-| `clientSecret` | oauth2         | OAuth2 token   |
+| Name            | Type            | Scheme          |
+| --------------- | --------------- | --------------- |
+| `formanceOAuth` | oauth2          | OAuth2 token    |
+| `bearerAuth`    | http            | HTTP Bearer     |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
@@ -423,7 +451,11 @@ import { PaymentsClient } from "@formance/sdk-payments";
 
 const paymentsClient = new PaymentsClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        formanceOAuth: {
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+        },
     },
 });
 

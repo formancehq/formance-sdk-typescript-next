@@ -77,7 +77,7 @@ export class Users extends ClientSDK {
 
         const context = {
             operationID: "Users_list",
-            oAuth2Scopes: ["auth:read", "auth:read"],
+            oAuth2Scopes: ["auth:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -177,7 +177,7 @@ export class Users extends ClientSDK {
 
         const context = {
             operationID: "Users_get",
-            oAuth2Scopes: ["auth:read", "auth:read"],
+            oAuth2Scopes: ["auth:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

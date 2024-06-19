@@ -74,7 +74,7 @@ export class BankAccounts extends ClientSDK {
 
         const context = {
             operationID: "BankAccounts_create",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -162,7 +162,7 @@ export class BankAccounts extends ClientSDK {
 
         const context = {
             operationID: "BankAccounts_list",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -266,7 +266,7 @@ export class BankAccounts extends ClientSDK {
 
         const context = {
             operationID: "BankAccounts_get",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -357,7 +357,7 @@ export class BankAccounts extends ClientSDK {
 
         const context = {
             operationID: "BankAccounts_forward",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -448,7 +448,7 @@ export class BankAccounts extends ClientSDK {
 
         const context = {
             operationID: "BankAccounts_updateMetatdata",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

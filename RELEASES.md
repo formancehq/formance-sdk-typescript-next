@@ -79,3 +79,11 @@ Based on:
 - Speakeasy CLI 1.309.1 (2.347.4) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.1.0] ./packages/client-reconciliation
+
+## 2024-06-19 13:38:04
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.309.1 (2.347.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.1.1] ./packages/client-reconciliation

@@ -86,7 +86,7 @@ export class TransferInitiations extends ClientSDK {
 
         const context = {
             operationID: "TransferInitiations_list",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -182,7 +182,7 @@ export class TransferInitiations extends ClientSDK {
 
         const context = {
             operationID: "TransferInitiations_create",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -270,7 +270,7 @@ export class TransferInitiations extends ClientSDK {
 
         const context = {
             operationID: "TransferInitiations_get",
-            oAuth2Scopes: ["payments:read", "payments:read"],
+            oAuth2Scopes: ["payments:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -358,7 +358,7 @@ export class TransferInitiations extends ClientSDK {
 
         const context = {
             operationID: "TransferInitiations_delete",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -446,7 +446,7 @@ export class TransferInitiations extends ClientSDK {
 
         const context = {
             operationID: "TransferInitiations_retry",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -537,7 +537,7 @@ export class TransferInitiations extends ClientSDK {
 
         const context = {
             operationID: "TransferInitiations_reverse",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
@@ -629,7 +629,7 @@ export class TransferInitiations extends ClientSDK {
 
         const context = {
             operationID: "TransferInitiations_updateStatus",
-            oAuth2Scopes: ["payments:read", "payments:write"],
+            oAuth2Scopes: ["payments:write"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);

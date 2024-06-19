@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 547ff383-26ff-4651-b099-ec0df7c6565b
 management:
-  docChecksum: c853e6d49a5d259fe9822989db8ca686
+  docChecksum: db197f636b9eff831bbf1ce038033a73
   docVersion: 0.0.0
   speakeasyVersion: 1.309.1
   generationVersion: 2.347.4
-  releaseVersion: 0.1.0
-  configChecksum: 762717150396a5b8d2d86c0699e3fd6c
+  releaseVersion: 0.1.1
+  configChecksum: f0094215a543888937ad8e6dc729e3b4
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-reconciliation
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
@@ -69,6 +69,7 @@ generatedFiles:
   - src/models/components/reconciliation.ts
   - src/models/components/policy.ts
   - src/models/components/security.ts
+  - src/models/components/schemeformanceoauth.ts
   - src/models/errors/index.ts
   - src/models/operations/index.ts
   - src/models/components/index.ts
@@ -95,6 +96,7 @@ generatedFiles:
   - docs/models/components/reconciliation.md
   - docs/models/components/policy.md
   - docs/models/components/security.md
+  - docs/models/components/schemeformanceoauth.md
   - docs/lib/utils/retryconfig.md
   - docs/sdks/reconciliationclient/README.md
   - docs/sdks/policiesv1/README.md

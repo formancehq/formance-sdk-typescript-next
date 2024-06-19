@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 5e195e2d-c807-4e79-be37-df9d38941730
 management:
-  docChecksum: 0b4098e28a4aafdb868ff9959b0d897f
+  docChecksum: b7502ba1771728bad2afbb52461743d8
   docVersion: 0.0.0
   speakeasyVersion: 1.309.1
   generationVersion: 2.347.4
-  releaseVersion: 0.1.0
-  configChecksum: 78335656bfdec8538e849a76eb8a6785
+  releaseVersion: 0.1.1
+  configChecksum: 227d1659b24c7726e956586adaf12697
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-auth
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth
@@ -63,6 +63,7 @@ generatedFiles:
   - src/models/components/clientdata.ts
   - src/models/components/user.ts
   - src/models/components/security.ts
+  - src/models/components/schemeformanceoauth.ts
   - src/models/operations/clientslist.ts
   - src/models/operations/clientscreate.ts
   - src/models/operations/clientsget.ts
@@ -81,6 +82,7 @@ generatedFiles:
   - docs/models/components/clientdata.md
   - docs/models/components/user.md
   - docs/models/components/security.md
+  - docs/models/components/schemeformanceoauth.md
   - docs/models/operations/clientslistrequest.md
   - docs/models/operations/cursor.md
   - docs/models/operations/clientslistresponsebody.md

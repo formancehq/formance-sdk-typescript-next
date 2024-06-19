@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a70888d9-795e-48d6-b8d1-99347eb16e34
 management:
-  docChecksum: 81722c8c77ec0936cae27a9e143fd2a3
+  docChecksum: d8ba2ae9dddca3adce4438f246753f1e
   docVersion: 0.0.0
   speakeasyVersion: 1.309.1
   generationVersion: 2.347.4
-  releaseVersion: 0.1.0
-  configChecksum: 0f1ce38b1ccedc1bd864b6728d413740
+  releaseVersion: 0.1.1
+  configChecksum: c055d46433e9c3d99c9f82a8fa6cdc7d
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-wallets
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
@@ -69,6 +69,7 @@ generatedFiles:
   - src/models/components/balanceswithassets.ts
   - src/models/components/balance.ts
   - src/models/components/security.ts
+  - src/models/components/schemeformanceoauth.ts
   - src/models/operations/holdslist.ts
   - src/models/operations/holdsget.ts
   - src/models/operations/holdsconfirm.ts
@@ -100,6 +101,7 @@ generatedFiles:
   - docs/models/components/balanceswithassets.md
   - docs/models/components/balance.md
   - docs/models/components/security.md
+  - docs/models/components/schemeformanceoauth.md
   - docs/models/operations/holdslistrequest.md
   - docs/models/operations/cursor.md
   - docs/models/operations/holdslistresponsebody.md

@@ -63,7 +63,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -122,7 +122,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -150,7 +150,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -192,7 +192,7 @@ const authClient = new AuthClient({
         retryConnectionErrors: false,
     },
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -226,7 +226,7 @@ import { SDKValidationError } from "@formance/sdk-auth/models/errors";
 
 const authClient = new AuthClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -275,7 +275,7 @@ import { AuthClient } from "@formance/sdk-auth";
 const authClient = new AuthClient({
     serverIdx: 0,
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -301,7 +301,7 @@ import { AuthClient } from "@formance/sdk-auth";
 const authClient = new AuthClient({
     serverURL: "http://localhost",
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -373,10 +373,10 @@ const sdk = new AuthClient({ httpClient });
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `clientID`     | oauth2         | OAuth2 token   |
-| `clientSecret` | oauth2         | OAuth2 token   |
+| Name            | Type            | Scheme          |
+| --------------- | --------------- | --------------- |
+| `bearerAuth`    | http            | HTTP Bearer     |
+| `formanceOAuth` | oauth2          | OAuth2 token    |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
@@ -384,7 +384,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 

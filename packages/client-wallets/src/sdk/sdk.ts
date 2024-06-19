@@ -72,7 +72,7 @@ export class LedgerWallets extends ClientSDK {
 
         const context = {
             operationID: "_info",
-            oAuth2Scopes: ["wallets:read", "wallets:read"],
+            oAuth2Scopes: ["wallets:read"],
             securitySource: this.options$.security,
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
