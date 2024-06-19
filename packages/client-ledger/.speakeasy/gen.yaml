@@ -12,7 +12,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
 typescript:
-  version: 0.0.10
+  version: 0.1.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -37,3 +37,4 @@ typescript:
   packageName: '@formance/sdk-ledger'
   responseFormat: flat
   templateVersion: v2
+  useIndexModules: true

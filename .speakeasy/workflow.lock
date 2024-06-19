@@ -1,4 +1,4 @@
-speakeasyVersion: 1.308.2
+speakeasyVersion: 1.309.1
 sources: {}
 targets:
     ts-auth:

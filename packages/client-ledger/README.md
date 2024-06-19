@@ -25,10 +25,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 npm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
 ```
 
+### PNPM
+
+```bash
+pnpm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
+```
+
+### Bun
+
+```bash
+bun add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
+```
+
 ### Yarn
 
 ```bash
-yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
+yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -48,7 +63,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -124,7 +139,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -152,7 +167,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -194,7 +209,7 @@ const ledgerClient = new LedgerClient({
         retryConnectionErrors: false,
     },
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -225,11 +240,11 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { LedgerClient } from "@formance/sdk-ledger";
-import * as errors from "@formance/sdk-ledger/models/errors";
+import { SDKValidationError } from "@formance/sdk-ledger/models/errors";
 
 const ledgerClient = new LedgerClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -239,7 +254,7 @@ async function run() {
         result = await ledgerClient.ledgers.list("<value>", 768578);
     } catch (err) {
         switch (true) {
-            case err instanceof errors.SDKValidationError: {
+            case err instanceof SDKValidationError: {
                 // Validation errors can be pretty-printed
                 console.error(err.pretty());
                 // Raw value may also be inspected
@@ -283,7 +298,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 const ledgerClient = new LedgerClient({
     serverIdx: 0,
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -309,7 +324,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 const ledgerClient = new LedgerClient({
     serverURL: "http://localhost",
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -381,10 +396,10 @@ const sdk = new LedgerClient({ httpClient });
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `clientID`     | oauth2         | OAuth2 token   |
-| `clientSecret` | oauth2         | OAuth2 token   |
+| Name            | Type            | Scheme          |
+| --------------- | --------------- | --------------- |
+| `bearerAuth`    | http            | HTTP Bearer     |
+| `formanceOAuth` | oauth2          | OAuth2 token    |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
@@ -392,7 +407,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 

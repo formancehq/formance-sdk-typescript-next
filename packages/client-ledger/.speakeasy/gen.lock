@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
-  docChecksum: ad6c0921832d37a12a25013040fc4d86
+  docChecksum: dc955ea3053b83108400b9b62d84fce7
   docVersion: 0.0.0
-  speakeasyVersion: 1.308.0
-  generationVersion: 2.342.2
-  releaseVersion: 0.0.10
-  configChecksum: 2f6f1c29303561eb12fdbc42f88933f0
+  speakeasyVersion: 1.309.1
+  generationVersion: 2.347.4
+  releaseVersion: 0.1.0
+  configChecksum: b5ed564c420588fe72041c2a900c015b
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.9.14
+    core: 3.10.0
     errors: 2.81.10
     flattening: 2.81.1
     globalSecurity: 2.82.9
@@ -33,7 +33,7 @@ generatedFiles:
   - src/sdk/balances.ts
   - src/sdk/transactions.ts
   - src/sdk/sdk.ts
-  - .eslintrc.js
+  - .eslintrc.cjs
   - .npmignore
   - RUNTIMES.md
   - jsr.json
@@ -92,6 +92,7 @@ generatedFiles:
   - src/models/components/volumeitem.ts
   - src/models/components/expendedtransaction.ts
   - src/models/components/security.ts
+  - src/models/components/schemeformanceoauth.ts
   - src/models/operations/ledgerslist.ts
   - src/models/operations/ledgersget.ts
   - src/models/operations/ledgerscreate.ts
@@ -168,6 +169,7 @@ generatedFiles:
   - docs/models/components/volumeitem.md
   - docs/models/components/expendedtransaction.md
   - docs/models/components/security.md
+  - docs/models/components/schemeformanceoauth.md
   - docs/models/operations/ledgerslistrequest.md
   - docs/models/operations/cursor.md
   - docs/models/operations/ledgerslistresponsebody.md

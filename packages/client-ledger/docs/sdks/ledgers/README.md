@@ -22,7 +22,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -67,7 +67,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -110,7 +110,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -154,7 +154,7 @@ import { AddMetadataActionAction, TargetType } from "@formance/sdk-ledger/models
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -209,7 +209,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -252,7 +252,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -297,7 +297,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -342,7 +342,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -385,7 +385,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 

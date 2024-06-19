@@ -25,10 +25,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 npm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
 ```
 
+### PNPM
+
+```bash
+pnpm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
+```
+
+### Bun
+
+```bash
+bun add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
+```
+
 ### Yarn
 
 ```bash
-yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
+yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -242,7 +257,7 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import * as errors from "@formance/sdk-payments/models/errors";
+import { SDKValidationError } from "@formance/sdk-payments/models/errors";
 
 const paymentsClient = new PaymentsClient({
     security: {
@@ -256,7 +271,7 @@ async function run() {
         result = await paymentsClient.info();
     } catch (err) {
         switch (true) {
-            case err instanceof errors.SDKValidationError: {
+            case err instanceof SDKValidationError: {
                 // Validation errors can be pretty-printed
                 console.error(err.pretty());
                 // Raw value may also be inspected

@@ -71,3 +71,11 @@ Based on:
 - Speakeasy CLI 1.308.2 (2.342.6) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.0.9] ./packages/client-wallets
+
+## 2024-06-19 12:31:58
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.309.1 (2.347.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.1.0] ./packages/client-reconciliation

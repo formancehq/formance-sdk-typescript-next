@@ -1,6 +1,6 @@
 {
   "name": "@formance/sdk-reconciliation",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "author": "Formance",  
   "main": "./index.js",
   "sideEffects": false,

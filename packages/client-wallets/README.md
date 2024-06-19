@@ -22,13 +22,28 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
+```
+
+### PNPM
+
+```bash
+pnpm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
+```
+
+### Bun
+
+```bash
+bun add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET>
+yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -213,7 +228,7 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { LedgerWallets } from "@formance/sdk-wallets";
-import * as errors from "@formance/sdk-wallets/models/errors";
+import { SDKValidationError } from "@formance/sdk-wallets/models/errors";
 
 const ledgerWallets = new LedgerWallets({
     security: {
@@ -227,7 +242,7 @@ async function run() {
         result = await ledgerWallets.holds.list("<value>", "<value>", 768578);
     } catch (err) {
         switch (true) {
-            case err instanceof errors.SDKValidationError: {
+            case err instanceof SDKValidationError: {
                 // Validation errors can be pretty-printed
                 console.error(err.pretty());
                 // Raw value may also be inspected

@@ -5,11 +5,11 @@
 import {
     DeleteMetadataTargetAccount,
     DeleteMetadataTargetAccount$,
-} from "./deletemetadatatargetaccount";
+} from "./deletemetadatatargetaccount.js";
 import {
     DeleteMetadataTargetTransaction,
     DeleteMetadataTargetTransaction$,
-} from "./deletemetadatatargettransaction";
+} from "./deletemetadatatargettransaction.js";
 import * as z from "zod";
 
 export type DeleteMetadataTarget =

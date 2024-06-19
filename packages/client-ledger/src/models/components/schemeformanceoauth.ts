@@ -5,18 +5,18 @@
 import { remap as remap$ } from "../../lib/primitives.js";
 import * as z from "zod";
 
-export type Security = {
-    clientID?: string | undefined;
-    clientSecret?: string | undefined;
+export type SchemeFormanceOAuth = {
+    clientID: string;
+    clientSecret: string;
     tokenURL?: "/api/auth/oauth/token" | undefined;
 };
 
 /** @internal */
-export namespace Security$ {
-    export const inboundSchema: z.ZodType<Security, z.ZodTypeDef, unknown> = z
+export namespace SchemeFormanceOAuth$ {
+    export const inboundSchema: z.ZodType<SchemeFormanceOAuth, z.ZodTypeDef, unknown> = z
         .object({
-            ClientID: z.string().optional(),
-            ClientSecret: z.string().optional(),
+            ClientID: z.string(),
+            ClientSecret: z.string(),
             TokenURL: z.literal("/api/auth/oauth/token").optional(),
         })
         .transform((v) => {
@@ -28,15 +28,15 @@ export namespace Security$ {
         });
 
     export type Outbound = {
-        ClientID?: string | undefined;
-        ClientSecret?: string | undefined;
+        ClientID: string;
+        ClientSecret: string;
         TokenURL: "/api/auth/oauth/token";
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Security> = z
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SchemeFormanceOAuth> = z
         .object({
-            clientID: z.string().optional(),
-            clientSecret: z.string().optional(),
+            clientID: z.string(),
+            clientSecret: z.string(),
             tokenURL: z.literal("/api/auth/oauth/token").default("/api/auth/oauth/token" as const),
         })
         .transform((v) => {

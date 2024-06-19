@@ -3,17 +3,17 @@ id: 5e195e2d-c807-4e79-be37-df9d38941730
 management:
   docChecksum: 0b4098e28a4aafdb868ff9959b0d897f
   docVersion: 0.0.0
-  speakeasyVersion: 1.308.2
-  generationVersion: 2.342.6
-  releaseVersion: 0.0.10
-  configChecksum: 537391f7bcbd5ed163dd5db29929888b
+  speakeasyVersion: 1.309.1
+  generationVersion: 2.347.4
+  releaseVersion: 0.1.0
+  configChecksum: 78335656bfdec8538e849a76eb8a6785
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-auth
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.9.14
+    core: 3.10.0
     errors: 2.81.10
     flattening: 2.81.1
     globalSecurity: 2.82.9
@@ -31,7 +31,7 @@ generatedFiles:
   - src/sdk/users.ts
   - src/sdk/secrets.ts
   - src/sdk/sdk.ts
-  - .eslintrc.js
+  - .eslintrc.cjs
   - .npmignore
   - RUNTIMES.md
   - jsr.json
