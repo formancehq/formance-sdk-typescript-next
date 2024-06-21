@@ -214,7 +214,6 @@ run();
 
 ```typescript
 import { LedgerWallets } from "@formance/sdk-wallets";
-import { WalletCounterpartWalletType } from "@formance/sdk-wallets/models/components";
 
 const ledgerWallets = new LedgerWallets({
   security: {
@@ -236,7 +235,7 @@ async function run() {
       "key": "<value>",
     },
   source:     {
-        type: WalletCounterpartWalletType.Wallet,
+        type: "WALLET",
         identifier: "<value>",
       },
   });

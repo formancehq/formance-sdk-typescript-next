@@ -72,7 +72,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { TransferInitiationType } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -91,7 +90,7 @@ async function run() {
     description: "Multi-tiered motivating standardization",
     sourceAccountID: "<value>",
     destinationAccountID: "<value>",
-    type: TransferInitiationType.Transfer,
+    type: "TRANSFER",
     amount: 288408,
     asset: "<value>",
     validated: false,
@@ -321,7 +320,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { TransferInitiationWritableStatus } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -335,7 +333,7 @@ const paymentsClient = new PaymentsClient({
 
 async function run() {
   await paymentsClient.transferInitiations.updateStatus("<value>", {
-    status: TransferInitiationWritableStatus.Rejected,
+    status: "REJECTED",
   });
 
   

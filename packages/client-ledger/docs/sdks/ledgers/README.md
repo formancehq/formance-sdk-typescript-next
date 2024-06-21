@@ -150,7 +150,6 @@ run();
 
 ```typescript
 import { LedgerClient } from "@formance/sdk-ledger";
-import { AddMetadataActionAction, TargetType } from "@formance/sdk-ledger/models/components";
 
 const ledgerClient = new LedgerClient({
   security: {
@@ -161,9 +160,9 @@ const ledgerClient = new LedgerClient({
 async function run() {
   const result = await ledgerClient.ledgers.bulk("<value>", [
       {
-        action: AddMetadataActionAction.AddMetadata,
+        action: "ADD_METADATA",
       data:     {
-            targetType: TargetType.Account,
+            targetType: "ACCOUNT",
             targetId: "<value>",
             metadata: {
               "key": "<value>",

@@ -67,7 +67,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { AccountType } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -84,7 +83,7 @@ async function run() {
     reference: "<value>",
     connectorID: "<value>",
     createdAt: new Date("2023-06-18T07:14:55.676Z"),
-    type: AccountType.Unknown,
+    type: "UNKNOWN",
   });
 
   // Handle the result

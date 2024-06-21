@@ -14,7 +14,6 @@
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { PaymentScheme, PaymentStatus, PaymentType } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -31,9 +30,9 @@ async function run() {
     reference: "<value>",
     connectorID: "<value>",
     amount: 486589,
-    type: PaymentType.Payout,
-    status: PaymentStatus.Dispute,
-    scheme: PaymentScheme.A2a,
+    type: "PAYOUT",
+    status: "DISPUTE",
+    scheme: "a2a",
     asset: "<value>",
   });
 

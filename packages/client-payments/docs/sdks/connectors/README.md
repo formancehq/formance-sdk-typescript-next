@@ -17,7 +17,6 @@
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -30,7 +29,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.connectors.install(Connector.CurrencyCloud, {
+  const result = await paymentsClient.connectors.install("CURRENCY-CLOUD", {
       name: "<value>",
       apiKey: "<value>",
       apiSecret: "<value>",
@@ -70,7 +69,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -83,7 +81,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.connectors.uninstall(Connector.Moneycorp, "<value>");
+  await paymentsClient.connectors.uninstall("MONEYCORP", "<value>");
 
   
 }
@@ -118,7 +116,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -131,7 +128,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.connectors.update(Connector.Adyen, "<value>", {
+  await paymentsClient.connectors.update("ADYEN", "<value>", {
       name: "<value>",
       apiKey: "<value>",
     });
@@ -170,7 +167,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -183,7 +179,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.connectors.get(Connector.Moneycorp, "<value>");
+  const result = await paymentsClient.connectors.get("MONEYCORP", "<value>");
 
   // Handle the result
   console.log(result)
@@ -219,7 +215,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -232,7 +227,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.connectors.reset(Connector.Modulr, "<value>");
+  await paymentsClient.connectors.reset("MODULR", "<value>");
 
   
 }
@@ -267,7 +262,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -280,7 +274,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.connectors.listTask(Connector.Wise, "<value>", 15, "<value>");
+  const result = await paymentsClient.connectors.listTask("WISE", "<value>", 15, "<value>");
 
   for await (const page of result) {
     // handle page
@@ -319,7 +313,6 @@ run();
 
 ```typescript
 import { PaymentsClient } from "@formance/sdk-payments";
-import { Connector } from "@formance/sdk-payments/models/components";
 
 const paymentsClient = new PaymentsClient({
   security: {
@@ -332,7 +325,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.connectors.getTask(Connector.Atlar, "<value>", "<value>");
+  const result = await paymentsClient.connectors.getTask("ATLAR", "<value>", "<value>");
 
   // Handle the result
   console.log(result)
