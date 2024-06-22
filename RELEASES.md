@@ -95,3 +95,11 @@ Based on:
 - Speakeasy CLI 1.313.0 (2.347.8) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.1.2] ./packages/client-ledger
+
+## 2024-06-22 00:15:03
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.314.2 (2.349.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.1.3] ./packages/client-auth

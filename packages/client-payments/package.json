@@ -1,6 +1,6 @@
 {
   "name": "@formance/sdk-payments",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Formance",  
   "main": "./index.js",
   "sideEffects": false,
