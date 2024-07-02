@@ -1,4 +1,4 @@
-# WalletsDebitAmount
+# DebitWalletInputAmount
 
 
 ## Fields

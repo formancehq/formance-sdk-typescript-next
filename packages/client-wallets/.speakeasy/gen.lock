@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a70888d9-795e-48d6-b8d1-99347eb16e34
 management:
-  docChecksum: d8ba2ae9dddca3adce4438f246753f1e
+  docChecksum: 058a866d8b8522f52f13e0af0bd7c816
   docVersion: 0.0.0
-  speakeasyVersion: 1.314.2
-  generationVersion: 2.349.6
-  releaseVersion: 0.1.3
-  configChecksum: e89ce4fcdb647e082931e2fb6b5352ac
+  speakeasyVersion: 1.325.1
+  generationVersion: 2.358.0
+  releaseVersion: 1.0.0-alpha
+  configChecksum: 5b53ca3ae994ca12e132b6e6ac7d26b6
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-wallets
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.10.2
+    core: 3.11.0
     errors: 2.81.10
     flattening: 2.81.1
     globalSecurity: 2.82.9
@@ -65,6 +65,8 @@ generatedFiles:
   - src/models/components/walletcounterpartwallet.ts
   - src/models/components/walletserrorcodes.ts
   - src/models/components/wallet.ts
+  - src/models/components/creditwalletinput.ts
+  - src/models/components/debitwalletinput.ts
   - src/models/components/walletsummary.ts
   - src/models/components/balanceswithassets.ts
   - src/models/components/balance.ts
@@ -97,6 +99,10 @@ generatedFiles:
   - docs/models/components/walletcounterpartwallet.md
   - docs/models/components/walletserrorcodes.md
   - docs/models/components/wallet.md
+  - docs/models/components/amount.md
+  - docs/models/components/creditwalletinput.md
+  - docs/models/components/debitwalletinputamount.md
+  - docs/models/components/debitwalletinput.md
   - docs/models/components/walletsummary.md
   - docs/models/components/balanceswithassets.md
   - docs/models/components/balance.md
@@ -120,11 +126,7 @@ generatedFiles:
   - docs/models/operations/walletsgetresponsebody.md
   - docs/models/operations/walletsupdaterequestbody.md
   - docs/models/operations/walletsupdaterequest.md
-  - docs/models/operations/amount.md
-  - docs/models/operations/walletscreditrequestbody.md
   - docs/models/operations/walletscreditrequest.md
-  - docs/models/operations/walletsdebitamount.md
-  - docs/models/operations/walletsdebitrequestbody.md
   - docs/models/operations/walletsdebitrequest.md
   - docs/models/operations/walletsdebitresponsebody.md
   - docs/models/operations/walletssummaryrequest.md
@@ -140,7 +142,7 @@ generatedFiles:
   - docs/models/operations/balancesgetresponsebody.md
   - docs/models/errors/walletserror.md
   - docs/lib/utils/retryconfig.md
-  - docs/sdks/ledgerwallets/README.md
+  - docs/sdks/walletsclient/README.md
   - docs/sdks/holds/README.md
   - docs/sdks/wallets/README.md
   - docs/sdks/balances/README.md

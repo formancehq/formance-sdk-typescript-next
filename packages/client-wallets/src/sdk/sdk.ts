@@ -12,7 +12,7 @@ import { Balances } from "./balances.js";
 import { Holds } from "./holds.js";
 import { Wallets } from "./wallets.js";
 
-export class LedgerWallets extends ClientSDK {
+export class WalletsClient extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
 
     constructor(options: SDKOptions = {}) {

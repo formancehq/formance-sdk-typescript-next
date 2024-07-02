@@ -13,6 +13,7 @@ import { HTTPClient } from "../lib/http.js";
 import * as retries$ from "../lib/retries.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import * as components from "../models/components/index.js";
 import * as errors from "../models/errors/index.js";
 import * as operations from "../models/operations/index.js";
 import { createPageIterator, PageIterator, Paginator } from "../types/operations.js";
@@ -398,12 +399,12 @@ export class Wallets extends ClientSDK {
 
     async credit(
         id: string,
-        requestBody: operations.WalletsCreditRequestBody,
+        creditWalletInput: components.CreditWalletInput,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<void> {
         const input$: operations.WalletsCreditRequest = {
             id: id,
-            requestBody: requestBody,
+            creditWalletInput: creditWalletInput,
         };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
@@ -415,7 +416,7 @@ export class Wallets extends ClientSDK {
             (value$) => operations.WalletsCreditRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.CreditWalletInput, { explode: true });
 
         const pathParams$ = {
             id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
@@ -484,12 +485,12 @@ export class Wallets extends ClientSDK {
 
     async debit(
         id: string,
-        requestBody: operations.WalletsDebitRequestBody,
+        debitWalletInput: components.DebitWalletInput,
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<operations.WalletsDebitResponseBody | undefined> {
         const input$: operations.WalletsDebitRequest = {
             id: id,
-            requestBody: requestBody,
+            debitWalletInput: debitWalletInput,
         };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
@@ -501,7 +502,7 @@ export class Wallets extends ClientSDK {
             (value$) => operations.WalletsDebitRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
+        const body$ = encodeJSON$("body", payload$.DebitWalletInput, { explode: true });
 
         const pathParams$ = {
             id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),

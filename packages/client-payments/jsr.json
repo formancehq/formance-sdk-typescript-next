@@ -2,7 +2,7 @@
 
 {
   "name": "@formance/sdk-payments",
-  "version": "0.2.3",
+  "version": "1.0.0-alpha",
   "exports": {
     ".": "./src/index.ts",    
     "./models/errors": "./src/models/errors/index.ts",    

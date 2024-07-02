@@ -12,9 +12,9 @@
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -25,7 +25,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.balances.create("<value>", {
+  const result = await walletsClient.balances.create("<value>", {
     name: "<value>",
   });
 
@@ -62,9 +62,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -75,7 +75,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.balances.list("<value>", "<value>", 768578);
+  const result = await walletsClient.balances.list("<value>", "<value>", 768578);
 
   for await (const page of result) {
     // handle page
@@ -112,9 +112,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -125,7 +125,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.balances.get("<value>", "<value>");
+  const result = await walletsClient.balances.get("<value>", "<value>");
 
   // Handle the result
   console.log(result)

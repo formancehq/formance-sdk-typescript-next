@@ -1,6 +1,6 @@
 configVersion: 2.0.0
 generation:
-  sdkClassName: LedgerWallets
+  sdkClassName: WalletsClient
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -12,7 +12,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
 typescript:
-  version: 0.1.3
+  version: 1.0.0-alpha
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -33,6 +33,7 @@ typescript:
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: require-security-and-request
+  moduleFormat: commonjs
   outputModelSuffix: output
   packageName: '@formance/sdk-wallets'
   responseFormat: flat

@@ -16,9 +16,9 @@
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -29,7 +29,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.wallets.list("<value>", {
+  const result = await walletsClient.wallets.list("<value>", {
     "key": "<value>",
   }, "<value>", 768578);
 
@@ -69,9 +69,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -82,7 +82,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  await ledgerWallets.wallets.create({
+  await walletsClient.wallets.create({
     name: "<value>",
     metadata: {
       "key": "<value>",
@@ -120,9 +120,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -133,7 +133,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.wallets.get("<value>");
+  const result = await walletsClient.wallets.get("<value>");
 
   // Handle the result
   console.log(result)
@@ -167,9 +167,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -180,7 +180,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  await ledgerWallets.wallets.update("<value>", {});
+  await walletsClient.wallets.update("<value>", {});
 
   
 }
@@ -213,9 +213,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -226,7 +226,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  await ledgerWallets.wallets.credit("<value>", {
+  await walletsClient.wallets.credit("<value>", {
     amount: {
       asset: "<value>",
       amount: 446521,
@@ -251,7 +251,7 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
-| `requestBody`                                                                                                                                                                  | [operations.WalletsCreditRequestBody](../../models/operations/walletscreditrequestbody.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `creditWalletInput`                                                                                                                                                            | [components.CreditWalletInput](../../models/components/creditwalletinput.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -272,9 +272,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -285,7 +285,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.wallets.debit("<value>", {
+  const result = await walletsClient.wallets.debit("<value>", {
     amount: {
       asset: "<value>",
       amount: 746058,
@@ -307,7 +307,7 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
-| `requestBody`                                                                                                                                                                  | [operations.WalletsDebitRequestBody](../../models/operations/walletsdebitrequestbody.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `debitWalletInput`                                                                                                                                                             | [components.DebitWalletInput](../../models/components/debitwalletinput.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -328,9 +328,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -341,7 +341,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.wallets.summary("<value>");
+  const result = await walletsClient.wallets.summary("<value>");
 
   // Handle the result
   console.log(result)

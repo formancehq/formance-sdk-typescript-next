@@ -4,6 +4,8 @@
 
 export * from "./balance.js";
 export * from "./balanceswithassets.js";
+export * from "./creditwalletinput.js";
+export * from "./debitwalletinput.js";
 export * from "./hold.js";
 export * from "./schemeformanceoauth.js";
 export * from "./security.js";

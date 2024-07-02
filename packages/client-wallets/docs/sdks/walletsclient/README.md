@@ -1,4 +1,4 @@
-# LedgerWallets SDK
+# WalletsClient SDK
 
 
 ## Overview
@@ -12,9 +12,9 @@
 ### Example Usage
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -25,7 +25,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-  const result = await ledgerWallets.info();
+  const result = await walletsClient.info();
 
   // Handle the result
   console.log(result)

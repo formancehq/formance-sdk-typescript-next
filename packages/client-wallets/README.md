@@ -59,9 +59,9 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -72,7 +72,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-    const result = await ledgerWallets.info();
+    const result = await walletsClient.info();
 
     // Handle the result
     console.log(result);
@@ -86,9 +86,9 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [LedgerWallets SDK](docs/sdks/ledgerwallets/README.md)
+### [WalletsClient SDK](docs/sdks/walletsclient/README.md)
 
-* [info](docs/sdks/ledgerwallets/README.md#info)
+* [info](docs/sdks/walletsclient/README.md#info)
 
 ### [holds](docs/sdks/holds/README.md)
 
@@ -127,9 +127,9 @@ syntax.
 Here's an example of one such pagination call:
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -140,7 +140,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-    const result = await ledgerWallets.holds.list("<value>", "<value>", 768578);
+    const result = await walletsClient.holds.list("<value>", "<value>", 768578);
 
     for await (const page of result) {
         // handle page
@@ -159,9 +159,9 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -172,7 +172,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-    const result = await ledgerWallets.info({
+    const result = await walletsClient.info({
         retries: {
             strategy: "backoff",
             backoff: {
@@ -195,9 +195,9 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     retryConfig: {
         strategy: "backoff",
         backoff: {
@@ -218,7 +218,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-    const result = await ledgerWallets.info();
+    const result = await walletsClient.info();
 
     // Handle the result
     console.log(result);
@@ -243,10 +243,10 @@ Validation errors can also occur when either method arguments or data returned f
 
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 import { SDKValidationError } from "@formance/sdk-wallets/models/errors";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -259,7 +259,7 @@ const ledgerWallets = new LedgerWallets({
 async function run() {
     let result;
     try {
-        result = await ledgerWallets.holds.list("<value>", "<value>", 768578);
+        result = await walletsClient.holds.list("<value>", "<value>", 768578);
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
@@ -301,9 +301,9 @@ You can override the default server globally by passing a server index to the `s
 | 0 | `http://localhost` | None |
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     serverIdx: 0,
     security: {
         formanceOAuth: {
@@ -315,7 +315,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-    const result = await ledgerWallets.info();
+    const result = await walletsClient.info();
 
     // Handle the result
     console.log(result);
@@ -331,9 +331,9 @@ run();
 The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     serverURL: "http://localhost",
     security: {
         formanceOAuth: {
@@ -345,7 +345,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-    const result = await ledgerWallets.info();
+    const result = await walletsClient.info();
 
     // Handle the result
     console.log(result);
@@ -374,7 +374,7 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 import { HTTPClient } from "@formance/sdk-wallets/lib/http";
 
 const httpClient = new HTTPClient({
@@ -401,7 +401,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new LedgerWallets({ httpClient });
+const sdk = new WalletsClient({ httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -419,9 +419,9 @@ This SDK supports the following security schemes globally:
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
-import { LedgerWallets } from "@formance/sdk-wallets";
+import { WalletsClient } from "@formance/sdk-wallets";
 
-const ledgerWallets = new LedgerWallets({
+const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -432,7 +432,7 @@ const ledgerWallets = new LedgerWallets({
 });
 
 async function run() {
-    const result = await ledgerWallets.info();
+    const result = await walletsClient.info();
 
     // Handle the result
     console.log(result);
