@@ -1,6 +1,12 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
+    auth:
+        inputs:
+            - location: registry.speakeasyapi.dev/formance/formance/auth
+    flows:
+        inputs:
+            - location: registry.speakeasyapi.dev/formance/formance/flows
     ledger:
         inputs:
             - location: registry.speakeasyapi.dev/formance/formance/ledger
@@ -13,13 +19,15 @@ sources:
     wallets:
         inputs:
             - location: registry.speakeasyapi.dev/formance/formance/wallets
-    auth:
-        inputs:
-            - location: registry.speakeasyapi.dev/formance/formance/auth
-    flows:
-        inputs:
-            - location: registry.speakeasyapi.dev/formance/formance/flows
 targets:
+    ts-auth:
+        target: typescript
+        source: auth
+        output: ./packages/client-auth
+    ts-flows:
+        target: typescript
+        source: flows
+        output: ./packages/client-flows
     ts-ledger:
         target: typescript
         source: ledger
@@ -36,11 +44,3 @@ targets:
         target: typescript
         source: wallets
         output: ./packages/client-wallets
-    ts-auth:
-        target: typescript
-        source: auth
-        output: ./packages/client-auth
-    ts-flows:
-        target: typescript
-        source: flows
-        output: ./packages/client-flows
