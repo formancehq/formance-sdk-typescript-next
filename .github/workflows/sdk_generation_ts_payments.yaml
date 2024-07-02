@@ -1,4 +1,4 @@
-name: Generate TS-PAYMENTS
+name: Generate Payments SDK
 permissions:
   checks: write
   contents: write

@@ -1,4 +1,4 @@
-name: Generate TS-WALLETS
+name: Generate Wallets SDK
 permissions:
   checks: write
   contents: write

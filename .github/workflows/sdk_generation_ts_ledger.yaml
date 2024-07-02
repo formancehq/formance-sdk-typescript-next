@@ -1,4 +1,4 @@
-name: Generate TS-LEDGER
+name: Generate Ledger SDK
 permissions:
   checks: write
   contents: write

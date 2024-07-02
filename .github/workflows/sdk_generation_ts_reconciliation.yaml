@@ -1,4 +1,4 @@
-name: Generate TS-RECONCILIATION
+name: Generate Reconciliation SDK
 permissions:
   checks: write
   contents: write

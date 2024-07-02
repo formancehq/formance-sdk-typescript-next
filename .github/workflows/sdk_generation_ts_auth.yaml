@@ -1,4 +1,4 @@
-name: Generate TS-AUTH
+name: Generate Auth SDK
 permissions:
   checks: write
   contents: write

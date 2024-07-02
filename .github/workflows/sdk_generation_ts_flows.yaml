@@ -1,4 +1,4 @@
-name: Generate TS-FLOWS
+name: Generate Flows SDK
 permissions:
   checks: write
   contents: write
