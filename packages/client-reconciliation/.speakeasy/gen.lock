@@ -3,13 +3,14 @@ id: 547ff383-26ff-4651-b099-ec0df7c6565b
 management:
   docChecksum: db197f636b9eff831bbf1ce038033a73
   docVersion: 0.0.0
-  speakeasyVersion: 1.325.1
-  generationVersion: 2.358.0
-  releaseVersion: 1.0.0-alpha.1
-  configChecksum: 65f05556c25f386365ab5e9a6b7ce02f
+  speakeasyVersion: 1.326.0
+  generationVersion: 2.359.0
+  releaseVersion: 1.0.0-alpha
+  configChecksum: fc5eb4b20446567062f0a53c12bd3489
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-reconciliation
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0

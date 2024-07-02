@@ -22,25 +22,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
+npm add @formance/sdk-reconciliation
 ```
 
 ### PNPM
 
 ```bash
-pnpm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
+pnpm add @formance/sdk-reconciliation
 ```
 
 ### Bun
 
 ```bash
-bun add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
+bun add @formance/sdk-reconciliation
 ```
 
 ### Yarn
 
 ```bash
-yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation zod
+yarn add @formance/sdk-reconciliation zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
