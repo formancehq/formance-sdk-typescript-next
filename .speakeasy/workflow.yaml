@@ -16,6 +16,9 @@ sources:
     auth:
         inputs:
             - location: registry.speakeasyapi.dev/formance/formance/auth
+    flows:
+        inputs:
+            - location: registry.speakeasyapi.dev/formance/formance/flows
 targets:
     ts-ledger:
         target: typescript
@@ -37,3 +40,7 @@ targets:
         target: typescript
         source: auth
         output: ./packages/client-auth
+    ts-flows:
+        target: typescript
+        source: flows
+        output: ./packages/client-flows

@@ -4,6 +4,9 @@ targets:
     ts-auth:
         source: auth
         outLocation: ./packages/client-auth
+    ts-flows:
+        source: flows
+        outLocation: ./packages/client-flows
     ts-ledger:
         source: ledger
         outLocation: ./packages/client-ledger
@@ -23,6 +26,9 @@ workflow:
         auth:
             inputs:
                 - location: registry.speakeasyapi.dev/formance/formance/auth
+        flows:
+            inputs:
+                - location: registry.speakeasyapi.dev/formance/formance/flows
         ledger:
             inputs:
                 - location: registry.speakeasyapi.dev/formance/formance/ledger
@@ -40,6 +46,10 @@ workflow:
             target: typescript
             source: auth
             output: ./packages/client-auth
+        ts-flows:
+            target: typescript
+            source: flows
+            output: ./packages/client-flows
         ts-ledger:
             target: typescript
             source: ledger

@@ -1,0 +1,11 @@
+# LedgerAccount
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `address`                                                                          | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `metadata`                                                                         | Record<string, *string*>                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `volumes`                                                                          | Record<string, [components.LedgerVolume](../../models/components/ledgervolume.md)> | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `effectiveVolumes`                                                                 | Record<string, [components.LedgerVolume](../../models/components/ledgervolume.md)> | :heavy_check_mark:                                                                 | N/A                                                                                |
