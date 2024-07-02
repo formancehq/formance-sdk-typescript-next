@@ -5,8 +5,8 @@ management:
   docVersion: 0.0.0
   speakeasyVersion: 1.326.0
   generationVersion: 2.359.0
-  releaseVersion: 1.0.0-alpha
-  configChecksum: fc5eb4b20446567062f0a53c12bd3489
+  releaseVersion: 1.0.0-alpha.1
+  configChecksum: 65f05556c25f386365ab5e9a6b7ce02f
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-reconciliation
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
