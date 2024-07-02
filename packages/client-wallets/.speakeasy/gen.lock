@@ -5,8 +5,8 @@ management:
   docVersion: 0.0.0
   speakeasyVersion: 1.325.1
   generationVersion: 2.358.0
-  releaseVersion: 1.0.0-alpha
-  configChecksum: 5b53ca3ae994ca12e132b6e6ac7d26b6
+  releaseVersion: 1.0.0-alpha.1
+  configChecksum: 4db941026daf4e253c73e1d387b06dfe
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-wallets
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets

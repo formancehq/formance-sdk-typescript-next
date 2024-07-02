@@ -103,3 +103,11 @@ Based on:
 - Speakeasy CLI 1.314.2 (2.349.6) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [typescript v0.1.3] ./packages/client-auth
+
+## 2024-07-02 13:15:56
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.325.1 (2.358.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.0.0-alpha.1] ./packages/client-wallets

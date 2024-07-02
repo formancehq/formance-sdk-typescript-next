@@ -5,8 +5,8 @@ management:
   docVersion: 0.0.0
   speakeasyVersion: 1.325.1
   generationVersion: 2.358.0
-  releaseVersion: 1.0.0-alpha
-  configChecksum: edac3baffc0fc12b8296f57b1269338f
+  releaseVersion: 1.0.0-alpha.1
+  configChecksum: a2c0b5dc7b3e1d9390f608d8ca3e71f3
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-payments
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments

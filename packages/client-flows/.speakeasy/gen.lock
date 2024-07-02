@@ -5,8 +5,11 @@ management:
   docVersion: 0.0.0
   speakeasyVersion: 1.325.1
   generationVersion: 2.358.0
-  releaseVersion: 1.0.0-alpha
-  configChecksum: d4169a2846c79e442fe58cfd7091634c
+  releaseVersion: 1.0.0-alpha.1
+  configChecksum: 07b93f6112fe50f77588e5efb5757a74
+  repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
+  repoSubDirectory: packages/client-flows
+  installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-flows
 features:
   typescript:
     additionalDependencies: 0.1.0
