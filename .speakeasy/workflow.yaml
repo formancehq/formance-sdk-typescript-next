@@ -24,23 +24,41 @@ targets:
         target: typescript
         source: auth
         output: ./packages/client-auth
+        publish:
+            npm:
+                token: $npm_token
     ts-flows:
         target: typescript
         source: flows
         output: ./packages/client-flows
+        publish:
+            npm:
+                token: $npm_token
     ts-ledger:
         target: typescript
         source: ledger
         output: ./packages/client-ledger
+        publish:
+            npm:
+                token: $npm_token
     ts-payments:
         target: typescript
         source: payments
         output: ./packages/client-payments
+        publish:
+            npm:
+                token: $npm_token
     ts-reconciliation:
         target: typescript
         source: reconciliation
         output: ./packages/client-reconciliation
+        publish:
+            npm:
+                token: $npm_token
     ts-wallets:
         target: typescript
         source: wallets
         output: ./packages/client-wallets
+        publish:
+            npm:
+                token: $npm_token
