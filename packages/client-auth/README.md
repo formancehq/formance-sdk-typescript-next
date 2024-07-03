@@ -22,25 +22,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth
+npm add @formance/sdk-auth
 ```
 
 ### PNPM
 
 ```bash
-pnpm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth
+pnpm add @formance/sdk-auth
 ```
 
 ### Bun
 
 ```bash
-bun add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth
+bun add @formance/sdk-auth
 ```
 
 ### Yarn
 
 ```bash
-yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth zod
+yarn add @formance/sdk-auth zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.

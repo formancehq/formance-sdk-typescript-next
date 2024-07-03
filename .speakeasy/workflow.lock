@@ -3,7 +3,7 @@ sources: {}
 targets:
     ts-auth:
         source: auth
-        outLocation: ./packages/client-auth
+        outLocation: packages/client-auth
     ts-flows:
         source: flows
         outLocation: packages/client-flows
