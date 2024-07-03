@@ -18,7 +18,7 @@ targets:
         outLocation: packages/client-reconciliation
     ts-wallets:
         source: wallets
-        outLocation: ./packages/client-wallets
+        outLocation: packages/client-wallets
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
