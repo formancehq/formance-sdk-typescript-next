@@ -6,7 +6,7 @@ targets:
         outLocation: ./packages/client-auth
     ts-flows:
         source: flows
-        outLocation: ./packages/client-flows
+        outLocation: packages/client-flows
     ts-ledger:
         source: ledger
         outLocation: ./packages/client-ledger
