@@ -41,10 +41,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
-    ts-payments:
+    ts-connectivity:
         target: typescript
         source: payments
-        output: packages/client-payments
+        output: packages/client-connectivity
         publish:
             npm:
                 token: $npm_token

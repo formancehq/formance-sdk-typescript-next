@@ -1,6 +1,6 @@
 configVersion: 2.0.0
 generation:
-  sdkClassName: PaymentsClient
+  sdkClassName: ConnectivityClient
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -35,7 +35,7 @@ typescript:
   methodArguments: require-security-and-request
   moduleFormat: commonjs
   outputModelSuffix: output
-  packageName: '@formance/sdk-payments'
+  packageName: "@formance/sdk-connectivity"
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true

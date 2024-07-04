@@ -1,4 +1,4 @@
-name: Generate Payments SDK
+name: Generate Connectivity SDK
 permissions:
   checks: write
   contents: write
