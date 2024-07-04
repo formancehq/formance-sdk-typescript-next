@@ -1,9 +1,12 @@
-speakeasyVersion: 1.326.0
+speakeasyVersion: 1.326.1
 sources: {}
 targets:
     ts-auth:
         source: auth
         outLocation: packages/client-auth
+    ts-connectivity:
+        source: payments
+        outLocation: packages/client-connectivity
     ts-flows:
         source: flows
         outLocation: packages/client-flows
@@ -49,6 +52,13 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+        ts-connectivity:
+            target: typescript
+            source: payments
+            output: packages/client-connectivity
+            publish:
+                npm:
+                    token: $npm_token
         ts-flows:
             target: typescript
             source: flows
@@ -60,13 +70,6 @@ workflow:
             target: typescript
             source: ledger
             output: packages/client-ledger
-            publish:
-                npm:
-                    token: $npm_token
-        ts-payments:
-            target: typescript
-            source: payments
-            output: packages/client-payments
             publish:
                 npm:
                     token: $npm_token

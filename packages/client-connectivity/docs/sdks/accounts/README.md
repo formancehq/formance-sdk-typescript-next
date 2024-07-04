@@ -13,9 +13,9 @@
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -26,7 +26,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.accounts.list("<value>", 768578, [
+  const result = await connectivityClient.accounts.list("<value>", 768578, [
     "<value>",
   ], "<value>");
 
@@ -66,9 +66,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -79,7 +79,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.accounts.create({
+  const result = await connectivityClient.accounts.create({
     reference: "<value>",
     connectorID: "<value>",
     createdAt: new Date("2023-06-18T07:14:55.676Z"),
@@ -118,9 +118,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -131,7 +131,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.accounts.get("<value>");
+  const result = await connectivityClient.accounts.get("<value>");
 
   // Handle the result
   console.log(result)
@@ -165,9 +165,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -178,7 +178,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.accounts.balances({
+  const result = await connectivityClient.accounts.balances({
     accountId: "<value>",
     sort: [
       "<value>",

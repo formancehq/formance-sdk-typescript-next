@@ -16,9 +16,9 @@
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -29,7 +29,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.cashPools.list("<value>", 768578);
+  const result = await connectivityClient.cashPools.list("<value>", 768578);
 
   for await (const page of result) {
     // handle page
@@ -65,9 +65,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -78,7 +78,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.cashPools.create({
+  const result = await connectivityClient.cashPools.create({
     name: "<value>",
     accountIDs: [
       "<value>",
@@ -117,9 +117,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -130,7 +130,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.cashPools.get("<value>");
+  const result = await connectivityClient.cashPools.get("<value>");
 
   // Handle the result
   console.log(result)
@@ -164,9 +164,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -177,7 +177,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.cashPools.delete("<value>");
+  await connectivityClient.cashPools.delete("<value>");
 
   
 }
@@ -210,9 +210,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -223,7 +223,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.cashPools.addAccount("<value>", {
+  await connectivityClient.cashPools.addAccount("<value>", {
     accountID: "<value>",
   });
 
@@ -259,9 +259,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -272,7 +272,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.cashPools.removeAccount("<value>", "<value>");
+  await connectivityClient.cashPools.removeAccount("<value>", "<value>");
 
   
 }
@@ -306,9 +306,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -319,7 +319,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.cashPools.balances("<value>", new Date("2023-04-21T20:58:14.170Z"));
+  const result = await connectivityClient.cashPools.balances("<value>", new Date("2023-04-21T20:58:14.170Z"));
 
   // Handle the result
   console.log(result)

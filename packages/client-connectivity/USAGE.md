@@ -1,8 +1,8 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -13,7 +13,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.info();
+    const result = await connectivityClient.info();
 
     // Handle the result
     console.log(result);

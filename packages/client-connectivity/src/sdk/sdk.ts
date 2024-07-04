@@ -16,7 +16,7 @@ import { Connectors } from "./connectors.js";
 import { PaymentsV1 } from "./paymentsv1.js";
 import { TransferInitiations } from "./transferinitiations.js";
 
-export class PaymentsClient extends ClientSDK {
+export class ConnectivityClient extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
 
     constructor(options: SDKOptions = {}) {

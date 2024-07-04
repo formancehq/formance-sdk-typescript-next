@@ -22,25 +22,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
+npm add @formance/sdk-connectivity
 ```
 
 ### PNPM
 
 ```bash
-pnpm add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
+pnpm add @formance/sdk-connectivity
 ```
 
 ### Bun
 
 ```bash
-bun add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
+bun add @formance/sdk-connectivity
 ```
 
 ### Yarn
 
 ```bash
-yarn add https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments zod
+yarn add @formance/sdk-connectivity zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -59,9 +59,9 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -72,7 +72,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.info();
+    const result = await connectivityClient.info();
 
     // Handle the result
     console.log(result);
@@ -86,9 +86,9 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [PaymentsClient SDK](docs/sdks/paymentsclient/README.md)
+### [ConnectivityClient SDK](docs/sdks/connectivityclient/README.md)
 
-* [info](docs/sdks/paymentsclient/README.md#info)
+* [info](docs/sdks/connectivityclient/README.md#info)
 
 ### [accounts](docs/sdks/accounts/README.md)
 
@@ -156,9 +156,9 @@ syntax.
 Here's an example of one such pagination call:
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -169,7 +169,12 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.accounts.list("<value>", 768578, ["<value>"], "<value>");
+    const result = await connectivityClient.accounts.list(
+        "<value>",
+        768578,
+        ["<value>"],
+        "<value>"
+    );
 
     for await (const page of result) {
         // handle page
@@ -188,9 +193,9 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -201,7 +206,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.info({
+    const result = await connectivityClient.info({
         retries: {
             strategy: "backoff",
             backoff: {
@@ -224,9 +229,9 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     retryConfig: {
         strategy: "backoff",
         backoff: {
@@ -247,7 +252,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.info();
+    const result = await connectivityClient.info();
 
     // Handle the result
     console.log(result);
@@ -272,10 +277,10 @@ Validation errors can also occur when either method arguments or data returned f
 
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
-import { SDKValidationError } from "@formance/sdk-payments/models/errors";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
+import { SDKValidationError } from "@formance/sdk-connectivity/models/errors";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -288,7 +293,7 @@ const paymentsClient = new PaymentsClient({
 async function run() {
     let result;
     try {
-        result = await paymentsClient.info();
+        result = await connectivityClient.info();
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
@@ -329,9 +334,9 @@ You can override the default server globally by passing a server index to the `s
 | 0 | `http://localhost` | None |
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     serverIdx: 0,
     security: {
         formanceOAuth: {
@@ -343,7 +348,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.info();
+    const result = await connectivityClient.info();
 
     // Handle the result
     console.log(result);
@@ -359,9 +364,9 @@ run();
 The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     serverURL: "http://localhost",
     security: {
         formanceOAuth: {
@@ -373,7 +378,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.info();
+    const result = await connectivityClient.info();
 
     // Handle the result
     console.log(result);
@@ -402,8 +407,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
-import { HTTPClient } from "@formance/sdk-payments/lib/http";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
+import { HTTPClient } from "@formance/sdk-connectivity/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -429,7 +434,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new PaymentsClient({ httpClient });
+const sdk = new ConnectivityClient({ httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -447,9 +452,9 @@ This SDK supports the following security schemes globally:
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
     security: {
         formanceOAuth: {
             clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -460,7 +465,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-    const result = await paymentsClient.info();
+    const result = await connectivityClient.info();
 
     // Handle the result
     console.log(result);

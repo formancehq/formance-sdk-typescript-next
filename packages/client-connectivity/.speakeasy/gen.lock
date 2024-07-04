@@ -3,13 +3,14 @@ id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
   docChecksum: 00309fe8f1f0a66ef07772d3cff3db4c
   docVersion: 0.0.0
-  speakeasyVersion: 1.325.1
-  generationVersion: 2.358.0
-  releaseVersion: 1.0.0-alpha.1
-  configChecksum: a2c0b5dc7b3e1d9390f608d8ca3e71f3
+  speakeasyVersion: 1.326.1
+  generationVersion: 2.359.0
+  releaseVersion: 1.0.0-alpha
+  configChecksum: a437108ca4810aa1fafb6884ba34104f
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
-  repoSubDirectory: packages/client-payments
-  installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-payments
+  repoSubDirectory: packages/client-connectivity
+  installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-connectivity
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -268,7 +269,7 @@ generatedFiles:
   - docs/models/operations/transferinitiationsupdatestatusrequestbody.md
   - docs/models/operations/transferinitiationsupdatestatusrequest.md
   - docs/lib/utils/retryconfig.md
-  - docs/sdks/paymentsclient/README.md
+  - docs/sdks/connectivityclient/README.md
   - docs/sdks/accounts/README.md
   - docs/sdks/bankaccounts/README.md
   - docs/sdks/connectors/README.md

@@ -1,8 +1,8 @@
 
 
 {
-  "name": "@formance/sdk-payments",
-  "version": "1.0.0-alpha.1",
+  "name": "@formance/sdk-connectivity",
+  "version": "1.0.0-alpha",
   "exports": {
     ".": "./src/index.ts",    
     "./models/errors": "./src/models/errors/index.ts",    

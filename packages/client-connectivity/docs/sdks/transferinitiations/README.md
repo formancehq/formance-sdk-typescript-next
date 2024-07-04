@@ -16,9 +16,9 @@
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -29,7 +29,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.transferInitiations.list("<value>", 768578, [
+  const result = await connectivityClient.transferInitiations.list("<value>", 768578, [
     "<value>",
   ], {
     "key": "<value>",
@@ -71,9 +71,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -84,7 +84,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.transferInitiations.create({
+  const result = await connectivityClient.transferInitiations.create({
     reference: "<value>",
     scheduledAt: new Date("2023-06-18T07:14:55.676Z"),
     description: "Multi-tiered motivating standardization",
@@ -128,9 +128,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -141,7 +141,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  const result = await paymentsClient.transferInitiations.get("<value>");
+  const result = await connectivityClient.transferInitiations.get("<value>");
 
   // Handle the result
   console.log(result)
@@ -175,9 +175,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -188,7 +188,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.transferInitiations.delete("<value>");
+  await connectivityClient.transferInitiations.delete("<value>");
 
   
 }
@@ -221,9 +221,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -234,7 +234,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.transferInitiations.retry("<value>");
+  await connectivityClient.transferInitiations.retry("<value>");
 
   
 }
@@ -267,9 +267,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -280,7 +280,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.transferInitiations.reverse("<value>", {
+  await connectivityClient.transferInitiations.reverse("<value>", {
     reference: "<value>",
     description: "Innovative system-worthy groupware",
     amount: 233332,
@@ -319,9 +319,9 @@ run();
 ### Example Usage
 
 ```typescript
-import { PaymentsClient } from "@formance/sdk-payments";
+import { ConnectivityClient } from "@formance/sdk-connectivity";
 
-const paymentsClient = new PaymentsClient({
+const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
       clientID: "<YOUR_CLIENT_ID_HERE>",
@@ -332,7 +332,7 @@ const paymentsClient = new PaymentsClient({
 });
 
 async function run() {
-  await paymentsClient.transferInitiations.updateStatus("<value>", {
+  await connectivityClient.transferInitiations.updateStatus("<value>", {
     status: "REJECTED",
   });
 
