@@ -3,7 +3,7 @@
  */
 
 import { SDKHooks } from "../hooks/hooks.js";
-import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config.js";
+import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import {
     encodeFormQuery as encodeFormQuery$,
     encodeJSON as encodeJSON$,
@@ -52,10 +52,6 @@ export class PaymentsV1 extends ClientSDK {
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<operations.PaymentsV1CreateResponseBody> {
         const input$ = request;
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Content-Type", "application/json");
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -67,6 +63,11 @@ export class PaymentsV1 extends ClientSDK {
         const path$ = this.templateURLComponent("/api/payments/payments")();
 
         const query$ = "";
+
+        const headers$ = new Headers({
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -80,7 +81,6 @@ export class PaymentsV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -109,7 +109,7 @@ export class PaymentsV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -139,9 +139,6 @@ export class PaymentsV1 extends ClientSDK {
             sort: sort,
             query: query,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -159,6 +156,10 @@ export class PaymentsV1 extends ClientSDK {
             sort: payload$.sort,
         });
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -171,7 +172,6 @@ export class PaymentsV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -200,7 +200,7 @@ export class PaymentsV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -238,9 +238,6 @@ export class PaymentsV1 extends ClientSDK {
         const input$: operations.PaymentsV1GetRequest = {
             payementId: payementId,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -259,6 +256,10 @@ export class PaymentsV1 extends ClientSDK {
 
         const query$ = "";
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -271,7 +272,6 @@ export class PaymentsV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -300,7 +300,7 @@ export class PaymentsV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -322,10 +322,6 @@ export class PaymentsV1 extends ClientSDK {
             paymentId: paymentId,
             requestBody: requestBody,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Content-Type", "application/json");
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -346,6 +342,11 @@ export class PaymentsV1 extends ClientSDK {
 
         const query$ = "";
 
+        const headers$ = new Headers({
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -358,7 +359,6 @@ export class PaymentsV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -387,7 +387,7 @@ export class PaymentsV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
