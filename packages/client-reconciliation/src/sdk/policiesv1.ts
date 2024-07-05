@@ -3,7 +3,7 @@
  */
 
 import { SDKHooks } from "../hooks/hooks.js";
-import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config.js";
+import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import {
     encodeFormQuery as encodeFormQuery$,
     encodeJSON as encodeJSON$,
@@ -51,10 +51,6 @@ export class PoliciesV1 extends ClientSDK {
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<operations.PoliciesV1CreateResponseBody> {
         const input$ = request;
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Content-Type", "application/json");
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -66,6 +62,11 @@ export class PoliciesV1 extends ClientSDK {
         const path$ = this.templateURLComponent("/api/reconciliation/policies")();
 
         const query$ = "";
+
+        const headers$ = new Headers({
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -79,7 +80,6 @@ export class PoliciesV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -108,7 +108,7 @@ export class PoliciesV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -134,9 +134,6 @@ export class PoliciesV1 extends ClientSDK {
             pageSize: pageSize,
             cursor: cursor,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -152,6 +149,10 @@ export class PoliciesV1 extends ClientSDK {
             pageSize: payload$.pageSize,
         });
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -164,7 +165,6 @@ export class PoliciesV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -193,7 +193,7 @@ export class PoliciesV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -231,9 +231,6 @@ export class PoliciesV1 extends ClientSDK {
         const input$: operations.PoliciesV1DeleteRequest = {
             policyID: policyID,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -254,6 +251,10 @@ export class PoliciesV1 extends ClientSDK {
 
         const query$ = "";
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -266,7 +267,6 @@ export class PoliciesV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -295,7 +295,7 @@ export class PoliciesV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -319,9 +319,6 @@ export class PoliciesV1 extends ClientSDK {
         const input$: operations.PoliciesV1GetRequest = {
             policyID: policyID,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -342,6 +339,10 @@ export class PoliciesV1 extends ClientSDK {
 
         const query$ = "";
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -354,7 +355,6 @@ export class PoliciesV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -383,7 +383,7 @@ export class PoliciesV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
