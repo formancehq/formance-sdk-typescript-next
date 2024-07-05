@@ -3,7 +3,7 @@
  */
 
 import { SDKHooks } from "../hooks/hooks.js";
-import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config.js";
+import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import {
     encodeFormQuery as encodeFormQuery$,
     encodeJSON as encodeJSON$,
@@ -57,9 +57,6 @@ export class Transactions extends ClientSDK {
             pit: pit,
             query: query,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -83,6 +80,10 @@ export class Transactions extends ClientSDK {
             query: payload$.query,
         });
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -95,7 +96,6 @@ export class Transactions extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -124,7 +124,7 @@ export class Transactions extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -148,9 +148,6 @@ export class Transactions extends ClientSDK {
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<PageIterator<operations.TransactionsListResponse>> {
         const input$ = request;
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -177,6 +174,10 @@ export class Transactions extends ClientSDK {
             query: payload$.query,
         });
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -189,7 +190,6 @@ export class Transactions extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -218,7 +218,7 @@ export class Transactions extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -271,10 +271,6 @@ export class Transactions extends ClientSDK {
             dryRun: dryRun,
             requestBody: requestBody,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Content-Type", "application/json");
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -297,13 +293,14 @@ export class Transactions extends ClientSDK {
             dryRun: payload$.dryRun,
         });
 
-        headers$.set(
-            "Idempotency-Key",
-            encodeSimple$("Idempotency-Key", payload$["Idempotency-Key"], {
+        const headers$ = new Headers({
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Idempotency-Key": encodeSimple$("Idempotency-Key", payload$["Idempotency-Key"], {
                 explode: false,
                 charEncoding: "none",
-            })
-        );
+            }),
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -317,7 +314,6 @@ export class Transactions extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -346,7 +342,7 @@ export class Transactions extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -376,9 +372,6 @@ export class Transactions extends ClientSDK {
             expand: expand,
             pit: pit,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -403,6 +396,10 @@ export class Transactions extends ClientSDK {
             pit: payload$.pit,
         });
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -415,7 +412,6 @@ export class Transactions extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -444,7 +440,7 @@ export class Transactions extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -466,10 +462,6 @@ export class Transactions extends ClientSDK {
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<void> {
         const input$ = request;
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Content-Type", "application/json");
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -493,13 +485,14 @@ export class Transactions extends ClientSDK {
             dryRun: payload$.dryRun,
         });
 
-        headers$.set(
-            "Idempotency-Key",
-            encodeSimple$("Idempotency-Key", payload$["Idempotency-Key"], {
+        const headers$ = new Headers({
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Idempotency-Key": encodeSimple$("Idempotency-Key", payload$["Idempotency-Key"], {
                 explode: false,
                 charEncoding: "none",
-            })
-        );
+            }),
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -513,7 +506,6 @@ export class Transactions extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -542,7 +534,7 @@ export class Transactions extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -570,9 +562,6 @@ export class Transactions extends ClientSDK {
             id: id,
             key: key,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -595,6 +584,10 @@ export class Transactions extends ClientSDK {
 
         const query$ = "";
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -607,7 +600,6 @@ export class Transactions extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -636,7 +628,7 @@ export class Transactions extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -666,9 +658,6 @@ export class Transactions extends ClientSDK {
             force: force,
             atEffectiveDate: atEffectiveDate,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -693,6 +682,10 @@ export class Transactions extends ClientSDK {
             force: payload$.force,
         });
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -705,7 +698,6 @@ export class Transactions extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -734,7 +726,7 @@ export class Transactions extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );

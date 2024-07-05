@@ -12,7 +12,7 @@ targets:
         outLocation: packages/client-flows
     ts-ledger:
         source: ledger
-        outLocation: ./packages/client-ledger
+        outLocation: packages/client-ledger
     ts-payments:
         source: payments
         outLocation: ./packages/client-payments
