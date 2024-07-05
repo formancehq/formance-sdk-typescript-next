@@ -3,7 +3,7 @@
  */
 
 import { SDKHooks } from "../hooks/hooks.js";
-import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config.js";
+import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import { HTTPClient } from "../lib/http.js";
 import * as retries$ from "../lib/retries.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -57,13 +57,13 @@ export class FlowsClient extends ClientSDK {
     async info(
         options?: RequestOptions & { retries?: retries$.RetryConfig }
     ): Promise<components.ServerInfo> {
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
-
         const path$ = this.templateURLComponent("/api/orchestration/v2/_info")();
 
         const query$ = "";
+
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
 
         const security$ =
             typeof this.options$.security === "function"
@@ -77,7 +77,6 @@ export class FlowsClient extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -105,7 +104,7 @@ export class FlowsClient extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
