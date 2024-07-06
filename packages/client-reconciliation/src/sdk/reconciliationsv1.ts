@@ -3,7 +3,7 @@
  */
 
 import { SDKHooks } from "../hooks/hooks.js";
-import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config.js";
+import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import {
     encodeFormQuery as encodeFormQuery$,
     encodeSimple as encodeSimple$,
@@ -53,9 +53,6 @@ export class ReconciliationsV1 extends ClientSDK {
             pageSize: pageSize,
             cursor: cursor,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -71,6 +68,10 @@ export class ReconciliationsV1 extends ClientSDK {
             pageSize: payload$.pageSize,
         });
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -83,7 +84,6 @@ export class ReconciliationsV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -112,7 +112,7 @@ export class ReconciliationsV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
@@ -152,9 +152,6 @@ export class ReconciliationsV1 extends ClientSDK {
         const input$: operations.ReconciliationsV1GetRequest = {
             reconciliationId: reconciliationId,
         };
-        const headers$ = new Headers();
-        headers$.set("user-agent", SDK_METADATA.userAgent);
-        headers$.set("Accept", "application/json");
 
         const payload$ = schemas$.parse(
             input$,
@@ -175,6 +172,10 @@ export class ReconciliationsV1 extends ClientSDK {
 
         const query$ = "";
 
+        const headers$ = new Headers({
+            Accept: "application/json",
+        });
+
         const security$ =
             typeof this.options$.security === "function"
                 ? await this.options$.security()
@@ -187,7 +188,6 @@ export class ReconciliationsV1 extends ClientSDK {
         };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const doOptions = { context, errorCodes: ["default"] };
         const request$ = this.createRequest$(
             context,
             {
@@ -216,7 +216,7 @@ export class ReconciliationsV1 extends ClientSDK {
         const response = await retries$.retry(
             () => {
                 const cloned = request$.clone();
-                return this.do$(cloned, doOptions);
+                return this.do$(cloned, { context, errorCodes: ["default"] });
             },
             { config: retryConfig, statusCodes: ["5XX"] }
         );
