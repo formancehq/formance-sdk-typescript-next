@@ -9,18 +9,37 @@ export type ClientsDeleteRequest = {
 };
 
 /** @internal */
+export const ClientsDeleteRequest$inboundSchema: z.ZodType<
+    ClientsDeleteRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+});
+
+/** @internal */
+export type ClientsDeleteRequest$Outbound = {
+    id: string;
+};
+
+/** @internal */
+export const ClientsDeleteRequest$outboundSchema: z.ZodType<
+    ClientsDeleteRequest$Outbound,
+    z.ZodTypeDef,
+    ClientsDeleteRequest
+> = z.object({
+    id: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsDeleteRequest$ {
-    export const inboundSchema: z.ZodType<ClientsDeleteRequest, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-    });
-
-    export type Outbound = {
-        id: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsDeleteRequest> = z.object(
-        {
-            id: z.string(),
-        }
-    );
+    /** @deprecated use `ClientsDeleteRequest$inboundSchema` instead. */
+    export const inboundSchema = ClientsDeleteRequest$inboundSchema;
+    /** @deprecated use `ClientsDeleteRequest$outboundSchema` instead. */
+    export const outboundSchema = ClientsDeleteRequest$outboundSchema;
+    /** @deprecated use `ClientsDeleteRequest$Outbound` instead. */
+    export type Outbound = ClientsDeleteRequest$Outbound;
 }

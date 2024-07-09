@@ -58,7 +58,7 @@ export class Clients extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ClientsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ClientsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -124,7 +124,7 @@ export class Clients extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.ClientsListResponse>()
-            .json(200, operations.ClientsListResponse$, { key: "Result" })
+            .json(200, operations.ClientsListResponse$inboundSchema, { key: "Result" })
             .fail("default")
             .match(response, { extraFields: responseFields$ });
 
@@ -153,7 +153,7 @@ export class Clients extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => components.ClientData$.outboundSchema.parse(value$),
+            (value$) => components.ClientData$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -213,7 +213,7 @@ export class Clients extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.ClientsCreateResponseBody>()
-            .json(201, operations.ClientsCreateResponseBody$)
+            .json(201, operations.ClientsCreateResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 
@@ -230,7 +230,7 @@ export class Clients extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ClientsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ClientsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -292,7 +292,7 @@ export class Clients extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.ClientsGetResponseBody>()
-            .json(200, operations.ClientsGetResponseBody$)
+            .json(200, operations.ClientsGetResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 
@@ -311,7 +311,7 @@ export class Clients extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ClientsUpdateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ClientsUpdateRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.ClientData, { explode: true });
@@ -374,7 +374,7 @@ export class Clients extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.ClientsUpdateResponseBody>()
-            .json(200, operations.ClientsUpdateResponseBody$)
+            .json(200, operations.ClientsUpdateResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 
@@ -391,7 +391,7 @@ export class Clients extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ClientsDeleteRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ClientsDeleteRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;

@@ -31,95 +31,167 @@ export type SecretsCreateResponseBody = {
 };
 
 /** @internal */
+export const SecretsCreateRequestBody$inboundSchema: z.ZodType<
+    SecretsCreateRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    name: z.string(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/** @internal */
+export type SecretsCreateRequestBody$Outbound = {
+    name: string;
+    metadata?: { [k: string]: string } | undefined;
+};
+
+/** @internal */
+export const SecretsCreateRequestBody$outboundSchema: z.ZodType<
+    SecretsCreateRequestBody$Outbound,
+    z.ZodTypeDef,
+    SecretsCreateRequestBody
+> = z.object({
+    name: z.string(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SecretsCreateRequestBody$ {
-    export const inboundSchema: z.ZodType<SecretsCreateRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            name: z.string(),
-            metadata: z.record(z.string()).optional(),
-        });
-
-    export type Outbound = {
-        name: string;
-        metadata?: { [k: string]: string } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SecretsCreateRequestBody> =
-        z.object({
-            name: z.string(),
-            metadata: z.record(z.string()).optional(),
-        });
+    /** @deprecated use `SecretsCreateRequestBody$inboundSchema` instead. */
+    export const inboundSchema = SecretsCreateRequestBody$inboundSchema;
+    /** @deprecated use `SecretsCreateRequestBody$outboundSchema` instead. */
+    export const outboundSchema = SecretsCreateRequestBody$outboundSchema;
+    /** @deprecated use `SecretsCreateRequestBody$Outbound` instead. */
+    export type Outbound = SecretsCreateRequestBody$Outbound;
 }
 
 /** @internal */
+export const SecretsCreateRequest$inboundSchema: z.ZodType<
+    SecretsCreateRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        clientId: z.string(),
+        RequestBody: z.lazy(() => SecretsCreateRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type SecretsCreateRequest$Outbound = {
+    clientId: string;
+    RequestBody: SecretsCreateRequestBody$Outbound;
+};
+
+/** @internal */
+export const SecretsCreateRequest$outboundSchema: z.ZodType<
+    SecretsCreateRequest$Outbound,
+    z.ZodTypeDef,
+    SecretsCreateRequest
+> = z
+    .object({
+        clientId: z.string(),
+        requestBody: z.lazy(() => SecretsCreateRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SecretsCreateRequest$ {
-    export const inboundSchema: z.ZodType<SecretsCreateRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            clientId: z.string(),
-            RequestBody: z.lazy(() => SecretsCreateRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        clientId: string;
-        RequestBody: SecretsCreateRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SecretsCreateRequest> = z
-        .object({
-            clientId: z.string(),
-            requestBody: z.lazy(() => SecretsCreateRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `SecretsCreateRequest$inboundSchema` instead. */
+    export const inboundSchema = SecretsCreateRequest$inboundSchema;
+    /** @deprecated use `SecretsCreateRequest$outboundSchema` instead. */
+    export const outboundSchema = SecretsCreateRequest$outboundSchema;
+    /** @deprecated use `SecretsCreateRequest$Outbound` instead. */
+    export type Outbound = SecretsCreateRequest$Outbound;
 }
 
 /** @internal */
+export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.object({
+    lastDigits: z.string(),
+    name: z.string(),
+    id: z.string(),
+    metadata: z.record(z.string()).optional(),
+    clear: z.string(),
+});
+
+/** @internal */
+export type Data$Outbound = {
+    lastDigits: string;
+    name: string;
+    id: string;
+    metadata?: { [k: string]: string } | undefined;
+    clear: string;
+};
+
+/** @internal */
+export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> = z.object({
+    lastDigits: z.string(),
+    name: z.string(),
+    id: z.string(),
+    metadata: z.record(z.string()).optional(),
+    clear: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Data$ {
-    export const inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.object({
-        lastDigits: z.string(),
-        name: z.string(),
-        id: z.string(),
-        metadata: z.record(z.string()).optional(),
-        clear: z.string(),
-    });
-
-    export type Outbound = {
-        lastDigits: string;
-        name: string;
-        id: string;
-        metadata?: { [k: string]: string } | undefined;
-        clear: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Data> = z.object({
-        lastDigits: z.string(),
-        name: z.string(),
-        id: z.string(),
-        metadata: z.record(z.string()).optional(),
-        clear: z.string(),
-    });
+    /** @deprecated use `Data$inboundSchema` instead. */
+    export const inboundSchema = Data$inboundSchema;
+    /** @deprecated use `Data$outboundSchema` instead. */
+    export const outboundSchema = Data$outboundSchema;
+    /** @deprecated use `Data$Outbound` instead. */
+    export type Outbound = Data$Outbound;
 }
 
 /** @internal */
+export const SecretsCreateResponseBody$inboundSchema: z.ZodType<
+    SecretsCreateResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: z.lazy(() => Data$inboundSchema),
+});
+
+/** @internal */
+export type SecretsCreateResponseBody$Outbound = {
+    data: Data$Outbound;
+};
+
+/** @internal */
+export const SecretsCreateResponseBody$outboundSchema: z.ZodType<
+    SecretsCreateResponseBody$Outbound,
+    z.ZodTypeDef,
+    SecretsCreateResponseBody
+> = z.object({
+    data: z.lazy(() => Data$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SecretsCreateResponseBody$ {
-    export const inboundSchema: z.ZodType<SecretsCreateResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: z.lazy(() => Data$.inboundSchema),
-        });
-
-    export type Outbound = {
-        data: Data$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SecretsCreateResponseBody> =
-        z.object({
-            data: z.lazy(() => Data$.outboundSchema),
-        });
+    /** @deprecated use `SecretsCreateResponseBody$inboundSchema` instead. */
+    export const inboundSchema = SecretsCreateResponseBody$inboundSchema;
+    /** @deprecated use `SecretsCreateResponseBody$outboundSchema` instead. */
+    export const outboundSchema = SecretsCreateResponseBody$outboundSchema;
+    /** @deprecated use `SecretsCreateResponseBody$Outbound` instead. */
+    export type Outbound = SecretsCreateResponseBody$Outbound;
 }

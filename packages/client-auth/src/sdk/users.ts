@@ -55,7 +55,7 @@ export class Users extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.UsersListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.UsersListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -121,7 +121,7 @@ export class Users extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.UsersListResponse>()
-            .json(200, operations.UsersListResponse$, { key: "Result" })
+            .json(200, operations.UsersListResponse$inboundSchema, { key: "Result" })
             .fail("default")
             .match(response, { extraFields: responseFields$ });
 
@@ -152,7 +152,7 @@ export class Users extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.UsersGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.UsersGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -217,7 +217,7 @@ export class Users extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.UsersGetResponseBody>()
-            .json(200, operations.UsersGetResponseBody$)
+            .json(200, operations.UsersGetResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 

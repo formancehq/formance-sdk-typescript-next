@@ -28,81 +28,155 @@ export type ClientsListResponse = {
 };
 
 /** @internal */
+export const ClientsListRequest$inboundSchema: z.ZodType<
+    ClientsListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/** @internal */
+export type ClientsListRequest$Outbound = {
+    cursor?: string | undefined;
+    pageSize?: number | undefined;
+};
+
+/** @internal */
+export const ClientsListRequest$outboundSchema: z.ZodType<
+    ClientsListRequest$Outbound,
+    z.ZodTypeDef,
+    ClientsListRequest
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsListRequest$ {
-    export const inboundSchema: z.ZodType<ClientsListRequest, z.ZodTypeDef, unknown> = z.object({
-        cursor: z.string().optional(),
-        pageSize: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        cursor?: string | undefined;
-        pageSize?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsListRequest> = z.object({
-        cursor: z.string().optional(),
-        pageSize: z.number().int().optional(),
-    });
+    /** @deprecated use `ClientsListRequest$inboundSchema` instead. */
+    export const inboundSchema = ClientsListRequest$inboundSchema;
+    /** @deprecated use `ClientsListRequest$outboundSchema` instead. */
+    export const outboundSchema = ClientsListRequest$outboundSchema;
+    /** @deprecated use `ClientsListRequest$Outbound` instead. */
+    export type Outbound = ClientsListRequest$Outbound;
 }
 
 /** @internal */
+export const Cursor$inboundSchema: z.ZodType<Cursor, z.ZodTypeDef, unknown> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Client$inboundSchema),
+});
+
+/** @internal */
+export type Cursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.Client$Outbound>;
+};
+
+/** @internal */
+export const Cursor$outboundSchema: z.ZodType<Cursor$Outbound, z.ZodTypeDef, Cursor> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Client$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Cursor$ {
-    export const inboundSchema: z.ZodType<Cursor, z.ZodTypeDef, unknown> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.Client$.inboundSchema),
-    });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.Client$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Cursor> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.Client$.outboundSchema),
-    });
+    /** @deprecated use `Cursor$inboundSchema` instead. */
+    export const inboundSchema = Cursor$inboundSchema;
+    /** @deprecated use `Cursor$outboundSchema` instead. */
+    export const outboundSchema = Cursor$outboundSchema;
+    /** @deprecated use `Cursor$Outbound` instead. */
+    export type Outbound = Cursor$Outbound;
 }
 
 /** @internal */
+export const ClientsListResponseBody$inboundSchema: z.ZodType<
+    ClientsListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => Cursor$inboundSchema),
+});
+
+/** @internal */
+export type ClientsListResponseBody$Outbound = {
+    cursor: Cursor$Outbound;
+};
+
+/** @internal */
+export const ClientsListResponseBody$outboundSchema: z.ZodType<
+    ClientsListResponseBody$Outbound,
+    z.ZodTypeDef,
+    ClientsListResponseBody
+> = z.object({
+    cursor: z.lazy(() => Cursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsListResponseBody$ {
-    export const inboundSchema: z.ZodType<ClientsListResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => Cursor$.inboundSchema),
-        });
-
-    export type Outbound = {
-        cursor: Cursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsListResponseBody> =
-        z.object({
-            cursor: z.lazy(() => Cursor$.outboundSchema),
-        });
+    /** @deprecated use `ClientsListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ClientsListResponseBody$inboundSchema;
+    /** @deprecated use `ClientsListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ClientsListResponseBody$outboundSchema;
+    /** @deprecated use `ClientsListResponseBody$Outbound` instead. */
+    export type Outbound = ClientsListResponseBody$Outbound;
 }
 
 /** @internal */
+export const ClientsListResponse$inboundSchema: z.ZodType<
+    ClientsListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => ClientsListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
+    });
+
+/** @internal */
+export type ClientsListResponse$Outbound = {
+    Result: ClientsListResponseBody$Outbound;
+};
+
+/** @internal */
+export const ClientsListResponse$outboundSchema: z.ZodType<
+    ClientsListResponse$Outbound,
+    z.ZodTypeDef,
+    ClientsListResponse
+> = z
+    .object({
+        result: z.lazy(() => ClientsListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsListResponse$ {
-    export const inboundSchema: z.ZodType<ClientsListResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => ClientsListResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: ClientsListResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsListResponse> = z
-        .object({
-            result: z.lazy(() => ClientsListResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `ClientsListResponse$inboundSchema` instead. */
+    export const inboundSchema = ClientsListResponse$inboundSchema;
+    /** @deprecated use `ClientsListResponse$outboundSchema` instead. */
+    export const outboundSchema = ClientsListResponse$outboundSchema;
+    /** @deprecated use `ClientsListResponse$Outbound` instead. */
+    export type Outbound = ClientsListResponse$Outbound;
 }

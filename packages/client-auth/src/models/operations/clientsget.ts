@@ -17,34 +17,70 @@ export type ClientsGetResponseBody = {
 };
 
 /** @internal */
+export const ClientsGetRequest$inboundSchema: z.ZodType<ClientsGetRequest, z.ZodTypeDef, unknown> =
+    z.object({
+        id: z.string(),
+    });
+
+/** @internal */
+export type ClientsGetRequest$Outbound = {
+    id: string;
+};
+
+/** @internal */
+export const ClientsGetRequest$outboundSchema: z.ZodType<
+    ClientsGetRequest$Outbound,
+    z.ZodTypeDef,
+    ClientsGetRequest
+> = z.object({
+    id: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsGetRequest$ {
-    export const inboundSchema: z.ZodType<ClientsGetRequest, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-    });
-
-    export type Outbound = {
-        id: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsGetRequest> = z.object({
-        id: z.string(),
-    });
+    /** @deprecated use `ClientsGetRequest$inboundSchema` instead. */
+    export const inboundSchema = ClientsGetRequest$inboundSchema;
+    /** @deprecated use `ClientsGetRequest$outboundSchema` instead. */
+    export const outboundSchema = ClientsGetRequest$outboundSchema;
+    /** @deprecated use `ClientsGetRequest$Outbound` instead. */
+    export type Outbound = ClientsGetRequest$Outbound;
 }
 
 /** @internal */
+export const ClientsGetResponseBody$inboundSchema: z.ZodType<
+    ClientsGetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Client$inboundSchema,
+});
+
+/** @internal */
+export type ClientsGetResponseBody$Outbound = {
+    data: components.Client$Outbound;
+};
+
+/** @internal */
+export const ClientsGetResponseBody$outboundSchema: z.ZodType<
+    ClientsGetResponseBody$Outbound,
+    z.ZodTypeDef,
+    ClientsGetResponseBody
+> = z.object({
+    data: components.Client$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsGetResponseBody$ {
-    export const inboundSchema: z.ZodType<ClientsGetResponseBody, z.ZodTypeDef, unknown> = z.object(
-        {
-            data: components.Client$.inboundSchema,
-        }
-    );
-
-    export type Outbound = {
-        data: components.Client$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsGetResponseBody> =
-        z.object({
-            data: components.Client$.outboundSchema,
-        });
+    /** @deprecated use `ClientsGetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ClientsGetResponseBody$inboundSchema;
+    /** @deprecated use `ClientsGetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ClientsGetResponseBody$outboundSchema;
+    /** @deprecated use `ClientsGetResponseBody$Outbound` instead. */
+    export type Outbound = ClientsGetResponseBody$Outbound;
 }

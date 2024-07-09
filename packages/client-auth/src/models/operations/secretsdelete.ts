@@ -10,21 +10,40 @@ export type SecretsDeleteRequest = {
 };
 
 /** @internal */
+export const SecretsDeleteRequest$inboundSchema: z.ZodType<
+    SecretsDeleteRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    clientId: z.string(),
+    secretId: z.string(),
+});
+
+/** @internal */
+export type SecretsDeleteRequest$Outbound = {
+    clientId: string;
+    secretId: string;
+};
+
+/** @internal */
+export const SecretsDeleteRequest$outboundSchema: z.ZodType<
+    SecretsDeleteRequest$Outbound,
+    z.ZodTypeDef,
+    SecretsDeleteRequest
+> = z.object({
+    clientId: z.string(),
+    secretId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SecretsDeleteRequest$ {
-    export const inboundSchema: z.ZodType<SecretsDeleteRequest, z.ZodTypeDef, unknown> = z.object({
-        clientId: z.string(),
-        secretId: z.string(),
-    });
-
-    export type Outbound = {
-        clientId: string;
-        secretId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SecretsDeleteRequest> = z.object(
-        {
-            clientId: z.string(),
-            secretId: z.string(),
-        }
-    );
+    /** @deprecated use `SecretsDeleteRequest$inboundSchema` instead. */
+    export const inboundSchema = SecretsDeleteRequest$inboundSchema;
+    /** @deprecated use `SecretsDeleteRequest$outboundSchema` instead. */
+    export const outboundSchema = SecretsDeleteRequest$outboundSchema;
+    /** @deprecated use `SecretsDeleteRequest$Outbound` instead. */
+    export type Outbound = SecretsDeleteRequest$Outbound;
 }

@@ -51,7 +51,7 @@ export class Secrets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.SecretsCreateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.SecretsCreateRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -117,7 +117,7 @@ export class Secrets extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.SecretsCreateResponseBody>()
-            .json(200, operations.SecretsCreateResponseBody$)
+            .json(200, operations.SecretsCreateResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 
@@ -136,7 +136,7 @@ export class Secrets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.SecretsDeleteRequest$.outboundSchema.parse(value$),
+            (value$) => operations.SecretsDeleteRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;

@@ -19,48 +19,88 @@ export type ClientsUpdateResponseBody = {
 };
 
 /** @internal */
+export const ClientsUpdateRequest$inboundSchema: z.ZodType<
+    ClientsUpdateRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        id: z.string(),
+        ClientData: components.ClientData$inboundSchema,
+    })
+    .transform((v) => {
+        return remap$(v, {
+            ClientData: "clientData",
+        });
+    });
+
+/** @internal */
+export type ClientsUpdateRequest$Outbound = {
+    id: string;
+    ClientData: components.ClientData$Outbound;
+};
+
+/** @internal */
+export const ClientsUpdateRequest$outboundSchema: z.ZodType<
+    ClientsUpdateRequest$Outbound,
+    z.ZodTypeDef,
+    ClientsUpdateRequest
+> = z
+    .object({
+        id: z.string(),
+        clientData: components.ClientData$outboundSchema,
+    })
+    .transform((v) => {
+        return remap$(v, {
+            clientData: "ClientData",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsUpdateRequest$ {
-    export const inboundSchema: z.ZodType<ClientsUpdateRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            ClientData: components.ClientData$.inboundSchema,
-        })
-        .transform((v) => {
-            return remap$(v, {
-                ClientData: "clientData",
-            });
-        });
-
-    export type Outbound = {
-        id: string;
-        ClientData: components.ClientData$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsUpdateRequest> = z
-        .object({
-            id: z.string(),
-            clientData: components.ClientData$.outboundSchema,
-        })
-        .transform((v) => {
-            return remap$(v, {
-                clientData: "ClientData",
-            });
-        });
+    /** @deprecated use `ClientsUpdateRequest$inboundSchema` instead. */
+    export const inboundSchema = ClientsUpdateRequest$inboundSchema;
+    /** @deprecated use `ClientsUpdateRequest$outboundSchema` instead. */
+    export const outboundSchema = ClientsUpdateRequest$outboundSchema;
+    /** @deprecated use `ClientsUpdateRequest$Outbound` instead. */
+    export type Outbound = ClientsUpdateRequest$Outbound;
 }
 
 /** @internal */
+export const ClientsUpdateResponseBody$inboundSchema: z.ZodType<
+    ClientsUpdateResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Client$inboundSchema,
+});
+
+/** @internal */
+export type ClientsUpdateResponseBody$Outbound = {
+    data: components.Client$Outbound;
+};
+
+/** @internal */
+export const ClientsUpdateResponseBody$outboundSchema: z.ZodType<
+    ClientsUpdateResponseBody$Outbound,
+    z.ZodTypeDef,
+    ClientsUpdateResponseBody
+> = z.object({
+    data: components.Client$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ClientsUpdateResponseBody$ {
-    export const inboundSchema: z.ZodType<ClientsUpdateResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Client$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Client$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ClientsUpdateResponseBody> =
-        z.object({
-            data: components.Client$.outboundSchema,
-        });
+    /** @deprecated use `ClientsUpdateResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ClientsUpdateResponseBody$inboundSchema;
+    /** @deprecated use `ClientsUpdateResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ClientsUpdateResponseBody$outboundSchema;
+    /** @deprecated use `ClientsUpdateResponseBody$Outbound` instead. */
+    export type Outbound = ClientsUpdateResponseBody$Outbound;
 }
