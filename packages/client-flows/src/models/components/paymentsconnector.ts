@@ -21,8 +21,20 @@ export const PaymentsConnector = {
 export type PaymentsConnector = ClosedEnum<typeof PaymentsConnector>;
 
 /** @internal */
+export const PaymentsConnector$inboundSchema: z.ZodNativeEnum<typeof PaymentsConnector> =
+    z.nativeEnum(PaymentsConnector);
+
+/** @internal */
+export const PaymentsConnector$outboundSchema: z.ZodNativeEnum<typeof PaymentsConnector> =
+    PaymentsConnector$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PaymentsConnector$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof PaymentsConnector> =
-        z.nativeEnum(PaymentsConnector);
-    export const outboundSchema: z.ZodNativeEnum<typeof PaymentsConnector> = inboundSchema;
+    /** @deprecated use `PaymentsConnector$inboundSchema` instead. */
+    export const inboundSchema = PaymentsConnector$inboundSchema;
+    /** @deprecated use `PaymentsConnector$outboundSchema` instead. */
+    export const outboundSchema = PaymentsConnector$outboundSchema;
 }

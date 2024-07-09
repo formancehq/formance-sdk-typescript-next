@@ -20,51 +20,91 @@ export type WorkflowsRunResponseBody = {
 };
 
 /** @internal */
+export const WorkflowsRunRequest$inboundSchema: z.ZodType<
+    WorkflowsRunRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        id: z.string(),
+        wait: z.boolean().optional(),
+        RequestBody: z.record(z.any()),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type WorkflowsRunRequest$Outbound = {
+    id: string;
+    wait?: boolean | undefined;
+    RequestBody: { [k: string]: any };
+};
+
+/** @internal */
+export const WorkflowsRunRequest$outboundSchema: z.ZodType<
+    WorkflowsRunRequest$Outbound,
+    z.ZodTypeDef,
+    WorkflowsRunRequest
+> = z
+    .object({
+        id: z.string(),
+        wait: z.boolean().optional(),
+        requestBody: z.record(z.any()),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsRunRequest$ {
-    export const inboundSchema: z.ZodType<WorkflowsRunRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            wait: z.boolean().optional(),
-            RequestBody: z.record(z.any()),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        id: string;
-        wait?: boolean | undefined;
-        RequestBody: { [k: string]: any };
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsRunRequest> = z
-        .object({
-            id: z.string(),
-            wait: z.boolean().optional(),
-            requestBody: z.record(z.any()),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `WorkflowsRunRequest$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsRunRequest$inboundSchema;
+    /** @deprecated use `WorkflowsRunRequest$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsRunRequest$outboundSchema;
+    /** @deprecated use `WorkflowsRunRequest$Outbound` instead. */
+    export type Outbound = WorkflowsRunRequest$Outbound;
 }
 
 /** @internal */
+export const WorkflowsRunResponseBody$inboundSchema: z.ZodType<
+    WorkflowsRunResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.WorkflowInstance$inboundSchema,
+});
+
+/** @internal */
+export type WorkflowsRunResponseBody$Outbound = {
+    data: components.WorkflowInstance$Outbound;
+};
+
+/** @internal */
+export const WorkflowsRunResponseBody$outboundSchema: z.ZodType<
+    WorkflowsRunResponseBody$Outbound,
+    z.ZodTypeDef,
+    WorkflowsRunResponseBody
+> = z.object({
+    data: components.WorkflowInstance$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsRunResponseBody$ {
-    export const inboundSchema: z.ZodType<WorkflowsRunResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.WorkflowInstance$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.WorkflowInstance$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsRunResponseBody> =
-        z.object({
-            data: components.WorkflowInstance$.outboundSchema,
-        });
+    /** @deprecated use `WorkflowsRunResponseBody$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsRunResponseBody$inboundSchema;
+    /** @deprecated use `WorkflowsRunResponseBody$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsRunResponseBody$outboundSchema;
+    /** @deprecated use `WorkflowsRunResponseBody$Outbound` instead. */
+    export type Outbound = WorkflowsRunResponseBody$Outbound;
 }

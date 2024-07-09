@@ -18,47 +18,76 @@ export type InstancesGetStageHistoryResponseBody = {
 };
 
 /** @internal */
+export const InstancesGetStageHistoryRequest$inboundSchema: z.ZodType<
+    InstancesGetStageHistoryRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+    stageIndex: z.number().int(),
+});
+
+/** @internal */
+export type InstancesGetStageHistoryRequest$Outbound = {
+    id: string;
+    stageIndex: number;
+};
+
+/** @internal */
+export const InstancesGetStageHistoryRequest$outboundSchema: z.ZodType<
+    InstancesGetStageHistoryRequest$Outbound,
+    z.ZodTypeDef,
+    InstancesGetStageHistoryRequest
+> = z.object({
+    id: z.string(),
+    stageIndex: z.number().int(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InstancesGetStageHistoryRequest$ {
-    export const inboundSchema: z.ZodType<InstancesGetStageHistoryRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            id: z.string(),
-            stageIndex: z.number().int(),
-        });
-
-    export type Outbound = {
-        id: string;
-        stageIndex: number;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        InstancesGetStageHistoryRequest
-    > = z.object({
-        id: z.string(),
-        stageIndex: z.number().int(),
-    });
+    /** @deprecated use `InstancesGetStageHistoryRequest$inboundSchema` instead. */
+    export const inboundSchema = InstancesGetStageHistoryRequest$inboundSchema;
+    /** @deprecated use `InstancesGetStageHistoryRequest$outboundSchema` instead. */
+    export const outboundSchema = InstancesGetStageHistoryRequest$outboundSchema;
+    /** @deprecated use `InstancesGetStageHistoryRequest$Outbound` instead. */
+    export type Outbound = InstancesGetStageHistoryRequest$Outbound;
 }
 
 /** @internal */
+export const InstancesGetStageHistoryResponseBody$inboundSchema: z.ZodType<
+    InstancesGetStageHistoryResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.WorkflowInstanceHistoryStage$inboundSchema,
+});
+
+/** @internal */
+export type InstancesGetStageHistoryResponseBody$Outbound = {
+    data: components.WorkflowInstanceHistoryStage$Outbound;
+};
+
+/** @internal */
+export const InstancesGetStageHistoryResponseBody$outboundSchema: z.ZodType<
+    InstancesGetStageHistoryResponseBody$Outbound,
+    z.ZodTypeDef,
+    InstancesGetStageHistoryResponseBody
+> = z.object({
+    data: components.WorkflowInstanceHistoryStage$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InstancesGetStageHistoryResponseBody$ {
-    export const inboundSchema: z.ZodType<
-        InstancesGetStageHistoryResponseBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        data: components.WorkflowInstanceHistoryStage$.inboundSchema,
-    });
-
-    export type Outbound = {
-        data: components.WorkflowInstanceHistoryStage$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        InstancesGetStageHistoryResponseBody
-    > = z.object({
-        data: components.WorkflowInstanceHistoryStage$.outboundSchema,
-    });
+    /** @deprecated use `InstancesGetStageHistoryResponseBody$inboundSchema` instead. */
+    export const inboundSchema = InstancesGetStageHistoryResponseBody$inboundSchema;
+    /** @deprecated use `InstancesGetStageHistoryResponseBody$outboundSchema` instead. */
+    export const outboundSchema = InstancesGetStageHistoryResponseBody$outboundSchema;
+    /** @deprecated use `InstancesGetStageHistoryResponseBody$Outbound` instead. */
+    export type Outbound = InstancesGetStageHistoryResponseBody$Outbound;
 }

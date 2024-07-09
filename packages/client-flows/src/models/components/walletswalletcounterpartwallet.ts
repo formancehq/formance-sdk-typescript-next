@@ -19,32 +19,64 @@ export type WalletsWalletCounterpartWallet = {
 };
 
 /** @internal */
+export const WalletsWalletCounterpartWalletType$inboundSchema: z.ZodNativeEnum<
+    typeof WalletsWalletCounterpartWalletType
+> = z.nativeEnum(WalletsWalletCounterpartWalletType);
+
+/** @internal */
+export const WalletsWalletCounterpartWalletType$outboundSchema: z.ZodNativeEnum<
+    typeof WalletsWalletCounterpartWalletType
+> = WalletsWalletCounterpartWalletType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WalletsWalletCounterpartWalletType$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof WalletsWalletCounterpartWalletType> =
-        z.nativeEnum(WalletsWalletCounterpartWalletType);
-    export const outboundSchema: z.ZodNativeEnum<typeof WalletsWalletCounterpartWalletType> =
-        inboundSchema;
+    /** @deprecated use `WalletsWalletCounterpartWalletType$inboundSchema` instead. */
+    export const inboundSchema = WalletsWalletCounterpartWalletType$inboundSchema;
+    /** @deprecated use `WalletsWalletCounterpartWalletType$outboundSchema` instead. */
+    export const outboundSchema = WalletsWalletCounterpartWalletType$outboundSchema;
 }
 
 /** @internal */
+export const WalletsWalletCounterpartWallet$inboundSchema: z.ZodType<
+    WalletsWalletCounterpartWallet,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    type: WalletsWalletCounterpartWalletType$inboundSchema,
+    identifier: z.string(),
+    balance: z.string().optional(),
+});
+
+/** @internal */
+export type WalletsWalletCounterpartWallet$Outbound = {
+    type: string;
+    identifier: string;
+    balance?: string | undefined;
+};
+
+/** @internal */
+export const WalletsWalletCounterpartWallet$outboundSchema: z.ZodType<
+    WalletsWalletCounterpartWallet$Outbound,
+    z.ZodTypeDef,
+    WalletsWalletCounterpartWallet
+> = z.object({
+    type: WalletsWalletCounterpartWalletType$outboundSchema,
+    identifier: z.string(),
+    balance: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WalletsWalletCounterpartWallet$ {
-    export const inboundSchema: z.ZodType<WalletsWalletCounterpartWallet, z.ZodTypeDef, unknown> =
-        z.object({
-            type: WalletsWalletCounterpartWalletType$.inboundSchema,
-            identifier: z.string(),
-            balance: z.string().optional(),
-        });
-
-    export type Outbound = {
-        type: string;
-        identifier: string;
-        balance?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WalletsWalletCounterpartWallet> =
-        z.object({
-            type: WalletsWalletCounterpartWalletType$.outboundSchema,
-            identifier: z.string(),
-            balance: z.string().optional(),
-        });
+    /** @deprecated use `WalletsWalletCounterpartWallet$inboundSchema` instead. */
+    export const inboundSchema = WalletsWalletCounterpartWallet$inboundSchema;
+    /** @deprecated use `WalletsWalletCounterpartWallet$outboundSchema` instead. */
+    export const outboundSchema = WalletsWalletCounterpartWallet$outboundSchema;
+    /** @deprecated use `WalletsWalletCounterpartWallet$Outbound` instead. */
+    export type Outbound = WalletsWalletCounterpartWallet$Outbound;
 }

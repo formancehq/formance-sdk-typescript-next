@@ -29,84 +29,166 @@ export type TriggersListResponse = {
 };
 
 /** @internal */
+export const TriggersListRequest$inboundSchema: z.ZodType<
+    TriggersListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    name: z.string().optional(),
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/** @internal */
+export type TriggersListRequest$Outbound = {
+    name?: string | undefined;
+    cursor?: string | undefined;
+    pageSize?: number | undefined;
+};
+
+/** @internal */
+export const TriggersListRequest$outboundSchema: z.ZodType<
+    TriggersListRequest$Outbound,
+    z.ZodTypeDef,
+    TriggersListRequest
+> = z.object({
+    name: z.string().optional(),
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TriggersListRequest$ {
-    export const inboundSchema: z.ZodType<TriggersListRequest, z.ZodTypeDef, unknown> = z.object({
-        name: z.string().optional(),
-        cursor: z.string().optional(),
-        pageSize: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        name?: string | undefined;
-        cursor?: string | undefined;
-        pageSize?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TriggersListRequest> = z.object({
-        name: z.string().optional(),
-        cursor: z.string().optional(),
-        pageSize: z.number().int().optional(),
-    });
+    /** @deprecated use `TriggersListRequest$inboundSchema` instead. */
+    export const inboundSchema = TriggersListRequest$inboundSchema;
+    /** @deprecated use `TriggersListRequest$outboundSchema` instead. */
+    export const outboundSchema = TriggersListRequest$outboundSchema;
+    /** @deprecated use `TriggersListRequest$Outbound` instead. */
+    export type Outbound = TriggersListRequest$Outbound;
 }
 
 /** @internal */
+export const TriggersListCursor$inboundSchema: z.ZodType<
+    TriggersListCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(z.array(components.Trigger$inboundSchema)),
+});
+
+/** @internal */
+export type TriggersListCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<Array<components.Trigger$Outbound>>;
+};
+
+/** @internal */
+export const TriggersListCursor$outboundSchema: z.ZodType<
+    TriggersListCursor$Outbound,
+    z.ZodTypeDef,
+    TriggersListCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(z.array(components.Trigger$outboundSchema)),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TriggersListCursor$ {
-    export const inboundSchema: z.ZodType<TriggersListCursor, z.ZodTypeDef, unknown> = z.object({
-        next: z.string().optional(),
-        data: z.array(z.array(components.Trigger$.inboundSchema)),
-    });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<Array<components.Trigger$.Outbound>>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TriggersListCursor> = z.object({
-        next: z.string().optional(),
-        data: z.array(z.array(components.Trigger$.outboundSchema)),
-    });
+    /** @deprecated use `TriggersListCursor$inboundSchema` instead. */
+    export const inboundSchema = TriggersListCursor$inboundSchema;
+    /** @deprecated use `TriggersListCursor$outboundSchema` instead. */
+    export const outboundSchema = TriggersListCursor$outboundSchema;
+    /** @deprecated use `TriggersListCursor$Outbound` instead. */
+    export type Outbound = TriggersListCursor$Outbound;
 }
 
 /** @internal */
+export const TriggersListResponseBody$inboundSchema: z.ZodType<
+    TriggersListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => TriggersListCursor$inboundSchema),
+});
+
+/** @internal */
+export type TriggersListResponseBody$Outbound = {
+    cursor: TriggersListCursor$Outbound;
+};
+
+/** @internal */
+export const TriggersListResponseBody$outboundSchema: z.ZodType<
+    TriggersListResponseBody$Outbound,
+    z.ZodTypeDef,
+    TriggersListResponseBody
+> = z.object({
+    cursor: z.lazy(() => TriggersListCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TriggersListResponseBody$ {
-    export const inboundSchema: z.ZodType<TriggersListResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => TriggersListCursor$.inboundSchema),
-        });
-
-    export type Outbound = {
-        cursor: TriggersListCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TriggersListResponseBody> =
-        z.object({
-            cursor: z.lazy(() => TriggersListCursor$.outboundSchema),
-        });
+    /** @deprecated use `TriggersListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = TriggersListResponseBody$inboundSchema;
+    /** @deprecated use `TriggersListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = TriggersListResponseBody$outboundSchema;
+    /** @deprecated use `TriggersListResponseBody$Outbound` instead. */
+    export type Outbound = TriggersListResponseBody$Outbound;
 }
 
 /** @internal */
+export const TriggersListResponse$inboundSchema: z.ZodType<
+    TriggersListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => TriggersListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
+    });
+
+/** @internal */
+export type TriggersListResponse$Outbound = {
+    Result: TriggersListResponseBody$Outbound;
+};
+
+/** @internal */
+export const TriggersListResponse$outboundSchema: z.ZodType<
+    TriggersListResponse$Outbound,
+    z.ZodTypeDef,
+    TriggersListResponse
+> = z
+    .object({
+        result: z.lazy(() => TriggersListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TriggersListResponse$ {
-    export const inboundSchema: z.ZodType<TriggersListResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => TriggersListResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: TriggersListResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TriggersListResponse> = z
-        .object({
-            result: z.lazy(() => TriggersListResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `TriggersListResponse$inboundSchema` instead. */
+    export const inboundSchema = TriggersListResponse$inboundSchema;
+    /** @deprecated use `TriggersListResponse$outboundSchema` instead. */
+    export const outboundSchema = TriggersListResponse$outboundSchema;
+    /** @deprecated use `TriggersListResponse$Outbound` instead. */
+    export type Outbound = TriggersListResponse$Outbound;
 }

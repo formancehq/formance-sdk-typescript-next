@@ -20,55 +20,99 @@ export type TriggerTest = {
 };
 
 /** @internal */
+export const Filter$inboundSchema: z.ZodType<Filter, z.ZodTypeDef, unknown> = z.object({
+    match: z.boolean().optional(),
+    error: z.string().optional(),
+});
+
+/** @internal */
+export type Filter$Outbound = {
+    match?: boolean | undefined;
+    error?: string | undefined;
+};
+
+/** @internal */
+export const Filter$outboundSchema: z.ZodType<Filter$Outbound, z.ZodTypeDef, Filter> = z.object({
+    match: z.boolean().optional(),
+    error: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Filter$ {
-    export const inboundSchema: z.ZodType<Filter, z.ZodTypeDef, unknown> = z.object({
-        match: z.boolean().optional(),
-        error: z.string().optional(),
-    });
-
-    export type Outbound = {
-        match?: boolean | undefined;
-        error?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Filter> = z.object({
-        match: z.boolean().optional(),
-        error: z.string().optional(),
-    });
+    /** @deprecated use `Filter$inboundSchema` instead. */
+    export const inboundSchema = Filter$inboundSchema;
+    /** @deprecated use `Filter$outboundSchema` instead. */
+    export const outboundSchema = Filter$outboundSchema;
+    /** @deprecated use `Filter$Outbound` instead. */
+    export type Outbound = Filter$Outbound;
 }
 
 /** @internal */
+export const Variables$inboundSchema: z.ZodType<Variables, z.ZodTypeDef, unknown> = z.object({
+    value: z.string().optional(),
+    error: z.string().optional(),
+});
+
+/** @internal */
+export type Variables$Outbound = {
+    value?: string | undefined;
+    error?: string | undefined;
+};
+
+/** @internal */
+export const Variables$outboundSchema: z.ZodType<Variables$Outbound, z.ZodTypeDef, Variables> =
+    z.object({
+        value: z.string().optional(),
+        error: z.string().optional(),
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Variables$ {
-    export const inboundSchema: z.ZodType<Variables, z.ZodTypeDef, unknown> = z.object({
-        value: z.string().optional(),
-        error: z.string().optional(),
-    });
-
-    export type Outbound = {
-        value?: string | undefined;
-        error?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Variables> = z.object({
-        value: z.string().optional(),
-        error: z.string().optional(),
-    });
+    /** @deprecated use `Variables$inboundSchema` instead. */
+    export const inboundSchema = Variables$inboundSchema;
+    /** @deprecated use `Variables$outboundSchema` instead. */
+    export const outboundSchema = Variables$outboundSchema;
+    /** @deprecated use `Variables$Outbound` instead. */
+    export type Outbound = Variables$Outbound;
 }
 
 /** @internal */
+export const TriggerTest$inboundSchema: z.ZodType<TriggerTest, z.ZodTypeDef, unknown> = z.object({
+    filter: z.lazy(() => Filter$inboundSchema).optional(),
+    variables: z.record(z.lazy(() => Variables$inboundSchema)).optional(),
+});
+
+/** @internal */
+export type TriggerTest$Outbound = {
+    filter?: Filter$Outbound | undefined;
+    variables?: { [k: string]: Variables$Outbound } | undefined;
+};
+
+/** @internal */
+export const TriggerTest$outboundSchema: z.ZodType<
+    TriggerTest$Outbound,
+    z.ZodTypeDef,
+    TriggerTest
+> = z.object({
+    filter: z.lazy(() => Filter$outboundSchema).optional(),
+    variables: z.record(z.lazy(() => Variables$outboundSchema)).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TriggerTest$ {
-    export const inboundSchema: z.ZodType<TriggerTest, z.ZodTypeDef, unknown> = z.object({
-        filter: z.lazy(() => Filter$.inboundSchema).optional(),
-        variables: z.record(z.lazy(() => Variables$.inboundSchema)).optional(),
-    });
-
-    export type Outbound = {
-        filter?: Filter$.Outbound | undefined;
-        variables?: { [k: string]: Variables$.Outbound } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TriggerTest> = z.object({
-        filter: z.lazy(() => Filter$.outboundSchema).optional(),
-        variables: z.record(z.lazy(() => Variables$.outboundSchema)).optional(),
-    });
+    /** @deprecated use `TriggerTest$inboundSchema` instead. */
+    export const inboundSchema = TriggerTest$inboundSchema;
+    /** @deprecated use `TriggerTest$outboundSchema` instead. */
+    export const outboundSchema = TriggerTest$outboundSchema;
+    /** @deprecated use `TriggerTest$Outbound` instead. */
+    export type Outbound = TriggerTest$Outbound;
 }

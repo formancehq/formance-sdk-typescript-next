@@ -12,25 +12,43 @@ export type LedgerPosting = {
 };
 
 /** @internal */
+export const LedgerPosting$inboundSchema: z.ZodType<LedgerPosting, z.ZodTypeDef, unknown> =
+    z.object({
+        amount: z.number().int(),
+        asset: z.string(),
+        destination: z.string(),
+        source: z.string(),
+    });
+
+/** @internal */
+export type LedgerPosting$Outbound = {
+    amount: number;
+    asset: string;
+    destination: string;
+    source: string;
+};
+
+/** @internal */
+export const LedgerPosting$outboundSchema: z.ZodType<
+    LedgerPosting$Outbound,
+    z.ZodTypeDef,
+    LedgerPosting
+> = z.object({
+    amount: z.number().int(),
+    asset: z.string(),
+    destination: z.string(),
+    source: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgerPosting$ {
-    export const inboundSchema: z.ZodType<LedgerPosting, z.ZodTypeDef, unknown> = z.object({
-        amount: z.number().int(),
-        asset: z.string(),
-        destination: z.string(),
-        source: z.string(),
-    });
-
-    export type Outbound = {
-        amount: number;
-        asset: string;
-        destination: string;
-        source: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgerPosting> = z.object({
-        amount: z.number().int(),
-        asset: z.string(),
-        destination: z.string(),
-        source: z.string(),
-    });
+    /** @deprecated use `LedgerPosting$inboundSchema` instead. */
+    export const inboundSchema = LedgerPosting$inboundSchema;
+    /** @deprecated use `LedgerPosting$outboundSchema` instead. */
+    export const outboundSchema = LedgerPosting$outboundSchema;
+    /** @deprecated use `LedgerPosting$Outbound` instead. */
+    export type Outbound = LedgerPosting$Outbound;
 }

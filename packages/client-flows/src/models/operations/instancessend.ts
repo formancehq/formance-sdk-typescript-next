@@ -15,48 +15,88 @@ export type InstancesSendRequest = {
 };
 
 /** @internal */
+export const InstancesSendRequestBody$inboundSchema: z.ZodType<
+    InstancesSendRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    name: z.string(),
+});
+
+/** @internal */
+export type InstancesSendRequestBody$Outbound = {
+    name: string;
+};
+
+/** @internal */
+export const InstancesSendRequestBody$outboundSchema: z.ZodType<
+    InstancesSendRequestBody$Outbound,
+    z.ZodTypeDef,
+    InstancesSendRequestBody
+> = z.object({
+    name: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InstancesSendRequestBody$ {
-    export const inboundSchema: z.ZodType<InstancesSendRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            name: z.string(),
-        });
-
-    export type Outbound = {
-        name: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InstancesSendRequestBody> =
-        z.object({
-            name: z.string(),
-        });
+    /** @deprecated use `InstancesSendRequestBody$inboundSchema` instead. */
+    export const inboundSchema = InstancesSendRequestBody$inboundSchema;
+    /** @deprecated use `InstancesSendRequestBody$outboundSchema` instead. */
+    export const outboundSchema = InstancesSendRequestBody$outboundSchema;
+    /** @deprecated use `InstancesSendRequestBody$Outbound` instead. */
+    export type Outbound = InstancesSendRequestBody$Outbound;
 }
 
 /** @internal */
+export const InstancesSendRequest$inboundSchema: z.ZodType<
+    InstancesSendRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        id: z.string(),
+        RequestBody: z.lazy(() => InstancesSendRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type InstancesSendRequest$Outbound = {
+    id: string;
+    RequestBody: InstancesSendRequestBody$Outbound;
+};
+
+/** @internal */
+export const InstancesSendRequest$outboundSchema: z.ZodType<
+    InstancesSendRequest$Outbound,
+    z.ZodTypeDef,
+    InstancesSendRequest
+> = z
+    .object({
+        id: z.string(),
+        requestBody: z.lazy(() => InstancesSendRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InstancesSendRequest$ {
-    export const inboundSchema: z.ZodType<InstancesSendRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            RequestBody: z.lazy(() => InstancesSendRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        id: string;
-        RequestBody: InstancesSendRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InstancesSendRequest> = z
-        .object({
-            id: z.string(),
-            requestBody: z.lazy(() => InstancesSendRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `InstancesSendRequest$inboundSchema` instead. */
+    export const inboundSchema = InstancesSendRequest$inboundSchema;
+    /** @deprecated use `InstancesSendRequest$outboundSchema` instead. */
+    export const outboundSchema = InstancesSendRequest$outboundSchema;
+    /** @deprecated use `InstancesSendRequest$Outbound` instead. */
+    export type Outbound = InstancesSendRequest$Outbound;
 }

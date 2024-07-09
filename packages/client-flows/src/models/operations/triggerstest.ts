@@ -19,48 +19,88 @@ export type TriggersTestResponseBody = {
 };
 
 /** @internal */
+export const TriggersTestRequest$inboundSchema: z.ZodType<
+    TriggersTestRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        id: z.string(),
+        RequestBody: z.record(z.any()),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type TriggersTestRequest$Outbound = {
+    id: string;
+    RequestBody: { [k: string]: any };
+};
+
+/** @internal */
+export const TriggersTestRequest$outboundSchema: z.ZodType<
+    TriggersTestRequest$Outbound,
+    z.ZodTypeDef,
+    TriggersTestRequest
+> = z
+    .object({
+        id: z.string(),
+        requestBody: z.record(z.any()),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TriggersTestRequest$ {
-    export const inboundSchema: z.ZodType<TriggersTestRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            RequestBody: z.record(z.any()),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        id: string;
-        RequestBody: { [k: string]: any };
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TriggersTestRequest> = z
-        .object({
-            id: z.string(),
-            requestBody: z.record(z.any()),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `TriggersTestRequest$inboundSchema` instead. */
+    export const inboundSchema = TriggersTestRequest$inboundSchema;
+    /** @deprecated use `TriggersTestRequest$outboundSchema` instead. */
+    export const outboundSchema = TriggersTestRequest$outboundSchema;
+    /** @deprecated use `TriggersTestRequest$Outbound` instead. */
+    export type Outbound = TriggersTestRequest$Outbound;
 }
 
 /** @internal */
+export const TriggersTestResponseBody$inboundSchema: z.ZodType<
+    TriggersTestResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.TriggerTest$inboundSchema,
+});
+
+/** @internal */
+export type TriggersTestResponseBody$Outbound = {
+    data: components.TriggerTest$Outbound;
+};
+
+/** @internal */
+export const TriggersTestResponseBody$outboundSchema: z.ZodType<
+    TriggersTestResponseBody$Outbound,
+    z.ZodTypeDef,
+    TriggersTestResponseBody
+> = z.object({
+    data: components.TriggerTest$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TriggersTestResponseBody$ {
-    export const inboundSchema: z.ZodType<TriggersTestResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.TriggerTest$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.TriggerTest$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TriggersTestResponseBody> =
-        z.object({
-            data: components.TriggerTest$.outboundSchema,
-        });
+    /** @deprecated use `TriggersTestResponseBody$inboundSchema` instead. */
+    export const inboundSchema = TriggersTestResponseBody$inboundSchema;
+    /** @deprecated use `TriggersTestResponseBody$outboundSchema` instead. */
+    export const outboundSchema = TriggersTestResponseBody$outboundSchema;
+    /** @deprecated use `TriggersTestResponseBody$Outbound` instead. */
+    export type Outbound = TriggersTestResponseBody$Outbound;
 }

@@ -9,17 +9,37 @@ export type InstancesAbortRequest = {
 };
 
 /** @internal */
+export const InstancesAbortRequest$inboundSchema: z.ZodType<
+    InstancesAbortRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+});
+
+/** @internal */
+export type InstancesAbortRequest$Outbound = {
+    id: string;
+};
+
+/** @internal */
+export const InstancesAbortRequest$outboundSchema: z.ZodType<
+    InstancesAbortRequest$Outbound,
+    z.ZodTypeDef,
+    InstancesAbortRequest
+> = z.object({
+    id: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InstancesAbortRequest$ {
-    export const inboundSchema: z.ZodType<InstancesAbortRequest, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-    });
-
-    export type Outbound = {
-        id: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InstancesAbortRequest> =
-        z.object({
-            id: z.string(),
-        });
+    /** @deprecated use `InstancesAbortRequest$inboundSchema` instead. */
+    export const inboundSchema = InstancesAbortRequest$inboundSchema;
+    /** @deprecated use `InstancesAbortRequest$outboundSchema` instead. */
+    export const outboundSchema = InstancesAbortRequest$outboundSchema;
+    /** @deprecated use `InstancesAbortRequest$Outbound` instead. */
+    export type Outbound = InstancesAbortRequest$Outbound;
 }

@@ -59,7 +59,7 @@ export class Workflows extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WorkflowsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WorkflowsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -125,8 +125,8 @@ export class Workflows extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.WorkflowsListResponse>()
-            .json(200, operations.WorkflowsListResponse$, { key: "Result" })
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.WorkflowsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.WorkflowsListResponse> => {
@@ -154,7 +154,7 @@ export class Workflows extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => components.WorkflowConfig$.outboundSchema.parse(value$),
+            (value$) => components.WorkflowConfig$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -218,8 +218,8 @@ export class Workflows extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.WorkflowsCreateResponseBody>()
-            .json(201, operations.WorkflowsCreateResponseBody$)
-            .json("default", errors.FlowError$, { err: true })
+            .json(201, operations.WorkflowsCreateResponseBody$inboundSchema)
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -235,7 +235,7 @@ export class Workflows extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WorkflowsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WorkflowsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -303,8 +303,8 @@ export class Workflows extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.WorkflowsGetResponseBody>()
-            .json(200, operations.WorkflowsGetResponseBody$)
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.WorkflowsGetResponseBody$inboundSchema)
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -320,7 +320,7 @@ export class Workflows extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WorkflowsDeleteRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WorkflowsDeleteRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -389,7 +389,7 @@ export class Workflows extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.FlowError$, { err: true })
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -409,7 +409,7 @@ export class Workflows extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WorkflowsRunRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WorkflowsRunRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -480,8 +480,8 @@ export class Workflows extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.WorkflowsRunResponseBody>()
-            .json(200, operations.WorkflowsRunResponseBody$)
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.WorkflowsRunResponseBody$inboundSchema)
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

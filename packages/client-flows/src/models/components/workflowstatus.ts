@@ -13,8 +13,8 @@ export type WorkflowStatus = {
 };
 
 /** @internal */
-export namespace WorkflowStatus$ {
-    export const inboundSchema: z.ZodType<WorkflowStatus, z.ZodTypeDef, unknown> = z.object({
+export const WorkflowStatus$inboundSchema: z.ZodType<WorkflowStatus, z.ZodTypeDef, unknown> =
+    z.object({
         stage: z.number().int(),
         instanceId: z.string(),
         startedAt: z
@@ -29,22 +29,40 @@ export namespace WorkflowStatus$ {
         error: z.string().optional(),
     });
 
-    export type Outbound = {
-        stage: number;
-        instanceId: string;
-        startedAt: string;
-        terminatedAt?: string | undefined;
-        error?: string | undefined;
-    };
+/** @internal */
+export type WorkflowStatus$Outbound = {
+    stage: number;
+    instanceId: string;
+    startedAt: string;
+    terminatedAt?: string | undefined;
+    error?: string | undefined;
+};
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowStatus> = z.object({
-        stage: z.number().int(),
-        instanceId: z.string(),
-        startedAt: z.date().transform((v) => v.toISOString()),
-        terminatedAt: z
-            .date()
-            .transform((v) => v.toISOString())
-            .optional(),
-        error: z.string().optional(),
-    });
+/** @internal */
+export const WorkflowStatus$outboundSchema: z.ZodType<
+    WorkflowStatus$Outbound,
+    z.ZodTypeDef,
+    WorkflowStatus
+> = z.object({
+    stage: z.number().int(),
+    instanceId: z.string(),
+    startedAt: z.date().transform((v) => v.toISOString()),
+    terminatedAt: z
+        .date()
+        .transform((v) => v.toISOString())
+        .optional(),
+    error: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace WorkflowStatus$ {
+    /** @deprecated use `WorkflowStatus$inboundSchema` instead. */
+    export const inboundSchema = WorkflowStatus$inboundSchema;
+    /** @deprecated use `WorkflowStatus$outboundSchema` instead. */
+    export const outboundSchema = WorkflowStatus$outboundSchema;
+    /** @deprecated use `WorkflowStatus$Outbound` instead. */
+    export type Outbound = WorkflowStatus$Outbound;
 }

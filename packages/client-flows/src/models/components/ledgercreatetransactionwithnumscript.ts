@@ -17,58 +17,84 @@ export type LedgerCreateTransactionWithNumscript = {
 };
 
 /** @internal */
+export const Script$inboundSchema: z.ZodType<Script, z.ZodTypeDef, unknown> = z.object({
+    plain: z.string(),
+    vars: z.record(z.any()).optional(),
+});
+
+/** @internal */
+export type Script$Outbound = {
+    plain: string;
+    vars?: { [k: string]: any } | undefined;
+};
+
+/** @internal */
+export const Script$outboundSchema: z.ZodType<Script$Outbound, z.ZodTypeDef, Script> = z.object({
+    plain: z.string(),
+    vars: z.record(z.any()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Script$ {
-    export const inboundSchema: z.ZodType<Script, z.ZodTypeDef, unknown> = z.object({
-        plain: z.string(),
-        vars: z.record(z.any()).optional(),
-    });
-
-    export type Outbound = {
-        plain: string;
-        vars?: { [k: string]: any } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Script> = z.object({
-        plain: z.string(),
-        vars: z.record(z.any()).optional(),
-    });
+    /** @deprecated use `Script$inboundSchema` instead. */
+    export const inboundSchema = Script$inboundSchema;
+    /** @deprecated use `Script$outboundSchema` instead. */
+    export const outboundSchema = Script$outboundSchema;
+    /** @deprecated use `Script$Outbound` instead. */
+    export type Outbound = Script$Outbound;
 }
 
 /** @internal */
+export const LedgerCreateTransactionWithNumscript$inboundSchema: z.ZodType<
+    LedgerCreateTransactionWithNumscript,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    timestamp: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v))
+        .optional(),
+    reference: z.string().optional(),
+    metadata: z.record(z.string()),
+    script: z.lazy(() => Script$inboundSchema),
+});
+
+/** @internal */
+export type LedgerCreateTransactionWithNumscript$Outbound = {
+    timestamp?: string | undefined;
+    reference?: string | undefined;
+    metadata: { [k: string]: string };
+    script: Script$Outbound;
+};
+
+/** @internal */
+export const LedgerCreateTransactionWithNumscript$outboundSchema: z.ZodType<
+    LedgerCreateTransactionWithNumscript$Outbound,
+    z.ZodTypeDef,
+    LedgerCreateTransactionWithNumscript
+> = z.object({
+    timestamp: z
+        .date()
+        .transform((v) => v.toISOString())
+        .optional(),
+    reference: z.string().optional(),
+    metadata: z.record(z.string()),
+    script: z.lazy(() => Script$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgerCreateTransactionWithNumscript$ {
-    export const inboundSchema: z.ZodType<
-        LedgerCreateTransactionWithNumscript,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        timestamp: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v))
-            .optional(),
-        reference: z.string().optional(),
-        metadata: z.record(z.string()),
-        script: z.lazy(() => Script$.inboundSchema),
-    });
-
-    export type Outbound = {
-        timestamp?: string | undefined;
-        reference?: string | undefined;
-        metadata: { [k: string]: string };
-        script: Script$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        LedgerCreateTransactionWithNumscript
-    > = z.object({
-        timestamp: z
-            .date()
-            .transform((v) => v.toISOString())
-            .optional(),
-        reference: z.string().optional(),
-        metadata: z.record(z.string()),
-        script: z.lazy(() => Script$.outboundSchema),
-    });
+    /** @deprecated use `LedgerCreateTransactionWithNumscript$inboundSchema` instead. */
+    export const inboundSchema = LedgerCreateTransactionWithNumscript$inboundSchema;
+    /** @deprecated use `LedgerCreateTransactionWithNumscript$outboundSchema` instead. */
+    export const outboundSchema = LedgerCreateTransactionWithNumscript$outboundSchema;
+    /** @deprecated use `LedgerCreateTransactionWithNumscript$Outbound` instead. */
+    export type Outbound = LedgerCreateTransactionWithNumscript$Outbound;
 }

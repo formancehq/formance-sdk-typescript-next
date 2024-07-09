@@ -74,289 +74,518 @@ export type StageSend = {
 };
 
 /** @internal */
+export const Amount$inboundSchema: z.ZodType<Amount, z.ZodTypeDef, unknown> = z.object({
+    asset: z.string(),
+    amount: z.number().int(),
+});
+
+/** @internal */
+export type Amount$Outbound = {
+    asset: string;
+    amount: number;
+};
+
+/** @internal */
+export const Amount$outboundSchema: z.ZodType<Amount$Outbound, z.ZodTypeDef, Amount> = z.object({
+    asset: z.string(),
+    amount: z.number().int(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Amount$ {
-    export const inboundSchema: z.ZodType<Amount, z.ZodTypeDef, unknown> = z.object({
-        asset: z.string(),
-        amount: z.number().int(),
-    });
-
-    export type Outbound = {
-        asset: string;
-        amount: number;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Amount> = z.object({
-        asset: z.string(),
-        amount: z.number().int(),
-    });
+    /** @deprecated use `Amount$inboundSchema` instead. */
+    export const inboundSchema = Amount$inboundSchema;
+    /** @deprecated use `Amount$outboundSchema` instead. */
+    export const outboundSchema = Amount$outboundSchema;
+    /** @deprecated use `Amount$Outbound` instead. */
+    export type Outbound = Amount$Outbound;
 }
 
 /** @internal */
+export const Paymnts$inboundSchema: z.ZodType<Paymnts, z.ZodTypeDef, unknown> = z.object({
+    psp: z.string(),
+});
+
+/** @internal */
+export type Paymnts$Outbound = {
+    psp: string;
+};
+
+/** @internal */
+export const Paymnts$outboundSchema: z.ZodType<Paymnts$Outbound, z.ZodTypeDef, Paymnts> = z.object({
+    psp: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Paymnts$ {
-    export const inboundSchema: z.ZodType<Paymnts, z.ZodTypeDef, unknown> = z.object({
-        psp: z.string(),
-    });
-
-    export type Outbound = {
-        psp: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Paymnts> = z.object({
-        psp: z.string(),
-    });
+    /** @deprecated use `Paymnts$inboundSchema` instead. */
+    export const inboundSchema = Paymnts$inboundSchema;
+    /** @deprecated use `Paymnts$outboundSchema` instead. */
+    export const outboundSchema = Paymnts$outboundSchema;
+    /** @deprecated use `Paymnts$Outbound` instead. */
+    export type Outbound = Paymnts$Outbound;
 }
 
 /** @internal */
+export const Three$inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z.object({
+    paymnts: z.lazy(() => Paymnts$inboundSchema),
+});
+
+/** @internal */
+export type Three$Outbound = {
+    paymnts: Paymnts$Outbound;
+};
+
+/** @internal */
+export const Three$outboundSchema: z.ZodType<Three$Outbound, z.ZodTypeDef, Three> = z.object({
+    paymnts: z.lazy(() => Paymnts$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Three$ {
-    export const inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z.object({
-        paymnts: z.lazy(() => Paymnts$.inboundSchema),
-    });
-
-    export type Outbound = {
-        paymnts: Paymnts$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Three> = z.object({
-        paymnts: z.lazy(() => Paymnts$.outboundSchema),
-    });
+    /** @deprecated use `Three$inboundSchema` instead. */
+    export const inboundSchema = Three$inboundSchema;
+    /** @deprecated use `Three$outboundSchema` instead. */
+    export const outboundSchema = Three$outboundSchema;
+    /** @deprecated use `Three$Outbound` instead. */
+    export type Outbound = Three$Outbound;
 }
 
 /** @internal */
+export const Account$inboundSchema: z.ZodType<Account, z.ZodTypeDef, unknown> = z.object({
+    id: z.string(),
+    ledger: z.string().optional(),
+});
+
+/** @internal */
+export type Account$Outbound = {
+    id: string;
+    ledger?: string | undefined;
+};
+
+/** @internal */
+export const Account$outboundSchema: z.ZodType<Account$Outbound, z.ZodTypeDef, Account> = z.object({
+    id: z.string(),
+    ledger: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Account$ {
-    export const inboundSchema: z.ZodType<Account, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-        ledger: z.string().optional(),
-    });
-
-    export type Outbound = {
-        id: string;
-        ledger?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Account> = z.object({
-        id: z.string(),
-        ledger: z.string().optional(),
-    });
+    /** @deprecated use `Account$inboundSchema` instead. */
+    export const inboundSchema = Account$inboundSchema;
+    /** @deprecated use `Account$outboundSchema` instead. */
+    export const outboundSchema = Account$outboundSchema;
+    /** @deprecated use `Account$Outbound` instead. */
+    export type Outbound = Account$Outbound;
 }
 
 /** @internal */
+export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z.object({
+    account: z.lazy(() => Account$inboundSchema),
+});
+
+/** @internal */
+export type Two$Outbound = {
+    account: Account$Outbound;
+};
+
+/** @internal */
+export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z.object({
+    account: z.lazy(() => Account$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Two$ {
-    export const inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z.object({
-        account: z.lazy(() => Account$.inboundSchema),
-    });
-
-    export type Outbound = {
-        account: Account$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Two> = z.object({
-        account: z.lazy(() => Account$.outboundSchema),
-    });
+    /** @deprecated use `Two$inboundSchema` instead. */
+    export const inboundSchema = Two$inboundSchema;
+    /** @deprecated use `Two$outboundSchema` instead. */
+    export const outboundSchema = Two$outboundSchema;
+    /** @deprecated use `Two$Outbound` instead. */
+    export type Outbound = Two$Outbound;
 }
 
 /** @internal */
+export const Wallet$inboundSchema: z.ZodType<Wallet, z.ZodTypeDef, unknown> = z.object({
+    id: z.string(),
+    balance: z.string().optional(),
+});
+
+/** @internal */
+export type Wallet$Outbound = {
+    id: string;
+    balance?: string | undefined;
+};
+
+/** @internal */
+export const Wallet$outboundSchema: z.ZodType<Wallet$Outbound, z.ZodTypeDef, Wallet> = z.object({
+    id: z.string(),
+    balance: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Wallet$ {
-    export const inboundSchema: z.ZodType<Wallet, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-        balance: z.string().optional(),
-    });
-
-    export type Outbound = {
-        id: string;
-        balance?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Wallet> = z.object({
-        id: z.string(),
-        balance: z.string().optional(),
-    });
+    /** @deprecated use `Wallet$inboundSchema` instead. */
+    export const inboundSchema = Wallet$inboundSchema;
+    /** @deprecated use `Wallet$outboundSchema` instead. */
+    export const outboundSchema = Wallet$outboundSchema;
+    /** @deprecated use `Wallet$Outbound` instead. */
+    export type Outbound = Wallet$Outbound;
 }
 
 /** @internal */
+export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z.object({
+    wallet: z.lazy(() => Wallet$inboundSchema),
+});
+
+/** @internal */
+export type One$Outbound = {
+    wallet: Wallet$Outbound;
+};
+
+/** @internal */
+export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z.object({
+    wallet: z.lazy(() => Wallet$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace One$ {
-    export const inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z.object({
-        wallet: z.lazy(() => Wallet$.inboundSchema),
-    });
-
-    export type Outbound = {
-        wallet: Wallet$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, One> = z.object({
-        wallet: z.lazy(() => Wallet$.outboundSchema),
-    });
+    /** @deprecated use `One$inboundSchema` instead. */
+    export const inboundSchema = One$inboundSchema;
+    /** @deprecated use `One$outboundSchema` instead. */
+    export const outboundSchema = One$outboundSchema;
+    /** @deprecated use `One$Outbound` instead. */
+    export type Outbound = One$Outbound;
 }
 
 /** @internal */
+export const Destination$inboundSchema: z.ZodType<Destination, z.ZodTypeDef, unknown> = z.union([
+    z.lazy(() => One$inboundSchema),
+    z.lazy(() => Two$inboundSchema),
+    z.lazy(() => Three$inboundSchema),
+]);
+
+/** @internal */
+export type Destination$Outbound = One$Outbound | Two$Outbound | Three$Outbound;
+
+/** @internal */
+export const Destination$outboundSchema: z.ZodType<
+    Destination$Outbound,
+    z.ZodTypeDef,
+    Destination
+> = z.union([
+    z.lazy(() => One$outboundSchema),
+    z.lazy(() => Two$outboundSchema),
+    z.lazy(() => Three$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Destination$ {
-    export const inboundSchema: z.ZodType<Destination, z.ZodTypeDef, unknown> = z.union([
-        z.lazy(() => One$.inboundSchema),
-        z.lazy(() => Two$.inboundSchema),
-        z.lazy(() => Three$.inboundSchema),
-    ]);
-
-    export type Outbound = One$.Outbound | Two$.Outbound | Three$.Outbound;
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Destination> = z.union([
-        z.lazy(() => One$.outboundSchema),
-        z.lazy(() => Two$.outboundSchema),
-        z.lazy(() => Three$.outboundSchema),
-    ]);
+    /** @deprecated use `Destination$inboundSchema` instead. */
+    export const inboundSchema = Destination$inboundSchema;
+    /** @deprecated use `Destination$outboundSchema` instead. */
+    export const outboundSchema = Destination$outboundSchema;
+    /** @deprecated use `Destination$Outbound` instead. */
+    export type Outbound = Destination$Outbound;
 }
 
 /** @internal */
+export const SourcePaymnts$inboundSchema: z.ZodType<SourcePaymnts, z.ZodTypeDef, unknown> =
+    z.object({
+        id: z.string(),
+    });
+
+/** @internal */
+export type SourcePaymnts$Outbound = {
+    id: string;
+};
+
+/** @internal */
+export const SourcePaymnts$outboundSchema: z.ZodType<
+    SourcePaymnts$Outbound,
+    z.ZodTypeDef,
+    SourcePaymnts
+> = z.object({
+    id: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SourcePaymnts$ {
-    export const inboundSchema: z.ZodType<SourcePaymnts, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-    });
-
-    export type Outbound = {
-        id: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SourcePaymnts> = z.object({
-        id: z.string(),
-    });
+    /** @deprecated use `SourcePaymnts$inboundSchema` instead. */
+    export const inboundSchema = SourcePaymnts$inboundSchema;
+    /** @deprecated use `SourcePaymnts$outboundSchema` instead. */
+    export const outboundSchema = SourcePaymnts$outboundSchema;
+    /** @deprecated use `SourcePaymnts$Outbound` instead. */
+    export type Outbound = SourcePaymnts$Outbound;
 }
 
 /** @internal */
+export const Source3$inboundSchema: z.ZodType<Source3, z.ZodTypeDef, unknown> = z.object({
+    paymnts: z.lazy(() => SourcePaymnts$inboundSchema),
+});
+
+/** @internal */
+export type Source3$Outbound = {
+    paymnts: SourcePaymnts$Outbound;
+};
+
+/** @internal */
+export const Source3$outboundSchema: z.ZodType<Source3$Outbound, z.ZodTypeDef, Source3> = z.object({
+    paymnts: z.lazy(() => SourcePaymnts$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Source3$ {
-    export const inboundSchema: z.ZodType<Source3, z.ZodTypeDef, unknown> = z.object({
-        paymnts: z.lazy(() => SourcePaymnts$.inboundSchema),
-    });
-
-    export type Outbound = {
-        paymnts: SourcePaymnts$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Source3> = z.object({
-        paymnts: z.lazy(() => SourcePaymnts$.outboundSchema),
-    });
+    /** @deprecated use `Source3$inboundSchema` instead. */
+    export const inboundSchema = Source3$inboundSchema;
+    /** @deprecated use `Source3$outboundSchema` instead. */
+    export const outboundSchema = Source3$outboundSchema;
+    /** @deprecated use `Source3$Outbound` instead. */
+    export type Outbound = Source3$Outbound;
 }
 
 /** @internal */
+export const SourceAccount$inboundSchema: z.ZodType<SourceAccount, z.ZodTypeDef, unknown> =
+    z.object({
+        id: z.string(),
+        ledger: z.string().optional(),
+    });
+
+/** @internal */
+export type SourceAccount$Outbound = {
+    id: string;
+    ledger?: string | undefined;
+};
+
+/** @internal */
+export const SourceAccount$outboundSchema: z.ZodType<
+    SourceAccount$Outbound,
+    z.ZodTypeDef,
+    SourceAccount
+> = z.object({
+    id: z.string(),
+    ledger: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SourceAccount$ {
-    export const inboundSchema: z.ZodType<SourceAccount, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-        ledger: z.string().optional(),
-    });
-
-    export type Outbound = {
-        id: string;
-        ledger?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SourceAccount> = z.object({
-        id: z.string(),
-        ledger: z.string().optional(),
-    });
+    /** @deprecated use `SourceAccount$inboundSchema` instead. */
+    export const inboundSchema = SourceAccount$inboundSchema;
+    /** @deprecated use `SourceAccount$outboundSchema` instead. */
+    export const outboundSchema = SourceAccount$outboundSchema;
+    /** @deprecated use `SourceAccount$Outbound` instead. */
+    export type Outbound = SourceAccount$Outbound;
 }
 
 /** @internal */
+export const Source2$inboundSchema: z.ZodType<Source2, z.ZodTypeDef, unknown> = z.object({
+    account: z.lazy(() => SourceAccount$inboundSchema),
+});
+
+/** @internal */
+export type Source2$Outbound = {
+    account: SourceAccount$Outbound;
+};
+
+/** @internal */
+export const Source2$outboundSchema: z.ZodType<Source2$Outbound, z.ZodTypeDef, Source2> = z.object({
+    account: z.lazy(() => SourceAccount$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Source2$ {
-    export const inboundSchema: z.ZodType<Source2, z.ZodTypeDef, unknown> = z.object({
-        account: z.lazy(() => SourceAccount$.inboundSchema),
-    });
-
-    export type Outbound = {
-        account: SourceAccount$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Source2> = z.object({
-        account: z.lazy(() => SourceAccount$.outboundSchema),
-    });
+    /** @deprecated use `Source2$inboundSchema` instead. */
+    export const inboundSchema = Source2$inboundSchema;
+    /** @deprecated use `Source2$outboundSchema` instead. */
+    export const outboundSchema = Source2$outboundSchema;
+    /** @deprecated use `Source2$Outbound` instead. */
+    export type Outbound = Source2$Outbound;
 }
 
 /** @internal */
+export const SourceWallet$inboundSchema: z.ZodType<SourceWallet, z.ZodTypeDef, unknown> = z.object({
+    id: z.string(),
+    balance: z.string().optional(),
+});
+
+/** @internal */
+export type SourceWallet$Outbound = {
+    id: string;
+    balance?: string | undefined;
+};
+
+/** @internal */
+export const SourceWallet$outboundSchema: z.ZodType<
+    SourceWallet$Outbound,
+    z.ZodTypeDef,
+    SourceWallet
+> = z.object({
+    id: z.string(),
+    balance: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SourceWallet$ {
-    export const inboundSchema: z.ZodType<SourceWallet, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-        balance: z.string().optional(),
-    });
-
-    export type Outbound = {
-        id: string;
-        balance?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SourceWallet> = z.object({
-        id: z.string(),
-        balance: z.string().optional(),
-    });
+    /** @deprecated use `SourceWallet$inboundSchema` instead. */
+    export const inboundSchema = SourceWallet$inboundSchema;
+    /** @deprecated use `SourceWallet$outboundSchema` instead. */
+    export const outboundSchema = SourceWallet$outboundSchema;
+    /** @deprecated use `SourceWallet$Outbound` instead. */
+    export type Outbound = SourceWallet$Outbound;
 }
 
 /** @internal */
+export const Source1$inboundSchema: z.ZodType<Source1, z.ZodTypeDef, unknown> = z.object({
+    wallet: z.lazy(() => SourceWallet$inboundSchema),
+});
+
+/** @internal */
+export type Source1$Outbound = {
+    wallet: SourceWallet$Outbound;
+};
+
+/** @internal */
+export const Source1$outboundSchema: z.ZodType<Source1$Outbound, z.ZodTypeDef, Source1> = z.object({
+    wallet: z.lazy(() => SourceWallet$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Source1$ {
-    export const inboundSchema: z.ZodType<Source1, z.ZodTypeDef, unknown> = z.object({
-        wallet: z.lazy(() => SourceWallet$.inboundSchema),
-    });
-
-    export type Outbound = {
-        wallet: SourceWallet$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Source1> = z.object({
-        wallet: z.lazy(() => SourceWallet$.outboundSchema),
-    });
+    /** @deprecated use `Source1$inboundSchema` instead. */
+    export const inboundSchema = Source1$inboundSchema;
+    /** @deprecated use `Source1$outboundSchema` instead. */
+    export const outboundSchema = Source1$outboundSchema;
+    /** @deprecated use `Source1$Outbound` instead. */
+    export type Outbound = Source1$Outbound;
 }
 
 /** @internal */
+export const Source$inboundSchema: z.ZodType<Source, z.ZodTypeDef, unknown> = z.union([
+    z.lazy(() => Source1$inboundSchema),
+    z.lazy(() => Source2$inboundSchema),
+    z.lazy(() => Source3$inboundSchema),
+]);
+
+/** @internal */
+export type Source$Outbound = Source1$Outbound | Source2$Outbound | Source3$Outbound;
+
+/** @internal */
+export const Source$outboundSchema: z.ZodType<Source$Outbound, z.ZodTypeDef, Source> = z.union([
+    z.lazy(() => Source1$outboundSchema),
+    z.lazy(() => Source2$outboundSchema),
+    z.lazy(() => Source3$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Source$ {
-    export const inboundSchema: z.ZodType<Source, z.ZodTypeDef, unknown> = z.union([
-        z.lazy(() => Source1$.inboundSchema),
-        z.lazy(() => Source2$.inboundSchema),
-        z.lazy(() => Source3$.inboundSchema),
-    ]);
-
-    export type Outbound = Source1$.Outbound | Source2$.Outbound | Source3$.Outbound;
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Source> = z.union([
-        z.lazy(() => Source1$.outboundSchema),
-        z.lazy(() => Source2$.outboundSchema),
-        z.lazy(() => Source3$.outboundSchema),
-    ]);
+    /** @deprecated use `Source$inboundSchema` instead. */
+    export const inboundSchema = Source$inboundSchema;
+    /** @deprecated use `Source$outboundSchema` instead. */
+    export const outboundSchema = Source$outboundSchema;
+    /** @deprecated use `Source$Outbound` instead. */
+    export type Outbound = Source$Outbound;
 }
 
 /** @internal */
-export namespace StageSend$ {
-    export const inboundSchema: z.ZodType<StageSend, z.ZodTypeDef, unknown> = z.object({
-        amount: z.lazy(() => Amount$.inboundSchema).optional(),
+export const StageSend$inboundSchema: z.ZodType<StageSend, z.ZodTypeDef, unknown> = z.object({
+    amount: z.lazy(() => Amount$inboundSchema).optional(),
+    destination: z.union([
+        z.lazy(() => One$inboundSchema),
+        z.lazy(() => Two$inboundSchema),
+        z.lazy(() => Three$inboundSchema),
+    ]),
+    source: z.union([
+        z.lazy(() => Source1$inboundSchema),
+        z.lazy(() => Source2$inboundSchema),
+        z.lazy(() => Source3$inboundSchema),
+    ]),
+    metadata: z.record(z.string()).optional(),
+    timestamp: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+});
+
+/** @internal */
+export type StageSend$Outbound = {
+    amount?: Amount$Outbound | undefined;
+    destination: One$Outbound | Two$Outbound | Three$Outbound;
+    source: Source1$Outbound | Source2$Outbound | Source3$Outbound;
+    metadata?: { [k: string]: string } | undefined;
+    timestamp: string;
+};
+
+/** @internal */
+export const StageSend$outboundSchema: z.ZodType<StageSend$Outbound, z.ZodTypeDef, StageSend> =
+    z.object({
+        amount: z.lazy(() => Amount$outboundSchema).optional(),
         destination: z.union([
-            z.lazy(() => One$.inboundSchema),
-            z.lazy(() => Two$.inboundSchema),
-            z.lazy(() => Three$.inboundSchema),
+            z.lazy(() => One$outboundSchema),
+            z.lazy(() => Two$outboundSchema),
+            z.lazy(() => Three$outboundSchema),
         ]),
         source: z.union([
-            z.lazy(() => Source1$.inboundSchema),
-            z.lazy(() => Source2$.inboundSchema),
-            z.lazy(() => Source3$.inboundSchema),
-        ]),
-        metadata: z.record(z.string()).optional(),
-        timestamp: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v)),
-    });
-
-    export type Outbound = {
-        amount?: Amount$.Outbound | undefined;
-        destination: One$.Outbound | Two$.Outbound | Three$.Outbound;
-        source: Source1$.Outbound | Source2$.Outbound | Source3$.Outbound;
-        metadata?: { [k: string]: string } | undefined;
-        timestamp: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, StageSend> = z.object({
-        amount: z.lazy(() => Amount$.outboundSchema).optional(),
-        destination: z.union([
-            z.lazy(() => One$.outboundSchema),
-            z.lazy(() => Two$.outboundSchema),
-            z.lazy(() => Three$.outboundSchema),
-        ]),
-        source: z.union([
-            z.lazy(() => Source1$.outboundSchema),
-            z.lazy(() => Source2$.outboundSchema),
-            z.lazy(() => Source3$.outboundSchema),
+            z.lazy(() => Source1$outboundSchema),
+            z.lazy(() => Source2$outboundSchema),
+            z.lazy(() => Source3$outboundSchema),
         ]),
         metadata: z.record(z.string()).optional(),
         timestamp: z.date().transform((v) => v.toISOString()),
     });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace StageSend$ {
+    /** @deprecated use `StageSend$inboundSchema` instead. */
+    export const inboundSchema = StageSend$inboundSchema;
+    /** @deprecated use `StageSend$outboundSchema` instead. */
+    export const outboundSchema = StageSend$outboundSchema;
+    /** @deprecated use `StageSend$Outbound` instead. */
+    export type Outbound = StageSend$Outbound;
 }

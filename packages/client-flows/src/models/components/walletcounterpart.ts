@@ -4,11 +4,15 @@
 
 import {
     WalletsWalletCounterpartAccount,
-    WalletsWalletCounterpartAccount$,
+    WalletsWalletCounterpartAccount$inboundSchema,
+    WalletsWalletCounterpartAccount$Outbound,
+    WalletsWalletCounterpartAccount$outboundSchema,
 } from "./walletswalletcounterpartaccount.js";
 import {
     WalletsWalletCounterpartWallet,
-    WalletsWalletCounterpartWallet$,
+    WalletsWalletCounterpartWallet$inboundSchema,
+    WalletsWalletCounterpartWallet$Outbound,
+    WalletsWalletCounterpartWallet$outboundSchema,
 } from "./walletswalletcounterpartwallet.js";
 import * as z from "zod";
 
@@ -17,25 +21,44 @@ export type WalletCounterpart =
     | (WalletsWalletCounterpartWallet & { type: "WALLET" });
 
 /** @internal */
-export namespace WalletCounterpart$ {
-    export const inboundSchema: z.ZodType<WalletCounterpart, z.ZodTypeDef, unknown> = z.union([
-        WalletsWalletCounterpartAccount$.inboundSchema.and(
+export const WalletCounterpart$inboundSchema: z.ZodType<WalletCounterpart, z.ZodTypeDef, unknown> =
+    z.union([
+        WalletsWalletCounterpartAccount$inboundSchema.and(
             z.object({ type: z.literal("ACCOUNT") }).transform((v) => ({ type: v.type }))
         ),
-        WalletsWalletCounterpartWallet$.inboundSchema.and(
+        WalletsWalletCounterpartWallet$inboundSchema.and(
             z.object({ type: z.literal("WALLET") }).transform((v) => ({ type: v.type }))
         ),
     ]);
 
-    export type Outbound =
-        | (WalletsWalletCounterpartAccount$.Outbound & { type: "ACCOUNT" })
-        | (WalletsWalletCounterpartWallet$.Outbound & { type: "WALLET" });
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WalletCounterpart> = z.union([
-        WalletsWalletCounterpartAccount$.outboundSchema.and(
-            z.object({ type: z.literal("ACCOUNT") }).transform((v) => ({ type: v.type }))
-        ),
-        WalletsWalletCounterpartWallet$.outboundSchema.and(
-            z.object({ type: z.literal("WALLET") }).transform((v) => ({ type: v.type }))
-        ),
-    ]);
+/** @internal */
+export type WalletCounterpart$Outbound =
+    | (WalletsWalletCounterpartAccount$Outbound & { type: "ACCOUNT" })
+    | (WalletsWalletCounterpartWallet$Outbound & { type: "WALLET" });
+
+/** @internal */
+export const WalletCounterpart$outboundSchema: z.ZodType<
+    WalletCounterpart$Outbound,
+    z.ZodTypeDef,
+    WalletCounterpart
+> = z.union([
+    WalletsWalletCounterpartAccount$outboundSchema.and(
+        z.object({ type: z.literal("ACCOUNT") }).transform((v) => ({ type: v.type }))
+    ),
+    WalletsWalletCounterpartWallet$outboundSchema.and(
+        z.object({ type: z.literal("WALLET") }).transform((v) => ({ type: v.type }))
+    ),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace WalletCounterpart$ {
+    /** @deprecated use `WalletCounterpart$inboundSchema` instead. */
+    export const inboundSchema = WalletCounterpart$inboundSchema;
+    /** @deprecated use `WalletCounterpart$outboundSchema` instead. */
+    export const outboundSchema = WalletCounterpart$outboundSchema;
+    /** @deprecated use `WalletCounterpart$Outbound` instead. */
+    export type Outbound = WalletCounterpart$Outbound;
 }

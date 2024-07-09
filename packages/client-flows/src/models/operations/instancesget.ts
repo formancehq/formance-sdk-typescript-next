@@ -17,33 +17,73 @@ export type InstancesGetResponseBody = {
 };
 
 /** @internal */
+export const InstancesGetRequest$inboundSchema: z.ZodType<
+    InstancesGetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+});
+
+/** @internal */
+export type InstancesGetRequest$Outbound = {
+    id: string;
+};
+
+/** @internal */
+export const InstancesGetRequest$outboundSchema: z.ZodType<
+    InstancesGetRequest$Outbound,
+    z.ZodTypeDef,
+    InstancesGetRequest
+> = z.object({
+    id: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InstancesGetRequest$ {
-    export const inboundSchema: z.ZodType<InstancesGetRequest, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-    });
-
-    export type Outbound = {
-        id: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InstancesGetRequest> = z.object({
-        id: z.string(),
-    });
+    /** @deprecated use `InstancesGetRequest$inboundSchema` instead. */
+    export const inboundSchema = InstancesGetRequest$inboundSchema;
+    /** @deprecated use `InstancesGetRequest$outboundSchema` instead. */
+    export const outboundSchema = InstancesGetRequest$outboundSchema;
+    /** @deprecated use `InstancesGetRequest$Outbound` instead. */
+    export type Outbound = InstancesGetRequest$Outbound;
 }
 
 /** @internal */
+export const InstancesGetResponseBody$inboundSchema: z.ZodType<
+    InstancesGetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.WorkflowInstance$inboundSchema,
+});
+
+/** @internal */
+export type InstancesGetResponseBody$Outbound = {
+    data: components.WorkflowInstance$Outbound;
+};
+
+/** @internal */
+export const InstancesGetResponseBody$outboundSchema: z.ZodType<
+    InstancesGetResponseBody$Outbound,
+    z.ZodTypeDef,
+    InstancesGetResponseBody
+> = z.object({
+    data: components.WorkflowInstance$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InstancesGetResponseBody$ {
-    export const inboundSchema: z.ZodType<InstancesGetResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.WorkflowInstance$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.WorkflowInstance$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InstancesGetResponseBody> =
-        z.object({
-            data: components.WorkflowInstance$.outboundSchema,
-        });
+    /** @deprecated use `InstancesGetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = InstancesGetResponseBody$inboundSchema;
+    /** @deprecated use `InstancesGetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = InstancesGetResponseBody$outboundSchema;
+    /** @deprecated use `InstancesGetResponseBody$Outbound` instead. */
+    export type Outbound = InstancesGetResponseBody$Outbound;
 }

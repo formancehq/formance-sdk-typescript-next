@@ -9,19 +9,37 @@ export type WorkflowsDeleteRequest = {
 };
 
 /** @internal */
+export const WorkflowsDeleteRequest$inboundSchema: z.ZodType<
+    WorkflowsDeleteRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+});
+
+/** @internal */
+export type WorkflowsDeleteRequest$Outbound = {
+    id: string;
+};
+
+/** @internal */
+export const WorkflowsDeleteRequest$outboundSchema: z.ZodType<
+    WorkflowsDeleteRequest$Outbound,
+    z.ZodTypeDef,
+    WorkflowsDeleteRequest
+> = z.object({
+    id: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsDeleteRequest$ {
-    export const inboundSchema: z.ZodType<WorkflowsDeleteRequest, z.ZodTypeDef, unknown> = z.object(
-        {
-            id: z.string(),
-        }
-    );
-
-    export type Outbound = {
-        id: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsDeleteRequest> =
-        z.object({
-            id: z.string(),
-        });
+    /** @deprecated use `WorkflowsDeleteRequest$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsDeleteRequest$inboundSchema;
+    /** @deprecated use `WorkflowsDeleteRequest$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsDeleteRequest$outboundSchema;
+    /** @deprecated use `WorkflowsDeleteRequest$Outbound` instead. */
+    export type Outbound = WorkflowsDeleteRequest$Outbound;
 }

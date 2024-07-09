@@ -16,30 +16,57 @@ export type WalletsWalletCounterpartAccount = {
 };
 
 /** @internal */
+export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(Type);
+
+/** @internal */
+export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> = Type$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Type$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(Type);
-    export const outboundSchema: z.ZodNativeEnum<typeof Type> = inboundSchema;
+    /** @deprecated use `Type$inboundSchema` instead. */
+    export const inboundSchema = Type$inboundSchema;
+    /** @deprecated use `Type$outboundSchema` instead. */
+    export const outboundSchema = Type$outboundSchema;
 }
 
 /** @internal */
+export const WalletsWalletCounterpartAccount$inboundSchema: z.ZodType<
+    WalletsWalletCounterpartAccount,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    type: Type$inboundSchema,
+    identifier: z.string(),
+});
+
+/** @internal */
+export type WalletsWalletCounterpartAccount$Outbound = {
+    type: string;
+    identifier: string;
+};
+
+/** @internal */
+export const WalletsWalletCounterpartAccount$outboundSchema: z.ZodType<
+    WalletsWalletCounterpartAccount$Outbound,
+    z.ZodTypeDef,
+    WalletsWalletCounterpartAccount
+> = z.object({
+    type: Type$outboundSchema,
+    identifier: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WalletsWalletCounterpartAccount$ {
-    export const inboundSchema: z.ZodType<WalletsWalletCounterpartAccount, z.ZodTypeDef, unknown> =
-        z.object({
-            type: Type$.inboundSchema,
-            identifier: z.string(),
-        });
-
-    export type Outbound = {
-        type: string;
-        identifier: string;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        WalletsWalletCounterpartAccount
-    > = z.object({
-        type: Type$.outboundSchema,
-        identifier: z.string(),
-    });
+    /** @deprecated use `WalletsWalletCounterpartAccount$inboundSchema` instead. */
+    export const inboundSchema = WalletsWalletCounterpartAccount$inboundSchema;
+    /** @deprecated use `WalletsWalletCounterpartAccount$outboundSchema` instead. */
+    export const outboundSchema = WalletsWalletCounterpartAccount$outboundSchema;
+    /** @deprecated use `WalletsWalletCounterpartAccount$Outbound` instead. */
+    export type Outbound = WalletsWalletCounterpartAccount$Outbound;
 }

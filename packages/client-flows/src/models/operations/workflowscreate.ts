@@ -13,18 +13,37 @@ export type WorkflowsCreateResponseBody = {
 };
 
 /** @internal */
+export const WorkflowsCreateResponseBody$inboundSchema: z.ZodType<
+    WorkflowsCreateResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Workflow$inboundSchema,
+});
+
+/** @internal */
+export type WorkflowsCreateResponseBody$Outbound = {
+    data: components.Workflow$Outbound;
+};
+
+/** @internal */
+export const WorkflowsCreateResponseBody$outboundSchema: z.ZodType<
+    WorkflowsCreateResponseBody$Outbound,
+    z.ZodTypeDef,
+    WorkflowsCreateResponseBody
+> = z.object({
+    data: components.Workflow$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsCreateResponseBody$ {
-    export const inboundSchema: z.ZodType<WorkflowsCreateResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Workflow$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Workflow$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsCreateResponseBody> =
-        z.object({
-            data: components.Workflow$.outboundSchema,
-        });
+    /** @deprecated use `WorkflowsCreateResponseBody$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsCreateResponseBody$inboundSchema;
+    /** @deprecated use `WorkflowsCreateResponseBody$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsCreateResponseBody$outboundSchema;
+    /** @deprecated use `WorkflowsCreateResponseBody$Outbound` instead. */
+    export type Outbound = WorkflowsCreateResponseBody$Outbound;
 }

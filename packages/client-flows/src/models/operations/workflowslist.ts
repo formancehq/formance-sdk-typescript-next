@@ -28,83 +28,163 @@ export type WorkflowsListResponse = {
 };
 
 /** @internal */
+export const WorkflowsListRequest$inboundSchema: z.ZodType<
+    WorkflowsListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/** @internal */
+export type WorkflowsListRequest$Outbound = {
+    cursor?: string | undefined;
+    pageSize?: number | undefined;
+};
+
+/** @internal */
+export const WorkflowsListRequest$outboundSchema: z.ZodType<
+    WorkflowsListRequest$Outbound,
+    z.ZodTypeDef,
+    WorkflowsListRequest
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsListRequest$ {
-    export const inboundSchema: z.ZodType<WorkflowsListRequest, z.ZodTypeDef, unknown> = z.object({
-        cursor: z.string().optional(),
-        pageSize: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        cursor?: string | undefined;
-        pageSize?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsListRequest> = z.object(
-        {
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-        }
-    );
+    /** @deprecated use `WorkflowsListRequest$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsListRequest$inboundSchema;
+    /** @deprecated use `WorkflowsListRequest$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsListRequest$outboundSchema;
+    /** @deprecated use `WorkflowsListRequest$Outbound` instead. */
+    export type Outbound = WorkflowsListRequest$Outbound;
 }
 
 /** @internal */
+export const WorkflowsListCursor$inboundSchema: z.ZodType<
+    WorkflowsListCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Workflow$inboundSchema),
+});
+
+/** @internal */
+export type WorkflowsListCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.Workflow$Outbound>;
+};
+
+/** @internal */
+export const WorkflowsListCursor$outboundSchema: z.ZodType<
+    WorkflowsListCursor$Outbound,
+    z.ZodTypeDef,
+    WorkflowsListCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Workflow$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsListCursor$ {
-    export const inboundSchema: z.ZodType<WorkflowsListCursor, z.ZodTypeDef, unknown> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.Workflow$.inboundSchema),
-    });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.Workflow$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsListCursor> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.Workflow$.outboundSchema),
-    });
+    /** @deprecated use `WorkflowsListCursor$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsListCursor$inboundSchema;
+    /** @deprecated use `WorkflowsListCursor$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsListCursor$outboundSchema;
+    /** @deprecated use `WorkflowsListCursor$Outbound` instead. */
+    export type Outbound = WorkflowsListCursor$Outbound;
 }
 
 /** @internal */
+export const WorkflowsListResponseBody$inboundSchema: z.ZodType<
+    WorkflowsListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => WorkflowsListCursor$inboundSchema),
+});
+
+/** @internal */
+export type WorkflowsListResponseBody$Outbound = {
+    cursor: WorkflowsListCursor$Outbound;
+};
+
+/** @internal */
+export const WorkflowsListResponseBody$outboundSchema: z.ZodType<
+    WorkflowsListResponseBody$Outbound,
+    z.ZodTypeDef,
+    WorkflowsListResponseBody
+> = z.object({
+    cursor: z.lazy(() => WorkflowsListCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsListResponseBody$ {
-    export const inboundSchema: z.ZodType<WorkflowsListResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => WorkflowsListCursor$.inboundSchema),
-        });
-
-    export type Outbound = {
-        cursor: WorkflowsListCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsListResponseBody> =
-        z.object({
-            cursor: z.lazy(() => WorkflowsListCursor$.outboundSchema),
-        });
+    /** @deprecated use `WorkflowsListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsListResponseBody$inboundSchema;
+    /** @deprecated use `WorkflowsListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsListResponseBody$outboundSchema;
+    /** @deprecated use `WorkflowsListResponseBody$Outbound` instead. */
+    export type Outbound = WorkflowsListResponseBody$Outbound;
 }
 
 /** @internal */
+export const WorkflowsListResponse$inboundSchema: z.ZodType<
+    WorkflowsListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => WorkflowsListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
+    });
+
+/** @internal */
+export type WorkflowsListResponse$Outbound = {
+    Result: WorkflowsListResponseBody$Outbound;
+};
+
+/** @internal */
+export const WorkflowsListResponse$outboundSchema: z.ZodType<
+    WorkflowsListResponse$Outbound,
+    z.ZodTypeDef,
+    WorkflowsListResponse
+> = z
+    .object({
+        result: z.lazy(() => WorkflowsListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WorkflowsListResponse$ {
-    export const inboundSchema: z.ZodType<WorkflowsListResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => WorkflowsListResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: WorkflowsListResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WorkflowsListResponse> = z
-        .object({
-            result: z.lazy(() => WorkflowsListResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `WorkflowsListResponse$inboundSchema` instead. */
+    export const inboundSchema = WorkflowsListResponse$inboundSchema;
+    /** @deprecated use `WorkflowsListResponse$outboundSchema` instead. */
+    export const outboundSchema = WorkflowsListResponse$outboundSchema;
+    /** @deprecated use `WorkflowsListResponse$Outbound` instead. */
+    export type Outbound = WorkflowsListResponse$Outbound;
 }

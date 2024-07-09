@@ -24,44 +24,56 @@ export class FlowError extends Error {
     data$: FlowErrorData;
 
     constructor(err: FlowErrorData) {
-        super("");
+        const message =
+            "message" in err && typeof err.message === "string"
+                ? err.message
+                : `API error occurred: ${JSON.stringify(err)}`;
+        super(message);
         this.data$ = err;
 
         this.errorCode = err.errorCode;
         this.errorMessage = err.errorMessage;
-
-        this.message =
-            "message" in err && typeof err.message === "string"
-                ? err.message
-                : "API error occurred";
 
         this.name = "FlowError";
     }
 }
 
 /** @internal */
-export namespace FlowError$ {
-    export const inboundSchema: z.ZodType<FlowError, z.ZodTypeDef, unknown> = z
-        .object({
-            errorCode: components.FlowErrors$.inboundSchema,
+export const FlowError$inboundSchema: z.ZodType<FlowError, z.ZodTypeDef, unknown> = z
+    .object({
+        errorCode: components.FlowErrors$inboundSchema,
+        errorMessage: z.string(),
+    })
+    .transform((v) => {
+        return new FlowError(v);
+    });
+
+/** @internal */
+export type FlowError$Outbound = {
+    errorCode: string;
+    errorMessage: string;
+};
+
+/** @internal */
+export const FlowError$outboundSchema: z.ZodType<FlowError$Outbound, z.ZodTypeDef, FlowError> = z
+    .instanceof(FlowError)
+    .transform((v) => v.data$)
+    .pipe(
+        z.object({
+            errorCode: components.FlowErrors$outboundSchema,
             errorMessage: z.string(),
         })
-        .transform((v) => {
-            return new FlowError(v);
-        });
+    );
 
-    export type Outbound = {
-        errorCode: string;
-        errorMessage: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, FlowError> = z
-        .instanceof(FlowError)
-        .transform((v) => v.data$)
-        .pipe(
-            z.object({
-                errorCode: components.FlowErrors$.outboundSchema,
-                errorMessage: z.string(),
-            })
-        );
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FlowError$ {
+    /** @deprecated use `FlowError$inboundSchema` instead. */
+    export const inboundSchema = FlowError$inboundSchema;
+    /** @deprecated use `FlowError$outboundSchema` instead. */
+    export const outboundSchema = FlowError$outboundSchema;
+    /** @deprecated use `FlowError$Outbound` instead. */
+    export type Outbound = FlowError$Outbound;
 }

@@ -11,22 +11,39 @@ export type LedgerVolume = {
 };
 
 /** @internal */
+export const LedgerVolume$inboundSchema: z.ZodType<LedgerVolume, z.ZodTypeDef, unknown> = z.object({
+    input: z.number().int(),
+    output: z.number().int(),
+    balance: z.number().int().optional(),
+});
+
+/** @internal */
+export type LedgerVolume$Outbound = {
+    input: number;
+    output: number;
+    balance?: number | undefined;
+};
+
+/** @internal */
+export const LedgerVolume$outboundSchema: z.ZodType<
+    LedgerVolume$Outbound,
+    z.ZodTypeDef,
+    LedgerVolume
+> = z.object({
+    input: z.number().int(),
+    output: z.number().int(),
+    balance: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgerVolume$ {
-    export const inboundSchema: z.ZodType<LedgerVolume, z.ZodTypeDef, unknown> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        input: number;
-        output: number;
-        balance?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgerVolume> = z.object({
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int().optional(),
-    });
+    /** @deprecated use `LedgerVolume$inboundSchema` instead. */
+    export const inboundSchema = LedgerVolume$inboundSchema;
+    /** @deprecated use `LedgerVolume$outboundSchema` instead. */
+    export const outboundSchema = LedgerVolume$outboundSchema;
+    /** @deprecated use `LedgerVolume$Outbound` instead. */
+    export type Outbound = LedgerVolume$Outbound;
 }

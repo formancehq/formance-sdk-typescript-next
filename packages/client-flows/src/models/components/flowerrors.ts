@@ -13,7 +13,20 @@ export const FlowErrors = {
 export type FlowErrors = ClosedEnum<typeof FlowErrors>;
 
 /** @internal */
+export const FlowErrors$inboundSchema: z.ZodNativeEnum<typeof FlowErrors> =
+    z.nativeEnum(FlowErrors);
+
+/** @internal */
+export const FlowErrors$outboundSchema: z.ZodNativeEnum<typeof FlowErrors> =
+    FlowErrors$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace FlowErrors$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof FlowErrors> = z.nativeEnum(FlowErrors);
-    export const outboundSchema: z.ZodNativeEnum<typeof FlowErrors> = inboundSchema;
+    /** @deprecated use `FlowErrors$inboundSchema` instead. */
+    export const inboundSchema = FlowErrors$inboundSchema;
+    /** @deprecated use `FlowErrors$outboundSchema` instead. */
+    export const outboundSchema = FlowErrors$outboundSchema;
 }

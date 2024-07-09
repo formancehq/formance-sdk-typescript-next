@@ -62,7 +62,7 @@ export class Instances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.InstancesListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.InstancesListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -130,8 +130,8 @@ export class Instances extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.InstancesListResponse>()
-            .json(200, operations.InstancesListResponse$, { key: "Result" })
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.InstancesListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.InstancesListResponse> => {
@@ -161,7 +161,7 @@ export class Instances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.InstancesGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.InstancesGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -229,8 +229,8 @@ export class Instances extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.InstancesGetResponseBody>()
-            .json(200, operations.InstancesGetResponseBody$)
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.InstancesGetResponseBody$inboundSchema)
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -246,7 +246,7 @@ export class Instances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.InstancesAbortRequest$.outboundSchema.parse(value$),
+            (value$) => operations.InstancesAbortRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -315,7 +315,7 @@ export class Instances extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.FlowError$, { err: true })
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -333,7 +333,7 @@ export class Instances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.InstancesSendRequest$.outboundSchema.parse(value$),
+            (value$) => operations.InstancesSendRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -403,7 +403,7 @@ export class Instances extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.FlowError$, { err: true })
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -419,7 +419,7 @@ export class Instances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.InstancesGetHistoryRequest$.outboundSchema.parse(value$),
+            (value$) => operations.InstancesGetHistoryRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -483,7 +483,7 @@ export class Instances extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.InstancesGetHistoryResponseBody>()
-            .json(200, operations.InstancesGetHistoryResponseBody$)
+            .json(200, operations.InstancesGetHistoryResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 
@@ -502,7 +502,7 @@ export class Instances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.InstancesGetStageHistoryRequest$.outboundSchema.parse(value$),
+            (value$) => operations.InstancesGetStageHistoryRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -570,7 +570,7 @@ export class Instances extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.InstancesGetStageHistoryResponseBody>()
-            .json(200, operations.InstancesGetStageHistoryResponseBody$)
+            .json(200, operations.InstancesGetStageHistoryResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 

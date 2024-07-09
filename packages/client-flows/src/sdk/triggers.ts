@@ -60,7 +60,7 @@ export class Triggers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TriggersListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TriggersListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -127,8 +127,8 @@ export class Triggers extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.TriggersListResponse>()
-            .json(200, operations.TriggersListResponse$, { key: "Result" })
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.TriggersListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.TriggersListResponse> => {
@@ -156,7 +156,7 @@ export class Triggers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TriggersCreateRequestBody$.outboundSchema.parse(value$),
+            (value$) => operations.TriggersCreateRequestBody$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -220,8 +220,8 @@ export class Triggers extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TriggersCreateResponseBody>()
-            .json(201, operations.TriggersCreateResponseBody$)
-            .json("default", errors.FlowError$, { err: true })
+            .json(201, operations.TriggersCreateResponseBody$inboundSchema)
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -237,7 +237,7 @@ export class Triggers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TriggersGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TriggersGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -303,8 +303,8 @@ export class Triggers extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TriggersGetResponseBody>()
-            .json(200, operations.TriggersGetResponseBody$)
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.TriggersGetResponseBody$inboundSchema)
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -320,7 +320,7 @@ export class Triggers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TriggersDeleteRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TriggersDeleteRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -387,7 +387,7 @@ export class Triggers extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.FlowError$, { err: true })
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -407,7 +407,7 @@ export class Triggers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TriggersListOccurencesRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TriggersListOccurencesRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -478,7 +478,7 @@ export class Triggers extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.TriggersListOccurencesResponse>()
-            .json(200, operations.TriggersListOccurencesResponse$, { key: "Result" })
+            .json(200, operations.TriggersListOccurencesResponse$inboundSchema, { key: "Result" })
             .fail("default")
             .match(response, { extraFields: responseFields$ });
 
@@ -513,7 +513,7 @@ export class Triggers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TriggersTestRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TriggersTestRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -582,8 +582,8 @@ export class Triggers extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TriggersTestResponseBody>()
-            .json(200, operations.TriggersTestResponseBody$)
-            .json("default", errors.FlowError$, { err: true })
+            .json(200, operations.TriggersTestResponseBody$inboundSchema)
+            .json("default", errors.FlowError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
