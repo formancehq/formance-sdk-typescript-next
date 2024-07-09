@@ -12,38 +12,59 @@ export type SchemeFormanceOAuth = {
 };
 
 /** @internal */
+export const SchemeFormanceOAuth$inboundSchema: z.ZodType<
+    SchemeFormanceOAuth,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        ClientID: z.string(),
+        ClientSecret: z.string(),
+        TokenURL: z.literal("/api/auth/oauth/token").optional(),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            ClientID: "clientID",
+            ClientSecret: "clientSecret",
+            TokenURL: "tokenURL",
+        });
+    });
+
+/** @internal */
+export type SchemeFormanceOAuth$Outbound = {
+    ClientID: string;
+    ClientSecret: string;
+    TokenURL: "/api/auth/oauth/token";
+};
+
+/** @internal */
+export const SchemeFormanceOAuth$outboundSchema: z.ZodType<
+    SchemeFormanceOAuth$Outbound,
+    z.ZodTypeDef,
+    SchemeFormanceOAuth
+> = z
+    .object({
+        clientID: z.string(),
+        clientSecret: z.string(),
+        tokenURL: z.literal("/api/auth/oauth/token").default("/api/auth/oauth/token" as const),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            clientID: "ClientID",
+            clientSecret: "ClientSecret",
+            tokenURL: "TokenURL",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace SchemeFormanceOAuth$ {
-    export const inboundSchema: z.ZodType<SchemeFormanceOAuth, z.ZodTypeDef, unknown> = z
-        .object({
-            ClientID: z.string(),
-            ClientSecret: z.string(),
-            TokenURL: z.literal("/api/auth/oauth/token").optional(),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                ClientID: "clientID",
-                ClientSecret: "clientSecret",
-                TokenURL: "tokenURL",
-            });
-        });
-
-    export type Outbound = {
-        ClientID: string;
-        ClientSecret: string;
-        TokenURL: "/api/auth/oauth/token";
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, SchemeFormanceOAuth> = z
-        .object({
-            clientID: z.string(),
-            clientSecret: z.string(),
-            tokenURL: z.literal("/api/auth/oauth/token").default("/api/auth/oauth/token" as const),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                clientID: "ClientID",
-                clientSecret: "ClientSecret",
-                tokenURL: "TokenURL",
-            });
-        });
+    /** @deprecated use `SchemeFormanceOAuth$inboundSchema` instead. */
+    export const inboundSchema = SchemeFormanceOAuth$inboundSchema;
+    /** @deprecated use `SchemeFormanceOAuth$outboundSchema` instead. */
+    export const outboundSchema = SchemeFormanceOAuth$outboundSchema;
+    /** @deprecated use `SchemeFormanceOAuth$Outbound` instead. */
+    export type Outbound = SchemeFormanceOAuth$Outbound;
 }

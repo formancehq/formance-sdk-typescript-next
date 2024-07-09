@@ -56,7 +56,7 @@ export class ReconciliationsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ReconciliationsV1ListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ReconciliationsV1ListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -122,8 +122,8 @@ export class ReconciliationsV1 extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.ReconciliationsV1ListResponse>()
-            .json(200, operations.ReconciliationsV1ListResponse$, { key: "Result" })
-            .json("default", errors.ReconciliationError$, { err: true })
+            .json(200, operations.ReconciliationsV1ListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.ReconciliationError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (
@@ -155,7 +155,7 @@ export class ReconciliationsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ReconciliationsV1GetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ReconciliationsV1GetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -226,8 +226,8 @@ export class ReconciliationsV1 extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.ReconciliationsV1GetResponseBody>()
-            .json(200, operations.ReconciliationsV1GetResponseBody$)
-            .json("default", errors.ReconciliationError$, { err: true })
+            .json(200, operations.ReconciliationsV1GetResponseBody$inboundSchema)
+            .json("default", errors.ReconciliationError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

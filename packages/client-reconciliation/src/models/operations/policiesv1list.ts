@@ -28,82 +28,155 @@ export type PoliciesV1ListResponse = {
 };
 
 /** @internal */
+export const PoliciesV1ListRequest$inboundSchema: z.ZodType<
+    PoliciesV1ListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    pageSize: z.number().int().default(15),
+    cursor: z.string().optional(),
+});
+
+/** @internal */
+export type PoliciesV1ListRequest$Outbound = {
+    pageSize: number;
+    cursor?: string | undefined;
+};
+
+/** @internal */
+export const PoliciesV1ListRequest$outboundSchema: z.ZodType<
+    PoliciesV1ListRequest$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1ListRequest
+> = z.object({
+    pageSize: z.number().int().default(15),
+    cursor: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1ListRequest$ {
-    export const inboundSchema: z.ZodType<PoliciesV1ListRequest, z.ZodTypeDef, unknown> = z.object({
-        pageSize: z.number().int().default(15),
-        cursor: z.string().optional(),
-    });
-
-    export type Outbound = {
-        pageSize: number;
-        cursor?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1ListRequest> =
-        z.object({
-            pageSize: z.number().int().default(15),
-            cursor: z.string().optional(),
-        });
+    /** @deprecated use `PoliciesV1ListRequest$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1ListRequest$inboundSchema;
+    /** @deprecated use `PoliciesV1ListRequest$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1ListRequest$outboundSchema;
+    /** @deprecated use `PoliciesV1ListRequest$Outbound` instead. */
+    export type Outbound = PoliciesV1ListRequest$Outbound;
 }
 
 /** @internal */
+export const Cursor$inboundSchema: z.ZodType<Cursor, z.ZodTypeDef, unknown> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Policy$inboundSchema),
+});
+
+/** @internal */
+export type Cursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.Policy$Outbound>;
+};
+
+/** @internal */
+export const Cursor$outboundSchema: z.ZodType<Cursor$Outbound, z.ZodTypeDef, Cursor> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Policy$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Cursor$ {
-    export const inboundSchema: z.ZodType<Cursor, z.ZodTypeDef, unknown> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.Policy$.inboundSchema),
-    });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.Policy$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Cursor> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.Policy$.outboundSchema),
-    });
+    /** @deprecated use `Cursor$inboundSchema` instead. */
+    export const inboundSchema = Cursor$inboundSchema;
+    /** @deprecated use `Cursor$outboundSchema` instead. */
+    export const outboundSchema = Cursor$outboundSchema;
+    /** @deprecated use `Cursor$Outbound` instead. */
+    export type Outbound = Cursor$Outbound;
 }
 
 /** @internal */
+export const PoliciesV1ListResponseBody$inboundSchema: z.ZodType<
+    PoliciesV1ListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => Cursor$inboundSchema),
+});
+
+/** @internal */
+export type PoliciesV1ListResponseBody$Outbound = {
+    cursor: Cursor$Outbound;
+};
+
+/** @internal */
+export const PoliciesV1ListResponseBody$outboundSchema: z.ZodType<
+    PoliciesV1ListResponseBody$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1ListResponseBody
+> = z.object({
+    cursor: z.lazy(() => Cursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1ListResponseBody$ {
-    export const inboundSchema: z.ZodType<PoliciesV1ListResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => Cursor$.inboundSchema),
-        });
-
-    export type Outbound = {
-        cursor: Cursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1ListResponseBody> =
-        z.object({
-            cursor: z.lazy(() => Cursor$.outboundSchema),
-        });
+    /** @deprecated use `PoliciesV1ListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1ListResponseBody$inboundSchema;
+    /** @deprecated use `PoliciesV1ListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1ListResponseBody$outboundSchema;
+    /** @deprecated use `PoliciesV1ListResponseBody$Outbound` instead. */
+    export type Outbound = PoliciesV1ListResponseBody$Outbound;
 }
 
 /** @internal */
+export const PoliciesV1ListResponse$inboundSchema: z.ZodType<
+    PoliciesV1ListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => PoliciesV1ListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
+    });
+
+/** @internal */
+export type PoliciesV1ListResponse$Outbound = {
+    Result: PoliciesV1ListResponseBody$Outbound;
+};
+
+/** @internal */
+export const PoliciesV1ListResponse$outboundSchema: z.ZodType<
+    PoliciesV1ListResponse$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1ListResponse
+> = z
+    .object({
+        result: z.lazy(() => PoliciesV1ListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1ListResponse$ {
-    export const inboundSchema: z.ZodType<PoliciesV1ListResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => PoliciesV1ListResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: PoliciesV1ListResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1ListResponse> = z
-        .object({
-            result: z.lazy(() => PoliciesV1ListResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `PoliciesV1ListResponse$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1ListResponse$inboundSchema;
+    /** @deprecated use `PoliciesV1ListResponse$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1ListResponse$outboundSchema;
+    /** @deprecated use `PoliciesV1ListResponse$Outbound` instead. */
+    export type Outbound = PoliciesV1ListResponse$Outbound;
 }

@@ -24,73 +24,129 @@ export type ReconcileResponseBody = {
 };
 
 /** @internal */
+export const ReconcileRequestBody$inboundSchema: z.ZodType<
+    ReconcileRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    reconciledAtLedger: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+    reconciliedAtPayments: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+});
+
+/** @internal */
+export type ReconcileRequestBody$Outbound = {
+    reconciledAtLedger: string;
+    reconciliedAtPayments: string;
+};
+
+/** @internal */
+export const ReconcileRequestBody$outboundSchema: z.ZodType<
+    ReconcileRequestBody$Outbound,
+    z.ZodTypeDef,
+    ReconcileRequestBody
+> = z.object({
+    reconciledAtLedger: z.date().transform((v) => v.toISOString()),
+    reconciliedAtPayments: z.date().transform((v) => v.toISOString()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconcileRequestBody$ {
-    export const inboundSchema: z.ZodType<ReconcileRequestBody, z.ZodTypeDef, unknown> = z.object({
-        reconciledAtLedger: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v)),
-        reconciliedAtPayments: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v)),
-    });
-
-    export type Outbound = {
-        reconciledAtLedger: string;
-        reconciliedAtPayments: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconcileRequestBody> = z.object(
-        {
-            reconciledAtLedger: z.date().transform((v) => v.toISOString()),
-            reconciliedAtPayments: z.date().transform((v) => v.toISOString()),
-        }
-    );
+    /** @deprecated use `ReconcileRequestBody$inboundSchema` instead. */
+    export const inboundSchema = ReconcileRequestBody$inboundSchema;
+    /** @deprecated use `ReconcileRequestBody$outboundSchema` instead. */
+    export const outboundSchema = ReconcileRequestBody$outboundSchema;
+    /** @deprecated use `ReconcileRequestBody$Outbound` instead. */
+    export type Outbound = ReconcileRequestBody$Outbound;
 }
 
 /** @internal */
+export const ReconcileRequest$inboundSchema: z.ZodType<ReconcileRequest, z.ZodTypeDef, unknown> = z
+    .object({
+        policyID: z.string(),
+        RequestBody: z.lazy(() => ReconcileRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type ReconcileRequest$Outbound = {
+    policyID: string;
+    RequestBody: ReconcileRequestBody$Outbound;
+};
+
+/** @internal */
+export const ReconcileRequest$outboundSchema: z.ZodType<
+    ReconcileRequest$Outbound,
+    z.ZodTypeDef,
+    ReconcileRequest
+> = z
+    .object({
+        policyID: z.string(),
+        requestBody: z.lazy(() => ReconcileRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconcileRequest$ {
-    export const inboundSchema: z.ZodType<ReconcileRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            policyID: z.string(),
-            RequestBody: z.lazy(() => ReconcileRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        policyID: string;
-        RequestBody: ReconcileRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconcileRequest> = z
-        .object({
-            policyID: z.string(),
-            requestBody: z.lazy(() => ReconcileRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `ReconcileRequest$inboundSchema` instead. */
+    export const inboundSchema = ReconcileRequest$inboundSchema;
+    /** @deprecated use `ReconcileRequest$outboundSchema` instead. */
+    export const outboundSchema = ReconcileRequest$outboundSchema;
+    /** @deprecated use `ReconcileRequest$Outbound` instead. */
+    export type Outbound = ReconcileRequest$Outbound;
 }
 
 /** @internal */
+export const ReconcileResponseBody$inboundSchema: z.ZodType<
+    ReconcileResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Reconciliation$inboundSchema,
+});
+
+/** @internal */
+export type ReconcileResponseBody$Outbound = {
+    data: components.Reconciliation$Outbound;
+};
+
+/** @internal */
+export const ReconcileResponseBody$outboundSchema: z.ZodType<
+    ReconcileResponseBody$Outbound,
+    z.ZodTypeDef,
+    ReconcileResponseBody
+> = z.object({
+    data: components.Reconciliation$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconcileResponseBody$ {
-    export const inboundSchema: z.ZodType<ReconcileResponseBody, z.ZodTypeDef, unknown> = z.object({
-        data: components.Reconciliation$.inboundSchema,
-    });
-
-    export type Outbound = {
-        data: components.Reconciliation$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconcileResponseBody> =
-        z.object({
-            data: components.Reconciliation$.outboundSchema,
-        });
+    /** @deprecated use `ReconcileResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ReconcileResponseBody$inboundSchema;
+    /** @deprecated use `ReconcileResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ReconcileResponseBody$outboundSchema;
+    /** @deprecated use `ReconcileResponseBody$Outbound` instead. */
+    export type Outbound = ReconcileResponseBody$Outbound;
 }

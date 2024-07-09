@@ -17,35 +17,73 @@ export type PoliciesV1GetResponseBody = {
 };
 
 /** @internal */
+export const PoliciesV1GetRequest$inboundSchema: z.ZodType<
+    PoliciesV1GetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    policyID: z.string(),
+});
+
+/** @internal */
+export type PoliciesV1GetRequest$Outbound = {
+    policyID: string;
+};
+
+/** @internal */
+export const PoliciesV1GetRequest$outboundSchema: z.ZodType<
+    PoliciesV1GetRequest$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1GetRequest
+> = z.object({
+    policyID: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1GetRequest$ {
-    export const inboundSchema: z.ZodType<PoliciesV1GetRequest, z.ZodTypeDef, unknown> = z.object({
-        policyID: z.string(),
-    });
-
-    export type Outbound = {
-        policyID: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1GetRequest> = z.object(
-        {
-            policyID: z.string(),
-        }
-    );
+    /** @deprecated use `PoliciesV1GetRequest$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1GetRequest$inboundSchema;
+    /** @deprecated use `PoliciesV1GetRequest$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1GetRequest$outboundSchema;
+    /** @deprecated use `PoliciesV1GetRequest$Outbound` instead. */
+    export type Outbound = PoliciesV1GetRequest$Outbound;
 }
 
 /** @internal */
+export const PoliciesV1GetResponseBody$inboundSchema: z.ZodType<
+    PoliciesV1GetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Policy$inboundSchema,
+});
+
+/** @internal */
+export type PoliciesV1GetResponseBody$Outbound = {
+    data: components.Policy$Outbound;
+};
+
+/** @internal */
+export const PoliciesV1GetResponseBody$outboundSchema: z.ZodType<
+    PoliciesV1GetResponseBody$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1GetResponseBody
+> = z.object({
+    data: components.Policy$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1GetResponseBody$ {
-    export const inboundSchema: z.ZodType<PoliciesV1GetResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Policy$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Policy$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1GetResponseBody> =
-        z.object({
-            data: components.Policy$.outboundSchema,
-        });
+    /** @deprecated use `PoliciesV1GetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1GetResponseBody$inboundSchema;
+    /** @deprecated use `PoliciesV1GetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1GetResponseBody$outboundSchema;
+    /** @deprecated use `PoliciesV1GetResponseBody$Outbound` instead. */
+    export type Outbound = PoliciesV1GetResponseBody$Outbound;
 }
