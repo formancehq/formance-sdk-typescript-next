@@ -47,143 +47,216 @@ export type ConnectorsInstallResponseBody = {
 };
 
 /** @internal */
+export const ConnectorsInstallRequestBody$inboundSchema: z.ZodType<
+    ConnectorsInstallRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.union([
+    components.WiseConfig$inboundSchema,
+    components.StripeConfig$inboundSchema,
+    components.GenericConfig$inboundSchema,
+    components.ModulrConfig$inboundSchema,
+    components.CurrencyCloudConfig$inboundSchema,
+    components.MangoPayConfig$inboundSchema,
+    components.MoneycorpConfig$inboundSchema,
+    components.AdyenConfig$inboundSchema,
+    components.DumypayConfig$inboundSchema,
+    components.AtlarConfig$inboundSchema,
+    components.BankingCircleConfig$inboundSchema,
+]);
+
+/** @internal */
+export type ConnectorsInstallRequestBody$Outbound =
+    | components.WiseConfig$Outbound
+    | components.StripeConfig$Outbound
+    | components.GenericConfig$Outbound
+    | components.ModulrConfig$Outbound
+    | components.CurrencyCloudConfig$Outbound
+    | components.MangoPayConfig$Outbound
+    | components.MoneycorpConfig$Outbound
+    | components.AdyenConfig$Outbound
+    | components.DumypayConfig$Outbound
+    | components.AtlarConfig$Outbound
+    | components.BankingCircleConfig$Outbound;
+
+/** @internal */
+export const ConnectorsInstallRequestBody$outboundSchema: z.ZodType<
+    ConnectorsInstallRequestBody$Outbound,
+    z.ZodTypeDef,
+    ConnectorsInstallRequestBody
+> = z.union([
+    components.WiseConfig$outboundSchema,
+    components.StripeConfig$outboundSchema,
+    components.GenericConfig$outboundSchema,
+    components.ModulrConfig$outboundSchema,
+    components.CurrencyCloudConfig$outboundSchema,
+    components.MangoPayConfig$outboundSchema,
+    components.MoneycorpConfig$outboundSchema,
+    components.AdyenConfig$outboundSchema,
+    components.DumypayConfig$outboundSchema,
+    components.AtlarConfig$outboundSchema,
+    components.BankingCircleConfig$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsInstallRequestBody$ {
-    export const inboundSchema: z.ZodType<ConnectorsInstallRequestBody, z.ZodTypeDef, unknown> =
-        z.union([
-            components.WiseConfig$.inboundSchema,
-            components.StripeConfig$.inboundSchema,
-            components.GenericConfig$.inboundSchema,
-            components.ModulrConfig$.inboundSchema,
-            components.CurrencyCloudConfig$.inboundSchema,
-            components.MangoPayConfig$.inboundSchema,
-            components.MoneycorpConfig$.inboundSchema,
-            components.AdyenConfig$.inboundSchema,
-            components.DumypayConfig$.inboundSchema,
-            components.AtlarConfig$.inboundSchema,
-            components.BankingCircleConfig$.inboundSchema,
-        ]);
-
-    export type Outbound =
-        | components.WiseConfig$.Outbound
-        | components.StripeConfig$.Outbound
-        | components.GenericConfig$.Outbound
-        | components.ModulrConfig$.Outbound
-        | components.CurrencyCloudConfig$.Outbound
-        | components.MangoPayConfig$.Outbound
-        | components.MoneycorpConfig$.Outbound
-        | components.AdyenConfig$.Outbound
-        | components.DumypayConfig$.Outbound
-        | components.AtlarConfig$.Outbound
-        | components.BankingCircleConfig$.Outbound;
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsInstallRequestBody> =
-        z.union([
-            components.WiseConfig$.outboundSchema,
-            components.StripeConfig$.outboundSchema,
-            components.GenericConfig$.outboundSchema,
-            components.ModulrConfig$.outboundSchema,
-            components.CurrencyCloudConfig$.outboundSchema,
-            components.MangoPayConfig$.outboundSchema,
-            components.MoneycorpConfig$.outboundSchema,
-            components.AdyenConfig$.outboundSchema,
-            components.DumypayConfig$.outboundSchema,
-            components.AtlarConfig$.outboundSchema,
-            components.BankingCircleConfig$.outboundSchema,
-        ]);
+    /** @deprecated use `ConnectorsInstallRequestBody$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsInstallRequestBody$inboundSchema;
+    /** @deprecated use `ConnectorsInstallRequestBody$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsInstallRequestBody$outboundSchema;
+    /** @deprecated use `ConnectorsInstallRequestBody$Outbound` instead. */
+    export type Outbound = ConnectorsInstallRequestBody$Outbound;
 }
 
 /** @internal */
+export const ConnectorsInstallRequest$inboundSchema: z.ZodType<
+    ConnectorsInstallRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        connector: components.Connector$inboundSchema,
+        RequestBody: z.union([
+            components.WiseConfig$inboundSchema,
+            components.StripeConfig$inboundSchema,
+            components.GenericConfig$inboundSchema,
+            components.ModulrConfig$inboundSchema,
+            components.CurrencyCloudConfig$inboundSchema,
+            components.MangoPayConfig$inboundSchema,
+            components.MoneycorpConfig$inboundSchema,
+            components.AdyenConfig$inboundSchema,
+            components.DumypayConfig$inboundSchema,
+            components.AtlarConfig$inboundSchema,
+            components.BankingCircleConfig$inboundSchema,
+        ]),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type ConnectorsInstallRequest$Outbound = {
+    connector: string;
+    RequestBody:
+        | components.WiseConfig$Outbound
+        | components.StripeConfig$Outbound
+        | components.GenericConfig$Outbound
+        | components.ModulrConfig$Outbound
+        | components.CurrencyCloudConfig$Outbound
+        | components.MangoPayConfig$Outbound
+        | components.MoneycorpConfig$Outbound
+        | components.AdyenConfig$Outbound
+        | components.DumypayConfig$Outbound
+        | components.AtlarConfig$Outbound
+        | components.BankingCircleConfig$Outbound;
+};
+
+/** @internal */
+export const ConnectorsInstallRequest$outboundSchema: z.ZodType<
+    ConnectorsInstallRequest$Outbound,
+    z.ZodTypeDef,
+    ConnectorsInstallRequest
+> = z
+    .object({
+        connector: components.Connector$outboundSchema,
+        requestBody: z.union([
+            components.WiseConfig$outboundSchema,
+            components.StripeConfig$outboundSchema,
+            components.GenericConfig$outboundSchema,
+            components.ModulrConfig$outboundSchema,
+            components.CurrencyCloudConfig$outboundSchema,
+            components.MangoPayConfig$outboundSchema,
+            components.MoneycorpConfig$outboundSchema,
+            components.AdyenConfig$outboundSchema,
+            components.DumypayConfig$outboundSchema,
+            components.AtlarConfig$outboundSchema,
+            components.BankingCircleConfig$outboundSchema,
+        ]),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsInstallRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsInstallRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            connector: components.Connector$.inboundSchema,
-            RequestBody: z.union([
-                components.WiseConfig$.inboundSchema,
-                components.StripeConfig$.inboundSchema,
-                components.GenericConfig$.inboundSchema,
-                components.ModulrConfig$.inboundSchema,
-                components.CurrencyCloudConfig$.inboundSchema,
-                components.MangoPayConfig$.inboundSchema,
-                components.MoneycorpConfig$.inboundSchema,
-                components.AdyenConfig$.inboundSchema,
-                components.DumypayConfig$.inboundSchema,
-                components.AtlarConfig$.inboundSchema,
-                components.BankingCircleConfig$.inboundSchema,
-            ]),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        connector: string;
-        RequestBody:
-            | components.WiseConfig$.Outbound
-            | components.StripeConfig$.Outbound
-            | components.GenericConfig$.Outbound
-            | components.ModulrConfig$.Outbound
-            | components.CurrencyCloudConfig$.Outbound
-            | components.MangoPayConfig$.Outbound
-            | components.MoneycorpConfig$.Outbound
-            | components.AdyenConfig$.Outbound
-            | components.DumypayConfig$.Outbound
-            | components.AtlarConfig$.Outbound
-            | components.BankingCircleConfig$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsInstallRequest> = z
-        .object({
-            connector: components.Connector$.outboundSchema,
-            requestBody: z.union([
-                components.WiseConfig$.outboundSchema,
-                components.StripeConfig$.outboundSchema,
-                components.GenericConfig$.outboundSchema,
-                components.ModulrConfig$.outboundSchema,
-                components.CurrencyCloudConfig$.outboundSchema,
-                components.MangoPayConfig$.outboundSchema,
-                components.MoneycorpConfig$.outboundSchema,
-                components.AdyenConfig$.outboundSchema,
-                components.DumypayConfig$.outboundSchema,
-                components.AtlarConfig$.outboundSchema,
-                components.BankingCircleConfig$.outboundSchema,
-            ]),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `ConnectorsInstallRequest$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsInstallRequest$inboundSchema;
+    /** @deprecated use `ConnectorsInstallRequest$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsInstallRequest$outboundSchema;
+    /** @deprecated use `ConnectorsInstallRequest$Outbound` instead. */
+    export type Outbound = ConnectorsInstallRequest$Outbound;
 }
 
 /** @internal */
+export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.object({
+    connectorId: z.string(),
+});
+
+/** @internal */
+export type Data$Outbound = {
+    connectorId: string;
+};
+
+/** @internal */
+export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> = z.object({
+    connectorId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Data$ {
-    export const inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.object({
-        connectorId: z.string(),
-    });
-
-    export type Outbound = {
-        connectorId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Data> = z.object({
-        connectorId: z.string(),
-    });
+    /** @deprecated use `Data$inboundSchema` instead. */
+    export const inboundSchema = Data$inboundSchema;
+    /** @deprecated use `Data$outboundSchema` instead. */
+    export const outboundSchema = Data$outboundSchema;
+    /** @deprecated use `Data$Outbound` instead. */
+    export type Outbound = Data$Outbound;
 }
 
 /** @internal */
+export const ConnectorsInstallResponseBody$inboundSchema: z.ZodType<
+    ConnectorsInstallResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: z.lazy(() => Data$inboundSchema),
+});
+
+/** @internal */
+export type ConnectorsInstallResponseBody$Outbound = {
+    data: Data$Outbound;
+};
+
+/** @internal */
+export const ConnectorsInstallResponseBody$outboundSchema: z.ZodType<
+    ConnectorsInstallResponseBody$Outbound,
+    z.ZodTypeDef,
+    ConnectorsInstallResponseBody
+> = z.object({
+    data: z.lazy(() => Data$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsInstallResponseBody$ {
-    export const inboundSchema: z.ZodType<ConnectorsInstallResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: z.lazy(() => Data$.inboundSchema),
-        });
-
-    export type Outbound = {
-        data: Data$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsInstallResponseBody> =
-        z.object({
-            data: z.lazy(() => Data$.outboundSchema),
-        });
+    /** @deprecated use `ConnectorsInstallResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsInstallResponseBody$inboundSchema;
+    /** @deprecated use `ConnectorsInstallResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsInstallResponseBody$outboundSchema;
+    /** @deprecated use `ConnectorsInstallResponseBody$Outbound` instead. */
+    export type Outbound = ConnectorsInstallResponseBody$Outbound;
 }

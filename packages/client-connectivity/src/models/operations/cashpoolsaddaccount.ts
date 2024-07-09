@@ -15,48 +15,88 @@ export type CashPoolsAddAccountRequest = {
 };
 
 /** @internal */
+export const CashPoolsAddAccountRequestBody$inboundSchema: z.ZodType<
+    CashPoolsAddAccountRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    accountID: z.string(),
+});
+
+/** @internal */
+export type CashPoolsAddAccountRequestBody$Outbound = {
+    accountID: string;
+};
+
+/** @internal */
+export const CashPoolsAddAccountRequestBody$outboundSchema: z.ZodType<
+    CashPoolsAddAccountRequestBody$Outbound,
+    z.ZodTypeDef,
+    CashPoolsAddAccountRequestBody
+> = z.object({
+    accountID: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPoolsAddAccountRequestBody$ {
-    export const inboundSchema: z.ZodType<CashPoolsAddAccountRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            accountID: z.string(),
-        });
-
-    export type Outbound = {
-        accountID: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPoolsAddAccountRequestBody> =
-        z.object({
-            accountID: z.string(),
-        });
+    /** @deprecated use `CashPoolsAddAccountRequestBody$inboundSchema` instead. */
+    export const inboundSchema = CashPoolsAddAccountRequestBody$inboundSchema;
+    /** @deprecated use `CashPoolsAddAccountRequestBody$outboundSchema` instead. */
+    export const outboundSchema = CashPoolsAddAccountRequestBody$outboundSchema;
+    /** @deprecated use `CashPoolsAddAccountRequestBody$Outbound` instead. */
+    export type Outbound = CashPoolsAddAccountRequestBody$Outbound;
 }
 
 /** @internal */
+export const CashPoolsAddAccountRequest$inboundSchema: z.ZodType<
+    CashPoolsAddAccountRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        poolId: z.string(),
+        RequestBody: z.lazy(() => CashPoolsAddAccountRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type CashPoolsAddAccountRequest$Outbound = {
+    poolId: string;
+    RequestBody: CashPoolsAddAccountRequestBody$Outbound;
+};
+
+/** @internal */
+export const CashPoolsAddAccountRequest$outboundSchema: z.ZodType<
+    CashPoolsAddAccountRequest$Outbound,
+    z.ZodTypeDef,
+    CashPoolsAddAccountRequest
+> = z
+    .object({
+        poolId: z.string(),
+        requestBody: z.lazy(() => CashPoolsAddAccountRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPoolsAddAccountRequest$ {
-    export const inboundSchema: z.ZodType<CashPoolsAddAccountRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            poolId: z.string(),
-            RequestBody: z.lazy(() => CashPoolsAddAccountRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        poolId: string;
-        RequestBody: CashPoolsAddAccountRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPoolsAddAccountRequest> = z
-        .object({
-            poolId: z.string(),
-            requestBody: z.lazy(() => CashPoolsAddAccountRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `CashPoolsAddAccountRequest$inboundSchema` instead. */
+    export const inboundSchema = CashPoolsAddAccountRequest$inboundSchema;
+    /** @deprecated use `CashPoolsAddAccountRequest$outboundSchema` instead. */
+    export const outboundSchema = CashPoolsAddAccountRequest$outboundSchema;
+    /** @deprecated use `CashPoolsAddAccountRequest$Outbound` instead. */
+    export type Outbound = CashPoolsAddAccountRequest$Outbound;
 }

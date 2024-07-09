@@ -55,7 +55,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => components.CreatePaymentRequest$.outboundSchema.parse(value$),
+            (value$) => components.CreatePaymentRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -119,8 +119,8 @@ export class PaymentsV1 extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.PaymentsV1CreateResponseBody>()
-            .json(200, operations.PaymentsV1CreateResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.PaymentsV1CreateResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -142,7 +142,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.PaymentsV1ListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.PaymentsV1ListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -210,8 +210,8 @@ export class PaymentsV1 extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.PaymentsV1ListResponse>()
-            .json(200, operations.PaymentsV1ListResponse$, { key: "Result" })
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.PaymentsV1ListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.PaymentsV1ListResponse> => {
@@ -241,7 +241,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.PaymentsV1GetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.PaymentsV1GetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -306,7 +306,7 @@ export class PaymentsV1 extends ClientSDK {
         );
 
         const [result$] = await this.matcher<operations.PaymentsV1GetResponseBody>()
-            .json(200, operations.PaymentsV1GetResponseBody$)
+            .json(200, operations.PaymentsV1GetResponseBody$inboundSchema)
             .fail("default")
             .match(response);
 
@@ -325,7 +325,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.PaymentsV1UpdateMetatdataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.PaymentsV1UpdateMetatdataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -398,7 +398,7 @@ export class PaymentsV1 extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

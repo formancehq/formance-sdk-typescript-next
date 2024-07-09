@@ -9,21 +9,37 @@ export type TransferInitiationsDeleteRequest = {
 };
 
 /** @internal */
+export const TransferInitiationsDeleteRequest$inboundSchema: z.ZodType<
+    TransferInitiationsDeleteRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    transferId: z.string(),
+});
+
+/** @internal */
+export type TransferInitiationsDeleteRequest$Outbound = {
+    transferId: string;
+};
+
+/** @internal */
+export const TransferInitiationsDeleteRequest$outboundSchema: z.ZodType<
+    TransferInitiationsDeleteRequest$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsDeleteRequest
+> = z.object({
+    transferId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsDeleteRequest$ {
-    export const inboundSchema: z.ZodType<TransferInitiationsDeleteRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            transferId: z.string(),
-        });
-
-    export type Outbound = {
-        transferId: string;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransferInitiationsDeleteRequest
-    > = z.object({
-        transferId: z.string(),
-    });
+    /** @deprecated use `TransferInitiationsDeleteRequest$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsDeleteRequest$inboundSchema;
+    /** @deprecated use `TransferInitiationsDeleteRequest$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsDeleteRequest$outboundSchema;
+    /** @deprecated use `TransferInitiationsDeleteRequest$Outbound` instead. */
+    export type Outbound = TransferInitiationsDeleteRequest$Outbound;
 }

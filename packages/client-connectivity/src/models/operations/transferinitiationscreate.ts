@@ -28,83 +28,109 @@ export type TransferInitiationsCreateResponseBody = {
 };
 
 /** @internal */
+export const TransferInitiationsCreateRequestBody$inboundSchema: z.ZodType<
+    TransferInitiationsCreateRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    reference: z.string(),
+    scheduledAt: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+    description: z.string(),
+    sourceAccountID: z.string(),
+    destinationAccountID: z.string(),
+    connectorID: z.string().optional(),
+    provider: components.Connector$inboundSchema.optional(),
+    type: components.TransferInitiationType$inboundSchema,
+    amount: z.number().int(),
+    asset: z.string(),
+    validated: z.boolean(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/** @internal */
+export type TransferInitiationsCreateRequestBody$Outbound = {
+    reference: string;
+    scheduledAt: string;
+    description: string;
+    sourceAccountID: string;
+    destinationAccountID: string;
+    connectorID?: string | undefined;
+    provider?: string | undefined;
+    type: string;
+    amount: number;
+    asset: string;
+    validated: boolean;
+    metadata?: { [k: string]: string } | undefined;
+};
+
+/** @internal */
+export const TransferInitiationsCreateRequestBody$outboundSchema: z.ZodType<
+    TransferInitiationsCreateRequestBody$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsCreateRequestBody
+> = z.object({
+    reference: z.string(),
+    scheduledAt: z.date().transform((v) => v.toISOString()),
+    description: z.string(),
+    sourceAccountID: z.string(),
+    destinationAccountID: z.string(),
+    connectorID: z.string().optional(),
+    provider: components.Connector$outboundSchema.optional(),
+    type: components.TransferInitiationType$outboundSchema,
+    amount: z.number().int(),
+    asset: z.string(),
+    validated: z.boolean(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsCreateRequestBody$ {
-    export const inboundSchema: z.ZodType<
-        TransferInitiationsCreateRequestBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        reference: z.string(),
-        scheduledAt: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v)),
-        description: z.string(),
-        sourceAccountID: z.string(),
-        destinationAccountID: z.string(),
-        connectorID: z.string().optional(),
-        provider: components.Connector$.inboundSchema.optional(),
-        type: components.TransferInitiationType$.inboundSchema,
-        amount: z.number().int(),
-        asset: z.string(),
-        validated: z.boolean(),
-        metadata: z.record(z.string()).optional(),
-    });
-
-    export type Outbound = {
-        reference: string;
-        scheduledAt: string;
-        description: string;
-        sourceAccountID: string;
-        destinationAccountID: string;
-        connectorID?: string | undefined;
-        provider?: string | undefined;
-        type: string;
-        amount: number;
-        asset: string;
-        validated: boolean;
-        metadata?: { [k: string]: string } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransferInitiationsCreateRequestBody
-    > = z.object({
-        reference: z.string(),
-        scheduledAt: z.date().transform((v) => v.toISOString()),
-        description: z.string(),
-        sourceAccountID: z.string(),
-        destinationAccountID: z.string(),
-        connectorID: z.string().optional(),
-        provider: components.Connector$.outboundSchema.optional(),
-        type: components.TransferInitiationType$.outboundSchema,
-        amount: z.number().int(),
-        asset: z.string(),
-        validated: z.boolean(),
-        metadata: z.record(z.string()).optional(),
-    });
+    /** @deprecated use `TransferInitiationsCreateRequestBody$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsCreateRequestBody$inboundSchema;
+    /** @deprecated use `TransferInitiationsCreateRequestBody$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsCreateRequestBody$outboundSchema;
+    /** @deprecated use `TransferInitiationsCreateRequestBody$Outbound` instead. */
+    export type Outbound = TransferInitiationsCreateRequestBody$Outbound;
 }
 
 /** @internal */
+export const TransferInitiationsCreateResponseBody$inboundSchema: z.ZodType<
+    TransferInitiationsCreateResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.TransferInitiation$inboundSchema,
+});
+
+/** @internal */
+export type TransferInitiationsCreateResponseBody$Outbound = {
+    data: components.TransferInitiation$Outbound;
+};
+
+/** @internal */
+export const TransferInitiationsCreateResponseBody$outboundSchema: z.ZodType<
+    TransferInitiationsCreateResponseBody$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsCreateResponseBody
+> = z.object({
+    data: components.TransferInitiation$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsCreateResponseBody$ {
-    export const inboundSchema: z.ZodType<
-        TransferInitiationsCreateResponseBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        data: components.TransferInitiation$.inboundSchema,
-    });
-
-    export type Outbound = {
-        data: components.TransferInitiation$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransferInitiationsCreateResponseBody
-    > = z.object({
-        data: components.TransferInitiation$.outboundSchema,
-    });
+    /** @deprecated use `TransferInitiationsCreateResponseBody$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsCreateResponseBody$inboundSchema;
+    /** @deprecated use `TransferInitiationsCreateResponseBody$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsCreateResponseBody$outboundSchema;
+    /** @deprecated use `TransferInitiationsCreateResponseBody$Outbound` instead. */
+    export type Outbound = TransferInitiationsCreateResponseBody$Outbound;
 }

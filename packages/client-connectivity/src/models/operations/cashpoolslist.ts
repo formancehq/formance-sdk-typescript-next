@@ -28,83 +28,163 @@ export type CashPoolsListResponse = {
 };
 
 /** @internal */
+export const CashPoolsListRequest$inboundSchema: z.ZodType<
+    CashPoolsListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/** @internal */
+export type CashPoolsListRequest$Outbound = {
+    cursor?: string | undefined;
+    pageSize?: number | undefined;
+};
+
+/** @internal */
+export const CashPoolsListRequest$outboundSchema: z.ZodType<
+    CashPoolsListRequest$Outbound,
+    z.ZodTypeDef,
+    CashPoolsListRequest
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPoolsListRequest$ {
-    export const inboundSchema: z.ZodType<CashPoolsListRequest, z.ZodTypeDef, unknown> = z.object({
-        cursor: z.string().optional(),
-        pageSize: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        cursor?: string | undefined;
-        pageSize?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPoolsListRequest> = z.object(
-        {
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-        }
-    );
+    /** @deprecated use `CashPoolsListRequest$inboundSchema` instead. */
+    export const inboundSchema = CashPoolsListRequest$inboundSchema;
+    /** @deprecated use `CashPoolsListRequest$outboundSchema` instead. */
+    export const outboundSchema = CashPoolsListRequest$outboundSchema;
+    /** @deprecated use `CashPoolsListRequest$Outbound` instead. */
+    export type Outbound = CashPoolsListRequest$Outbound;
 }
 
 /** @internal */
+export const CashPoolsListCursor$inboundSchema: z.ZodType<
+    CashPoolsListCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.CashPool$inboundSchema),
+});
+
+/** @internal */
+export type CashPoolsListCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.CashPool$Outbound>;
+};
+
+/** @internal */
+export const CashPoolsListCursor$outboundSchema: z.ZodType<
+    CashPoolsListCursor$Outbound,
+    z.ZodTypeDef,
+    CashPoolsListCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.CashPool$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPoolsListCursor$ {
-    export const inboundSchema: z.ZodType<CashPoolsListCursor, z.ZodTypeDef, unknown> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.CashPool$.inboundSchema),
-    });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.CashPool$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPoolsListCursor> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.CashPool$.outboundSchema),
-    });
+    /** @deprecated use `CashPoolsListCursor$inboundSchema` instead. */
+    export const inboundSchema = CashPoolsListCursor$inboundSchema;
+    /** @deprecated use `CashPoolsListCursor$outboundSchema` instead. */
+    export const outboundSchema = CashPoolsListCursor$outboundSchema;
+    /** @deprecated use `CashPoolsListCursor$Outbound` instead. */
+    export type Outbound = CashPoolsListCursor$Outbound;
 }
 
 /** @internal */
+export const CashPoolsListResponseBody$inboundSchema: z.ZodType<
+    CashPoolsListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => CashPoolsListCursor$inboundSchema),
+});
+
+/** @internal */
+export type CashPoolsListResponseBody$Outbound = {
+    cursor: CashPoolsListCursor$Outbound;
+};
+
+/** @internal */
+export const CashPoolsListResponseBody$outboundSchema: z.ZodType<
+    CashPoolsListResponseBody$Outbound,
+    z.ZodTypeDef,
+    CashPoolsListResponseBody
+> = z.object({
+    cursor: z.lazy(() => CashPoolsListCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPoolsListResponseBody$ {
-    export const inboundSchema: z.ZodType<CashPoolsListResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => CashPoolsListCursor$.inboundSchema),
-        });
-
-    export type Outbound = {
-        cursor: CashPoolsListCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPoolsListResponseBody> =
-        z.object({
-            cursor: z.lazy(() => CashPoolsListCursor$.outboundSchema),
-        });
+    /** @deprecated use `CashPoolsListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = CashPoolsListResponseBody$inboundSchema;
+    /** @deprecated use `CashPoolsListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = CashPoolsListResponseBody$outboundSchema;
+    /** @deprecated use `CashPoolsListResponseBody$Outbound` instead. */
+    export type Outbound = CashPoolsListResponseBody$Outbound;
 }
 
 /** @internal */
+export const CashPoolsListResponse$inboundSchema: z.ZodType<
+    CashPoolsListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => CashPoolsListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
+    });
+
+/** @internal */
+export type CashPoolsListResponse$Outbound = {
+    Result: CashPoolsListResponseBody$Outbound;
+};
+
+/** @internal */
+export const CashPoolsListResponse$outboundSchema: z.ZodType<
+    CashPoolsListResponse$Outbound,
+    z.ZodTypeDef,
+    CashPoolsListResponse
+> = z
+    .object({
+        result: z.lazy(() => CashPoolsListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPoolsListResponse$ {
-    export const inboundSchema: z.ZodType<CashPoolsListResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => CashPoolsListResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: CashPoolsListResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPoolsListResponse> = z
-        .object({
-            result: z.lazy(() => CashPoolsListResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `CashPoolsListResponse$inboundSchema` instead. */
+    export const inboundSchema = CashPoolsListResponse$inboundSchema;
+    /** @deprecated use `CashPoolsListResponse$outboundSchema` instead. */
+    export const outboundSchema = CashPoolsListResponse$outboundSchema;
+    /** @deprecated use `CashPoolsListResponse$Outbound` instead. */
+    export type Outbound = CashPoolsListResponse$Outbound;
 }

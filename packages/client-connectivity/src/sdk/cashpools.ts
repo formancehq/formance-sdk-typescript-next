@@ -58,7 +58,7 @@ export class CashPools extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.CashPoolsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.CashPoolsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -124,8 +124,8 @@ export class CashPools extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.CashPoolsListResponse>()
-            .json(200, operations.CashPoolsListResponse$, { key: "Result" })
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.CashPoolsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.CashPoolsListResponse> => {
@@ -153,7 +153,7 @@ export class CashPools extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.CashPoolsCreateRequestBody$.outboundSchema.parse(value$),
+            (value$) => operations.CashPoolsCreateRequestBody$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -217,8 +217,8 @@ export class CashPools extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.CashPoolsCreateResponseBody>()
-            .json(200, operations.CashPoolsCreateResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.CashPoolsCreateResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -234,7 +234,7 @@ export class CashPools extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.CashPoolsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.CashPoolsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -303,8 +303,8 @@ export class CashPools extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.CashPoolsGetResponseBody>()
-            .json(200, operations.CashPoolsGetResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.CashPoolsGetResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -320,7 +320,7 @@ export class CashPools extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.CashPoolsDeleteRequest$.outboundSchema.parse(value$),
+            (value$) => operations.CashPoolsDeleteRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -390,7 +390,7 @@ export class CashPools extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -408,7 +408,7 @@ export class CashPools extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.CashPoolsAddAccountRequest$.outboundSchema.parse(value$),
+            (value$) => operations.CashPoolsAddAccountRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -481,7 +481,7 @@ export class CashPools extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -499,7 +499,7 @@ export class CashPools extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.CashPoolsRemoveAccountRequest$.outboundSchema.parse(value$),
+            (value$) => operations.CashPoolsRemoveAccountRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -575,7 +575,7 @@ export class CashPools extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -593,7 +593,7 @@ export class CashPools extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.CashPoolsBalancesRequest$.outboundSchema.parse(value$),
+            (value$) => operations.CashPoolsBalancesRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -666,8 +666,8 @@ export class CashPools extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.CashPoolsBalancesResponseBody>()
-            .json(200, operations.CashPoolsBalancesResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.CashPoolsBalancesResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

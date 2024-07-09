@@ -54,7 +54,7 @@ export class BankAccounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BankAccountsCreateRequestBody$.outboundSchema.parse(value$),
+            (value$) => operations.BankAccountsCreateRequestBody$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -118,8 +118,8 @@ export class BankAccounts extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.BankAccountsCreateResponseBody>()
-            .json(200, operations.BankAccountsCreateResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.BankAccountsCreateResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -139,7 +139,7 @@ export class BankAccounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BankAccountsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BankAccountsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -206,8 +206,8 @@ export class BankAccounts extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.BankAccountsListResponse>()
-            .json(200, operations.BankAccountsListResponse$, { key: "Result" })
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.BankAccountsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (
@@ -239,7 +239,7 @@ export class BankAccounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BankAccountsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BankAccountsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -310,8 +310,8 @@ export class BankAccounts extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.BankAccountsGetResponseBody>()
-            .json(200, operations.BankAccountsGetResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.BankAccountsGetResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -329,7 +329,7 @@ export class BankAccounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BankAccountsForwardRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BankAccountsForwardRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -401,8 +401,8 @@ export class BankAccounts extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.BankAccountsForwardResponseBody>()
-            .json(200, operations.BankAccountsForwardResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.BankAccountsForwardResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -420,7 +420,7 @@ export class BankAccounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BankAccountsUpdateMetatdataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BankAccountsUpdateMetatdataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -493,7 +493,7 @@ export class BankAccounts extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

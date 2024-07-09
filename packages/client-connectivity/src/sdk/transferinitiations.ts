@@ -62,7 +62,7 @@ export class TransferInitiations extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransferInitiationsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransferInitiationsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -130,8 +130,8 @@ export class TransferInitiations extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.TransferInitiationsListResponse>()
-            .json(200, operations.TransferInitiationsListResponse$, { key: "Result" })
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.TransferInitiationsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (
@@ -162,7 +162,7 @@ export class TransferInitiations extends ClientSDK {
         const payload$ = schemas$.parse(
             input$,
             (value$) =>
-                operations.TransferInitiationsCreateRequestBody$.outboundSchema.parse(value$),
+                operations.TransferInitiationsCreateRequestBody$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -226,8 +226,8 @@ export class TransferInitiations extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TransferInitiationsCreateResponseBody>()
-            .json(200, operations.TransferInitiationsCreateResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.TransferInitiationsCreateResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -243,7 +243,7 @@ export class TransferInitiations extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransferInitiationsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransferInitiationsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -314,8 +314,8 @@ export class TransferInitiations extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TransferInitiationsGetResponseBody>()
-            .json(200, operations.TransferInitiationsGetResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.TransferInitiationsGetResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -331,7 +331,7 @@ export class TransferInitiations extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransferInitiationsDeleteRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransferInitiationsDeleteRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -403,7 +403,7 @@ export class TransferInitiations extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -419,7 +419,7 @@ export class TransferInitiations extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransferInitiationsRetryRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransferInitiationsRetryRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -491,7 +491,7 @@ export class TransferInitiations extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -509,7 +509,7 @@ export class TransferInitiations extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransferInitiationsReverseRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransferInitiationsReverseRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -582,7 +582,7 @@ export class TransferInitiations extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -601,7 +601,7 @@ export class TransferInitiations extends ClientSDK {
         const payload$ = schemas$.parse(
             input$,
             (value$) =>
-                operations.TransferInitiationsUpdateStatusRequest$.outboundSchema.parse(value$),
+                operations.TransferInitiationsUpdateStatusRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -674,7 +674,7 @@ export class TransferInitiations extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

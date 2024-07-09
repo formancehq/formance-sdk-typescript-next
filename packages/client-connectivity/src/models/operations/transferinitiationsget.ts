@@ -17,41 +17,73 @@ export type TransferInitiationsGetResponseBody = {
 };
 
 /** @internal */
+export const TransferInitiationsGetRequest$inboundSchema: z.ZodType<
+    TransferInitiationsGetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    transferId: z.string(),
+});
+
+/** @internal */
+export type TransferInitiationsGetRequest$Outbound = {
+    transferId: string;
+};
+
+/** @internal */
+export const TransferInitiationsGetRequest$outboundSchema: z.ZodType<
+    TransferInitiationsGetRequest$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsGetRequest
+> = z.object({
+    transferId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsGetRequest$ {
-    export const inboundSchema: z.ZodType<TransferInitiationsGetRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            transferId: z.string(),
-        });
-
-    export type Outbound = {
-        transferId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransferInitiationsGetRequest> =
-        z.object({
-            transferId: z.string(),
-        });
+    /** @deprecated use `TransferInitiationsGetRequest$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsGetRequest$inboundSchema;
+    /** @deprecated use `TransferInitiationsGetRequest$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsGetRequest$outboundSchema;
+    /** @deprecated use `TransferInitiationsGetRequest$Outbound` instead. */
+    export type Outbound = TransferInitiationsGetRequest$Outbound;
 }
 
 /** @internal */
+export const TransferInitiationsGetResponseBody$inboundSchema: z.ZodType<
+    TransferInitiationsGetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.TransferInitiation$inboundSchema,
+});
+
+/** @internal */
+export type TransferInitiationsGetResponseBody$Outbound = {
+    data: components.TransferInitiation$Outbound;
+};
+
+/** @internal */
+export const TransferInitiationsGetResponseBody$outboundSchema: z.ZodType<
+    TransferInitiationsGetResponseBody$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsGetResponseBody
+> = z.object({
+    data: components.TransferInitiation$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsGetResponseBody$ {
-    export const inboundSchema: z.ZodType<
-        TransferInitiationsGetResponseBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        data: components.TransferInitiation$.inboundSchema,
-    });
-
-    export type Outbound = {
-        data: components.TransferInitiation$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransferInitiationsGetResponseBody
-    > = z.object({
-        data: components.TransferInitiation$.outboundSchema,
-    });
+    /** @deprecated use `TransferInitiationsGetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsGetResponseBody$inboundSchema;
+    /** @deprecated use `TransferInitiationsGetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsGetResponseBody$outboundSchema;
+    /** @deprecated use `TransferInitiationsGetResponseBody$Outbound` instead. */
+    export type Outbound = TransferInitiationsGetResponseBody$Outbound;
 }

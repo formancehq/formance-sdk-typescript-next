@@ -17,8 +17,8 @@ export type AccountBalance = {
 };
 
 /** @internal */
-export namespace AccountBalance$ {
-    export const inboundSchema: z.ZodType<AccountBalance, z.ZodTypeDef, unknown> = z.object({
+export const AccountBalance$inboundSchema: z.ZodType<AccountBalance, z.ZodTypeDef, unknown> =
+    z.object({
         accountId: z.string(),
         createdAt: z
             .string()
@@ -33,21 +33,39 @@ export namespace AccountBalance$ {
         balance: z.number().int(),
     });
 
-    export type Outbound = {
-        accountId: string;
-        createdAt: string;
-        lastUpdatedAt: string;
-        currency: string;
-        asset: string;
-        balance: number;
-    };
+/** @internal */
+export type AccountBalance$Outbound = {
+    accountId: string;
+    createdAt: string;
+    lastUpdatedAt: string;
+    currency: string;
+    asset: string;
+    balance: number;
+};
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountBalance> = z.object({
-        accountId: z.string(),
-        createdAt: z.date().transform((v) => v.toISOString()),
-        lastUpdatedAt: z.date().transform((v) => v.toISOString()),
-        currency: z.string(),
-        asset: z.string(),
-        balance: z.number().int(),
-    });
+/** @internal */
+export const AccountBalance$outboundSchema: z.ZodType<
+    AccountBalance$Outbound,
+    z.ZodTypeDef,
+    AccountBalance
+> = z.object({
+    accountId: z.string(),
+    createdAt: z.date().transform((v) => v.toISOString()),
+    lastUpdatedAt: z.date().transform((v) => v.toISOString()),
+    currency: z.string(),
+    asset: z.string(),
+    balance: z.number().int(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace AccountBalance$ {
+    /** @deprecated use `AccountBalance$inboundSchema` instead. */
+    export const inboundSchema = AccountBalance$inboundSchema;
+    /** @deprecated use `AccountBalance$outboundSchema` instead. */
+    export const outboundSchema = AccountBalance$outboundSchema;
+    /** @deprecated use `AccountBalance$Outbound` instead. */
+    export type Outbound = AccountBalance$Outbound;
 }

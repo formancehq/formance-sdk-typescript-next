@@ -17,35 +17,73 @@ export type PaymentsV1GetResponseBody = {
 };
 
 /** @internal */
+export const PaymentsV1GetRequest$inboundSchema: z.ZodType<
+    PaymentsV1GetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    payementId: z.string(),
+});
+
+/** @internal */
+export type PaymentsV1GetRequest$Outbound = {
+    payementId: string;
+};
+
+/** @internal */
+export const PaymentsV1GetRequest$outboundSchema: z.ZodType<
+    PaymentsV1GetRequest$Outbound,
+    z.ZodTypeDef,
+    PaymentsV1GetRequest
+> = z.object({
+    payementId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PaymentsV1GetRequest$ {
-    export const inboundSchema: z.ZodType<PaymentsV1GetRequest, z.ZodTypeDef, unknown> = z.object({
-        payementId: z.string(),
-    });
-
-    export type Outbound = {
-        payementId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1GetRequest> = z.object(
-        {
-            payementId: z.string(),
-        }
-    );
+    /** @deprecated use `PaymentsV1GetRequest$inboundSchema` instead. */
+    export const inboundSchema = PaymentsV1GetRequest$inboundSchema;
+    /** @deprecated use `PaymentsV1GetRequest$outboundSchema` instead. */
+    export const outboundSchema = PaymentsV1GetRequest$outboundSchema;
+    /** @deprecated use `PaymentsV1GetRequest$Outbound` instead. */
+    export type Outbound = PaymentsV1GetRequest$Outbound;
 }
 
 /** @internal */
+export const PaymentsV1GetResponseBody$inboundSchema: z.ZodType<
+    PaymentsV1GetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Payment$inboundSchema,
+});
+
+/** @internal */
+export type PaymentsV1GetResponseBody$Outbound = {
+    data: components.Payment$Outbound;
+};
+
+/** @internal */
+export const PaymentsV1GetResponseBody$outboundSchema: z.ZodType<
+    PaymentsV1GetResponseBody$Outbound,
+    z.ZodTypeDef,
+    PaymentsV1GetResponseBody
+> = z.object({
+    data: components.Payment$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PaymentsV1GetResponseBody$ {
-    export const inboundSchema: z.ZodType<PaymentsV1GetResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Payment$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Payment$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PaymentsV1GetResponseBody> =
-        z.object({
-            data: components.Payment$.outboundSchema,
-        });
+    /** @deprecated use `PaymentsV1GetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = PaymentsV1GetResponseBody$inboundSchema;
+    /** @deprecated use `PaymentsV1GetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = PaymentsV1GetResponseBody$outboundSchema;
+    /** @deprecated use `PaymentsV1GetResponseBody$Outbound` instead. */
+    export type Outbound = PaymentsV1GetResponseBody$Outbound;
 }

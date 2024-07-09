@@ -10,21 +10,40 @@ export type CashPoolsRemoveAccountRequest = {
 };
 
 /** @internal */
+export const CashPoolsRemoveAccountRequest$inboundSchema: z.ZodType<
+    CashPoolsRemoveAccountRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    poolId: z.string(),
+    accountId: z.string(),
+});
+
+/** @internal */
+export type CashPoolsRemoveAccountRequest$Outbound = {
+    poolId: string;
+    accountId: string;
+};
+
+/** @internal */
+export const CashPoolsRemoveAccountRequest$outboundSchema: z.ZodType<
+    CashPoolsRemoveAccountRequest$Outbound,
+    z.ZodTypeDef,
+    CashPoolsRemoveAccountRequest
+> = z.object({
+    poolId: z.string(),
+    accountId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPoolsRemoveAccountRequest$ {
-    export const inboundSchema: z.ZodType<CashPoolsRemoveAccountRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            poolId: z.string(),
-            accountId: z.string(),
-        });
-
-    export type Outbound = {
-        poolId: string;
-        accountId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPoolsRemoveAccountRequest> =
-        z.object({
-            poolId: z.string(),
-            accountId: z.string(),
-        });
+    /** @deprecated use `CashPoolsRemoveAccountRequest$inboundSchema` instead. */
+    export const inboundSchema = CashPoolsRemoveAccountRequest$inboundSchema;
+    /** @deprecated use `CashPoolsRemoveAccountRequest$outboundSchema` instead. */
+    export const outboundSchema = CashPoolsRemoveAccountRequest$outboundSchema;
+    /** @deprecated use `CashPoolsRemoveAccountRequest$Outbound` instead. */
+    export type Outbound = CashPoolsRemoveAccountRequest$Outbound;
 }

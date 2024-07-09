@@ -133,8 +133,8 @@ export class ConnectivityClient extends ClientSDK {
         };
 
         const [result$] = await this.matcher<components.ServerInfo>()
-            .json(200, components.ServerInfo$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, components.ServerInfo$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

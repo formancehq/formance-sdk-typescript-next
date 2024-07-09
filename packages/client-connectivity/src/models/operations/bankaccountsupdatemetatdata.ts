@@ -15,62 +15,88 @@ export type BankAccountsUpdateMetatdataRequest = {
 };
 
 /** @internal */
+export const BankAccountsUpdateMetatdataRequestBody$inboundSchema: z.ZodType<
+    BankAccountsUpdateMetatdataRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    metadata: z.record(z.string()),
+});
+
+/** @internal */
+export type BankAccountsUpdateMetatdataRequestBody$Outbound = {
+    metadata: { [k: string]: string };
+};
+
+/** @internal */
+export const BankAccountsUpdateMetatdataRequestBody$outboundSchema: z.ZodType<
+    BankAccountsUpdateMetatdataRequestBody$Outbound,
+    z.ZodTypeDef,
+    BankAccountsUpdateMetatdataRequestBody
+> = z.object({
+    metadata: z.record(z.string()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsUpdateMetatdataRequestBody$ {
-    export const inboundSchema: z.ZodType<
-        BankAccountsUpdateMetatdataRequestBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        metadata: z.record(z.string()),
-    });
-
-    export type Outbound = {
-        metadata: { [k: string]: string };
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        BankAccountsUpdateMetatdataRequestBody
-    > = z.object({
-        metadata: z.record(z.string()),
-    });
+    /** @deprecated use `BankAccountsUpdateMetatdataRequestBody$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsUpdateMetatdataRequestBody$inboundSchema;
+    /** @deprecated use `BankAccountsUpdateMetatdataRequestBody$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsUpdateMetatdataRequestBody$outboundSchema;
+    /** @deprecated use `BankAccountsUpdateMetatdataRequestBody$Outbound` instead. */
+    export type Outbound = BankAccountsUpdateMetatdataRequestBody$Outbound;
 }
 
 /** @internal */
+export const BankAccountsUpdateMetatdataRequest$inboundSchema: z.ZodType<
+    BankAccountsUpdateMetatdataRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        bankAccountId: z.string(),
+        RequestBody: z.lazy(() => BankAccountsUpdateMetatdataRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type BankAccountsUpdateMetatdataRequest$Outbound = {
+    bankAccountId: string;
+    RequestBody: BankAccountsUpdateMetatdataRequestBody$Outbound;
+};
+
+/** @internal */
+export const BankAccountsUpdateMetatdataRequest$outboundSchema: z.ZodType<
+    BankAccountsUpdateMetatdataRequest$Outbound,
+    z.ZodTypeDef,
+    BankAccountsUpdateMetatdataRequest
+> = z
+    .object({
+        bankAccountId: z.string(),
+        requestBody: z.lazy(() => BankAccountsUpdateMetatdataRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsUpdateMetatdataRequest$ {
-    export const inboundSchema: z.ZodType<
-        BankAccountsUpdateMetatdataRequest,
-        z.ZodTypeDef,
-        unknown
-    > = z
-        .object({
-            bankAccountId: z.string(),
-            RequestBody: z.lazy(() => BankAccountsUpdateMetatdataRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        bankAccountId: string;
-        RequestBody: BankAccountsUpdateMetatdataRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        BankAccountsUpdateMetatdataRequest
-    > = z
-        .object({
-            bankAccountId: z.string(),
-            requestBody: z.lazy(() => BankAccountsUpdateMetatdataRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `BankAccountsUpdateMetatdataRequest$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsUpdateMetatdataRequest$inboundSchema;
+    /** @deprecated use `BankAccountsUpdateMetatdataRequest$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsUpdateMetatdataRequest$outboundSchema;
+    /** @deprecated use `BankAccountsUpdateMetatdataRequest$Outbound` instead. */
+    export type Outbound = BankAccountsUpdateMetatdataRequest$Outbound;
 }

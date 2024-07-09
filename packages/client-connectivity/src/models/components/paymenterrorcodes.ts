@@ -13,8 +13,20 @@ export const PaymentErrorCodes = {
 export type PaymentErrorCodes = ClosedEnum<typeof PaymentErrorCodes>;
 
 /** @internal */
+export const PaymentErrorCodes$inboundSchema: z.ZodNativeEnum<typeof PaymentErrorCodes> =
+    z.nativeEnum(PaymentErrorCodes);
+
+/** @internal */
+export const PaymentErrorCodes$outboundSchema: z.ZodNativeEnum<typeof PaymentErrorCodes> =
+    PaymentErrorCodes$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PaymentErrorCodes$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof PaymentErrorCodes> =
-        z.nativeEnum(PaymentErrorCodes);
-    export const outboundSchema: z.ZodNativeEnum<typeof PaymentErrorCodes> = inboundSchema;
+    /** @deprecated use `PaymentErrorCodes$inboundSchema` instead. */
+    export const inboundSchema = PaymentErrorCodes$inboundSchema;
+    /** @deprecated use `PaymentErrorCodes$outboundSchema` instead. */
+    export const outboundSchema = PaymentErrorCodes$outboundSchema;
 }

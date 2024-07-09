@@ -11,21 +11,40 @@ export type ConnectorsUninstallRequest = {
 };
 
 /** @internal */
+export const ConnectorsUninstallRequest$inboundSchema: z.ZodType<
+    ConnectorsUninstallRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    connector: components.Connector$inboundSchema,
+    connectorID: z.string(),
+});
+
+/** @internal */
+export type ConnectorsUninstallRequest$Outbound = {
+    connector: string;
+    connectorID: string;
+};
+
+/** @internal */
+export const ConnectorsUninstallRequest$outboundSchema: z.ZodType<
+    ConnectorsUninstallRequest$Outbound,
+    z.ZodTypeDef,
+    ConnectorsUninstallRequest
+> = z.object({
+    connector: components.Connector$outboundSchema,
+    connectorID: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsUninstallRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsUninstallRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            connector: components.Connector$.inboundSchema,
-            connectorID: z.string(),
-        });
-
-    export type Outbound = {
-        connector: string;
-        connectorID: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsUninstallRequest> =
-        z.object({
-            connector: components.Connector$.outboundSchema,
-            connectorID: z.string(),
-        });
+    /** @deprecated use `ConnectorsUninstallRequest$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsUninstallRequest$inboundSchema;
+    /** @deprecated use `ConnectorsUninstallRequest$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsUninstallRequest$outboundSchema;
+    /** @deprecated use `ConnectorsUninstallRequest$Outbound` instead. */
+    export type Outbound = ConnectorsUninstallRequest$Outbound;
 }

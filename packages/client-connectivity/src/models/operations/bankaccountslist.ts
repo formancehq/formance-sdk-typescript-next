@@ -29,89 +29,166 @@ export type BankAccountsListResponse = {
 };
 
 /** @internal */
+export const BankAccountsListRequest$inboundSchema: z.ZodType<
+    BankAccountsListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+    sort: z.array(z.string()).optional(),
+});
+
+/** @internal */
+export type BankAccountsListRequest$Outbound = {
+    cursor?: string | undefined;
+    pageSize?: number | undefined;
+    sort?: Array<string> | undefined;
+};
+
+/** @internal */
+export const BankAccountsListRequest$outboundSchema: z.ZodType<
+    BankAccountsListRequest$Outbound,
+    z.ZodTypeDef,
+    BankAccountsListRequest
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+    sort: z.array(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsListRequest$ {
-    export const inboundSchema: z.ZodType<BankAccountsListRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-            sort: z.array(z.string()).optional(),
-        });
-
-    export type Outbound = {
-        cursor?: string | undefined;
-        pageSize?: number | undefined;
-        sort?: Array<string> | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccountsListRequest> =
-        z.object({
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-            sort: z.array(z.string()).optional(),
-        });
+    /** @deprecated use `BankAccountsListRequest$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsListRequest$inboundSchema;
+    /** @deprecated use `BankAccountsListRequest$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsListRequest$outboundSchema;
+    /** @deprecated use `BankAccountsListRequest$Outbound` instead. */
+    export type Outbound = BankAccountsListRequest$Outbound;
 }
 
 /** @internal */
+export const BankAccountsListCursor$inboundSchema: z.ZodType<
+    BankAccountsListCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.BankAccount$inboundSchema),
+});
+
+/** @internal */
+export type BankAccountsListCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.BankAccount$Outbound>;
+};
+
+/** @internal */
+export const BankAccountsListCursor$outboundSchema: z.ZodType<
+    BankAccountsListCursor$Outbound,
+    z.ZodTypeDef,
+    BankAccountsListCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.BankAccount$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsListCursor$ {
-    export const inboundSchema: z.ZodType<BankAccountsListCursor, z.ZodTypeDef, unknown> = z.object(
-        {
-            next: z.string().optional(),
-            data: z.array(components.BankAccount$.inboundSchema),
-        }
-    );
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.BankAccount$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccountsListCursor> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(components.BankAccount$.outboundSchema),
-        });
+    /** @deprecated use `BankAccountsListCursor$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsListCursor$inboundSchema;
+    /** @deprecated use `BankAccountsListCursor$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsListCursor$outboundSchema;
+    /** @deprecated use `BankAccountsListCursor$Outbound` instead. */
+    export type Outbound = BankAccountsListCursor$Outbound;
 }
 
 /** @internal */
+export const BankAccountsListResponseBody$inboundSchema: z.ZodType<
+    BankAccountsListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => BankAccountsListCursor$inboundSchema),
+});
+
+/** @internal */
+export type BankAccountsListResponseBody$Outbound = {
+    cursor: BankAccountsListCursor$Outbound;
+};
+
+/** @internal */
+export const BankAccountsListResponseBody$outboundSchema: z.ZodType<
+    BankAccountsListResponseBody$Outbound,
+    z.ZodTypeDef,
+    BankAccountsListResponseBody
+> = z.object({
+    cursor: z.lazy(() => BankAccountsListCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsListResponseBody$ {
-    export const inboundSchema: z.ZodType<BankAccountsListResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => BankAccountsListCursor$.inboundSchema),
-        });
-
-    export type Outbound = {
-        cursor: BankAccountsListCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccountsListResponseBody> =
-        z.object({
-            cursor: z.lazy(() => BankAccountsListCursor$.outboundSchema),
-        });
+    /** @deprecated use `BankAccountsListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsListResponseBody$inboundSchema;
+    /** @deprecated use `BankAccountsListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsListResponseBody$outboundSchema;
+    /** @deprecated use `BankAccountsListResponseBody$Outbound` instead. */
+    export type Outbound = BankAccountsListResponseBody$Outbound;
 }
 
 /** @internal */
+export const BankAccountsListResponse$inboundSchema: z.ZodType<
+    BankAccountsListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => BankAccountsListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
+    });
+
+/** @internal */
+export type BankAccountsListResponse$Outbound = {
+    Result: BankAccountsListResponseBody$Outbound;
+};
+
+/** @internal */
+export const BankAccountsListResponse$outboundSchema: z.ZodType<
+    BankAccountsListResponse$Outbound,
+    z.ZodTypeDef,
+    BankAccountsListResponse
+> = z
+    .object({
+        result: z.lazy(() => BankAccountsListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsListResponse$ {
-    export const inboundSchema: z.ZodType<BankAccountsListResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => BankAccountsListResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: BankAccountsListResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccountsListResponse> = z
-        .object({
-            result: z.lazy(() => BankAccountsListResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `BankAccountsListResponse$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsListResponse$inboundSchema;
+    /** @deprecated use `BankAccountsListResponse$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsListResponse$outboundSchema;
+    /** @deprecated use `BankAccountsListResponse$Outbound` instead. */
+    export type Outbound = BankAccountsListResponse$Outbound;
 }

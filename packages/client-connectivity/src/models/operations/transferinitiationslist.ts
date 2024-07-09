@@ -30,102 +30,169 @@ export type TransferInitiationsListResponse = {
 };
 
 /** @internal */
+export const TransferInitiationsListRequest$inboundSchema: z.ZodType<
+    TransferInitiationsListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+    sort: z.array(z.string()).optional(),
+    query: z.record(z.any()).optional(),
+});
+
+/** @internal */
+export type TransferInitiationsListRequest$Outbound = {
+    cursor?: string | undefined;
+    pageSize?: number | undefined;
+    sort?: Array<string> | undefined;
+    query?: { [k: string]: any } | undefined;
+};
+
+/** @internal */
+export const TransferInitiationsListRequest$outboundSchema: z.ZodType<
+    TransferInitiationsListRequest$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsListRequest
+> = z.object({
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+    sort: z.array(z.string()).optional(),
+    query: z.record(z.any()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsListRequest$ {
-    export const inboundSchema: z.ZodType<TransferInitiationsListRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-            sort: z.array(z.string()).optional(),
-            query: z.record(z.any()).optional(),
-        });
-
-    export type Outbound = {
-        cursor?: string | undefined;
-        pageSize?: number | undefined;
-        sort?: Array<string> | undefined;
-        query?: { [k: string]: any } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransferInitiationsListRequest> =
-        z.object({
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-            sort: z.array(z.string()).optional(),
-            query: z.record(z.any()).optional(),
-        });
+    /** @deprecated use `TransferInitiationsListRequest$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsListRequest$inboundSchema;
+    /** @deprecated use `TransferInitiationsListRequest$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsListRequest$outboundSchema;
+    /** @deprecated use `TransferInitiationsListRequest$Outbound` instead. */
+    export type Outbound = TransferInitiationsListRequest$Outbound;
 }
 
 /** @internal */
+export const TransferInitiationsListCursor$inboundSchema: z.ZodType<
+    TransferInitiationsListCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.TransferInitiation$inboundSchema),
+});
+
+/** @internal */
+export type TransferInitiationsListCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.TransferInitiation$Outbound>;
+};
+
+/** @internal */
+export const TransferInitiationsListCursor$outboundSchema: z.ZodType<
+    TransferInitiationsListCursor$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsListCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.TransferInitiation$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsListCursor$ {
-    export const inboundSchema: z.ZodType<TransferInitiationsListCursor, z.ZodTypeDef, unknown> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(components.TransferInitiation$.inboundSchema),
-        });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.TransferInitiation$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransferInitiationsListCursor> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(components.TransferInitiation$.outboundSchema),
-        });
+    /** @deprecated use `TransferInitiationsListCursor$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsListCursor$inboundSchema;
+    /** @deprecated use `TransferInitiationsListCursor$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsListCursor$outboundSchema;
+    /** @deprecated use `TransferInitiationsListCursor$Outbound` instead. */
+    export type Outbound = TransferInitiationsListCursor$Outbound;
 }
 
 /** @internal */
+export const TransferInitiationsListResponseBody$inboundSchema: z.ZodType<
+    TransferInitiationsListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => TransferInitiationsListCursor$inboundSchema),
+});
+
+/** @internal */
+export type TransferInitiationsListResponseBody$Outbound = {
+    cursor: TransferInitiationsListCursor$Outbound;
+};
+
+/** @internal */
+export const TransferInitiationsListResponseBody$outboundSchema: z.ZodType<
+    TransferInitiationsListResponseBody$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsListResponseBody
+> = z.object({
+    cursor: z.lazy(() => TransferInitiationsListCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsListResponseBody$ {
-    export const inboundSchema: z.ZodType<
-        TransferInitiationsListResponseBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        cursor: z.lazy(() => TransferInitiationsListCursor$.inboundSchema),
-    });
-
-    export type Outbound = {
-        cursor: TransferInitiationsListCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransferInitiationsListResponseBody
-    > = z.object({
-        cursor: z.lazy(() => TransferInitiationsListCursor$.outboundSchema),
-    });
+    /** @deprecated use `TransferInitiationsListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsListResponseBody$inboundSchema;
+    /** @deprecated use `TransferInitiationsListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsListResponseBody$outboundSchema;
+    /** @deprecated use `TransferInitiationsListResponseBody$Outbound` instead. */
+    export type Outbound = TransferInitiationsListResponseBody$Outbound;
 }
 
 /** @internal */
-export namespace TransferInitiationsListResponse$ {
-    export const inboundSchema: z.ZodType<TransferInitiationsListResponse, z.ZodTypeDef, unknown> =
-        z
-            .object({
-                Result: z.lazy(() => TransferInitiationsListResponseBody$.inboundSchema),
-            })
-            .transform((v) => {
-                return remap$(v, {
-                    Result: "result",
-                });
-            });
-
-    export type Outbound = {
-        Result: TransferInitiationsListResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransferInitiationsListResponse
-    > = z
-        .object({
-            result: z.lazy(() => TransferInitiationsListResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
+export const TransferInitiationsListResponse$inboundSchema: z.ZodType<
+    TransferInitiationsListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => TransferInitiationsListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
         });
+    });
+
+/** @internal */
+export type TransferInitiationsListResponse$Outbound = {
+    Result: TransferInitiationsListResponseBody$Outbound;
+};
+
+/** @internal */
+export const TransferInitiationsListResponse$outboundSchema: z.ZodType<
+    TransferInitiationsListResponse$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsListResponse
+> = z
+    .object({
+        result: z.lazy(() => TransferInitiationsListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TransferInitiationsListResponse$ {
+    /** @deprecated use `TransferInitiationsListResponse$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsListResponse$inboundSchema;
+    /** @deprecated use `TransferInitiationsListResponse$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsListResponse$outboundSchema;
+    /** @deprecated use `TransferInitiationsListResponse$Outbound` instead. */
+    export type Outbound = TransferInitiationsListResponse$Outbound;
 }

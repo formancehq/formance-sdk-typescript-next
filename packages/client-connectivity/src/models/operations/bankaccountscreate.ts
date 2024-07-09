@@ -23,53 +23,91 @@ export type BankAccountsCreateResponseBody = {
 };
 
 /** @internal */
+export const BankAccountsCreateRequestBody$inboundSchema: z.ZodType<
+    BankAccountsCreateRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    country: z.string(),
+    connectorID: z.string(),
+    name: z.string(),
+    accountNumber: z.string().optional(),
+    iban: z.string().optional(),
+    swiftBicCode: z.string().optional(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/** @internal */
+export type BankAccountsCreateRequestBody$Outbound = {
+    country: string;
+    connectorID: string;
+    name: string;
+    accountNumber?: string | undefined;
+    iban?: string | undefined;
+    swiftBicCode?: string | undefined;
+    metadata?: { [k: string]: string } | undefined;
+};
+
+/** @internal */
+export const BankAccountsCreateRequestBody$outboundSchema: z.ZodType<
+    BankAccountsCreateRequestBody$Outbound,
+    z.ZodTypeDef,
+    BankAccountsCreateRequestBody
+> = z.object({
+    country: z.string(),
+    connectorID: z.string(),
+    name: z.string(),
+    accountNumber: z.string().optional(),
+    iban: z.string().optional(),
+    swiftBicCode: z.string().optional(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsCreateRequestBody$ {
-    export const inboundSchema: z.ZodType<BankAccountsCreateRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            country: z.string(),
-            connectorID: z.string(),
-            name: z.string(),
-            accountNumber: z.string().optional(),
-            iban: z.string().optional(),
-            swiftBicCode: z.string().optional(),
-            metadata: z.record(z.string()).optional(),
-        });
-
-    export type Outbound = {
-        country: string;
-        connectorID: string;
-        name: string;
-        accountNumber?: string | undefined;
-        iban?: string | undefined;
-        swiftBicCode?: string | undefined;
-        metadata?: { [k: string]: string } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccountsCreateRequestBody> =
-        z.object({
-            country: z.string(),
-            connectorID: z.string(),
-            name: z.string(),
-            accountNumber: z.string().optional(),
-            iban: z.string().optional(),
-            swiftBicCode: z.string().optional(),
-            metadata: z.record(z.string()).optional(),
-        });
+    /** @deprecated use `BankAccountsCreateRequestBody$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsCreateRequestBody$inboundSchema;
+    /** @deprecated use `BankAccountsCreateRequestBody$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsCreateRequestBody$outboundSchema;
+    /** @deprecated use `BankAccountsCreateRequestBody$Outbound` instead. */
+    export type Outbound = BankAccountsCreateRequestBody$Outbound;
 }
 
 /** @internal */
+export const BankAccountsCreateResponseBody$inboundSchema: z.ZodType<
+    BankAccountsCreateResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.BankAccount$inboundSchema,
+});
+
+/** @internal */
+export type BankAccountsCreateResponseBody$Outbound = {
+    data: components.BankAccount$Outbound;
+};
+
+/** @internal */
+export const BankAccountsCreateResponseBody$outboundSchema: z.ZodType<
+    BankAccountsCreateResponseBody$Outbound,
+    z.ZodTypeDef,
+    BankAccountsCreateResponseBody
+> = z.object({
+    data: components.BankAccount$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountsCreateResponseBody$ {
-    export const inboundSchema: z.ZodType<BankAccountsCreateResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.BankAccount$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.BankAccount$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccountsCreateResponseBody> =
-        z.object({
-            data: components.BankAccount$.outboundSchema,
-        });
+    /** @deprecated use `BankAccountsCreateResponseBody$inboundSchema` instead. */
+    export const inboundSchema = BankAccountsCreateResponseBody$inboundSchema;
+    /** @deprecated use `BankAccountsCreateResponseBody$outboundSchema` instead. */
+    export const outboundSchema = BankAccountsCreateResponseBody$outboundSchema;
+    /** @deprecated use `BankAccountsCreateResponseBody$Outbound` instead. */
+    export type Outbound = BankAccountsCreateResponseBody$Outbound;
 }

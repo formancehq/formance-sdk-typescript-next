@@ -16,9 +16,22 @@ export const TransferInitiationWritableStatus = {
 export type TransferInitiationWritableStatus = ClosedEnum<typeof TransferInitiationWritableStatus>;
 
 /** @internal */
+export const TransferInitiationWritableStatus$inboundSchema: z.ZodNativeEnum<
+    typeof TransferInitiationWritableStatus
+> = z.nativeEnum(TransferInitiationWritableStatus);
+
+/** @internal */
+export const TransferInitiationWritableStatus$outboundSchema: z.ZodNativeEnum<
+    typeof TransferInitiationWritableStatus
+> = TransferInitiationWritableStatus$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationWritableStatus$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof TransferInitiationWritableStatus> =
-        z.nativeEnum(TransferInitiationWritableStatus);
-    export const outboundSchema: z.ZodNativeEnum<typeof TransferInitiationWritableStatus> =
-        inboundSchema;
+    /** @deprecated use `TransferInitiationWritableStatus$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationWritableStatus$inboundSchema;
+    /** @deprecated use `TransferInitiationWritableStatus$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationWritableStatus$outboundSchema;
 }

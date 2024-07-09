@@ -59,7 +59,7 @@ export class Connectors extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ConnectorsInstallRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ConnectorsInstallRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -131,8 +131,8 @@ export class Connectors extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.ConnectorsInstallResponseBody>()
-            .json(201, operations.ConnectorsInstallResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(201, operations.ConnectorsInstallResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -150,7 +150,7 @@ export class Connectors extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ConnectorsUninstallRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ConnectorsUninstallRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -226,7 +226,7 @@ export class Connectors extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -246,7 +246,7 @@ export class Connectors extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ConnectorsUpdateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ConnectorsUpdateRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -323,7 +323,7 @@ export class Connectors extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -341,7 +341,7 @@ export class Connectors extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ConnectorsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ConnectorsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -416,8 +416,8 @@ export class Connectors extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.ConnectorsGetResponseBody>()
-            .json(200, operations.ConnectorsGetResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.ConnectorsGetResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -435,7 +435,7 @@ export class Connectors extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ConnectorsResetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ConnectorsResetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -511,7 +511,7 @@ export class Connectors extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.PaymentsError$, { err: true })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -533,7 +533,7 @@ export class Connectors extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ConnectorsListTaskRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ConnectorsListTaskRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -611,8 +611,8 @@ export class Connectors extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.ConnectorsListTaskResponse>()
-            .json(200, operations.ConnectorsListTaskResponse$, { key: "Result" })
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.ConnectorsListTaskResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (
@@ -648,7 +648,7 @@ export class Connectors extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ConnectorsGetTaskRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ConnectorsGetTaskRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -727,8 +727,8 @@ export class Connectors extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.ConnectorsGetTaskResponseBody>()
-            .json(200, operations.ConnectorsGetTaskResponseBody$)
-            .json("default", errors.PaymentsError$, { err: true })
+            .json(200, operations.ConnectorsGetTaskResponseBody$inboundSchema)
+            .json("default", errors.PaymentsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

@@ -9,21 +9,37 @@ export type TransferInitiationsRetryRequest = {
 };
 
 /** @internal */
+export const TransferInitiationsRetryRequest$inboundSchema: z.ZodType<
+    TransferInitiationsRetryRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    transferId: z.string(),
+});
+
+/** @internal */
+export type TransferInitiationsRetryRequest$Outbound = {
+    transferId: string;
+};
+
+/** @internal */
+export const TransferInitiationsRetryRequest$outboundSchema: z.ZodType<
+    TransferInitiationsRetryRequest$Outbound,
+    z.ZodTypeDef,
+    TransferInitiationsRetryRequest
+> = z.object({
+    transferId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransferInitiationsRetryRequest$ {
-    export const inboundSchema: z.ZodType<TransferInitiationsRetryRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            transferId: z.string(),
-        });
-
-    export type Outbound = {
-        transferId: string;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransferInitiationsRetryRequest
-    > = z.object({
-        transferId: z.string(),
-    });
+    /** @deprecated use `TransferInitiationsRetryRequest$inboundSchema` instead. */
+    export const inboundSchema = TransferInitiationsRetryRequest$inboundSchema;
+    /** @deprecated use `TransferInitiationsRetryRequest$outboundSchema` instead. */
+    export const outboundSchema = TransferInitiationsRetryRequest$outboundSchema;
+    /** @deprecated use `TransferInitiationsRetryRequest$Outbound` instead. */
+    export type Outbound = TransferInitiationsRetryRequest$Outbound;
 }

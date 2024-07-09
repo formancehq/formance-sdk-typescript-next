@@ -11,22 +11,40 @@ export type ConnectorsResetRequest = {
 };
 
 /** @internal */
+export const ConnectorsResetRequest$inboundSchema: z.ZodType<
+    ConnectorsResetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    connector: components.Connector$inboundSchema,
+    connectorId: z.string(),
+});
+
+/** @internal */
+export type ConnectorsResetRequest$Outbound = {
+    connector: string;
+    connectorId: string;
+};
+
+/** @internal */
+export const ConnectorsResetRequest$outboundSchema: z.ZodType<
+    ConnectorsResetRequest$Outbound,
+    z.ZodTypeDef,
+    ConnectorsResetRequest
+> = z.object({
+    connector: components.Connector$outboundSchema,
+    connectorId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsResetRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsResetRequest, z.ZodTypeDef, unknown> = z.object(
-        {
-            connector: components.Connector$.inboundSchema,
-            connectorId: z.string(),
-        }
-    );
-
-    export type Outbound = {
-        connector: string;
-        connectorId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsResetRequest> =
-        z.object({
-            connector: components.Connector$.outboundSchema,
-            connectorId: z.string(),
-        });
+    /** @deprecated use `ConnectorsResetRequest$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsResetRequest$inboundSchema;
+    /** @deprecated use `ConnectorsResetRequest$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsResetRequest$outboundSchema;
+    /** @deprecated use `ConnectorsResetRequest$Outbound` instead. */
+    export type Outbound = ConnectorsResetRequest$Outbound;
 }

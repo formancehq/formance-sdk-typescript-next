@@ -11,22 +11,36 @@ export type CashPool = {
 };
 
 /** @internal */
+export const CashPool$inboundSchema: z.ZodType<CashPool, z.ZodTypeDef, unknown> = z.object({
+    id: z.string(),
+    name: z.string(),
+    accounts: z.array(z.string()),
+});
+
+/** @internal */
+export type CashPool$Outbound = {
+    id: string;
+    name: string;
+    accounts: Array<string>;
+};
+
+/** @internal */
+export const CashPool$outboundSchema: z.ZodType<CashPool$Outbound, z.ZodTypeDef, CashPool> =
+    z.object({
+        id: z.string(),
+        name: z.string(),
+        accounts: z.array(z.string()),
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CashPool$ {
-    export const inboundSchema: z.ZodType<CashPool, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-        name: z.string(),
-        accounts: z.array(z.string()),
-    });
-
-    export type Outbound = {
-        id: string;
-        name: string;
-        accounts: Array<string>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CashPool> = z.object({
-        id: z.string(),
-        name: z.string(),
-        accounts: z.array(z.string()),
-    });
+    /** @deprecated use `CashPool$inboundSchema` instead. */
+    export const inboundSchema = CashPool$inboundSchema;
+    /** @deprecated use `CashPool$outboundSchema` instead. */
+    export const outboundSchema = CashPool$outboundSchema;
+    /** @deprecated use `CashPool$Outbound` instead. */
+    export type Outbound = CashPool$Outbound;
 }

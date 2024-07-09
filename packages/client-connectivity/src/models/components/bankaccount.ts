@@ -4,7 +4,9 @@
 
 import {
     BankAccountRelatedAccount,
-    BankAccountRelatedAccount$,
+    BankAccountRelatedAccount$inboundSchema,
+    BankAccountRelatedAccount$Outbound,
+    BankAccountRelatedAccount$outboundSchema,
 } from "./bankaccountrelatedaccount.js";
 import * as z from "zod";
 
@@ -24,52 +26,69 @@ export type BankAccount = {
 };
 
 /** @internal */
+export const BankAccount$inboundSchema: z.ZodType<BankAccount, z.ZodTypeDef, unknown> = z.object({
+    id: z.string(),
+    name: z.string(),
+    createdAt: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+    country: z.string(),
+    connectorID: z.string(),
+    accountID: z.string().optional(),
+    provider: z.string().optional(),
+    iban: z.string().optional(),
+    accountNumber: z.string().optional(),
+    swiftBicCode: z.string().optional(),
+    relatedAccounts: z.array(BankAccountRelatedAccount$inboundSchema).optional(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/** @internal */
+export type BankAccount$Outbound = {
+    id: string;
+    name: string;
+    createdAt: string;
+    country: string;
+    connectorID: string;
+    accountID?: string | undefined;
+    provider?: string | undefined;
+    iban?: string | undefined;
+    accountNumber?: string | undefined;
+    swiftBicCode?: string | undefined;
+    relatedAccounts?: Array<BankAccountRelatedAccount$Outbound> | undefined;
+    metadata?: { [k: string]: string } | undefined;
+};
+
+/** @internal */
+export const BankAccount$outboundSchema: z.ZodType<
+    BankAccount$Outbound,
+    z.ZodTypeDef,
+    BankAccount
+> = z.object({
+    id: z.string(),
+    name: z.string(),
+    createdAt: z.date().transform((v) => v.toISOString()),
+    country: z.string(),
+    connectorID: z.string(),
+    accountID: z.string().optional(),
+    provider: z.string().optional(),
+    iban: z.string().optional(),
+    accountNumber: z.string().optional(),
+    swiftBicCode: z.string().optional(),
+    relatedAccounts: z.array(BankAccountRelatedAccount$outboundSchema).optional(),
+    metadata: z.record(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccount$ {
-    export const inboundSchema: z.ZodType<BankAccount, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-        name: z.string(),
-        createdAt: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v)),
-        country: z.string(),
-        connectorID: z.string(),
-        accountID: z.string().optional(),
-        provider: z.string().optional(),
-        iban: z.string().optional(),
-        accountNumber: z.string().optional(),
-        swiftBicCode: z.string().optional(),
-        relatedAccounts: z.array(BankAccountRelatedAccount$.inboundSchema).optional(),
-        metadata: z.record(z.string()).optional(),
-    });
-
-    export type Outbound = {
-        id: string;
-        name: string;
-        createdAt: string;
-        country: string;
-        connectorID: string;
-        accountID?: string | undefined;
-        provider?: string | undefined;
-        iban?: string | undefined;
-        accountNumber?: string | undefined;
-        swiftBicCode?: string | undefined;
-        relatedAccounts?: Array<BankAccountRelatedAccount$.Outbound> | undefined;
-        metadata?: { [k: string]: string } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccount> = z.object({
-        id: z.string(),
-        name: z.string(),
-        createdAt: z.date().transform((v) => v.toISOString()),
-        country: z.string(),
-        connectorID: z.string(),
-        accountID: z.string().optional(),
-        provider: z.string().optional(),
-        iban: z.string().optional(),
-        accountNumber: z.string().optional(),
-        swiftBicCode: z.string().optional(),
-        relatedAccounts: z.array(BankAccountRelatedAccount$.outboundSchema).optional(),
-        metadata: z.record(z.string()).optional(),
-    });
+    /** @deprecated use `BankAccount$inboundSchema` instead. */
+    export const inboundSchema = BankAccount$inboundSchema;
+    /** @deprecated use `BankAccount$outboundSchema` instead. */
+    export const outboundSchema = BankAccount$outboundSchema;
+    /** @deprecated use `BankAccount$Outbound` instead. */
+    export type Outbound = BankAccount$Outbound;
 }

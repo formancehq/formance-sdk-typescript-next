@@ -49,157 +49,256 @@ export type ConnectorsListTaskResponse = {
 };
 
 /** @internal */
+export const ConnectorsListTaskRequest$inboundSchema: z.ZodType<
+    ConnectorsListTaskRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    connector: components.Connector$inboundSchema,
+    connectorId: z.string(),
+    pageSize: z.number().int().default(15),
+    cursor: z.string().optional(),
+});
+
+/** @internal */
+export type ConnectorsListTaskRequest$Outbound = {
+    connector: string;
+    connectorId: string;
+    pageSize: number;
+    cursor?: string | undefined;
+};
+
+/** @internal */
+export const ConnectorsListTaskRequest$outboundSchema: z.ZodType<
+    ConnectorsListTaskRequest$Outbound,
+    z.ZodTypeDef,
+    ConnectorsListTaskRequest
+> = z.object({
+    connector: components.Connector$outboundSchema,
+    connectorId: z.string(),
+    pageSize: z.number().int().default(15),
+    cursor: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsListTaskRequest$ {
-    export const inboundSchema: z.ZodType<ConnectorsListTaskRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            connector: components.Connector$.inboundSchema,
-            connectorId: z.string(),
-            pageSize: z.number().int().default(15),
-            cursor: z.string().optional(),
-        });
-
-    export type Outbound = {
-        connector: string;
-        connectorId: string;
-        pageSize: number;
-        cursor?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsListTaskRequest> =
-        z.object({
-            connector: components.Connector$.outboundSchema,
-            connectorId: z.string(),
-            pageSize: z.number().int().default(15),
-            cursor: z.string().optional(),
-        });
+    /** @deprecated use `ConnectorsListTaskRequest$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsListTaskRequest$inboundSchema;
+    /** @deprecated use `ConnectorsListTaskRequest$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsListTaskRequest$outboundSchema;
+    /** @deprecated use `ConnectorsListTaskRequest$Outbound` instead. */
+    export type Outbound = ConnectorsListTaskRequest$Outbound;
 }
 
 /** @internal */
+export const ConnectorsListTaskData$inboundSchema: z.ZodType<
+    ConnectorsListTaskData,
+    z.ZodTypeDef,
+    unknown
+> = z.union([
+    components.TaskStripe$inboundSchema,
+    components.TaskWise$inboundSchema,
+    components.TaskCurrencyCloud$inboundSchema,
+    components.TaskDummyPay$inboundSchema,
+    components.TaskModulr$inboundSchema,
+    components.TaskBankingCircle$inboundSchema,
+    components.TaskMangoPay$inboundSchema,
+    components.TaskMoneyCorp$inboundSchema,
+]);
+
+/** @internal */
+export type ConnectorsListTaskData$Outbound =
+    | components.TaskStripe$Outbound
+    | components.TaskWise$Outbound
+    | components.TaskCurrencyCloud$Outbound
+    | components.TaskDummyPay$Outbound
+    | components.TaskModulr$Outbound
+    | components.TaskBankingCircle$Outbound
+    | components.TaskMangoPay$Outbound
+    | components.TaskMoneyCorp$Outbound;
+
+/** @internal */
+export const ConnectorsListTaskData$outboundSchema: z.ZodType<
+    ConnectorsListTaskData$Outbound,
+    z.ZodTypeDef,
+    ConnectorsListTaskData
+> = z.union([
+    components.TaskStripe$outboundSchema,
+    components.TaskWise$outboundSchema,
+    components.TaskCurrencyCloud$outboundSchema,
+    components.TaskDummyPay$outboundSchema,
+    components.TaskModulr$outboundSchema,
+    components.TaskBankingCircle$outboundSchema,
+    components.TaskMangoPay$outboundSchema,
+    components.TaskMoneyCorp$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsListTaskData$ {
-    export const inboundSchema: z.ZodType<ConnectorsListTaskData, z.ZodTypeDef, unknown> = z.union([
-        components.TaskStripe$.inboundSchema,
-        components.TaskWise$.inboundSchema,
-        components.TaskCurrencyCloud$.inboundSchema,
-        components.TaskDummyPay$.inboundSchema,
-        components.TaskModulr$.inboundSchema,
-        components.TaskBankingCircle$.inboundSchema,
-        components.TaskMangoPay$.inboundSchema,
-        components.TaskMoneyCorp$.inboundSchema,
-    ]);
+    /** @deprecated use `ConnectorsListTaskData$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsListTaskData$inboundSchema;
+    /** @deprecated use `ConnectorsListTaskData$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsListTaskData$outboundSchema;
+    /** @deprecated use `ConnectorsListTaskData$Outbound` instead. */
+    export type Outbound = ConnectorsListTaskData$Outbound;
+}
 
-    export type Outbound =
-        | components.TaskStripe$.Outbound
-        | components.TaskWise$.Outbound
-        | components.TaskCurrencyCloud$.Outbound
-        | components.TaskDummyPay$.Outbound
-        | components.TaskModulr$.Outbound
-        | components.TaskBankingCircle$.Outbound
-        | components.TaskMangoPay$.Outbound
-        | components.TaskMoneyCorp$.Outbound;
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsListTaskData> =
+/** @internal */
+export const ConnectorsListTaskCursor$inboundSchema: z.ZodType<
+    ConnectorsListTaskCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(
         z.union([
-            components.TaskStripe$.outboundSchema,
-            components.TaskWise$.outboundSchema,
-            components.TaskCurrencyCloud$.outboundSchema,
-            components.TaskDummyPay$.outboundSchema,
-            components.TaskModulr$.outboundSchema,
-            components.TaskBankingCircle$.outboundSchema,
-            components.TaskMangoPay$.outboundSchema,
-            components.TaskMoneyCorp$.outboundSchema,
-        ]);
-}
+            components.TaskStripe$inboundSchema,
+            components.TaskWise$inboundSchema,
+            components.TaskCurrencyCloud$inboundSchema,
+            components.TaskDummyPay$inboundSchema,
+            components.TaskModulr$inboundSchema,
+            components.TaskBankingCircle$inboundSchema,
+            components.TaskMangoPay$inboundSchema,
+            components.TaskMoneyCorp$inboundSchema,
+        ])
+    ),
+});
 
 /** @internal */
+export type ConnectorsListTaskCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<
+        | components.TaskStripe$Outbound
+        | components.TaskWise$Outbound
+        | components.TaskCurrencyCloud$Outbound
+        | components.TaskDummyPay$Outbound
+        | components.TaskModulr$Outbound
+        | components.TaskBankingCircle$Outbound
+        | components.TaskMangoPay$Outbound
+        | components.TaskMoneyCorp$Outbound
+    >;
+};
+
+/** @internal */
+export const ConnectorsListTaskCursor$outboundSchema: z.ZodType<
+    ConnectorsListTaskCursor$Outbound,
+    z.ZodTypeDef,
+    ConnectorsListTaskCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(
+        z.union([
+            components.TaskStripe$outboundSchema,
+            components.TaskWise$outboundSchema,
+            components.TaskCurrencyCloud$outboundSchema,
+            components.TaskDummyPay$outboundSchema,
+            components.TaskModulr$outboundSchema,
+            components.TaskBankingCircle$outboundSchema,
+            components.TaskMangoPay$outboundSchema,
+            components.TaskMoneyCorp$outboundSchema,
+        ])
+    ),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsListTaskCursor$ {
-    export const inboundSchema: z.ZodType<ConnectorsListTaskCursor, z.ZodTypeDef, unknown> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(
-                z.union([
-                    components.TaskStripe$.inboundSchema,
-                    components.TaskWise$.inboundSchema,
-                    components.TaskCurrencyCloud$.inboundSchema,
-                    components.TaskDummyPay$.inboundSchema,
-                    components.TaskModulr$.inboundSchema,
-                    components.TaskBankingCircle$.inboundSchema,
-                    components.TaskMangoPay$.inboundSchema,
-                    components.TaskMoneyCorp$.inboundSchema,
-                ])
-            ),
-        });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<
-            | components.TaskStripe$.Outbound
-            | components.TaskWise$.Outbound
-            | components.TaskCurrencyCloud$.Outbound
-            | components.TaskDummyPay$.Outbound
-            | components.TaskModulr$.Outbound
-            | components.TaskBankingCircle$.Outbound
-            | components.TaskMangoPay$.Outbound
-            | components.TaskMoneyCorp$.Outbound
-        >;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsListTaskCursor> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(
-                z.union([
-                    components.TaskStripe$.outboundSchema,
-                    components.TaskWise$.outboundSchema,
-                    components.TaskCurrencyCloud$.outboundSchema,
-                    components.TaskDummyPay$.outboundSchema,
-                    components.TaskModulr$.outboundSchema,
-                    components.TaskBankingCircle$.outboundSchema,
-                    components.TaskMangoPay$.outboundSchema,
-                    components.TaskMoneyCorp$.outboundSchema,
-                ])
-            ),
-        });
+    /** @deprecated use `ConnectorsListTaskCursor$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsListTaskCursor$inboundSchema;
+    /** @deprecated use `ConnectorsListTaskCursor$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsListTaskCursor$outboundSchema;
+    /** @deprecated use `ConnectorsListTaskCursor$Outbound` instead. */
+    export type Outbound = ConnectorsListTaskCursor$Outbound;
 }
 
 /** @internal */
+export const ConnectorsListTaskResponseBody$inboundSchema: z.ZodType<
+    ConnectorsListTaskResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => ConnectorsListTaskCursor$inboundSchema),
+});
+
+/** @internal */
+export type ConnectorsListTaskResponseBody$Outbound = {
+    cursor: ConnectorsListTaskCursor$Outbound;
+};
+
+/** @internal */
+export const ConnectorsListTaskResponseBody$outboundSchema: z.ZodType<
+    ConnectorsListTaskResponseBody$Outbound,
+    z.ZodTypeDef,
+    ConnectorsListTaskResponseBody
+> = z.object({
+    cursor: z.lazy(() => ConnectorsListTaskCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsListTaskResponseBody$ {
-    export const inboundSchema: z.ZodType<ConnectorsListTaskResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => ConnectorsListTaskCursor$.inboundSchema),
-        });
-
-    export type Outbound = {
-        cursor: ConnectorsListTaskCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsListTaskResponseBody> =
-        z.object({
-            cursor: z.lazy(() => ConnectorsListTaskCursor$.outboundSchema),
-        });
+    /** @deprecated use `ConnectorsListTaskResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsListTaskResponseBody$inboundSchema;
+    /** @deprecated use `ConnectorsListTaskResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsListTaskResponseBody$outboundSchema;
+    /** @deprecated use `ConnectorsListTaskResponseBody$Outbound` instead. */
+    export type Outbound = ConnectorsListTaskResponseBody$Outbound;
 }
 
 /** @internal */
+export const ConnectorsListTaskResponse$inboundSchema: z.ZodType<
+    ConnectorsListTaskResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => ConnectorsListTaskResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
+    });
+
+/** @internal */
+export type ConnectorsListTaskResponse$Outbound = {
+    Result: ConnectorsListTaskResponseBody$Outbound;
+};
+
+/** @internal */
+export const ConnectorsListTaskResponse$outboundSchema: z.ZodType<
+    ConnectorsListTaskResponse$Outbound,
+    z.ZodTypeDef,
+    ConnectorsListTaskResponse
+> = z
+    .object({
+        result: z.lazy(() => ConnectorsListTaskResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ConnectorsListTaskResponse$ {
-    export const inboundSchema: z.ZodType<ConnectorsListTaskResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => ConnectorsListTaskResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: ConnectorsListTaskResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ConnectorsListTaskResponse> = z
-        .object({
-            result: z.lazy(() => ConnectorsListTaskResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `ConnectorsListTaskResponse$inboundSchema` instead. */
+    export const inboundSchema = ConnectorsListTaskResponse$inboundSchema;
+    /** @deprecated use `ConnectorsListTaskResponse$outboundSchema` instead. */
+    export const outboundSchema = ConnectorsListTaskResponse$outboundSchema;
+    /** @deprecated use `ConnectorsListTaskResponse$Outbound` instead. */
+    export type Outbound = ConnectorsListTaskResponse$Outbound;
 }

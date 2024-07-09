@@ -13,33 +13,52 @@ export type BankAccountRelatedAccount = {
 };
 
 /** @internal */
+export const BankAccountRelatedAccount$inboundSchema: z.ZodType<
+    BankAccountRelatedAccount,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+    createdAt: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+    provider: z.string(),
+    connectorID: z.string(),
+    accountID: z.string(),
+});
+
+/** @internal */
+export type BankAccountRelatedAccount$Outbound = {
+    id: string;
+    createdAt: string;
+    provider: string;
+    connectorID: string;
+    accountID: string;
+};
+
+/** @internal */
+export const BankAccountRelatedAccount$outboundSchema: z.ZodType<
+    BankAccountRelatedAccount$Outbound,
+    z.ZodTypeDef,
+    BankAccountRelatedAccount
+> = z.object({
+    id: z.string(),
+    createdAt: z.date().transform((v) => v.toISOString()),
+    provider: z.string(),
+    connectorID: z.string(),
+    accountID: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BankAccountRelatedAccount$ {
-    export const inboundSchema: z.ZodType<BankAccountRelatedAccount, z.ZodTypeDef, unknown> =
-        z.object({
-            id: z.string(),
-            createdAt: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v)),
-            provider: z.string(),
-            connectorID: z.string(),
-            accountID: z.string(),
-        });
-
-    export type Outbound = {
-        id: string;
-        createdAt: string;
-        provider: string;
-        connectorID: string;
-        accountID: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BankAccountRelatedAccount> =
-        z.object({
-            id: z.string(),
-            createdAt: z.date().transform((v) => v.toISOString()),
-            provider: z.string(),
-            connectorID: z.string(),
-            accountID: z.string(),
-        });
+    /** @deprecated use `BankAccountRelatedAccount$inboundSchema` instead. */
+    export const inboundSchema = BankAccountRelatedAccount$inboundSchema;
+    /** @deprecated use `BankAccountRelatedAccount$outboundSchema` instead. */
+    export const outboundSchema = BankAccountRelatedAccount$outboundSchema;
+    /** @deprecated use `BankAccountRelatedAccount$Outbound` instead. */
+    export type Outbound = BankAccountRelatedAccount$Outbound;
 }
