@@ -19,48 +19,88 @@ export type LedgersBulkResponseBody = {
 };
 
 /** @internal */
+export const LedgersBulkRequest$inboundSchema: z.ZodType<
+    LedgersBulkRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        ledger: z.string(),
+        RequestBody: z.array(components.BulkAction$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type LedgersBulkRequest$Outbound = {
+    ledger: string;
+    RequestBody: Array<components.BulkAction$Outbound>;
+};
+
+/** @internal */
+export const LedgersBulkRequest$outboundSchema: z.ZodType<
+    LedgersBulkRequest$Outbound,
+    z.ZodTypeDef,
+    LedgersBulkRequest
+> = z
+    .object({
+        ledger: z.string(),
+        requestBody: z.array(components.BulkAction$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersBulkRequest$ {
-    export const inboundSchema: z.ZodType<LedgersBulkRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            ledger: z.string(),
-            RequestBody: z.array(components.BulkAction$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        ledger: string;
-        RequestBody: Array<components.BulkAction$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersBulkRequest> = z
-        .object({
-            ledger: z.string(),
-            requestBody: z.array(components.BulkAction$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `LedgersBulkRequest$inboundSchema` instead. */
+    export const inboundSchema = LedgersBulkRequest$inboundSchema;
+    /** @deprecated use `LedgersBulkRequest$outboundSchema` instead. */
+    export const outboundSchema = LedgersBulkRequest$outboundSchema;
+    /** @deprecated use `LedgersBulkRequest$Outbound` instead. */
+    export type Outbound = LedgersBulkRequest$Outbound;
 }
 
 /** @internal */
+export const LedgersBulkResponseBody$inboundSchema: z.ZodType<
+    LedgersBulkResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: z.array(components.BulkResponse$inboundSchema),
+});
+
+/** @internal */
+export type LedgersBulkResponseBody$Outbound = {
+    data: Array<components.BulkResponse$Outbound>;
+};
+
+/** @internal */
+export const LedgersBulkResponseBody$outboundSchema: z.ZodType<
+    LedgersBulkResponseBody$Outbound,
+    z.ZodTypeDef,
+    LedgersBulkResponseBody
+> = z.object({
+    data: z.array(components.BulkResponse$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersBulkResponseBody$ {
-    export const inboundSchema: z.ZodType<LedgersBulkResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: z.array(components.BulkResponse$.inboundSchema),
-        });
-
-    export type Outbound = {
-        data: Array<components.BulkResponse$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersBulkResponseBody> =
-        z.object({
-            data: z.array(components.BulkResponse$.outboundSchema),
-        });
+    /** @deprecated use `LedgersBulkResponseBody$inboundSchema` instead. */
+    export const inboundSchema = LedgersBulkResponseBody$inboundSchema;
+    /** @deprecated use `LedgersBulkResponseBody$outboundSchema` instead. */
+    export const outboundSchema = LedgersBulkResponseBody$outboundSchema;
+    /** @deprecated use `LedgersBulkResponseBody$Outbound` instead. */
+    export type Outbound = LedgersBulkResponseBody$Outbound;
 }

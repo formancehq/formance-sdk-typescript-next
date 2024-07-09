@@ -4,19 +4,27 @@
 
 import {
     AddMetadataActionResponse,
-    AddMetadataActionResponse$,
+    AddMetadataActionResponse$inboundSchema,
+    AddMetadataActionResponse$Outbound,
+    AddMetadataActionResponse$outboundSchema,
 } from "./addmetadataactionresponse.js";
 import {
     CreateTransactionActionResponse,
-    CreateTransactionActionResponse$,
+    CreateTransactionActionResponse$inboundSchema,
+    CreateTransactionActionResponse$Outbound,
+    CreateTransactionActionResponse$outboundSchema,
 } from "./createtransactionactionresponse.js";
 import {
     DeleteMetadataActionResponse,
-    DeleteMetadataActionResponse$,
+    DeleteMetadataActionResponse$inboundSchema,
+    DeleteMetadataActionResponse$Outbound,
+    DeleteMetadataActionResponse$outboundSchema,
 } from "./deletemetadataactionresponse.js";
 import {
     RevertTransactionActionResponse,
-    RevertTransactionActionResponse$,
+    RevertTransactionActionResponse$inboundSchema,
+    RevertTransactionActionResponse$Outbound,
+    RevertTransactionActionResponse$outboundSchema,
 } from "./reverttransactionactionresponse.js";
 import * as z from "zod";
 
@@ -27,55 +35,73 @@ export type BulkResponse =
     | (RevertTransactionActionResponse & { responseType: "REVERT_TRANSACTION" });
 
 /** @internal */
-export namespace BulkResponse$ {
-    export const inboundSchema: z.ZodType<BulkResponse, z.ZodTypeDef, unknown> = z.union([
-        AddMetadataActionResponse$.inboundSchema.and(
-            z
-                .object({ responseType: z.literal("ADD_METADATA") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-        DeleteMetadataActionResponse$.inboundSchema.and(
-            z
-                .object({ responseType: z.literal("DELETE_METADATA") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-        CreateTransactionActionResponse$.inboundSchema.and(
-            z
-                .object({ responseType: z.literal("CREATE_TRANSACTION") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-        RevertTransactionActionResponse$.inboundSchema.and(
-            z
-                .object({ responseType: z.literal("REVERT_TRANSACTION") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-    ]);
+export const BulkResponse$inboundSchema: z.ZodType<BulkResponse, z.ZodTypeDef, unknown> = z.union([
+    AddMetadataActionResponse$inboundSchema.and(
+        z
+            .object({ responseType: z.literal("ADD_METADATA") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+    DeleteMetadataActionResponse$inboundSchema.and(
+        z
+            .object({ responseType: z.literal("DELETE_METADATA") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+    CreateTransactionActionResponse$inboundSchema.and(
+        z
+            .object({ responseType: z.literal("CREATE_TRANSACTION") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+    RevertTransactionActionResponse$inboundSchema.and(
+        z
+            .object({ responseType: z.literal("REVERT_TRANSACTION") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+]);
 
-    export type Outbound =
-        | (AddMetadataActionResponse$.Outbound & { responseType: "ADD_METADATA" })
-        | (DeleteMetadataActionResponse$.Outbound & { responseType: "DELETE_METADATA" })
-        | (CreateTransactionActionResponse$.Outbound & { responseType: "CREATE_TRANSACTION" })
-        | (RevertTransactionActionResponse$.Outbound & { responseType: "REVERT_TRANSACTION" });
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BulkResponse> = z.union([
-        AddMetadataActionResponse$.outboundSchema.and(
-            z
-                .object({ responseType: z.literal("ADD_METADATA") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-        DeleteMetadataActionResponse$.outboundSchema.and(
-            z
-                .object({ responseType: z.literal("DELETE_METADATA") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-        CreateTransactionActionResponse$.outboundSchema.and(
-            z
-                .object({ responseType: z.literal("CREATE_TRANSACTION") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-        RevertTransactionActionResponse$.outboundSchema.and(
-            z
-                .object({ responseType: z.literal("REVERT_TRANSACTION") })
-                .transform((v) => ({ responseType: v.responseType }))
-        ),
-    ]);
+/** @internal */
+export type BulkResponse$Outbound =
+    | (AddMetadataActionResponse$Outbound & { responseType: "ADD_METADATA" })
+    | (DeleteMetadataActionResponse$Outbound & { responseType: "DELETE_METADATA" })
+    | (CreateTransactionActionResponse$Outbound & { responseType: "CREATE_TRANSACTION" })
+    | (RevertTransactionActionResponse$Outbound & { responseType: "REVERT_TRANSACTION" });
+
+/** @internal */
+export const BulkResponse$outboundSchema: z.ZodType<
+    BulkResponse$Outbound,
+    z.ZodTypeDef,
+    BulkResponse
+> = z.union([
+    AddMetadataActionResponse$outboundSchema.and(
+        z
+            .object({ responseType: z.literal("ADD_METADATA") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+    DeleteMetadataActionResponse$outboundSchema.and(
+        z
+            .object({ responseType: z.literal("DELETE_METADATA") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+    CreateTransactionActionResponse$outboundSchema.and(
+        z
+            .object({ responseType: z.literal("CREATE_TRANSACTION") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+    RevertTransactionActionResponse$outboundSchema.and(
+        z
+            .object({ responseType: z.literal("REVERT_TRANSACTION") })
+            .transform((v) => ({ responseType: v.responseType }))
+    ),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BulkResponse$ {
+    /** @deprecated use `BulkResponse$inboundSchema` instead. */
+    export const inboundSchema = BulkResponse$inboundSchema;
+    /** @deprecated use `BulkResponse$outboundSchema` instead. */
+    export const outboundSchema = BulkResponse$outboundSchema;
+    /** @deprecated use `BulkResponse$Outbound` instead. */
+    export type Outbound = BulkResponse$Outbound;
 }

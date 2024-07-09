@@ -10,21 +10,40 @@ export type LedgersRemoveMetadataRequest = {
 };
 
 /** @internal */
+export const LedgersRemoveMetadataRequest$inboundSchema: z.ZodType<
+    LedgersRemoveMetadataRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    ledger: z.string(),
+    key: z.string(),
+});
+
+/** @internal */
+export type LedgersRemoveMetadataRequest$Outbound = {
+    ledger: string;
+    key: string;
+};
+
+/** @internal */
+export const LedgersRemoveMetadataRequest$outboundSchema: z.ZodType<
+    LedgersRemoveMetadataRequest$Outbound,
+    z.ZodTypeDef,
+    LedgersRemoveMetadataRequest
+> = z.object({
+    ledger: z.string(),
+    key: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersRemoveMetadataRequest$ {
-    export const inboundSchema: z.ZodType<LedgersRemoveMetadataRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            ledger: z.string(),
-            key: z.string(),
-        });
-
-    export type Outbound = {
-        ledger: string;
-        key: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersRemoveMetadataRequest> =
-        z.object({
-            ledger: z.string(),
-            key: z.string(),
-        });
+    /** @deprecated use `LedgersRemoveMetadataRequest$inboundSchema` instead. */
+    export const inboundSchema = LedgersRemoveMetadataRequest$inboundSchema;
+    /** @deprecated use `LedgersRemoveMetadataRequest$outboundSchema` instead. */
+    export const outboundSchema = LedgersRemoveMetadataRequest$outboundSchema;
+    /** @deprecated use `LedgersRemoveMetadataRequest$Outbound` instead. */
+    export type Outbound = LedgersRemoveMetadataRequest$Outbound;
 }

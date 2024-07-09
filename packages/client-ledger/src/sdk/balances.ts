@@ -60,7 +60,7 @@ export class Balances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BalancesAggregateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BalancesAggregateRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -135,8 +135,8 @@ export class Balances extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.BalancesAggregateResponseBody>()
-            .json(200, operations.BalancesAggregateResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.BalancesAggregateResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -150,7 +150,7 @@ export class Balances extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BalancesVolumesRequest$.outboundSchema.parse(value$),
+            (value$) => operations.BalancesVolumesRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -227,8 +227,8 @@ export class Balances extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.BalancesVolumesResponse>()
-            .json(200, operations.BalancesVolumesResponse$, { key: "Result" })
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.BalancesVolumesResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.BalancesVolumesResponse> => {

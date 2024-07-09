@@ -23,55 +23,106 @@ export type RevertTransactionAction = {
 };
 
 /** @internal */
+export const RevertTransactionActionAction$inboundSchema: z.ZodNativeEnum<
+    typeof RevertTransactionActionAction
+> = z.nativeEnum(RevertTransactionActionAction);
+
+/** @internal */
+export const RevertTransactionActionAction$outboundSchema: z.ZodNativeEnum<
+    typeof RevertTransactionActionAction
+> = RevertTransactionActionAction$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace RevertTransactionActionAction$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof RevertTransactionActionAction> =
-        z.nativeEnum(RevertTransactionActionAction);
-    export const outboundSchema: z.ZodNativeEnum<typeof RevertTransactionActionAction> =
-        inboundSchema;
+    /** @deprecated use `RevertTransactionActionAction$inboundSchema` instead. */
+    export const inboundSchema = RevertTransactionActionAction$inboundSchema;
+    /** @deprecated use `RevertTransactionActionAction$outboundSchema` instead. */
+    export const outboundSchema = RevertTransactionActionAction$outboundSchema;
 }
 
 /** @internal */
+export const RevertTransactionActionData$inboundSchema: z.ZodType<
+    RevertTransactionActionData,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+    force: z.boolean().optional(),
+    atEffectiveData: z.boolean().optional(),
+});
+
+/** @internal */
+export type RevertTransactionActionData$Outbound = {
+    id: string;
+    force?: boolean | undefined;
+    atEffectiveData?: boolean | undefined;
+};
+
+/** @internal */
+export const RevertTransactionActionData$outboundSchema: z.ZodType<
+    RevertTransactionActionData$Outbound,
+    z.ZodTypeDef,
+    RevertTransactionActionData
+> = z.object({
+    id: z.string(),
+    force: z.boolean().optional(),
+    atEffectiveData: z.boolean().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace RevertTransactionActionData$ {
-    export const inboundSchema: z.ZodType<RevertTransactionActionData, z.ZodTypeDef, unknown> =
-        z.object({
-            id: z.string(),
-            force: z.boolean().optional(),
-            atEffectiveData: z.boolean().optional(),
-        });
-
-    export type Outbound = {
-        id: string;
-        force?: boolean | undefined;
-        atEffectiveData?: boolean | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, RevertTransactionActionData> =
-        z.object({
-            id: z.string(),
-            force: z.boolean().optional(),
-            atEffectiveData: z.boolean().optional(),
-        });
+    /** @deprecated use `RevertTransactionActionData$inboundSchema` instead. */
+    export const inboundSchema = RevertTransactionActionData$inboundSchema;
+    /** @deprecated use `RevertTransactionActionData$outboundSchema` instead. */
+    export const outboundSchema = RevertTransactionActionData$outboundSchema;
+    /** @deprecated use `RevertTransactionActionData$Outbound` instead. */
+    export type Outbound = RevertTransactionActionData$Outbound;
 }
 
 /** @internal */
+export const RevertTransactionAction$inboundSchema: z.ZodType<
+    RevertTransactionAction,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    action: RevertTransactionActionAction$inboundSchema,
+    ik: z.string().optional(),
+    data: z.lazy(() => RevertTransactionActionData$inboundSchema),
+});
+
+/** @internal */
+export type RevertTransactionAction$Outbound = {
+    action: string;
+    ik?: string | undefined;
+    data: RevertTransactionActionData$Outbound;
+};
+
+/** @internal */
+export const RevertTransactionAction$outboundSchema: z.ZodType<
+    RevertTransactionAction$Outbound,
+    z.ZodTypeDef,
+    RevertTransactionAction
+> = z.object({
+    action: RevertTransactionActionAction$outboundSchema,
+    ik: z.string().optional(),
+    data: z.lazy(() => RevertTransactionActionData$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace RevertTransactionAction$ {
-    export const inboundSchema: z.ZodType<RevertTransactionAction, z.ZodTypeDef, unknown> =
-        z.object({
-            action: RevertTransactionActionAction$.inboundSchema,
-            ik: z.string().optional(),
-            data: z.lazy(() => RevertTransactionActionData$.inboundSchema),
-        });
-
-    export type Outbound = {
-        action: string;
-        ik?: string | undefined;
-        data: RevertTransactionActionData$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, RevertTransactionAction> =
-        z.object({
-            action: RevertTransactionActionAction$.outboundSchema,
-            ik: z.string().optional(),
-            data: z.lazy(() => RevertTransactionActionData$.outboundSchema),
-        });
+    /** @deprecated use `RevertTransactionAction$inboundSchema` instead. */
+    export const inboundSchema = RevertTransactionAction$inboundSchema;
+    /** @deprecated use `RevertTransactionAction$outboundSchema` instead. */
+    export const outboundSchema = RevertTransactionAction$outboundSchema;
+    /** @deprecated use `RevertTransactionAction$Outbound` instead. */
+    export type Outbound = RevertTransactionAction$Outbound;
 }

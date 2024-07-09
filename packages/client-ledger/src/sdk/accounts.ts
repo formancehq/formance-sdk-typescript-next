@@ -54,7 +54,7 @@ export class Accounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -128,8 +128,8 @@ export class Accounts extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.AccountsListResponse>()
-            .json(200, operations.AccountsListResponse$, { key: "Result" })
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.AccountsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.AccountsListResponse> => {
@@ -172,7 +172,7 @@ export class Accounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsCountRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsCountRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -245,8 +245,8 @@ export class Accounts extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.AccountsCountResponse | undefined>()
-            .void(204, operations.AccountsCountResponse$.inboundSchema.optional(), { hdrs: true })
-            .json("default", errors.LedgerError$, { err: true })
+            .void(204, operations.AccountsCountResponse$inboundSchema.optional(), { hdrs: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -268,7 +268,7 @@ export class Accounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -346,8 +346,8 @@ export class Accounts extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.AccountsGetResponseBody>()
-            .json(200, operations.AccountsGetResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.AccountsGetResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -367,7 +367,7 @@ export class Accounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsAddMetadataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsAddMetadataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -444,7 +444,7 @@ export class Accounts extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -464,7 +464,7 @@ export class Accounts extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.AccountsRemoveMetadataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.AccountsRemoveMetadataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -541,7 +541,7 @@ export class Accounts extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

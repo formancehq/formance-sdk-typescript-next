@@ -3,7 +3,12 @@
  */
 
 import { ClosedEnum } from "../../types/enums.js";
-import { Transaction, Transaction$ } from "./transaction.js";
+import {
+    Transaction,
+    Transaction$inboundSchema,
+    Transaction$Outbound,
+    Transaction$outboundSchema,
+} from "./transaction.js";
 import * as z from "zod";
 
 export const RevertTransactionActionResponseResponseType = {
@@ -19,34 +24,61 @@ export type RevertTransactionActionResponse = {
 };
 
 /** @internal */
+export const RevertTransactionActionResponseResponseType$inboundSchema: z.ZodNativeEnum<
+    typeof RevertTransactionActionResponseResponseType
+> = z.nativeEnum(RevertTransactionActionResponseResponseType);
+
+/** @internal */
+export const RevertTransactionActionResponseResponseType$outboundSchema: z.ZodNativeEnum<
+    typeof RevertTransactionActionResponseResponseType
+> = RevertTransactionActionResponseResponseType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace RevertTransactionActionResponseResponseType$ {
-    export const inboundSchema: z.ZodNativeEnum<
-        typeof RevertTransactionActionResponseResponseType
-    > = z.nativeEnum(RevertTransactionActionResponseResponseType);
-    export const outboundSchema: z.ZodNativeEnum<
-        typeof RevertTransactionActionResponseResponseType
-    > = inboundSchema;
+    /** @deprecated use `RevertTransactionActionResponseResponseType$inboundSchema` instead. */
+    export const inboundSchema = RevertTransactionActionResponseResponseType$inboundSchema;
+    /** @deprecated use `RevertTransactionActionResponseResponseType$outboundSchema` instead. */
+    export const outboundSchema = RevertTransactionActionResponseResponseType$outboundSchema;
 }
 
 /** @internal */
+export const RevertTransactionActionResponse$inboundSchema: z.ZodType<
+    RevertTransactionActionResponse,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    responseType: RevertTransactionActionResponseResponseType$inboundSchema,
+    data: Transaction$inboundSchema,
+});
+
+/** @internal */
+export type RevertTransactionActionResponse$Outbound = {
+    responseType: string;
+    data: Transaction$Outbound;
+};
+
+/** @internal */
+export const RevertTransactionActionResponse$outboundSchema: z.ZodType<
+    RevertTransactionActionResponse$Outbound,
+    z.ZodTypeDef,
+    RevertTransactionActionResponse
+> = z.object({
+    responseType: RevertTransactionActionResponseResponseType$outboundSchema,
+    data: Transaction$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace RevertTransactionActionResponse$ {
-    export const inboundSchema: z.ZodType<RevertTransactionActionResponse, z.ZodTypeDef, unknown> =
-        z.object({
-            responseType: RevertTransactionActionResponseResponseType$.inboundSchema,
-            data: Transaction$.inboundSchema,
-        });
-
-    export type Outbound = {
-        responseType: string;
-        data: Transaction$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        RevertTransactionActionResponse
-    > = z.object({
-        responseType: RevertTransactionActionResponseResponseType$.outboundSchema,
-        data: Transaction$.outboundSchema,
-    });
+    /** @deprecated use `RevertTransactionActionResponse$inboundSchema` instead. */
+    export const inboundSchema = RevertTransactionActionResponse$inboundSchema;
+    /** @deprecated use `RevertTransactionActionResponse$outboundSchema` instead. */
+    export const outboundSchema = RevertTransactionActionResponse$outboundSchema;
+    /** @deprecated use `RevertTransactionActionResponse$Outbound` instead. */
+    export type Outbound = RevertTransactionActionResponse$Outbound;
 }

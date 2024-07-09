@@ -16,58 +16,98 @@ export type TransactionsCountResponse = {
 };
 
 /** @internal */
+export const TransactionsCountRequest$inboundSchema: z.ZodType<
+    TransactionsCountRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    ledger: z.string(),
+    pit: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v))
+        .optional(),
+    query: z.record(z.any()).optional(),
+});
+
+/** @internal */
+export type TransactionsCountRequest$Outbound = {
+    ledger: string;
+    pit?: string | undefined;
+    query?: { [k: string]: any } | undefined;
+};
+
+/** @internal */
+export const TransactionsCountRequest$outboundSchema: z.ZodType<
+    TransactionsCountRequest$Outbound,
+    z.ZodTypeDef,
+    TransactionsCountRequest
+> = z.object({
+    ledger: z.string(),
+    pit: z
+        .date()
+        .transform((v) => v.toISOString())
+        .optional(),
+    query: z.record(z.any()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsCountRequest$ {
-    export const inboundSchema: z.ZodType<TransactionsCountRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            ledger: z.string(),
-            pit: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v))
-                .optional(),
-            query: z.record(z.any()).optional(),
-        });
-
-    export type Outbound = {
-        ledger: string;
-        pit?: string | undefined;
-        query?: { [k: string]: any } | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsCountRequest> =
-        z.object({
-            ledger: z.string(),
-            pit: z
-                .date()
-                .transform((v) => v.toISOString())
-                .optional(),
-            query: z.record(z.any()).optional(),
-        });
+    /** @deprecated use `TransactionsCountRequest$inboundSchema` instead. */
+    export const inboundSchema = TransactionsCountRequest$inboundSchema;
+    /** @deprecated use `TransactionsCountRequest$outboundSchema` instead. */
+    export const outboundSchema = TransactionsCountRequest$outboundSchema;
+    /** @deprecated use `TransactionsCountRequest$Outbound` instead. */
+    export type Outbound = TransactionsCountRequest$Outbound;
 }
 
 /** @internal */
+export const TransactionsCountResponse$inboundSchema: z.ZodType<
+    TransactionsCountResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Headers: z.record(z.array(z.string())),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Headers: "headers",
+        });
+    });
+
+/** @internal */
+export type TransactionsCountResponse$Outbound = {
+    Headers: { [k: string]: Array<string> };
+};
+
+/** @internal */
+export const TransactionsCountResponse$outboundSchema: z.ZodType<
+    TransactionsCountResponse$Outbound,
+    z.ZodTypeDef,
+    TransactionsCountResponse
+> = z
+    .object({
+        headers: z.record(z.array(z.string())),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            headers: "Headers",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsCountResponse$ {
-    export const inboundSchema: z.ZodType<TransactionsCountResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Headers: z.record(z.array(z.string())),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Headers: "headers",
-            });
-        });
-
-    export type Outbound = {
-        Headers: { [k: string]: Array<string> };
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsCountResponse> = z
-        .object({
-            headers: z.record(z.array(z.string())),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                headers: "Headers",
-            });
-        });
+    /** @deprecated use `TransactionsCountResponse$inboundSchema` instead. */
+    export const inboundSchema = TransactionsCountResponse$inboundSchema;
+    /** @deprecated use `TransactionsCountResponse$outboundSchema` instead. */
+    export const outboundSchema = TransactionsCountResponse$outboundSchema;
+    /** @deprecated use `TransactionsCountResponse$Outbound` instead. */
+    export type Outbound = TransactionsCountResponse$Outbound;
 }

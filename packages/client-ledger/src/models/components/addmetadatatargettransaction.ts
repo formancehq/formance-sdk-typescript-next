@@ -19,32 +19,64 @@ export type AddMetadataTargetTransaction = {
 };
 
 /** @internal */
+export const AddMetadataTargetTransactionTargetType$inboundSchema: z.ZodNativeEnum<
+    typeof AddMetadataTargetTransactionTargetType
+> = z.nativeEnum(AddMetadataTargetTransactionTargetType);
+
+/** @internal */
+export const AddMetadataTargetTransactionTargetType$outboundSchema: z.ZodNativeEnum<
+    typeof AddMetadataTargetTransactionTargetType
+> = AddMetadataTargetTransactionTargetType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AddMetadataTargetTransactionTargetType$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof AddMetadataTargetTransactionTargetType> =
-        z.nativeEnum(AddMetadataTargetTransactionTargetType);
-    export const outboundSchema: z.ZodNativeEnum<typeof AddMetadataTargetTransactionTargetType> =
-        inboundSchema;
+    /** @deprecated use `AddMetadataTargetTransactionTargetType$inboundSchema` instead. */
+    export const inboundSchema = AddMetadataTargetTransactionTargetType$inboundSchema;
+    /** @deprecated use `AddMetadataTargetTransactionTargetType$outboundSchema` instead. */
+    export const outboundSchema = AddMetadataTargetTransactionTargetType$outboundSchema;
 }
 
 /** @internal */
+export const AddMetadataTargetTransaction$inboundSchema: z.ZodType<
+    AddMetadataTargetTransaction,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    targetType: AddMetadataTargetTransactionTargetType$inboundSchema,
+    targetId: z.number().int(),
+    metadata: z.record(z.string()),
+});
+
+/** @internal */
+export type AddMetadataTargetTransaction$Outbound = {
+    targetType: string;
+    targetId: number;
+    metadata: { [k: string]: string };
+};
+
+/** @internal */
+export const AddMetadataTargetTransaction$outboundSchema: z.ZodType<
+    AddMetadataTargetTransaction$Outbound,
+    z.ZodTypeDef,
+    AddMetadataTargetTransaction
+> = z.object({
+    targetType: AddMetadataTargetTransactionTargetType$outboundSchema,
+    targetId: z.number().int(),
+    metadata: z.record(z.string()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AddMetadataTargetTransaction$ {
-    export const inboundSchema: z.ZodType<AddMetadataTargetTransaction, z.ZodTypeDef, unknown> =
-        z.object({
-            targetType: AddMetadataTargetTransactionTargetType$.inboundSchema,
-            targetId: z.number().int(),
-            metadata: z.record(z.string()),
-        });
-
-    export type Outbound = {
-        targetType: string;
-        targetId: number;
-        metadata: { [k: string]: string };
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddMetadataTargetTransaction> =
-        z.object({
-            targetType: AddMetadataTargetTransactionTargetType$.outboundSchema,
-            targetId: z.number().int(),
-            metadata: z.record(z.string()),
-        });
+    /** @deprecated use `AddMetadataTargetTransaction$inboundSchema` instead. */
+    export const inboundSchema = AddMetadataTargetTransaction$inboundSchema;
+    /** @deprecated use `AddMetadataTargetTransaction$outboundSchema` instead. */
+    export const outboundSchema = AddMetadataTargetTransaction$outboundSchema;
+    /** @deprecated use `AddMetadataTargetTransaction$Outbound` instead. */
+    export type Outbound = AddMetadataTargetTransaction$Outbound;
 }

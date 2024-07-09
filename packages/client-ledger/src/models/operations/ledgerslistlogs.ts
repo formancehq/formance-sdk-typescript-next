@@ -29,88 +29,166 @@ export type LedgersListLogsResponse = {
 };
 
 /** @internal */
+export const LedgersListLogsRequest$inboundSchema: z.ZodType<
+    LedgersListLogsRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    ledger: z.string(),
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/** @internal */
+export type LedgersListLogsRequest$Outbound = {
+    ledger: string;
+    cursor?: string | undefined;
+    pageSize?: number | undefined;
+};
+
+/** @internal */
+export const LedgersListLogsRequest$outboundSchema: z.ZodType<
+    LedgersListLogsRequest$Outbound,
+    z.ZodTypeDef,
+    LedgersListLogsRequest
+> = z.object({
+    ledger: z.string(),
+    cursor: z.string().optional(),
+    pageSize: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersListLogsRequest$ {
-    export const inboundSchema: z.ZodType<LedgersListLogsRequest, z.ZodTypeDef, unknown> = z.object(
-        {
-            ledger: z.string(),
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-        }
-    );
-
-    export type Outbound = {
-        ledger: string;
-        cursor?: string | undefined;
-        pageSize?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersListLogsRequest> =
-        z.object({
-            ledger: z.string(),
-            cursor: z.string().optional(),
-            pageSize: z.number().int().optional(),
-        });
+    /** @deprecated use `LedgersListLogsRequest$inboundSchema` instead. */
+    export const inboundSchema = LedgersListLogsRequest$inboundSchema;
+    /** @deprecated use `LedgersListLogsRequest$outboundSchema` instead. */
+    export const outboundSchema = LedgersListLogsRequest$outboundSchema;
+    /** @deprecated use `LedgersListLogsRequest$Outbound` instead. */
+    export type Outbound = LedgersListLogsRequest$Outbound;
 }
 
 /** @internal */
+export const LedgersListLogsCursor$inboundSchema: z.ZodType<
+    LedgersListLogsCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.LogEntry$inboundSchema),
+});
+
+/** @internal */
+export type LedgersListLogsCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.LogEntry$Outbound>;
+};
+
+/** @internal */
+export const LedgersListLogsCursor$outboundSchema: z.ZodType<
+    LedgersListLogsCursor$Outbound,
+    z.ZodTypeDef,
+    LedgersListLogsCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.LogEntry$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersListLogsCursor$ {
-    export const inboundSchema: z.ZodType<LedgersListLogsCursor, z.ZodTypeDef, unknown> = z.object({
-        next: z.string().optional(),
-        data: z.array(components.LogEntry$.inboundSchema),
+    /** @deprecated use `LedgersListLogsCursor$inboundSchema` instead. */
+    export const inboundSchema = LedgersListLogsCursor$inboundSchema;
+    /** @deprecated use `LedgersListLogsCursor$outboundSchema` instead. */
+    export const outboundSchema = LedgersListLogsCursor$outboundSchema;
+    /** @deprecated use `LedgersListLogsCursor$Outbound` instead. */
+    export type Outbound = LedgersListLogsCursor$Outbound;
+}
+
+/** @internal */
+export const LedgersListLogsResponseBody$inboundSchema: z.ZodType<
+    LedgersListLogsResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => LedgersListLogsCursor$inboundSchema),
+});
+
+/** @internal */
+export type LedgersListLogsResponseBody$Outbound = {
+    cursor: LedgersListLogsCursor$Outbound;
+};
+
+/** @internal */
+export const LedgersListLogsResponseBody$outboundSchema: z.ZodType<
+    LedgersListLogsResponseBody$Outbound,
+    z.ZodTypeDef,
+    LedgersListLogsResponseBody
+> = z.object({
+    cursor: z.lazy(() => LedgersListLogsCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace LedgersListLogsResponseBody$ {
+    /** @deprecated use `LedgersListLogsResponseBody$inboundSchema` instead. */
+    export const inboundSchema = LedgersListLogsResponseBody$inboundSchema;
+    /** @deprecated use `LedgersListLogsResponseBody$outboundSchema` instead. */
+    export const outboundSchema = LedgersListLogsResponseBody$outboundSchema;
+    /** @deprecated use `LedgersListLogsResponseBody$Outbound` instead. */
+    export type Outbound = LedgersListLogsResponseBody$Outbound;
+}
+
+/** @internal */
+export const LedgersListLogsResponse$inboundSchema: z.ZodType<
+    LedgersListLogsResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => LedgersListLogsResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
+        });
     });
 
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.LogEntry$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersListLogsCursor> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(components.LogEntry$.outboundSchema),
-        });
-}
+/** @internal */
+export type LedgersListLogsResponse$Outbound = {
+    Result: LedgersListLogsResponseBody$Outbound;
+};
 
 /** @internal */
-export namespace LedgersListLogsResponseBody$ {
-    export const inboundSchema: z.ZodType<LedgersListLogsResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            cursor: z.lazy(() => LedgersListLogsCursor$.inboundSchema),
+export const LedgersListLogsResponse$outboundSchema: z.ZodType<
+    LedgersListLogsResponse$Outbound,
+    z.ZodTypeDef,
+    LedgersListLogsResponse
+> = z
+    .object({
+        result: z.lazy(() => LedgersListLogsResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
         });
+    });
 
-    export type Outbound = {
-        cursor: LedgersListLogsCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersListLogsResponseBody> =
-        z.object({
-            cursor: z.lazy(() => LedgersListLogsCursor$.outboundSchema),
-        });
-}
-
-/** @internal */
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersListLogsResponse$ {
-    export const inboundSchema: z.ZodType<LedgersListLogsResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => LedgersListLogsResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
-        });
-
-    export type Outbound = {
-        Result: LedgersListLogsResponseBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersListLogsResponse> = z
-        .object({
-            result: z.lazy(() => LedgersListLogsResponseBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                result: "Result",
-            });
-        });
+    /** @deprecated use `LedgersListLogsResponse$inboundSchema` instead. */
+    export const inboundSchema = LedgersListLogsResponse$inboundSchema;
+    /** @deprecated use `LedgersListLogsResponse$outboundSchema` instead. */
+    export const outboundSchema = LedgersListLogsResponse$outboundSchema;
+    /** @deprecated use `LedgersListLogsResponse$Outbound` instead. */
+    export type Outbound = LedgersListLogsResponse$Outbound;
 }

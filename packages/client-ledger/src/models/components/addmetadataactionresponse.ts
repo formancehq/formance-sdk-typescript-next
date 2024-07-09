@@ -17,26 +17,58 @@ export type AddMetadataActionResponse = {
 };
 
 /** @internal */
+export const AddMetadataActionResponseResponseType$inboundSchema: z.ZodNativeEnum<
+    typeof AddMetadataActionResponseResponseType
+> = z.nativeEnum(AddMetadataActionResponseResponseType);
+
+/** @internal */
+export const AddMetadataActionResponseResponseType$outboundSchema: z.ZodNativeEnum<
+    typeof AddMetadataActionResponseResponseType
+> = AddMetadataActionResponseResponseType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AddMetadataActionResponseResponseType$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof AddMetadataActionResponseResponseType> =
-        z.nativeEnum(AddMetadataActionResponseResponseType);
-    export const outboundSchema: z.ZodNativeEnum<typeof AddMetadataActionResponseResponseType> =
-        inboundSchema;
+    /** @deprecated use `AddMetadataActionResponseResponseType$inboundSchema` instead. */
+    export const inboundSchema = AddMetadataActionResponseResponseType$inboundSchema;
+    /** @deprecated use `AddMetadataActionResponseResponseType$outboundSchema` instead. */
+    export const outboundSchema = AddMetadataActionResponseResponseType$outboundSchema;
 }
 
 /** @internal */
+export const AddMetadataActionResponse$inboundSchema: z.ZodType<
+    AddMetadataActionResponse,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    responseType: AddMetadataActionResponseResponseType$inboundSchema,
+});
+
+/** @internal */
+export type AddMetadataActionResponse$Outbound = {
+    responseType: string;
+};
+
+/** @internal */
+export const AddMetadataActionResponse$outboundSchema: z.ZodType<
+    AddMetadataActionResponse$Outbound,
+    z.ZodTypeDef,
+    AddMetadataActionResponse
+> = z.object({
+    responseType: AddMetadataActionResponseResponseType$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AddMetadataActionResponse$ {
-    export const inboundSchema: z.ZodType<AddMetadataActionResponse, z.ZodTypeDef, unknown> =
-        z.object({
-            responseType: AddMetadataActionResponseResponseType$.inboundSchema,
-        });
-
-    export type Outbound = {
-        responseType: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddMetadataActionResponse> =
-        z.object({
-            responseType: AddMetadataActionResponseResponseType$.outboundSchema,
-        });
+    /** @deprecated use `AddMetadataActionResponse$inboundSchema` instead. */
+    export const inboundSchema = AddMetadataActionResponse$inboundSchema;
+    /** @deprecated use `AddMetadataActionResponse$outboundSchema` instead. */
+    export const outboundSchema = AddMetadataActionResponse$outboundSchema;
+    /** @deprecated use `AddMetadataActionResponse$Outbound` instead. */
+    export type Outbound = AddMetadataActionResponse$Outbound;
 }

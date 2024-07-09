@@ -20,52 +20,89 @@ export type TransactionsGetResponseBody = {
 };
 
 /** @internal */
+export const TransactionsGetRequest$inboundSchema: z.ZodType<
+    TransactionsGetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    ledger: z.string(),
+    id: z.number().int(),
+    expand: z.string().optional(),
+    pit: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v))
+        .optional(),
+});
+
+/** @internal */
+export type TransactionsGetRequest$Outbound = {
+    ledger: string;
+    id: number;
+    expand?: string | undefined;
+    pit?: string | undefined;
+};
+
+/** @internal */
+export const TransactionsGetRequest$outboundSchema: z.ZodType<
+    TransactionsGetRequest$Outbound,
+    z.ZodTypeDef,
+    TransactionsGetRequest
+> = z.object({
+    ledger: z.string(),
+    id: z.number().int(),
+    expand: z.string().optional(),
+    pit: z
+        .date()
+        .transform((v) => v.toISOString())
+        .optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsGetRequest$ {
-    export const inboundSchema: z.ZodType<TransactionsGetRequest, z.ZodTypeDef, unknown> = z.object(
-        {
-            ledger: z.string(),
-            id: z.number().int(),
-            expand: z.string().optional(),
-            pit: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v))
-                .optional(),
-        }
-    );
-
-    export type Outbound = {
-        ledger: string;
-        id: number;
-        expand?: string | undefined;
-        pit?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsGetRequest> =
-        z.object({
-            ledger: z.string(),
-            id: z.number().int(),
-            expand: z.string().optional(),
-            pit: z
-                .date()
-                .transform((v) => v.toISOString())
-                .optional(),
-        });
+    /** @deprecated use `TransactionsGetRequest$inboundSchema` instead. */
+    export const inboundSchema = TransactionsGetRequest$inboundSchema;
+    /** @deprecated use `TransactionsGetRequest$outboundSchema` instead. */
+    export const outboundSchema = TransactionsGetRequest$outboundSchema;
+    /** @deprecated use `TransactionsGetRequest$Outbound` instead. */
+    export type Outbound = TransactionsGetRequest$Outbound;
 }
 
 /** @internal */
+export const TransactionsGetResponseBody$inboundSchema: z.ZodType<
+    TransactionsGetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.ExpendedTransaction$inboundSchema,
+});
+
+/** @internal */
+export type TransactionsGetResponseBody$Outbound = {
+    data: components.ExpendedTransaction$Outbound;
+};
+
+/** @internal */
+export const TransactionsGetResponseBody$outboundSchema: z.ZodType<
+    TransactionsGetResponseBody$Outbound,
+    z.ZodTypeDef,
+    TransactionsGetResponseBody
+> = z.object({
+    data: components.ExpendedTransaction$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsGetResponseBody$ {
-    export const inboundSchema: z.ZodType<TransactionsGetResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.ExpendedTransaction$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.ExpendedTransaction$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsGetResponseBody> =
-        z.object({
-            data: components.ExpendedTransaction$.outboundSchema,
-        });
+    /** @deprecated use `TransactionsGetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = TransactionsGetResponseBody$inboundSchema;
+    /** @deprecated use `TransactionsGetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = TransactionsGetResponseBody$outboundSchema;
+    /** @deprecated use `TransactionsGetResponseBody$Outbound` instead. */
+    export type Outbound = TransactionsGetResponseBody$Outbound;
 }

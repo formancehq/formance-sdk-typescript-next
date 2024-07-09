@@ -17,34 +17,70 @@ export type LedgersGetResponseBody = {
 };
 
 /** @internal */
+export const LedgersGetRequest$inboundSchema: z.ZodType<LedgersGetRequest, z.ZodTypeDef, unknown> =
+    z.object({
+        ledger: z.string(),
+    });
+
+/** @internal */
+export type LedgersGetRequest$Outbound = {
+    ledger: string;
+};
+
+/** @internal */
+export const LedgersGetRequest$outboundSchema: z.ZodType<
+    LedgersGetRequest$Outbound,
+    z.ZodTypeDef,
+    LedgersGetRequest
+> = z.object({
+    ledger: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersGetRequest$ {
-    export const inboundSchema: z.ZodType<LedgersGetRequest, z.ZodTypeDef, unknown> = z.object({
-        ledger: z.string(),
-    });
-
-    export type Outbound = {
-        ledger: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersGetRequest> = z.object({
-        ledger: z.string(),
-    });
+    /** @deprecated use `LedgersGetRequest$inboundSchema` instead. */
+    export const inboundSchema = LedgersGetRequest$inboundSchema;
+    /** @deprecated use `LedgersGetRequest$outboundSchema` instead. */
+    export const outboundSchema = LedgersGetRequest$outboundSchema;
+    /** @deprecated use `LedgersGetRequest$Outbound` instead. */
+    export type Outbound = LedgersGetRequest$Outbound;
 }
 
 /** @internal */
+export const LedgersGetResponseBody$inboundSchema: z.ZodType<
+    LedgersGetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Ledger$inboundSchema,
+});
+
+/** @internal */
+export type LedgersGetResponseBody$Outbound = {
+    data: components.Ledger$Outbound;
+};
+
+/** @internal */
+export const LedgersGetResponseBody$outboundSchema: z.ZodType<
+    LedgersGetResponseBody$Outbound,
+    z.ZodTypeDef,
+    LedgersGetResponseBody
+> = z.object({
+    data: components.Ledger$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersGetResponseBody$ {
-    export const inboundSchema: z.ZodType<LedgersGetResponseBody, z.ZodTypeDef, unknown> = z.object(
-        {
-            data: components.Ledger$.inboundSchema,
-        }
-    );
-
-    export type Outbound = {
-        data: components.Ledger$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersGetResponseBody> =
-        z.object({
-            data: components.Ledger$.outboundSchema,
-        });
+    /** @deprecated use `LedgersGetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = LedgersGetResponseBody$inboundSchema;
+    /** @deprecated use `LedgersGetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = LedgersGetResponseBody$outboundSchema;
+    /** @deprecated use `LedgersGetResponseBody$Outbound` instead. */
+    export type Outbound = LedgersGetResponseBody$Outbound;
 }

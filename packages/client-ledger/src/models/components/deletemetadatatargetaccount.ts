@@ -19,32 +19,64 @@ export type DeleteMetadataTargetAccount = {
 };
 
 /** @internal */
+export const DeleteMetadataTargetAccountTargetType$inboundSchema: z.ZodNativeEnum<
+    typeof DeleteMetadataTargetAccountTargetType
+> = z.nativeEnum(DeleteMetadataTargetAccountTargetType);
+
+/** @internal */
+export const DeleteMetadataTargetAccountTargetType$outboundSchema: z.ZodNativeEnum<
+    typeof DeleteMetadataTargetAccountTargetType
+> = DeleteMetadataTargetAccountTargetType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace DeleteMetadataTargetAccountTargetType$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof DeleteMetadataTargetAccountTargetType> =
-        z.nativeEnum(DeleteMetadataTargetAccountTargetType);
-    export const outboundSchema: z.ZodNativeEnum<typeof DeleteMetadataTargetAccountTargetType> =
-        inboundSchema;
+    /** @deprecated use `DeleteMetadataTargetAccountTargetType$inboundSchema` instead. */
+    export const inboundSchema = DeleteMetadataTargetAccountTargetType$inboundSchema;
+    /** @deprecated use `DeleteMetadataTargetAccountTargetType$outboundSchema` instead. */
+    export const outboundSchema = DeleteMetadataTargetAccountTargetType$outboundSchema;
 }
 
 /** @internal */
+export const DeleteMetadataTargetAccount$inboundSchema: z.ZodType<
+    DeleteMetadataTargetAccount,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    targetId: z.string(),
+    targetType: DeleteMetadataTargetAccountTargetType$inboundSchema,
+    key: z.string(),
+});
+
+/** @internal */
+export type DeleteMetadataTargetAccount$Outbound = {
+    targetId: string;
+    targetType: string;
+    key: string;
+};
+
+/** @internal */
+export const DeleteMetadataTargetAccount$outboundSchema: z.ZodType<
+    DeleteMetadataTargetAccount$Outbound,
+    z.ZodTypeDef,
+    DeleteMetadataTargetAccount
+> = z.object({
+    targetId: z.string(),
+    targetType: DeleteMetadataTargetAccountTargetType$outboundSchema,
+    key: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace DeleteMetadataTargetAccount$ {
-    export const inboundSchema: z.ZodType<DeleteMetadataTargetAccount, z.ZodTypeDef, unknown> =
-        z.object({
-            targetId: z.string(),
-            targetType: DeleteMetadataTargetAccountTargetType$.inboundSchema,
-            key: z.string(),
-        });
-
-    export type Outbound = {
-        targetId: string;
-        targetType: string;
-        key: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, DeleteMetadataTargetAccount> =
-        z.object({
-            targetId: z.string(),
-            targetType: DeleteMetadataTargetAccountTargetType$.outboundSchema,
-            key: z.string(),
-        });
+    /** @deprecated use `DeleteMetadataTargetAccount$inboundSchema` instead. */
+    export const inboundSchema = DeleteMetadataTargetAccount$inboundSchema;
+    /** @deprecated use `DeleteMetadataTargetAccount$outboundSchema` instead. */
+    export const outboundSchema = DeleteMetadataTargetAccount$outboundSchema;
+    /** @deprecated use `DeleteMetadataTargetAccount$Outbound` instead. */
+    export type Outbound = DeleteMetadataTargetAccount$Outbound;
 }

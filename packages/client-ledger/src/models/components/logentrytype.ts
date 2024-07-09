@@ -13,7 +13,20 @@ export const LogEntryType = {
 export type LogEntryType = ClosedEnum<typeof LogEntryType>;
 
 /** @internal */
+export const LogEntryType$inboundSchema: z.ZodNativeEnum<typeof LogEntryType> =
+    z.nativeEnum(LogEntryType);
+
+/** @internal */
+export const LogEntryType$outboundSchema: z.ZodNativeEnum<typeof LogEntryType> =
+    LogEntryType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LogEntryType$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof LogEntryType> = z.nativeEnum(LogEntryType);
-    export const outboundSchema: z.ZodNativeEnum<typeof LogEntryType> = inboundSchema;
+    /** @deprecated use `LogEntryType$inboundSchema` instead. */
+    export const inboundSchema = LogEntryType$inboundSchema;
+    /** @deprecated use `LogEntryType$outboundSchema` instead. */
+    export const outboundSchema = LogEntryType$outboundSchema;
 }

@@ -3,7 +3,12 @@
  */
 
 import { ClosedEnum } from "../../types/enums.js";
-import { AddMetadataTarget, AddMetadataTarget$ } from "./addmetadatatarget.js";
+import {
+    AddMetadataTarget,
+    AddMetadataTarget$inboundSchema,
+    AddMetadataTarget$Outbound,
+    AddMetadataTarget$outboundSchema,
+} from "./addmetadatatarget.js";
 import * as z from "zod";
 
 export const AddMetadataActionAction = {
@@ -18,29 +23,61 @@ export type AddMetadataAction = {
 };
 
 /** @internal */
+export const AddMetadataActionAction$inboundSchema: z.ZodNativeEnum<
+    typeof AddMetadataActionAction
+> = z.nativeEnum(AddMetadataActionAction);
+
+/** @internal */
+export const AddMetadataActionAction$outboundSchema: z.ZodNativeEnum<
+    typeof AddMetadataActionAction
+> = AddMetadataActionAction$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AddMetadataActionAction$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof AddMetadataActionAction> =
-        z.nativeEnum(AddMetadataActionAction);
-    export const outboundSchema: z.ZodNativeEnum<typeof AddMetadataActionAction> = inboundSchema;
+    /** @deprecated use `AddMetadataActionAction$inboundSchema` instead. */
+    export const inboundSchema = AddMetadataActionAction$inboundSchema;
+    /** @deprecated use `AddMetadataActionAction$outboundSchema` instead. */
+    export const outboundSchema = AddMetadataActionAction$outboundSchema;
 }
 
 /** @internal */
+export const AddMetadataAction$inboundSchema: z.ZodType<AddMetadataAction, z.ZodTypeDef, unknown> =
+    z.object({
+        action: AddMetadataActionAction$inboundSchema,
+        ik: z.string().optional(),
+        data: AddMetadataTarget$inboundSchema,
+    });
+
+/** @internal */
+export type AddMetadataAction$Outbound = {
+    action: string;
+    ik?: string | undefined;
+    data: AddMetadataTarget$Outbound;
+};
+
+/** @internal */
+export const AddMetadataAction$outboundSchema: z.ZodType<
+    AddMetadataAction$Outbound,
+    z.ZodTypeDef,
+    AddMetadataAction
+> = z.object({
+    action: AddMetadataActionAction$outboundSchema,
+    ik: z.string().optional(),
+    data: AddMetadataTarget$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AddMetadataAction$ {
-    export const inboundSchema: z.ZodType<AddMetadataAction, z.ZodTypeDef, unknown> = z.object({
-        action: AddMetadataActionAction$.inboundSchema,
-        ik: z.string().optional(),
-        data: AddMetadataTarget$.inboundSchema,
-    });
-
-    export type Outbound = {
-        action: string;
-        ik?: string | undefined;
-        data: AddMetadataTarget$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddMetadataAction> = z.object({
-        action: AddMetadataActionAction$.outboundSchema,
-        ik: z.string().optional(),
-        data: AddMetadataTarget$.outboundSchema,
-    });
+    /** @deprecated use `AddMetadataAction$inboundSchema` instead. */
+    export const inboundSchema = AddMetadataAction$inboundSchema;
+    /** @deprecated use `AddMetadataAction$outboundSchema` instead. */
+    export const outboundSchema = AddMetadataAction$outboundSchema;
+    /** @deprecated use `AddMetadataAction$Outbound` instead. */
+    export type Outbound = AddMetadataAction$Outbound;
 }

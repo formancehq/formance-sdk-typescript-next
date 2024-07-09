@@ -17,26 +17,58 @@ export type DeleteMetadataActionResponse = {
 };
 
 /** @internal */
+export const DeleteMetadataActionResponseResponseType$inboundSchema: z.ZodNativeEnum<
+    typeof DeleteMetadataActionResponseResponseType
+> = z.nativeEnum(DeleteMetadataActionResponseResponseType);
+
+/** @internal */
+export const DeleteMetadataActionResponseResponseType$outboundSchema: z.ZodNativeEnum<
+    typeof DeleteMetadataActionResponseResponseType
+> = DeleteMetadataActionResponseResponseType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace DeleteMetadataActionResponseResponseType$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof DeleteMetadataActionResponseResponseType> =
-        z.nativeEnum(DeleteMetadataActionResponseResponseType);
-    export const outboundSchema: z.ZodNativeEnum<typeof DeleteMetadataActionResponseResponseType> =
-        inboundSchema;
+    /** @deprecated use `DeleteMetadataActionResponseResponseType$inboundSchema` instead. */
+    export const inboundSchema = DeleteMetadataActionResponseResponseType$inboundSchema;
+    /** @deprecated use `DeleteMetadataActionResponseResponseType$outboundSchema` instead. */
+    export const outboundSchema = DeleteMetadataActionResponseResponseType$outboundSchema;
 }
 
 /** @internal */
+export const DeleteMetadataActionResponse$inboundSchema: z.ZodType<
+    DeleteMetadataActionResponse,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    responseType: DeleteMetadataActionResponseResponseType$inboundSchema,
+});
+
+/** @internal */
+export type DeleteMetadataActionResponse$Outbound = {
+    responseType: string;
+};
+
+/** @internal */
+export const DeleteMetadataActionResponse$outboundSchema: z.ZodType<
+    DeleteMetadataActionResponse$Outbound,
+    z.ZodTypeDef,
+    DeleteMetadataActionResponse
+> = z.object({
+    responseType: DeleteMetadataActionResponseResponseType$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace DeleteMetadataActionResponse$ {
-    export const inboundSchema: z.ZodType<DeleteMetadataActionResponse, z.ZodTypeDef, unknown> =
-        z.object({
-            responseType: DeleteMetadataActionResponseResponseType$.inboundSchema,
-        });
-
-    export type Outbound = {
-        responseType: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, DeleteMetadataActionResponse> =
-        z.object({
-            responseType: DeleteMetadataActionResponseResponseType$.outboundSchema,
-        });
+    /** @deprecated use `DeleteMetadataActionResponse$inboundSchema` instead. */
+    export const inboundSchema = DeleteMetadataActionResponse$inboundSchema;
+    /** @deprecated use `DeleteMetadataActionResponse$outboundSchema` instead. */
+    export const outboundSchema = DeleteMetadataActionResponse$outboundSchema;
+    /** @deprecated use `DeleteMetadataActionResponse$Outbound` instead. */
+    export type Outbound = DeleteMetadataActionResponse$Outbound;
 }

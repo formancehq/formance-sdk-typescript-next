@@ -13,28 +13,42 @@ export type VolumeItem = {
 };
 
 /** @internal */
+export const VolumeItem$inboundSchema: z.ZodType<VolumeItem, z.ZodTypeDef, unknown> = z.object({
+    account: z.string(),
+    asset: z.string(),
+    input: z.number().int(),
+    output: z.number().int(),
+    balance: z.number().int(),
+});
+
+/** @internal */
+export type VolumeItem$Outbound = {
+    account: string;
+    asset: string;
+    input: number;
+    output: number;
+    balance: number;
+};
+
+/** @internal */
+export const VolumeItem$outboundSchema: z.ZodType<VolumeItem$Outbound, z.ZodTypeDef, VolumeItem> =
+    z.object({
+        account: z.string(),
+        asset: z.string(),
+        input: z.number().int(),
+        output: z.number().int(),
+        balance: z.number().int(),
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace VolumeItem$ {
-    export const inboundSchema: z.ZodType<VolumeItem, z.ZodTypeDef, unknown> = z.object({
-        account: z.string(),
-        asset: z.string(),
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int(),
-    });
-
-    export type Outbound = {
-        account: string;
-        asset: string;
-        input: number;
-        output: number;
-        balance: number;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, VolumeItem> = z.object({
-        account: z.string(),
-        asset: z.string(),
-        input: z.number().int(),
-        output: z.number().int(),
-        balance: z.number().int(),
-    });
+    /** @deprecated use `VolumeItem$inboundSchema` instead. */
+    export const inboundSchema = VolumeItem$inboundSchema;
+    /** @deprecated use `VolumeItem$outboundSchema` instead. */
+    export const outboundSchema = VolumeItem$outboundSchema;
+    /** @deprecated use `VolumeItem$Outbound` instead. */
+    export type Outbound = VolumeItem$Outbound;
 }

@@ -16,51 +16,91 @@ export type AccountsAddMetadataRequest = {
 };
 
 /** @internal */
+export const AccountsAddMetadataRequestBody$inboundSchema: z.ZodType<
+    AccountsAddMetadataRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    metadata: z.record(z.any()),
+});
+
+/** @internal */
+export type AccountsAddMetadataRequestBody$Outbound = {
+    metadata: { [k: string]: any };
+};
+
+/** @internal */
+export const AccountsAddMetadataRequestBody$outboundSchema: z.ZodType<
+    AccountsAddMetadataRequestBody$Outbound,
+    z.ZodTypeDef,
+    AccountsAddMetadataRequestBody
+> = z.object({
+    metadata: z.record(z.any()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AccountsAddMetadataRequestBody$ {
-    export const inboundSchema: z.ZodType<AccountsAddMetadataRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            metadata: z.record(z.any()),
-        });
-
-    export type Outbound = {
-        metadata: { [k: string]: any };
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsAddMetadataRequestBody> =
-        z.object({
-            metadata: z.record(z.any()),
-        });
+    /** @deprecated use `AccountsAddMetadataRequestBody$inboundSchema` instead. */
+    export const inboundSchema = AccountsAddMetadataRequestBody$inboundSchema;
+    /** @deprecated use `AccountsAddMetadataRequestBody$outboundSchema` instead. */
+    export const outboundSchema = AccountsAddMetadataRequestBody$outboundSchema;
+    /** @deprecated use `AccountsAddMetadataRequestBody$Outbound` instead. */
+    export type Outbound = AccountsAddMetadataRequestBody$Outbound;
 }
 
 /** @internal */
+export const AccountsAddMetadataRequest$inboundSchema: z.ZodType<
+    AccountsAddMetadataRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        ledger: z.string(),
+        address: z.string(),
+        RequestBody: z.lazy(() => AccountsAddMetadataRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type AccountsAddMetadataRequest$Outbound = {
+    ledger: string;
+    address: string;
+    RequestBody: AccountsAddMetadataRequestBody$Outbound;
+};
+
+/** @internal */
+export const AccountsAddMetadataRequest$outboundSchema: z.ZodType<
+    AccountsAddMetadataRequest$Outbound,
+    z.ZodTypeDef,
+    AccountsAddMetadataRequest
+> = z
+    .object({
+        ledger: z.string(),
+        address: z.string(),
+        requestBody: z.lazy(() => AccountsAddMetadataRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AccountsAddMetadataRequest$ {
-    export const inboundSchema: z.ZodType<AccountsAddMetadataRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            ledger: z.string(),
-            address: z.string(),
-            RequestBody: z.lazy(() => AccountsAddMetadataRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        ledger: string;
-        address: string;
-        RequestBody: AccountsAddMetadataRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AccountsAddMetadataRequest> = z
-        .object({
-            ledger: z.string(),
-            address: z.string(),
-            requestBody: z.lazy(() => AccountsAddMetadataRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `AccountsAddMetadataRequest$inboundSchema` instead. */
+    export const inboundSchema = AccountsAddMetadataRequest$inboundSchema;
+    /** @deprecated use `AccountsAddMetadataRequest$outboundSchema` instead. */
+    export const outboundSchema = AccountsAddMetadataRequest$outboundSchema;
+    /** @deprecated use `AccountsAddMetadataRequest$Outbound` instead. */
+    export type Outbound = AccountsAddMetadataRequest$Outbound;
 }

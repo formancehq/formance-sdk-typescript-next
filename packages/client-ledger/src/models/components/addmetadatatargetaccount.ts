@@ -17,30 +17,62 @@ export type AddMetadataTargetAccount = {
 };
 
 /** @internal */
+export const TargetType$inboundSchema: z.ZodNativeEnum<typeof TargetType> =
+    z.nativeEnum(TargetType);
+
+/** @internal */
+export const TargetType$outboundSchema: z.ZodNativeEnum<typeof TargetType> =
+    TargetType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TargetType$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof TargetType> = z.nativeEnum(TargetType);
-    export const outboundSchema: z.ZodNativeEnum<typeof TargetType> = inboundSchema;
+    /** @deprecated use `TargetType$inboundSchema` instead. */
+    export const inboundSchema = TargetType$inboundSchema;
+    /** @deprecated use `TargetType$outboundSchema` instead. */
+    export const outboundSchema = TargetType$outboundSchema;
 }
 
 /** @internal */
+export const AddMetadataTargetAccount$inboundSchema: z.ZodType<
+    AddMetadataTargetAccount,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    targetType: TargetType$inboundSchema,
+    targetId: z.string(),
+    metadata: z.record(z.string()),
+});
+
+/** @internal */
+export type AddMetadataTargetAccount$Outbound = {
+    targetType: string;
+    targetId: string;
+    metadata: { [k: string]: string };
+};
+
+/** @internal */
+export const AddMetadataTargetAccount$outboundSchema: z.ZodType<
+    AddMetadataTargetAccount$Outbound,
+    z.ZodTypeDef,
+    AddMetadataTargetAccount
+> = z.object({
+    targetType: TargetType$outboundSchema,
+    targetId: z.string(),
+    metadata: z.record(z.string()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace AddMetadataTargetAccount$ {
-    export const inboundSchema: z.ZodType<AddMetadataTargetAccount, z.ZodTypeDef, unknown> =
-        z.object({
-            targetType: TargetType$.inboundSchema,
-            targetId: z.string(),
-            metadata: z.record(z.string()),
-        });
-
-    export type Outbound = {
-        targetType: string;
-        targetId: string;
-        metadata: { [k: string]: string };
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddMetadataTargetAccount> =
-        z.object({
-            targetType: TargetType$.outboundSchema,
-            targetId: z.string(),
-            metadata: z.record(z.string()),
-        });
+    /** @deprecated use `AddMetadataTargetAccount$inboundSchema` instead. */
+    export const inboundSchema = AddMetadataTargetAccount$inboundSchema;
+    /** @deprecated use `AddMetadataTargetAccount$outboundSchema` instead. */
+    export const outboundSchema = AddMetadataTargetAccount$outboundSchema;
+    /** @deprecated use `AddMetadataTargetAccount$Outbound` instead. */
+    export type Outbound = AddMetadataTargetAccount$Outbound;
 }

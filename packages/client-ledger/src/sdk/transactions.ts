@@ -60,7 +60,7 @@ export class Transactions extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransactionsCountRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransactionsCountRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -134,10 +134,10 @@ export class Transactions extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TransactionsCountResponse | undefined>()
-            .void(204, operations.TransactionsCountResponse$.inboundSchema.optional(), {
+            .void(204, operations.TransactionsCountResponse$inboundSchema.optional(), {
                 hdrs: true,
             })
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -151,7 +151,7 @@ export class Transactions extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransactionsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransactionsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -228,8 +228,8 @@ export class Transactions extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.TransactionsListResponse>()
-            .json(200, operations.TransactionsListResponse$, { key: "Result" })
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.TransactionsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (
@@ -274,7 +274,7 @@ export class Transactions extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransactionsCreateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransactionsCreateRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -352,8 +352,8 @@ export class Transactions extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TransactionsCreateResponseBody>()
-            .json(200, operations.TransactionsCreateResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.TransactionsCreateResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -375,7 +375,7 @@ export class Transactions extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransactionsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransactionsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -450,8 +450,8 @@ export class Transactions extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TransactionsGetResponseBody>()
-            .json(200, operations.TransactionsGetResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.TransactionsGetResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -465,7 +465,7 @@ export class Transactions extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransactionsAddMetadataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransactionsAddMetadataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -545,7 +545,7 @@ export class Transactions extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -565,7 +565,7 @@ export class Transactions extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransactionsDeleteMetadataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransactionsDeleteMetadataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -639,7 +639,7 @@ export class Transactions extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -661,7 +661,7 @@ export class Transactions extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.TransactionsRevertRequest$.outboundSchema.parse(value$),
+            (value$) => operations.TransactionsRevertRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -736,8 +736,8 @@ export class Transactions extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.TransactionsRevertResponseBody>()
-            .json(201, operations.TransactionsRevertResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(201, operations.TransactionsRevertResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

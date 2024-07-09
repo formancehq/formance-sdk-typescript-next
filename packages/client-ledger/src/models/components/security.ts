@@ -3,7 +3,12 @@
  */
 
 import { remap as remap$ } from "../../lib/primitives.js";
-import { SchemeFormanceOAuth, SchemeFormanceOAuth$ } from "./schemeformanceoauth.js";
+import {
+    SchemeFormanceOAuth,
+    SchemeFormanceOAuth$inboundSchema,
+    SchemeFormanceOAuth$Outbound,
+    SchemeFormanceOAuth$outboundSchema,
+} from "./schemeformanceoauth.js";
 import * as z from "zod";
 
 export type Security = {
@@ -12,33 +17,46 @@ export type Security = {
 };
 
 /** @internal */
+export const Security$inboundSchema: z.ZodType<Security, z.ZodTypeDef, unknown> = z
+    .object({
+        BearerAuth: z.string().optional(),
+        FormanceOAuth: SchemeFormanceOAuth$inboundSchema.optional(),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            BearerAuth: "bearerAuth",
+            FormanceOAuth: "formanceOAuth",
+        });
+    });
+
+/** @internal */
+export type Security$Outbound = {
+    BearerAuth?: string | undefined;
+    FormanceOAuth?: SchemeFormanceOAuth$Outbound | undefined;
+};
+
+/** @internal */
+export const Security$outboundSchema: z.ZodType<Security$Outbound, z.ZodTypeDef, Security> = z
+    .object({
+        bearerAuth: z.string().optional(),
+        formanceOAuth: SchemeFormanceOAuth$outboundSchema.optional(),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            bearerAuth: "BearerAuth",
+            formanceOAuth: "FormanceOAuth",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Security$ {
-    export const inboundSchema: z.ZodType<Security, z.ZodTypeDef, unknown> = z
-        .object({
-            BearerAuth: z.string().optional(),
-            FormanceOAuth: SchemeFormanceOAuth$.inboundSchema.optional(),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                BearerAuth: "bearerAuth",
-                FormanceOAuth: "formanceOAuth",
-            });
-        });
-
-    export type Outbound = {
-        BearerAuth?: string | undefined;
-        FormanceOAuth?: SchemeFormanceOAuth$.Outbound | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Security> = z
-        .object({
-            bearerAuth: z.string().optional(),
-            formanceOAuth: SchemeFormanceOAuth$.outboundSchema.optional(),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                bearerAuth: "BearerAuth",
-                formanceOAuth: "FormanceOAuth",
-            });
-        });
+    /** @deprecated use `Security$inboundSchema` instead. */
+    export const inboundSchema = Security$inboundSchema;
+    /** @deprecated use `Security$outboundSchema` instead. */
+    export const outboundSchema = Security$outboundSchema;
+    /** @deprecated use `Security$Outbound` instead. */
+    export type Outbound = Security$Outbound;
 }

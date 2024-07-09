@@ -116,7 +116,7 @@ export class LedgerClient extends ClientSDK {
         );
 
         const [result$] = await this.matcher<components.ServerInfo>()
-            .json(200, components.ServerInfo$)
+            .json(200, components.ServerInfo$inboundSchema)
             .fail("default")
             .match(response);
 

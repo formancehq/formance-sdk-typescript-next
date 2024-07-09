@@ -20,51 +20,89 @@ export type TransactionsRevertResponseBody = {
 };
 
 /** @internal */
+export const TransactionsRevertRequest$inboundSchema: z.ZodType<
+    TransactionsRevertRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    ledger: z.string(),
+    id: z.number().int(),
+    force: z.boolean().optional(),
+    atEffectiveDate: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v))
+        .optional(),
+});
+
+/** @internal */
+export type TransactionsRevertRequest$Outbound = {
+    ledger: string;
+    id: number;
+    force?: boolean | undefined;
+    atEffectiveDate?: string | undefined;
+};
+
+/** @internal */
+export const TransactionsRevertRequest$outboundSchema: z.ZodType<
+    TransactionsRevertRequest$Outbound,
+    z.ZodTypeDef,
+    TransactionsRevertRequest
+> = z.object({
+    ledger: z.string(),
+    id: z.number().int(),
+    force: z.boolean().optional(),
+    atEffectiveDate: z
+        .date()
+        .transform((v) => v.toISOString())
+        .optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsRevertRequest$ {
-    export const inboundSchema: z.ZodType<TransactionsRevertRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            ledger: z.string(),
-            id: z.number().int(),
-            force: z.boolean().optional(),
-            atEffectiveDate: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v))
-                .optional(),
-        });
-
-    export type Outbound = {
-        ledger: string;
-        id: number;
-        force?: boolean | undefined;
-        atEffectiveDate?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsRevertRequest> =
-        z.object({
-            ledger: z.string(),
-            id: z.number().int(),
-            force: z.boolean().optional(),
-            atEffectiveDate: z
-                .date()
-                .transform((v) => v.toISOString())
-                .optional(),
-        });
+    /** @deprecated use `TransactionsRevertRequest$inboundSchema` instead. */
+    export const inboundSchema = TransactionsRevertRequest$inboundSchema;
+    /** @deprecated use `TransactionsRevertRequest$outboundSchema` instead. */
+    export const outboundSchema = TransactionsRevertRequest$outboundSchema;
+    /** @deprecated use `TransactionsRevertRequest$Outbound` instead. */
+    export type Outbound = TransactionsRevertRequest$Outbound;
 }
 
 /** @internal */
+export const TransactionsRevertResponseBody$inboundSchema: z.ZodType<
+    TransactionsRevertResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Transaction$inboundSchema,
+});
+
+/** @internal */
+export type TransactionsRevertResponseBody$Outbound = {
+    data: components.Transaction$Outbound;
+};
+
+/** @internal */
+export const TransactionsRevertResponseBody$outboundSchema: z.ZodType<
+    TransactionsRevertResponseBody$Outbound,
+    z.ZodTypeDef,
+    TransactionsRevertResponseBody
+> = z.object({
+    data: components.Transaction$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsRevertResponseBody$ {
-    export const inboundSchema: z.ZodType<TransactionsRevertResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Transaction$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Transaction$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsRevertResponseBody> =
-        z.object({
-            data: components.Transaction$.outboundSchema,
-        });
+    /** @deprecated use `TransactionsRevertResponseBody$inboundSchema` instead. */
+    export const inboundSchema = TransactionsRevertResponseBody$inboundSchema;
+    /** @deprecated use `TransactionsRevertResponseBody$outboundSchema` instead. */
+    export const outboundSchema = TransactionsRevertResponseBody$outboundSchema;
+    /** @deprecated use `TransactionsRevertResponseBody$Outbound` instead. */
+    export type Outbound = TransactionsRevertResponseBody$Outbound;
 }

@@ -59,7 +59,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -125,8 +125,8 @@ export class Ledgers extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.LedgersListResponse>()
-            .json(200, operations.LedgersListResponse$, { key: "Result" })
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.LedgersListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.LedgersListResponse> => {
@@ -156,7 +156,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -225,8 +225,8 @@ export class Ledgers extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.LedgersGetResponseBody>()
-            .json(200, operations.LedgersGetResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.LedgersGetResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -244,7 +244,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersCreateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersCreateRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -315,7 +315,7 @@ export class Ledgers extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -333,7 +333,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersBulkRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersBulkRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -403,8 +403,8 @@ export class Ledgers extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.LedgersBulkResponseBody>()
-            .json(200, operations.LedgersBulkResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.LedgersBulkResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -420,7 +420,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersInfoRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersInfoRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -489,8 +489,8 @@ export class Ledgers extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.LedgersInfoResponseBody>()
-            .json(200, operations.LedgersInfoResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.LedgersInfoResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -510,7 +510,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersListLogsRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersListLogsRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -582,7 +582,7 @@ export class Ledgers extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.LedgersListLogsResponse>()
-            .json(200, operations.LedgersListLogsResponse$, { key: "Result" })
+            .json(200, operations.LedgersListLogsResponse$inboundSchema, { key: "Result" })
             .fail("default")
             .match(response, { extraFields: responseFields$ });
 
@@ -615,7 +615,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersAddMetadataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersAddMetadataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -686,7 +686,7 @@ export class Ledgers extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -704,7 +704,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersRemoveMetadataRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersRemoveMetadataRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -777,7 +777,7 @@ export class Ledgers extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.LedgerError$, { err: true })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -793,7 +793,7 @@ export class Ledgers extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.LedgersStatsRequest$.outboundSchema.parse(value$),
+            (value$) => operations.LedgersStatsRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -862,8 +862,8 @@ export class Ledgers extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.LedgersStatsResponseBody>()
-            .json(200, operations.LedgersStatsResponseBody$)
-            .json("default", errors.LedgerError$, { err: true })
+            .json(200, operations.LedgersStatsResponseBody$inboundSchema)
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

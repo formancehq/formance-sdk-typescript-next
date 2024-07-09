@@ -4,11 +4,15 @@
 
 import {
     DeleteMetadataTargetAccount,
-    DeleteMetadataTargetAccount$,
+    DeleteMetadataTargetAccount$inboundSchema,
+    DeleteMetadataTargetAccount$Outbound,
+    DeleteMetadataTargetAccount$outboundSchema,
 } from "./deletemetadatatargetaccount.js";
 import {
     DeleteMetadataTargetTransaction,
-    DeleteMetadataTargetTransaction$,
+    DeleteMetadataTargetTransaction$inboundSchema,
+    DeleteMetadataTargetTransaction$Outbound,
+    DeleteMetadataTargetTransaction$outboundSchema,
 } from "./deletemetadatatargettransaction.js";
 import * as z from "zod";
 
@@ -17,33 +21,55 @@ export type DeleteMetadataTarget =
     | (DeleteMetadataTargetTransaction & { targetType: "TRANSACTION" });
 
 /** @internal */
-export namespace DeleteMetadataTarget$ {
-    export const inboundSchema: z.ZodType<DeleteMetadataTarget, z.ZodTypeDef, unknown> = z.union([
-        DeleteMetadataTargetAccount$.inboundSchema.and(
-            z
-                .object({ targetType: z.literal("ACCOUNT") })
-                .transform((v) => ({ targetType: v.targetType }))
-        ),
-        DeleteMetadataTargetTransaction$.inboundSchema.and(
-            z
-                .object({ targetType: z.literal("TRANSACTION") })
-                .transform((v) => ({ targetType: v.targetType }))
-        ),
-    ]);
+export const DeleteMetadataTarget$inboundSchema: z.ZodType<
+    DeleteMetadataTarget,
+    z.ZodTypeDef,
+    unknown
+> = z.union([
+    DeleteMetadataTargetAccount$inboundSchema.and(
+        z
+            .object({ targetType: z.literal("ACCOUNT") })
+            .transform((v) => ({ targetType: v.targetType }))
+    ),
+    DeleteMetadataTargetTransaction$inboundSchema.and(
+        z
+            .object({ targetType: z.literal("TRANSACTION") })
+            .transform((v) => ({ targetType: v.targetType }))
+    ),
+]);
 
-    export type Outbound =
-        | (DeleteMetadataTargetAccount$.Outbound & { targetType: "ACCOUNT" })
-        | (DeleteMetadataTargetTransaction$.Outbound & { targetType: "TRANSACTION" });
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, DeleteMetadataTarget> = z.union([
-        DeleteMetadataTargetAccount$.outboundSchema.and(
-            z
-                .object({ targetType: z.literal("ACCOUNT") })
-                .transform((v) => ({ targetType: v.targetType }))
-        ),
-        DeleteMetadataTargetTransaction$.outboundSchema.and(
-            z
-                .object({ targetType: z.literal("TRANSACTION") })
-                .transform((v) => ({ targetType: v.targetType }))
-        ),
-    ]);
+/** @internal */
+export type DeleteMetadataTarget$Outbound =
+    | (DeleteMetadataTargetAccount$Outbound & { targetType: "ACCOUNT" })
+    | (DeleteMetadataTargetTransaction$Outbound & { targetType: "TRANSACTION" });
+
+/** @internal */
+export const DeleteMetadataTarget$outboundSchema: z.ZodType<
+    DeleteMetadataTarget$Outbound,
+    z.ZodTypeDef,
+    DeleteMetadataTarget
+> = z.union([
+    DeleteMetadataTargetAccount$outboundSchema.and(
+        z
+            .object({ targetType: z.literal("ACCOUNT") })
+            .transform((v) => ({ targetType: v.targetType }))
+    ),
+    DeleteMetadataTargetTransaction$outboundSchema.and(
+        z
+            .object({ targetType: z.literal("TRANSACTION") })
+            .transform((v) => ({ targetType: v.targetType }))
+    ),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DeleteMetadataTarget$ {
+    /** @deprecated use `DeleteMetadataTarget$inboundSchema` instead. */
+    export const inboundSchema = DeleteMetadataTarget$inboundSchema;
+    /** @deprecated use `DeleteMetadataTarget$outboundSchema` instead. */
+    export const outboundSchema = DeleteMetadataTarget$outboundSchema;
+    /** @deprecated use `DeleteMetadataTarget$Outbound` instead. */
+    export type Outbound = DeleteMetadataTarget$Outbound;
 }

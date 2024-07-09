@@ -18,66 +18,99 @@ export type TransactionsAddMetadataRequest = {
 };
 
 /** @internal */
+export const TransactionsAddMetadataRequestBody$inboundSchema: z.ZodType<
+    TransactionsAddMetadataRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    metadata: z.record(z.string()),
+});
+
+/** @internal */
+export type TransactionsAddMetadataRequestBody$Outbound = {
+    metadata: { [k: string]: string };
+};
+
+/** @internal */
+export const TransactionsAddMetadataRequestBody$outboundSchema: z.ZodType<
+    TransactionsAddMetadataRequestBody$Outbound,
+    z.ZodTypeDef,
+    TransactionsAddMetadataRequestBody
+> = z.object({
+    metadata: z.record(z.string()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsAddMetadataRequestBody$ {
-    export const inboundSchema: z.ZodType<
-        TransactionsAddMetadataRequestBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        metadata: z.record(z.string()),
-    });
-
-    export type Outbound = {
-        metadata: { [k: string]: string };
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransactionsAddMetadataRequestBody
-    > = z.object({
-        metadata: z.record(z.string()),
-    });
+    /** @deprecated use `TransactionsAddMetadataRequestBody$inboundSchema` instead. */
+    export const inboundSchema = TransactionsAddMetadataRequestBody$inboundSchema;
+    /** @deprecated use `TransactionsAddMetadataRequestBody$outboundSchema` instead. */
+    export const outboundSchema = TransactionsAddMetadataRequestBody$outboundSchema;
+    /** @deprecated use `TransactionsAddMetadataRequestBody$Outbound` instead. */
+    export type Outbound = TransactionsAddMetadataRequestBody$Outbound;
 }
 
 /** @internal */
-export namespace TransactionsAddMetadataRequest$ {
-    export const inboundSchema: z.ZodType<TransactionsAddMetadataRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            ledger: z.string(),
-            id: z.number().int(),
-            dryRun: z.boolean().optional(),
-            "Idempotency-Key": z.string().optional(),
-            RequestBody: z.lazy(() => TransactionsAddMetadataRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                "Idempotency-Key": "idempotencyKey",
-                RequestBody: "requestBody",
-            });
+export const TransactionsAddMetadataRequest$inboundSchema: z.ZodType<
+    TransactionsAddMetadataRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        ledger: z.string(),
+        id: z.number().int(),
+        dryRun: z.boolean().optional(),
+        "Idempotency-Key": z.string().optional(),
+        RequestBody: z.lazy(() => TransactionsAddMetadataRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            "Idempotency-Key": "idempotencyKey",
+            RequestBody: "requestBody",
         });
+    });
 
-    export type Outbound = {
-        ledger: string;
-        id: number;
-        dryRun?: boolean | undefined;
-        "Idempotency-Key"?: string | undefined;
-        RequestBody: TransactionsAddMetadataRequestBody$.Outbound;
-    };
+/** @internal */
+export type TransactionsAddMetadataRequest$Outbound = {
+    ledger: string;
+    id: number;
+    dryRun?: boolean | undefined;
+    "Idempotency-Key"?: string | undefined;
+    RequestBody: TransactionsAddMetadataRequestBody$Outbound;
+};
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, TransactionsAddMetadataRequest> =
-        z
-            .object({
-                ledger: z.string(),
-                id: z.number().int(),
-                dryRun: z.boolean().optional(),
-                idempotencyKey: z.string().optional(),
-                requestBody: z.lazy(() => TransactionsAddMetadataRequestBody$.outboundSchema),
-            })
-            .transform((v) => {
-                return remap$(v, {
-                    idempotencyKey: "Idempotency-Key",
-                    requestBody: "RequestBody",
-                });
-            });
+/** @internal */
+export const TransactionsAddMetadataRequest$outboundSchema: z.ZodType<
+    TransactionsAddMetadataRequest$Outbound,
+    z.ZodTypeDef,
+    TransactionsAddMetadataRequest
+> = z
+    .object({
+        ledger: z.string(),
+        id: z.number().int(),
+        dryRun: z.boolean().optional(),
+        idempotencyKey: z.string().optional(),
+        requestBody: z.lazy(() => TransactionsAddMetadataRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            idempotencyKey: "Idempotency-Key",
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TransactionsAddMetadataRequest$ {
+    /** @deprecated use `TransactionsAddMetadataRequest$inboundSchema` instead. */
+    export const inboundSchema = TransactionsAddMetadataRequest$inboundSchema;
+    /** @deprecated use `TransactionsAddMetadataRequest$outboundSchema` instead. */
+    export const outboundSchema = TransactionsAddMetadataRequest$outboundSchema;
+    /** @deprecated use `TransactionsAddMetadataRequest$Outbound` instead. */
+    export type Outbound = TransactionsAddMetadataRequest$Outbound;
 }

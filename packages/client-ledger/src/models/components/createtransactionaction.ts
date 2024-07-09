@@ -5,11 +5,15 @@
 import { ClosedEnum } from "../../types/enums.js";
 import {
     CreateTransactionWithNumscript,
-    CreateTransactionWithNumscript$,
+    CreateTransactionWithNumscript$inboundSchema,
+    CreateTransactionWithNumscript$Outbound,
+    CreateTransactionWithNumscript$outboundSchema,
 } from "./createtransactionwithnumscript.js";
 import {
     CreateTransactionWithPostings,
-    CreateTransactionWithPostings$,
+    CreateTransactionWithPostings$inboundSchema,
+    CreateTransactionWithPostings$Outbound,
+    CreateTransactionWithPostings$outboundSchema,
 } from "./createtransactionwithpostings.js";
 import * as z from "zod";
 
@@ -27,52 +31,96 @@ export type CreateTransactionAction = {
 };
 
 /** @internal */
+export const Action$inboundSchema: z.ZodNativeEnum<typeof Action> = z.nativeEnum(Action);
+
+/** @internal */
+export const Action$outboundSchema: z.ZodNativeEnum<typeof Action> = Action$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Action$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof Action> = z.nativeEnum(Action);
-    export const outboundSchema: z.ZodNativeEnum<typeof Action> = inboundSchema;
+    /** @deprecated use `Action$inboundSchema` instead. */
+    export const inboundSchema = Action$inboundSchema;
+    /** @deprecated use `Action$outboundSchema` instead. */
+    export const outboundSchema = Action$outboundSchema;
 }
 
 /** @internal */
+export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.union([
+    CreateTransactionWithPostings$inboundSchema,
+    CreateTransactionWithNumscript$inboundSchema,
+]);
+
+/** @internal */
+export type Data$Outbound =
+    | CreateTransactionWithPostings$Outbound
+    | CreateTransactionWithNumscript$Outbound;
+
+/** @internal */
+export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> = z.union([
+    CreateTransactionWithPostings$outboundSchema,
+    CreateTransactionWithNumscript$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Data$ {
-    export const inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.union([
-        CreateTransactionWithPostings$.inboundSchema,
-        CreateTransactionWithNumscript$.inboundSchema,
-    ]);
-
-    export type Outbound =
-        | CreateTransactionWithPostings$.Outbound
-        | CreateTransactionWithNumscript$.Outbound;
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Data> = z.union([
-        CreateTransactionWithPostings$.outboundSchema,
-        CreateTransactionWithNumscript$.outboundSchema,
-    ]);
+    /** @deprecated use `Data$inboundSchema` instead. */
+    export const inboundSchema = Data$inboundSchema;
+    /** @deprecated use `Data$outboundSchema` instead. */
+    export const outboundSchema = Data$outboundSchema;
+    /** @deprecated use `Data$Outbound` instead. */
+    export type Outbound = Data$Outbound;
 }
 
 /** @internal */
+export const CreateTransactionAction$inboundSchema: z.ZodType<
+    CreateTransactionAction,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    action: Action$inboundSchema,
+    ik: z.string().optional(),
+    data: z.union([
+        CreateTransactionWithPostings$inboundSchema,
+        CreateTransactionWithNumscript$inboundSchema,
+    ]),
+});
+
+/** @internal */
+export type CreateTransactionAction$Outbound = {
+    action: string;
+    ik?: string | undefined;
+    data: CreateTransactionWithPostings$Outbound | CreateTransactionWithNumscript$Outbound;
+};
+
+/** @internal */
+export const CreateTransactionAction$outboundSchema: z.ZodType<
+    CreateTransactionAction$Outbound,
+    z.ZodTypeDef,
+    CreateTransactionAction
+> = z.object({
+    action: Action$outboundSchema,
+    ik: z.string().optional(),
+    data: z.union([
+        CreateTransactionWithPostings$outboundSchema,
+        CreateTransactionWithNumscript$outboundSchema,
+    ]),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace CreateTransactionAction$ {
-    export const inboundSchema: z.ZodType<CreateTransactionAction, z.ZodTypeDef, unknown> =
-        z.object({
-            action: Action$.inboundSchema,
-            ik: z.string().optional(),
-            data: z.union([
-                CreateTransactionWithPostings$.inboundSchema,
-                CreateTransactionWithNumscript$.inboundSchema,
-            ]),
-        });
-
-    export type Outbound = {
-        action: string;
-        ik?: string | undefined;
-        data: CreateTransactionWithPostings$.Outbound | CreateTransactionWithNumscript$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, CreateTransactionAction> =
-        z.object({
-            action: Action$.outboundSchema,
-            ik: z.string().optional(),
-            data: z.union([
-                CreateTransactionWithPostings$.outboundSchema,
-                CreateTransactionWithNumscript$.outboundSchema,
-            ]),
-        });
+    /** @deprecated use `CreateTransactionAction$inboundSchema` instead. */
+    export const inboundSchema = CreateTransactionAction$inboundSchema;
+    /** @deprecated use `CreateTransactionAction$outboundSchema` instead. */
+    export const outboundSchema = CreateTransactionAction$outboundSchema;
+    /** @deprecated use `CreateTransactionAction$Outbound` instead. */
+    export type Outbound = CreateTransactionAction$Outbound;
 }

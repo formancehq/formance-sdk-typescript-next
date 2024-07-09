@@ -11,30 +11,43 @@ export type TransactionsDeleteMetadataRequest = {
 };
 
 /** @internal */
+export const TransactionsDeleteMetadataRequest$inboundSchema: z.ZodType<
+    TransactionsDeleteMetadataRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    ledger: z.string(),
+    id: z.string(),
+    key: z.string(),
+});
+
+/** @internal */
+export type TransactionsDeleteMetadataRequest$Outbound = {
+    ledger: string;
+    id: string;
+    key: string;
+};
+
+/** @internal */
+export const TransactionsDeleteMetadataRequest$outboundSchema: z.ZodType<
+    TransactionsDeleteMetadataRequest$Outbound,
+    z.ZodTypeDef,
+    TransactionsDeleteMetadataRequest
+> = z.object({
+    ledger: z.string(),
+    id: z.string(),
+    key: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace TransactionsDeleteMetadataRequest$ {
-    export const inboundSchema: z.ZodType<
-        TransactionsDeleteMetadataRequest,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        ledger: z.string(),
-        id: z.string(),
-        key: z.string(),
-    });
-
-    export type Outbound = {
-        ledger: string;
-        id: string;
-        key: string;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        TransactionsDeleteMetadataRequest
-    > = z.object({
-        ledger: z.string(),
-        id: z.string(),
-        key: z.string(),
-    });
+    /** @deprecated use `TransactionsDeleteMetadataRequest$inboundSchema` instead. */
+    export const inboundSchema = TransactionsDeleteMetadataRequest$inboundSchema;
+    /** @deprecated use `TransactionsDeleteMetadataRequest$outboundSchema` instead. */
+    export const outboundSchema = TransactionsDeleteMetadataRequest$outboundSchema;
+    /** @deprecated use `TransactionsDeleteMetadataRequest$Outbound` instead. */
+    export type Outbound = TransactionsDeleteMetadataRequest$Outbound;
 }

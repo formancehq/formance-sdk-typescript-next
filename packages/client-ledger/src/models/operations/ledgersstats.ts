@@ -21,51 +21,104 @@ export type LedgersStatsResponseBody = {
 };
 
 /** @internal */
+export const LedgersStatsRequest$inboundSchema: z.ZodType<
+    LedgersStatsRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    ledger: z.string(),
+});
+
+/** @internal */
+export type LedgersStatsRequest$Outbound = {
+    ledger: string;
+};
+
+/** @internal */
+export const LedgersStatsRequest$outboundSchema: z.ZodType<
+    LedgersStatsRequest$Outbound,
+    z.ZodTypeDef,
+    LedgersStatsRequest
+> = z.object({
+    ledger: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersStatsRequest$ {
-    export const inboundSchema: z.ZodType<LedgersStatsRequest, z.ZodTypeDef, unknown> = z.object({
-        ledger: z.string(),
-    });
-
-    export type Outbound = {
-        ledger: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersStatsRequest> = z.object({
-        ledger: z.string(),
-    });
+    /** @deprecated use `LedgersStatsRequest$inboundSchema` instead. */
+    export const inboundSchema = LedgersStatsRequest$inboundSchema;
+    /** @deprecated use `LedgersStatsRequest$outboundSchema` instead. */
+    export const outboundSchema = LedgersStatsRequest$outboundSchema;
+    /** @deprecated use `LedgersStatsRequest$Outbound` instead. */
+    export type Outbound = LedgersStatsRequest$Outbound;
 }
 
 /** @internal */
+export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.object({
+    account: z.number().int(),
+    transactions: z.number().int(),
+});
+
+/** @internal */
+export type Data$Outbound = {
+    account: number;
+    transactions: number;
+};
+
+/** @internal */
+export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> = z.object({
+    account: z.number().int(),
+    transactions: z.number().int(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Data$ {
-    export const inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z.object({
-        account: z.number().int(),
-        transactions: z.number().int(),
-    });
-
-    export type Outbound = {
-        account: number;
-        transactions: number;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Data> = z.object({
-        account: z.number().int(),
-        transactions: z.number().int(),
-    });
+    /** @deprecated use `Data$inboundSchema` instead. */
+    export const inboundSchema = Data$inboundSchema;
+    /** @deprecated use `Data$outboundSchema` instead. */
+    export const outboundSchema = Data$outboundSchema;
+    /** @deprecated use `Data$Outbound` instead. */
+    export type Outbound = Data$Outbound;
 }
 
 /** @internal */
+export const LedgersStatsResponseBody$inboundSchema: z.ZodType<
+    LedgersStatsResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: z.lazy(() => Data$inboundSchema),
+});
+
+/** @internal */
+export type LedgersStatsResponseBody$Outbound = {
+    data: Data$Outbound;
+};
+
+/** @internal */
+export const LedgersStatsResponseBody$outboundSchema: z.ZodType<
+    LedgersStatsResponseBody$Outbound,
+    z.ZodTypeDef,
+    LedgersStatsResponseBody
+> = z.object({
+    data: z.lazy(() => Data$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersStatsResponseBody$ {
-    export const inboundSchema: z.ZodType<LedgersStatsResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: z.lazy(() => Data$.inboundSchema),
-        });
-
-    export type Outbound = {
-        data: Data$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersStatsResponseBody> =
-        z.object({
-            data: z.lazy(() => Data$.outboundSchema),
-        });
+    /** @deprecated use `LedgersStatsResponseBody$inboundSchema` instead. */
+    export const inboundSchema = LedgersStatsResponseBody$inboundSchema;
+    /** @deprecated use `LedgersStatsResponseBody$outboundSchema` instead. */
+    export const outboundSchema = LedgersStatsResponseBody$outboundSchema;
+    /** @deprecated use `LedgersStatsResponseBody$Outbound` instead. */
+    export type Outbound = LedgersStatsResponseBody$Outbound;
 }

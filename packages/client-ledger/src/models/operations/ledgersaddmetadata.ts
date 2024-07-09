@@ -11,31 +11,52 @@ export type LedgersAddMetadataRequest = {
 };
 
 /** @internal */
+export const LedgersAddMetadataRequest$inboundSchema: z.ZodType<
+    LedgersAddMetadataRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        ledger: z.string(),
+        RequestBody: z.record(z.string()),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type LedgersAddMetadataRequest$Outbound = {
+    ledger: string;
+    RequestBody: { [k: string]: string };
+};
+
+/** @internal */
+export const LedgersAddMetadataRequest$outboundSchema: z.ZodType<
+    LedgersAddMetadataRequest$Outbound,
+    z.ZodTypeDef,
+    LedgersAddMetadataRequest
+> = z
+    .object({
+        ledger: z.string(),
+        requestBody: z.record(z.string()),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgersAddMetadataRequest$ {
-    export const inboundSchema: z.ZodType<LedgersAddMetadataRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            ledger: z.string(),
-            RequestBody: z.record(z.string()),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        ledger: string;
-        RequestBody: { [k: string]: string };
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, LedgersAddMetadataRequest> = z
-        .object({
-            ledger: z.string(),
-            requestBody: z.record(z.string()),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `LedgersAddMetadataRequest$inboundSchema` instead. */
+    export const inboundSchema = LedgersAddMetadataRequest$inboundSchema;
+    /** @deprecated use `LedgersAddMetadataRequest$outboundSchema` instead. */
+    export const outboundSchema = LedgersAddMetadataRequest$outboundSchema;
+    /** @deprecated use `LedgersAddMetadataRequest$Outbound` instead. */
+    export type Outbound = LedgersAddMetadataRequest$Outbound;
 }

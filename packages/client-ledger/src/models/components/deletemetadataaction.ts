@@ -3,7 +3,12 @@
  */
 
 import { ClosedEnum } from "../../types/enums.js";
-import { DeleteMetadataTarget, DeleteMetadataTarget$ } from "./deletemetadatatarget.js";
+import {
+    DeleteMetadataTarget,
+    DeleteMetadataTarget$inboundSchema,
+    DeleteMetadataTarget$Outbound,
+    DeleteMetadataTarget$outboundSchema,
+} from "./deletemetadatatarget.js";
 import * as z from "zod";
 
 export const DeleteMetadataActionAction = {
@@ -18,32 +23,64 @@ export type DeleteMetadataAction = {
 };
 
 /** @internal */
+export const DeleteMetadataActionAction$inboundSchema: z.ZodNativeEnum<
+    typeof DeleteMetadataActionAction
+> = z.nativeEnum(DeleteMetadataActionAction);
+
+/** @internal */
+export const DeleteMetadataActionAction$outboundSchema: z.ZodNativeEnum<
+    typeof DeleteMetadataActionAction
+> = DeleteMetadataActionAction$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace DeleteMetadataActionAction$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof DeleteMetadataActionAction> = z.nativeEnum(
-        DeleteMetadataActionAction
-    );
-    export const outboundSchema: z.ZodNativeEnum<typeof DeleteMetadataActionAction> = inboundSchema;
+    /** @deprecated use `DeleteMetadataActionAction$inboundSchema` instead. */
+    export const inboundSchema = DeleteMetadataActionAction$inboundSchema;
+    /** @deprecated use `DeleteMetadataActionAction$outboundSchema` instead. */
+    export const outboundSchema = DeleteMetadataActionAction$outboundSchema;
 }
 
 /** @internal */
+export const DeleteMetadataAction$inboundSchema: z.ZodType<
+    DeleteMetadataAction,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    action: DeleteMetadataActionAction$inboundSchema,
+    ik: z.string().optional(),
+    data: DeleteMetadataTarget$inboundSchema,
+});
+
+/** @internal */
+export type DeleteMetadataAction$Outbound = {
+    action: string;
+    ik?: string | undefined;
+    data: DeleteMetadataTarget$Outbound;
+};
+
+/** @internal */
+export const DeleteMetadataAction$outboundSchema: z.ZodType<
+    DeleteMetadataAction$Outbound,
+    z.ZodTypeDef,
+    DeleteMetadataAction
+> = z.object({
+    action: DeleteMetadataActionAction$outboundSchema,
+    ik: z.string().optional(),
+    data: DeleteMetadataTarget$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace DeleteMetadataAction$ {
-    export const inboundSchema: z.ZodType<DeleteMetadataAction, z.ZodTypeDef, unknown> = z.object({
-        action: DeleteMetadataActionAction$.inboundSchema,
-        ik: z.string().optional(),
-        data: DeleteMetadataTarget$.inboundSchema,
-    });
-
-    export type Outbound = {
-        action: string;
-        ik?: string | undefined;
-        data: DeleteMetadataTarget$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, DeleteMetadataAction> = z.object(
-        {
-            action: DeleteMetadataActionAction$.outboundSchema,
-            ik: z.string().optional(),
-            data: DeleteMetadataTarget$.outboundSchema,
-        }
-    );
+    /** @deprecated use `DeleteMetadataAction$inboundSchema` instead. */
+    export const inboundSchema = DeleteMetadataAction$inboundSchema;
+    /** @deprecated use `DeleteMetadataAction$outboundSchema` instead. */
+    export const outboundSchema = DeleteMetadataAction$outboundSchema;
+    /** @deprecated use `DeleteMetadataAction$Outbound` instead. */
+    export type Outbound = DeleteMetadataAction$Outbound;
 }

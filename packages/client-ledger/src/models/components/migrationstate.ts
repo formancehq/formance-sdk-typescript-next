@@ -12,8 +12,20 @@ export const MigrationState = {
 export type MigrationState = ClosedEnum<typeof MigrationState>;
 
 /** @internal */
+export const MigrationState$inboundSchema: z.ZodNativeEnum<typeof MigrationState> =
+    z.nativeEnum(MigrationState);
+
+/** @internal */
+export const MigrationState$outboundSchema: z.ZodNativeEnum<typeof MigrationState> =
+    MigrationState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace MigrationState$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof MigrationState> =
-        z.nativeEnum(MigrationState);
-    export const outboundSchema: z.ZodNativeEnum<typeof MigrationState> = inboundSchema;
+    /** @deprecated use `MigrationState$inboundSchema` instead. */
+    export const inboundSchema = MigrationState$inboundSchema;
+    /** @deprecated use `MigrationState$outboundSchema` instead. */
+    export const outboundSchema = MigrationState$outboundSchema;
 }

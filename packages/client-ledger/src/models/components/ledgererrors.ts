@@ -21,7 +21,20 @@ export const LedgerErrors = {
 export type LedgerErrors = ClosedEnum<typeof LedgerErrors>;
 
 /** @internal */
+export const LedgerErrors$inboundSchema: z.ZodNativeEnum<typeof LedgerErrors> =
+    z.nativeEnum(LedgerErrors);
+
+/** @internal */
+export const LedgerErrors$outboundSchema: z.ZodNativeEnum<typeof LedgerErrors> =
+    LedgerErrors$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace LedgerErrors$ {
-    export const inboundSchema: z.ZodNativeEnum<typeof LedgerErrors> = z.nativeEnum(LedgerErrors);
-    export const outboundSchema: z.ZodNativeEnum<typeof LedgerErrors> = inboundSchema;
+    /** @deprecated use `LedgerErrors$inboundSchema` instead. */
+    export const inboundSchema = LedgerErrors$inboundSchema;
+    /** @deprecated use `LedgerErrors$outboundSchema` instead. */
+    export const outboundSchema = LedgerErrors$outboundSchema;
 }

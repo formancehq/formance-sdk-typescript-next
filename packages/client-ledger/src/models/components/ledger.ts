@@ -11,25 +11,38 @@ export type Ledger = {
 };
 
 /** @internal */
+export const Ledger$inboundSchema: z.ZodType<Ledger, z.ZodTypeDef, unknown> = z.object({
+    name: z.string(),
+    addedAt: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+    bucket: z.string(),
+});
+
+/** @internal */
+export type Ledger$Outbound = {
+    name: string;
+    addedAt: string;
+    bucket: string;
+};
+
+/** @internal */
+export const Ledger$outboundSchema: z.ZodType<Ledger$Outbound, z.ZodTypeDef, Ledger> = z.object({
+    name: z.string(),
+    addedAt: z.date().transform((v) => v.toISOString()),
+    bucket: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Ledger$ {
-    export const inboundSchema: z.ZodType<Ledger, z.ZodTypeDef, unknown> = z.object({
-        name: z.string(),
-        addedAt: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v)),
-        bucket: z.string(),
-    });
-
-    export type Outbound = {
-        name: string;
-        addedAt: string;
-        bucket: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Ledger> = z.object({
-        name: z.string(),
-        addedAt: z.date().transform((v) => v.toISOString()),
-        bucket: z.string(),
-    });
+    /** @deprecated use `Ledger$inboundSchema` instead. */
+    export const inboundSchema = Ledger$inboundSchema;
+    /** @deprecated use `Ledger$outboundSchema` instead. */
+    export const outboundSchema = Ledger$outboundSchema;
+    /** @deprecated use `Ledger$Outbound` instead. */
+    export type Outbound = Ledger$Outbound;
 }
