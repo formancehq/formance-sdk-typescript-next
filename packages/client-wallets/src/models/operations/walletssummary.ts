@@ -17,34 +17,73 @@ export type WalletsSummaryResponseBody = {
 };
 
 /** @internal */
+export const WalletsSummaryRequest$inboundSchema: z.ZodType<
+    WalletsSummaryRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    id: z.string(),
+});
+
+/** @internal */
+export type WalletsSummaryRequest$Outbound = {
+    id: string;
+};
+
+/** @internal */
+export const WalletsSummaryRequest$outboundSchema: z.ZodType<
+    WalletsSummaryRequest$Outbound,
+    z.ZodTypeDef,
+    WalletsSummaryRequest
+> = z.object({
+    id: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WalletsSummaryRequest$ {
-    export const inboundSchema: z.ZodType<WalletsSummaryRequest, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-    });
-
-    export type Outbound = {
-        id: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WalletsSummaryRequest> =
-        z.object({
-            id: z.string(),
-        });
+    /** @deprecated use `WalletsSummaryRequest$inboundSchema` instead. */
+    export const inboundSchema = WalletsSummaryRequest$inboundSchema;
+    /** @deprecated use `WalletsSummaryRequest$outboundSchema` instead. */
+    export const outboundSchema = WalletsSummaryRequest$outboundSchema;
+    /** @deprecated use `WalletsSummaryRequest$Outbound` instead. */
+    export type Outbound = WalletsSummaryRequest$Outbound;
 }
 
 /** @internal */
+export const WalletsSummaryResponseBody$inboundSchema: z.ZodType<
+    WalletsSummaryResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.WalletSummary$inboundSchema,
+});
+
+/** @internal */
+export type WalletsSummaryResponseBody$Outbound = {
+    data: components.WalletSummary$Outbound;
+};
+
+/** @internal */
+export const WalletsSummaryResponseBody$outboundSchema: z.ZodType<
+    WalletsSummaryResponseBody$Outbound,
+    z.ZodTypeDef,
+    WalletsSummaryResponseBody
+> = z.object({
+    data: components.WalletSummary$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WalletsSummaryResponseBody$ {
-    export const inboundSchema: z.ZodType<WalletsSummaryResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.WalletSummary$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.WalletSummary$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WalletsSummaryResponseBody> =
-        z.object({
-            data: components.WalletSummary$.outboundSchema,
-        });
+    /** @deprecated use `WalletsSummaryResponseBody$inboundSchema` instead. */
+    export const inboundSchema = WalletsSummaryResponseBody$inboundSchema;
+    /** @deprecated use `WalletsSummaryResponseBody$outboundSchema` instead. */
+    export const outboundSchema = WalletsSummaryResponseBody$outboundSchema;
+    /** @deprecated use `WalletsSummaryResponseBody$Outbound` instead. */
+    export type Outbound = WalletsSummaryResponseBody$Outbound;
 }

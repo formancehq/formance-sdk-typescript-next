@@ -18,36 +18,76 @@ export type BalancesGetResponseBody = {
 };
 
 /** @internal */
+export const BalancesGetRequest$inboundSchema: z.ZodType<
+    BalancesGetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    walletId: z.string(),
+    balanceName: z.string(),
+});
+
+/** @internal */
+export type BalancesGetRequest$Outbound = {
+    walletId: string;
+    balanceName: string;
+};
+
+/** @internal */
+export const BalancesGetRequest$outboundSchema: z.ZodType<
+    BalancesGetRequest$Outbound,
+    z.ZodTypeDef,
+    BalancesGetRequest
+> = z.object({
+    walletId: z.string(),
+    balanceName: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BalancesGetRequest$ {
-    export const inboundSchema: z.ZodType<BalancesGetRequest, z.ZodTypeDef, unknown> = z.object({
-        walletId: z.string(),
-        balanceName: z.string(),
-    });
-
-    export type Outbound = {
-        walletId: string;
-        balanceName: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BalancesGetRequest> = z.object({
-        walletId: z.string(),
-        balanceName: z.string(),
-    });
+    /** @deprecated use `BalancesGetRequest$inboundSchema` instead. */
+    export const inboundSchema = BalancesGetRequest$inboundSchema;
+    /** @deprecated use `BalancesGetRequest$outboundSchema` instead. */
+    export const outboundSchema = BalancesGetRequest$outboundSchema;
+    /** @deprecated use `BalancesGetRequest$Outbound` instead. */
+    export type Outbound = BalancesGetRequest$Outbound;
 }
 
 /** @internal */
+export const BalancesGetResponseBody$inboundSchema: z.ZodType<
+    BalancesGetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.BalancesWithAssets$inboundSchema,
+});
+
+/** @internal */
+export type BalancesGetResponseBody$Outbound = {
+    data: components.BalancesWithAssets$Outbound;
+};
+
+/** @internal */
+export const BalancesGetResponseBody$outboundSchema: z.ZodType<
+    BalancesGetResponseBody$Outbound,
+    z.ZodTypeDef,
+    BalancesGetResponseBody
+> = z.object({
+    data: components.BalancesWithAssets$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BalancesGetResponseBody$ {
-    export const inboundSchema: z.ZodType<BalancesGetResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.BalancesWithAssets$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.BalancesWithAssets$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BalancesGetResponseBody> =
-        z.object({
-            data: components.BalancesWithAssets$.outboundSchema,
-        });
+    /** @deprecated use `BalancesGetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = BalancesGetResponseBody$inboundSchema;
+    /** @deprecated use `BalancesGetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = BalancesGetResponseBody$outboundSchema;
+    /** @deprecated use `BalancesGetResponseBody$Outbound` instead. */
+    export type Outbound = BalancesGetResponseBody$Outbound;
 }

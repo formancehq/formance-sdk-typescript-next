@@ -16,51 +16,91 @@ export type HoldsConfirmRequest = {
 };
 
 /** @internal */
+export const HoldsConfirmRequestBody$inboundSchema: z.ZodType<
+    HoldsConfirmRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    amount: z.number().int().optional(),
+    final: z.boolean().optional(),
+});
+
+/** @internal */
+export type HoldsConfirmRequestBody$Outbound = {
+    amount?: number | undefined;
+    final?: boolean | undefined;
+};
+
+/** @internal */
+export const HoldsConfirmRequestBody$outboundSchema: z.ZodType<
+    HoldsConfirmRequestBody$Outbound,
+    z.ZodTypeDef,
+    HoldsConfirmRequestBody
+> = z.object({
+    amount: z.number().int().optional(),
+    final: z.boolean().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace HoldsConfirmRequestBody$ {
-    export const inboundSchema: z.ZodType<HoldsConfirmRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            amount: z.number().int().optional(),
-            final: z.boolean().optional(),
-        });
-
-    export type Outbound = {
-        amount?: number | undefined;
-        final?: boolean | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, HoldsConfirmRequestBody> =
-        z.object({
-            amount: z.number().int().optional(),
-            final: z.boolean().optional(),
-        });
+    /** @deprecated use `HoldsConfirmRequestBody$inboundSchema` instead. */
+    export const inboundSchema = HoldsConfirmRequestBody$inboundSchema;
+    /** @deprecated use `HoldsConfirmRequestBody$outboundSchema` instead. */
+    export const outboundSchema = HoldsConfirmRequestBody$outboundSchema;
+    /** @deprecated use `HoldsConfirmRequestBody$Outbound` instead. */
+    export type Outbound = HoldsConfirmRequestBody$Outbound;
 }
 
 /** @internal */
+export const HoldsConfirmRequest$inboundSchema: z.ZodType<
+    HoldsConfirmRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        holdId: z.string(),
+        RequestBody: z.lazy(() => HoldsConfirmRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type HoldsConfirmRequest$Outbound = {
+    holdId: string;
+    RequestBody: HoldsConfirmRequestBody$Outbound;
+};
+
+/** @internal */
+export const HoldsConfirmRequest$outboundSchema: z.ZodType<
+    HoldsConfirmRequest$Outbound,
+    z.ZodTypeDef,
+    HoldsConfirmRequest
+> = z
+    .object({
+        holdId: z.string(),
+        requestBody: z.lazy(() => HoldsConfirmRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace HoldsConfirmRequest$ {
-    export const inboundSchema: z.ZodType<HoldsConfirmRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            holdId: z.string(),
-            RequestBody: z.lazy(() => HoldsConfirmRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        holdId: string;
-        RequestBody: HoldsConfirmRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, HoldsConfirmRequest> = z
-        .object({
-            holdId: z.string(),
-            requestBody: z.lazy(() => HoldsConfirmRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `HoldsConfirmRequest$inboundSchema` instead. */
+    export const inboundSchema = HoldsConfirmRequest$inboundSchema;
+    /** @deprecated use `HoldsConfirmRequest$outboundSchema` instead. */
+    export const outboundSchema = HoldsConfirmRequest$outboundSchema;
+    /** @deprecated use `HoldsConfirmRequest$Outbound` instead. */
+    export type Outbound = HoldsConfirmRequest$Outbound;
 }

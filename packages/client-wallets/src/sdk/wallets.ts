@@ -63,7 +63,7 @@ export class Wallets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WalletsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WalletsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -131,8 +131,8 @@ export class Wallets extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.WalletsListResponse>()
-            .json(200, operations.WalletsListResponse$, { key: "Result" })
-            .json("default", errors.WalletsError$, { err: true })
+            .json(200, operations.WalletsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.WalletsListResponse> => {
@@ -160,7 +160,7 @@ export class Wallets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WalletsCreateRequestBody$.outboundSchema.parse(value$),
+            (value$) => operations.WalletsCreateRequestBody$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$, { explode: true });
@@ -225,7 +225,7 @@ export class Wallets extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(201, z.void())
-            .json("default", errors.WalletsError$, { err: true })
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -241,7 +241,7 @@ export class Wallets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WalletsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WalletsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -307,9 +307,9 @@ export class Wallets extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.WalletsGetResponseBody | undefined>()
-            .json(200, operations.WalletsGetResponseBody$.inboundSchema.optional())
-            .void(404, operations.WalletsGetResponseBody$.inboundSchema.optional())
-            .json("default", errors.WalletsError$, { err: true })
+            .json(200, operations.WalletsGetResponseBody$inboundSchema.optional())
+            .void(404, operations.WalletsGetResponseBody$inboundSchema.optional())
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -327,7 +327,7 @@ export class Wallets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WalletsUpdateRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WalletsUpdateRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -409,7 +409,7 @@ export class Wallets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WalletsCreditRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WalletsCreditRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.CreditWalletInput, { explode: true });
@@ -477,7 +477,7 @@ export class Wallets extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.WalletsError$, { err: true })
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -495,7 +495,7 @@ export class Wallets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WalletsDebitRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WalletsDebitRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.DebitWalletInput, { explode: true });
@@ -562,9 +562,9 @@ export class Wallets extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.WalletsDebitResponseBody | undefined>()
-            .json(201, operations.WalletsDebitResponseBody$.inboundSchema.optional())
-            .void(204, operations.WalletsDebitResponseBody$.inboundSchema.optional())
-            .json("default", errors.WalletsError$, { err: true })
+            .json(201, operations.WalletsDebitResponseBody$inboundSchema.optional())
+            .void(204, operations.WalletsDebitResponseBody$inboundSchema.optional())
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -580,7 +580,7 @@ export class Wallets extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.WalletsSummaryRequest$.outboundSchema.parse(value$),
+            (value$) => operations.WalletsSummaryRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -646,9 +646,9 @@ export class Wallets extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.WalletsSummaryResponseBody | undefined>()
-            .json(200, operations.WalletsSummaryResponseBody$.inboundSchema.optional())
-            .void(404, operations.WalletsSummaryResponseBody$.inboundSchema.optional())
-            .json("default", errors.WalletsError$, { err: true })
+            .json(200, operations.WalletsSummaryResponseBody$inboundSchema.optional())
+            .void(404, operations.WalletsSummaryResponseBody$inboundSchema.optional())
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

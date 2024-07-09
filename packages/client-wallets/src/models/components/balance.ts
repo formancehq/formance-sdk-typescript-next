@@ -11,29 +11,42 @@ export type Balance = {
 };
 
 /** @internal */
+export const Balance$inboundSchema: z.ZodType<Balance, z.ZodTypeDef, unknown> = z.object({
+    name: z.string(),
+    expiresAt: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v))
+        .optional(),
+    priority: z.number().int().optional(),
+});
+
+/** @internal */
+export type Balance$Outbound = {
+    name: string;
+    expiresAt?: string | undefined;
+    priority?: number | undefined;
+};
+
+/** @internal */
+export const Balance$outboundSchema: z.ZodType<Balance$Outbound, z.ZodTypeDef, Balance> = z.object({
+    name: z.string(),
+    expiresAt: z
+        .date()
+        .transform((v) => v.toISOString())
+        .optional(),
+    priority: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Balance$ {
-    export const inboundSchema: z.ZodType<Balance, z.ZodTypeDef, unknown> = z.object({
-        name: z.string(),
-        expiresAt: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v))
-            .optional(),
-        priority: z.number().int().optional(),
-    });
-
-    export type Outbound = {
-        name: string;
-        expiresAt?: string | undefined;
-        priority?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Balance> = z.object({
-        name: z.string(),
-        expiresAt: z
-            .date()
-            .transform((v) => v.toISOString())
-            .optional(),
-        priority: z.number().int().optional(),
-    });
+    /** @deprecated use `Balance$inboundSchema` instead. */
+    export const inboundSchema = Balance$inboundSchema;
+    /** @deprecated use `Balance$outboundSchema` instead. */
+    export const outboundSchema = Balance$outboundSchema;
+    /** @deprecated use `Balance$Outbound` instead. */
+    export type Outbound = Balance$Outbound;
 }
