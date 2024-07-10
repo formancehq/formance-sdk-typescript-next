@@ -9,18 +9,37 @@ export type PoliciesV1DeleteRequest = {
 };
 
 /** @internal */
+export const PoliciesV1DeleteRequest$inboundSchema: z.ZodType<
+    PoliciesV1DeleteRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    policyID: z.string(),
+});
+
+/** @internal */
+export type PoliciesV1DeleteRequest$Outbound = {
+    policyID: string;
+};
+
+/** @internal */
+export const PoliciesV1DeleteRequest$outboundSchema: z.ZodType<
+    PoliciesV1DeleteRequest$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1DeleteRequest
+> = z.object({
+    policyID: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1DeleteRequest$ {
-    export const inboundSchema: z.ZodType<PoliciesV1DeleteRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            policyID: z.string(),
-        });
-
-    export type Outbound = {
-        policyID: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1DeleteRequest> =
-        z.object({
-            policyID: z.string(),
-        });
+    /** @deprecated use `PoliciesV1DeleteRequest$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1DeleteRequest$inboundSchema;
+    /** @deprecated use `PoliciesV1DeleteRequest$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1DeleteRequest$outboundSchema;
+    /** @deprecated use `PoliciesV1DeleteRequest$Outbound` instead. */
+    export type Outbound = PoliciesV1DeleteRequest$Outbound;
 }

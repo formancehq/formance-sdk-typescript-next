@@ -28,92 +28,163 @@ export type ReconciliationsV1ListResponse = {
 };
 
 /** @internal */
+export const ReconciliationsV1ListRequest$inboundSchema: z.ZodType<
+    ReconciliationsV1ListRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    pageSize: z.number().int().default(100),
+    cursor: z.string().optional(),
+});
+
+/** @internal */
+export type ReconciliationsV1ListRequest$Outbound = {
+    pageSize: number;
+    cursor?: string | undefined;
+};
+
+/** @internal */
+export const ReconciliationsV1ListRequest$outboundSchema: z.ZodType<
+    ReconciliationsV1ListRequest$Outbound,
+    z.ZodTypeDef,
+    ReconciliationsV1ListRequest
+> = z.object({
+    pageSize: z.number().int().default(100),
+    cursor: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconciliationsV1ListRequest$ {
-    export const inboundSchema: z.ZodType<ReconciliationsV1ListRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            pageSize: z.number().int().default(100),
-            cursor: z.string().optional(),
-        });
-
-    export type Outbound = {
-        pageSize: number;
-        cursor?: string | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconciliationsV1ListRequest> =
-        z.object({
-            pageSize: z.number().int().default(100),
-            cursor: z.string().optional(),
-        });
+    /** @deprecated use `ReconciliationsV1ListRequest$inboundSchema` instead. */
+    export const inboundSchema = ReconciliationsV1ListRequest$inboundSchema;
+    /** @deprecated use `ReconciliationsV1ListRequest$outboundSchema` instead. */
+    export const outboundSchema = ReconciliationsV1ListRequest$outboundSchema;
+    /** @deprecated use `ReconciliationsV1ListRequest$Outbound` instead. */
+    export type Outbound = ReconciliationsV1ListRequest$Outbound;
 }
 
 /** @internal */
+export const ReconciliationsV1ListCursor$inboundSchema: z.ZodType<
+    ReconciliationsV1ListCursor,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Reconciliation$inboundSchema),
+});
+
+/** @internal */
+export type ReconciliationsV1ListCursor$Outbound = {
+    next?: string | undefined;
+    data: Array<components.Reconciliation$Outbound>;
+};
+
+/** @internal */
+export const ReconciliationsV1ListCursor$outboundSchema: z.ZodType<
+    ReconciliationsV1ListCursor$Outbound,
+    z.ZodTypeDef,
+    ReconciliationsV1ListCursor
+> = z.object({
+    next: z.string().optional(),
+    data: z.array(components.Reconciliation$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconciliationsV1ListCursor$ {
-    export const inboundSchema: z.ZodType<ReconciliationsV1ListCursor, z.ZodTypeDef, unknown> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(components.Reconciliation$.inboundSchema),
-        });
-
-    export type Outbound = {
-        next?: string | undefined;
-        data: Array<components.Reconciliation$.Outbound>;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconciliationsV1ListCursor> =
-        z.object({
-            next: z.string().optional(),
-            data: z.array(components.Reconciliation$.outboundSchema),
-        });
+    /** @deprecated use `ReconciliationsV1ListCursor$inboundSchema` instead. */
+    export const inboundSchema = ReconciliationsV1ListCursor$inboundSchema;
+    /** @deprecated use `ReconciliationsV1ListCursor$outboundSchema` instead. */
+    export const outboundSchema = ReconciliationsV1ListCursor$outboundSchema;
+    /** @deprecated use `ReconciliationsV1ListCursor$Outbound` instead. */
+    export type Outbound = ReconciliationsV1ListCursor$Outbound;
 }
 
 /** @internal */
+export const ReconciliationsV1ListResponseBody$inboundSchema: z.ZodType<
+    ReconciliationsV1ListResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    cursor: z.lazy(() => ReconciliationsV1ListCursor$inboundSchema),
+});
+
+/** @internal */
+export type ReconciliationsV1ListResponseBody$Outbound = {
+    cursor: ReconciliationsV1ListCursor$Outbound;
+};
+
+/** @internal */
+export const ReconciliationsV1ListResponseBody$outboundSchema: z.ZodType<
+    ReconciliationsV1ListResponseBody$Outbound,
+    z.ZodTypeDef,
+    ReconciliationsV1ListResponseBody
+> = z.object({
+    cursor: z.lazy(() => ReconciliationsV1ListCursor$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconciliationsV1ListResponseBody$ {
-    export const inboundSchema: z.ZodType<
-        ReconciliationsV1ListResponseBody,
-        z.ZodTypeDef,
-        unknown
-    > = z.object({
-        cursor: z.lazy(() => ReconciliationsV1ListCursor$.inboundSchema),
-    });
-
-    export type Outbound = {
-        cursor: ReconciliationsV1ListCursor$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        ReconciliationsV1ListResponseBody
-    > = z.object({
-        cursor: z.lazy(() => ReconciliationsV1ListCursor$.outboundSchema),
-    });
+    /** @deprecated use `ReconciliationsV1ListResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ReconciliationsV1ListResponseBody$inboundSchema;
+    /** @deprecated use `ReconciliationsV1ListResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ReconciliationsV1ListResponseBody$outboundSchema;
+    /** @deprecated use `ReconciliationsV1ListResponseBody$Outbound` instead. */
+    export type Outbound = ReconciliationsV1ListResponseBody$Outbound;
 }
 
 /** @internal */
-export namespace ReconciliationsV1ListResponse$ {
-    export const inboundSchema: z.ZodType<ReconciliationsV1ListResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            Result: z.lazy(() => ReconciliationsV1ListResponseBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                Result: "result",
-            });
+export const ReconciliationsV1ListResponse$inboundSchema: z.ZodType<
+    ReconciliationsV1ListResponse,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        Result: z.lazy(() => ReconciliationsV1ListResponseBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            Result: "result",
         });
+    });
 
-    export type Outbound = {
-        Result: ReconciliationsV1ListResponseBody$.Outbound;
-    };
+/** @internal */
+export type ReconciliationsV1ListResponse$Outbound = {
+    Result: ReconciliationsV1ListResponseBody$Outbound;
+};
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconciliationsV1ListResponse> =
-        z
-            .object({
-                result: z.lazy(() => ReconciliationsV1ListResponseBody$.outboundSchema),
-            })
-            .transform((v) => {
-                return remap$(v, {
-                    result: "Result",
-                });
-            });
+/** @internal */
+export const ReconciliationsV1ListResponse$outboundSchema: z.ZodType<
+    ReconciliationsV1ListResponse$Outbound,
+    z.ZodTypeDef,
+    ReconciliationsV1ListResponse
+> = z
+    .object({
+        result: z.lazy(() => ReconciliationsV1ListResponseBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            result: "Result",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ReconciliationsV1ListResponse$ {
+    /** @deprecated use `ReconciliationsV1ListResponse$inboundSchema` instead. */
+    export const inboundSchema = ReconciliationsV1ListResponse$inboundSchema;
+    /** @deprecated use `ReconciliationsV1ListResponse$outboundSchema` instead. */
+    export const outboundSchema = ReconciliationsV1ListResponse$outboundSchema;
+    /** @deprecated use `ReconciliationsV1ListResponse$Outbound` instead. */
+    export type Outbound = ReconciliationsV1ListResponse$Outbound;
 }

@@ -111,8 +111,8 @@ export class ReconciliationClient extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.InfoResponseBody>()
-            .json(200, operations.InfoResponseBody$)
-            .json("default", errors.ReconciliationError$, { err: true })
+            .json(200, operations.InfoResponseBody$inboundSchema)
+            .json("default", errors.ReconciliationError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -130,7 +130,7 @@ export class ReconciliationClient extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.ReconcileRequest$.outboundSchema.parse(value$),
+            (value$) => operations.ReconcileRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -202,8 +202,8 @@ export class ReconciliationClient extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.ReconcileResponseBody>()
-            .json(200, operations.ReconcileResponseBody$)
-            .json("default", errors.ReconciliationError$, { err: true })
+            .json(200, operations.ReconcileResponseBody$inboundSchema)
+            .json("default", errors.ReconciliationError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

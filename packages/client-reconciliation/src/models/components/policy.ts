@@ -14,34 +14,47 @@ export type Policy = {
 };
 
 /** @internal */
+export const Policy$inboundSchema: z.ZodType<Policy, z.ZodTypeDef, unknown> = z.object({
+    id: z.string(),
+    name: z.string(),
+    createdAt: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v)),
+    ledgerName: z.string(),
+    ledgerQuery: z.record(z.any()),
+    paymentsPoolID: z.string(),
+});
+
+/** @internal */
+export type Policy$Outbound = {
+    id: string;
+    name: string;
+    createdAt: string;
+    ledgerName: string;
+    ledgerQuery: { [k: string]: any };
+    paymentsPoolID: string;
+};
+
+/** @internal */
+export const Policy$outboundSchema: z.ZodType<Policy$Outbound, z.ZodTypeDef, Policy> = z.object({
+    id: z.string(),
+    name: z.string(),
+    createdAt: z.date().transform((v) => v.toISOString()),
+    ledgerName: z.string(),
+    ledgerQuery: z.record(z.any()),
+    paymentsPoolID: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace Policy$ {
-    export const inboundSchema: z.ZodType<Policy, z.ZodTypeDef, unknown> = z.object({
-        id: z.string(),
-        name: z.string(),
-        createdAt: z
-            .string()
-            .datetime({ offset: true })
-            .transform((v) => new Date(v)),
-        ledgerName: z.string(),
-        ledgerQuery: z.record(z.any()),
-        paymentsPoolID: z.string(),
-    });
-
-    export type Outbound = {
-        id: string;
-        name: string;
-        createdAt: string;
-        ledgerName: string;
-        ledgerQuery: { [k: string]: any };
-        paymentsPoolID: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Policy> = z.object({
-        id: z.string(),
-        name: z.string(),
-        createdAt: z.date().transform((v) => v.toISOString()),
-        ledgerName: z.string(),
-        ledgerQuery: z.record(z.any()),
-        paymentsPoolID: z.string(),
-    });
+    /** @deprecated use `Policy$inboundSchema` instead. */
+    export const inboundSchema = Policy$inboundSchema;
+    /** @deprecated use `Policy$outboundSchema` instead. */
+    export const outboundSchema = Policy$outboundSchema;
+    /** @deprecated use `Policy$Outbound` instead. */
+    export type Outbound = Policy$Outbound;
 }

@@ -20,44 +20,82 @@ export type PoliciesV1CreateResponseBody = {
 };
 
 /** @internal */
+export const PoliciesV1CreateRequestBody$inboundSchema: z.ZodType<
+    PoliciesV1CreateRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    name: z.string(),
+    ledgerName: z.string(),
+    ledgerQuery: z.record(z.any()),
+    paymentsPoolID: z.string(),
+});
+
+/** @internal */
+export type PoliciesV1CreateRequestBody$Outbound = {
+    name: string;
+    ledgerName: string;
+    ledgerQuery: { [k: string]: any };
+    paymentsPoolID: string;
+};
+
+/** @internal */
+export const PoliciesV1CreateRequestBody$outboundSchema: z.ZodType<
+    PoliciesV1CreateRequestBody$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1CreateRequestBody
+> = z.object({
+    name: z.string(),
+    ledgerName: z.string(),
+    ledgerQuery: z.record(z.any()),
+    paymentsPoolID: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1CreateRequestBody$ {
-    export const inboundSchema: z.ZodType<PoliciesV1CreateRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            name: z.string(),
-            ledgerName: z.string(),
-            ledgerQuery: z.record(z.any()),
-            paymentsPoolID: z.string(),
-        });
-
-    export type Outbound = {
-        name: string;
-        ledgerName: string;
-        ledgerQuery: { [k: string]: any };
-        paymentsPoolID: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1CreateRequestBody> =
-        z.object({
-            name: z.string(),
-            ledgerName: z.string(),
-            ledgerQuery: z.record(z.any()),
-            paymentsPoolID: z.string(),
-        });
+    /** @deprecated use `PoliciesV1CreateRequestBody$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1CreateRequestBody$inboundSchema;
+    /** @deprecated use `PoliciesV1CreateRequestBody$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1CreateRequestBody$outboundSchema;
+    /** @deprecated use `PoliciesV1CreateRequestBody$Outbound` instead. */
+    export type Outbound = PoliciesV1CreateRequestBody$Outbound;
 }
 
 /** @internal */
+export const PoliciesV1CreateResponseBody$inboundSchema: z.ZodType<
+    PoliciesV1CreateResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Policy$inboundSchema,
+});
+
+/** @internal */
+export type PoliciesV1CreateResponseBody$Outbound = {
+    data: components.Policy$Outbound;
+};
+
+/** @internal */
+export const PoliciesV1CreateResponseBody$outboundSchema: z.ZodType<
+    PoliciesV1CreateResponseBody$Outbound,
+    z.ZodTypeDef,
+    PoliciesV1CreateResponseBody
+> = z.object({
+    data: components.Policy$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace PoliciesV1CreateResponseBody$ {
-    export const inboundSchema: z.ZodType<PoliciesV1CreateResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Policy$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Policy$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, PoliciesV1CreateResponseBody> =
-        z.object({
-            data: components.Policy$.outboundSchema,
-        });
+    /** @deprecated use `PoliciesV1CreateResponseBody$inboundSchema` instead. */
+    export const inboundSchema = PoliciesV1CreateResponseBody$inboundSchema;
+    /** @deprecated use `PoliciesV1CreateResponseBody$outboundSchema` instead. */
+    export const outboundSchema = PoliciesV1CreateResponseBody$outboundSchema;
+    /** @deprecated use `PoliciesV1CreateResponseBody$Outbound` instead. */
+    export type Outbound = PoliciesV1CreateResponseBody$Outbound;
 }

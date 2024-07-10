@@ -12,16 +12,34 @@ export type InfoResponseBody = {
 };
 
 /** @internal */
+export const InfoResponseBody$inboundSchema: z.ZodType<InfoResponseBody, z.ZodTypeDef, unknown> =
+    z.object({
+        verison: z.string(),
+    });
+
+/** @internal */
+export type InfoResponseBody$Outbound = {
+    verison: string;
+};
+
+/** @internal */
+export const InfoResponseBody$outboundSchema: z.ZodType<
+    InfoResponseBody$Outbound,
+    z.ZodTypeDef,
+    InfoResponseBody
+> = z.object({
+    verison: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace InfoResponseBody$ {
-    export const inboundSchema: z.ZodType<InfoResponseBody, z.ZodTypeDef, unknown> = z.object({
-        verison: z.string(),
-    });
-
-    export type Outbound = {
-        verison: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, InfoResponseBody> = z.object({
-        verison: z.string(),
-    });
+    /** @deprecated use `InfoResponseBody$inboundSchema` instead. */
+    export const inboundSchema = InfoResponseBody$inboundSchema;
+    /** @deprecated use `InfoResponseBody$outboundSchema` instead. */
+    export const outboundSchema = InfoResponseBody$outboundSchema;
+    /** @deprecated use `InfoResponseBody$Outbound` instead. */
+    export type Outbound = InfoResponseBody$Outbound;
 }

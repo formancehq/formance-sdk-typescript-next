@@ -17,38 +17,73 @@ export type ReconciliationsV1GetResponseBody = {
 };
 
 /** @internal */
+export const ReconciliationsV1GetRequest$inboundSchema: z.ZodType<
+    ReconciliationsV1GetRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    reconciliationId: z.string(),
+});
+
+/** @internal */
+export type ReconciliationsV1GetRequest$Outbound = {
+    reconciliationId: string;
+};
+
+/** @internal */
+export const ReconciliationsV1GetRequest$outboundSchema: z.ZodType<
+    ReconciliationsV1GetRequest$Outbound,
+    z.ZodTypeDef,
+    ReconciliationsV1GetRequest
+> = z.object({
+    reconciliationId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconciliationsV1GetRequest$ {
-    export const inboundSchema: z.ZodType<ReconciliationsV1GetRequest, z.ZodTypeDef, unknown> =
-        z.object({
-            reconciliationId: z.string(),
-        });
-
-    export type Outbound = {
-        reconciliationId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ReconciliationsV1GetRequest> =
-        z.object({
-            reconciliationId: z.string(),
-        });
+    /** @deprecated use `ReconciliationsV1GetRequest$inboundSchema` instead. */
+    export const inboundSchema = ReconciliationsV1GetRequest$inboundSchema;
+    /** @deprecated use `ReconciliationsV1GetRequest$outboundSchema` instead. */
+    export const outboundSchema = ReconciliationsV1GetRequest$outboundSchema;
+    /** @deprecated use `ReconciliationsV1GetRequest$Outbound` instead. */
+    export type Outbound = ReconciliationsV1GetRequest$Outbound;
 }
 
 /** @internal */
+export const ReconciliationsV1GetResponseBody$inboundSchema: z.ZodType<
+    ReconciliationsV1GetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Reconciliation$inboundSchema,
+});
+
+/** @internal */
+export type ReconciliationsV1GetResponseBody$Outbound = {
+    data: components.Reconciliation$Outbound;
+};
+
+/** @internal */
+export const ReconciliationsV1GetResponseBody$outboundSchema: z.ZodType<
+    ReconciliationsV1GetResponseBody$Outbound,
+    z.ZodTypeDef,
+    ReconciliationsV1GetResponseBody
+> = z.object({
+    data: components.Reconciliation$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace ReconciliationsV1GetResponseBody$ {
-    export const inboundSchema: z.ZodType<ReconciliationsV1GetResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Reconciliation$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Reconciliation$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<
-        Outbound,
-        z.ZodTypeDef,
-        ReconciliationsV1GetResponseBody
-    > = z.object({
-        data: components.Reconciliation$.outboundSchema,
-    });
+    /** @deprecated use `ReconciliationsV1GetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = ReconciliationsV1GetResponseBody$inboundSchema;
+    /** @deprecated use `ReconciliationsV1GetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = ReconciliationsV1GetResponseBody$outboundSchema;
+    /** @deprecated use `ReconciliationsV1GetResponseBody$Outbound` instead. */
+    export type Outbound = ReconciliationsV1GetResponseBody$Outbound;
 }
