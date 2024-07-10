@@ -17,33 +17,70 @@ export type HoldsGetResponseBody = {
 };
 
 /** @internal */
+export const HoldsGetRequest$inboundSchema: z.ZodType<HoldsGetRequest, z.ZodTypeDef, unknown> =
+    z.object({
+        holdId: z.string(),
+    });
+
+/** @internal */
+export type HoldsGetRequest$Outbound = {
+    holdId: string;
+};
+
+/** @internal */
+export const HoldsGetRequest$outboundSchema: z.ZodType<
+    HoldsGetRequest$Outbound,
+    z.ZodTypeDef,
+    HoldsGetRequest
+> = z.object({
+    holdId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace HoldsGetRequest$ {
-    export const inboundSchema: z.ZodType<HoldsGetRequest, z.ZodTypeDef, unknown> = z.object({
-        holdId: z.string(),
-    });
-
-    export type Outbound = {
-        holdId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, HoldsGetRequest> = z.object({
-        holdId: z.string(),
-    });
+    /** @deprecated use `HoldsGetRequest$inboundSchema` instead. */
+    export const inboundSchema = HoldsGetRequest$inboundSchema;
+    /** @deprecated use `HoldsGetRequest$outboundSchema` instead. */
+    export const outboundSchema = HoldsGetRequest$outboundSchema;
+    /** @deprecated use `HoldsGetRequest$Outbound` instead. */
+    export type Outbound = HoldsGetRequest$Outbound;
 }
 
 /** @internal */
+export const HoldsGetResponseBody$inboundSchema: z.ZodType<
+    HoldsGetResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Hold$inboundSchema,
+});
+
+/** @internal */
+export type HoldsGetResponseBody$Outbound = {
+    data: components.Hold$Outbound;
+};
+
+/** @internal */
+export const HoldsGetResponseBody$outboundSchema: z.ZodType<
+    HoldsGetResponseBody$Outbound,
+    z.ZodTypeDef,
+    HoldsGetResponseBody
+> = z.object({
+    data: components.Hold$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace HoldsGetResponseBody$ {
-    export const inboundSchema: z.ZodType<HoldsGetResponseBody, z.ZodTypeDef, unknown> = z.object({
-        data: components.Hold$.inboundSchema,
-    });
-
-    export type Outbound = {
-        data: components.Hold$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, HoldsGetResponseBody> = z.object(
-        {
-            data: components.Hold$.outboundSchema,
-        }
-    );
+    /** @deprecated use `HoldsGetResponseBody$inboundSchema` instead. */
+    export const inboundSchema = HoldsGetResponseBody$inboundSchema;
+    /** @deprecated use `HoldsGetResponseBody$outboundSchema` instead. */
+    export const outboundSchema = HoldsGetResponseBody$outboundSchema;
+    /** @deprecated use `HoldsGetResponseBody$Outbound` instead. */
+    export type Outbound = HoldsGetResponseBody$Outbound;
 }

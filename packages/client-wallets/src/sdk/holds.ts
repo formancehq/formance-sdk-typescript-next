@@ -60,7 +60,7 @@ export class Holds extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.HoldsListRequest$.outboundSchema.parse(value$),
+            (value$) => operations.HoldsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -127,8 +127,8 @@ export class Holds extends ClientSDK {
         };
 
         const [result$, raw$] = await this.matcher<operations.HoldsListResponse>()
-            .json(200, operations.HoldsListResponse$, { key: "Result" })
-            .json("default", errors.WalletsError$, { err: true })
+            .json(200, operations.HoldsListResponse$inboundSchema, { key: "Result" })
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.HoldsListResponse> => {
@@ -158,7 +158,7 @@ export class Holds extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.HoldsGetRequest$.outboundSchema.parse(value$),
+            (value$) => operations.HoldsGetRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -227,8 +227,8 @@ export class Holds extends ClientSDK {
         };
 
         const [result$] = await this.matcher<operations.HoldsGetResponseBody>()
-            .json(200, operations.HoldsGetResponseBody$)
-            .json("default", errors.WalletsError$, { err: true })
+            .json(200, operations.HoldsGetResponseBody$inboundSchema)
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -246,7 +246,7 @@ export class Holds extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.HoldsConfirmRequest$.outboundSchema.parse(value$),
+            (value$) => operations.HoldsConfirmRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = encodeJSON$("body", payload$.RequestBody, { explode: true });
@@ -317,7 +317,7 @@ export class Holds extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.WalletsError$, { err: true })
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;
@@ -333,7 +333,7 @@ export class Holds extends ClientSDK {
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.HoldsCancelRequest$.outboundSchema.parse(value$),
+            (value$) => operations.HoldsCancelRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -403,7 +403,7 @@ export class Holds extends ClientSDK {
 
         const [result$] = await this.matcher<void>()
             .void(204, z.void())
-            .json("default", errors.WalletsError$, { err: true })
+            .json("default", errors.WalletsError$inboundSchema, { err: true })
             .match(response, { extraFields: responseFields$ });
 
         return result$;

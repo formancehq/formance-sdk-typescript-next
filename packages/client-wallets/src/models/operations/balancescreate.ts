@@ -25,78 +25,137 @@ export type BalancesCreateResponseBody = {
 };
 
 /** @internal */
+export const BalancesCreateRequestBody$inboundSchema: z.ZodType<
+    BalancesCreateRequestBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    name: z.string(),
+    expiresAt: z
+        .string()
+        .datetime({ offset: true })
+        .transform((v) => new Date(v))
+        .optional(),
+    priority: z.number().int().optional(),
+});
+
+/** @internal */
+export type BalancesCreateRequestBody$Outbound = {
+    name: string;
+    expiresAt?: string | undefined;
+    priority?: number | undefined;
+};
+
+/** @internal */
+export const BalancesCreateRequestBody$outboundSchema: z.ZodType<
+    BalancesCreateRequestBody$Outbound,
+    z.ZodTypeDef,
+    BalancesCreateRequestBody
+> = z.object({
+    name: z.string(),
+    expiresAt: z
+        .date()
+        .transform((v) => v.toISOString())
+        .optional(),
+    priority: z.number().int().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BalancesCreateRequestBody$ {
-    export const inboundSchema: z.ZodType<BalancesCreateRequestBody, z.ZodTypeDef, unknown> =
-        z.object({
-            name: z.string(),
-            expiresAt: z
-                .string()
-                .datetime({ offset: true })
-                .transform((v) => new Date(v))
-                .optional(),
-            priority: z.number().int().optional(),
-        });
-
-    export type Outbound = {
-        name: string;
-        expiresAt?: string | undefined;
-        priority?: number | undefined;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BalancesCreateRequestBody> =
-        z.object({
-            name: z.string(),
-            expiresAt: z
-                .date()
-                .transform((v) => v.toISOString())
-                .optional(),
-            priority: z.number().int().optional(),
-        });
+    /** @deprecated use `BalancesCreateRequestBody$inboundSchema` instead. */
+    export const inboundSchema = BalancesCreateRequestBody$inboundSchema;
+    /** @deprecated use `BalancesCreateRequestBody$outboundSchema` instead. */
+    export const outboundSchema = BalancesCreateRequestBody$outboundSchema;
+    /** @deprecated use `BalancesCreateRequestBody$Outbound` instead. */
+    export type Outbound = BalancesCreateRequestBody$Outbound;
 }
 
 /** @internal */
+export const BalancesCreateRequest$inboundSchema: z.ZodType<
+    BalancesCreateRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        walletId: z.string(),
+        RequestBody: z.lazy(() => BalancesCreateRequestBody$inboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            RequestBody: "requestBody",
+        });
+    });
+
+/** @internal */
+export type BalancesCreateRequest$Outbound = {
+    walletId: string;
+    RequestBody: BalancesCreateRequestBody$Outbound;
+};
+
+/** @internal */
+export const BalancesCreateRequest$outboundSchema: z.ZodType<
+    BalancesCreateRequest$Outbound,
+    z.ZodTypeDef,
+    BalancesCreateRequest
+> = z
+    .object({
+        walletId: z.string(),
+        requestBody: z.lazy(() => BalancesCreateRequestBody$outboundSchema),
+    })
+    .transform((v) => {
+        return remap$(v, {
+            requestBody: "RequestBody",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BalancesCreateRequest$ {
-    export const inboundSchema: z.ZodType<BalancesCreateRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            walletId: z.string(),
-            RequestBody: z.lazy(() => BalancesCreateRequestBody$.inboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                RequestBody: "requestBody",
-            });
-        });
-
-    export type Outbound = {
-        walletId: string;
-        RequestBody: BalancesCreateRequestBody$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BalancesCreateRequest> = z
-        .object({
-            walletId: z.string(),
-            requestBody: z.lazy(() => BalancesCreateRequestBody$.outboundSchema),
-        })
-        .transform((v) => {
-            return remap$(v, {
-                requestBody: "RequestBody",
-            });
-        });
+    /** @deprecated use `BalancesCreateRequest$inboundSchema` instead. */
+    export const inboundSchema = BalancesCreateRequest$inboundSchema;
+    /** @deprecated use `BalancesCreateRequest$outboundSchema` instead. */
+    export const outboundSchema = BalancesCreateRequest$outboundSchema;
+    /** @deprecated use `BalancesCreateRequest$Outbound` instead. */
+    export type Outbound = BalancesCreateRequest$Outbound;
 }
 
 /** @internal */
+export const BalancesCreateResponseBody$inboundSchema: z.ZodType<
+    BalancesCreateResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Balance$inboundSchema,
+});
+
+/** @internal */
+export type BalancesCreateResponseBody$Outbound = {
+    data: components.Balance$Outbound;
+};
+
+/** @internal */
+export const BalancesCreateResponseBody$outboundSchema: z.ZodType<
+    BalancesCreateResponseBody$Outbound,
+    z.ZodTypeDef,
+    BalancesCreateResponseBody
+> = z.object({
+    data: components.Balance$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace BalancesCreateResponseBody$ {
-    export const inboundSchema: z.ZodType<BalancesCreateResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Balance$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Balance$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, BalancesCreateResponseBody> =
-        z.object({
-            data: components.Balance$.outboundSchema,
-        });
+    /** @deprecated use `BalancesCreateResponseBody$inboundSchema` instead. */
+    export const inboundSchema = BalancesCreateResponseBody$inboundSchema;
+    /** @deprecated use `BalancesCreateResponseBody$outboundSchema` instead. */
+    export const outboundSchema = BalancesCreateResponseBody$outboundSchema;
+    /** @deprecated use `BalancesCreateResponseBody$Outbound` instead. */
+    export type Outbound = BalancesCreateResponseBody$Outbound;
 }

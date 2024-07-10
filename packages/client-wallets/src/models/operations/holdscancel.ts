@@ -9,16 +9,37 @@ export type HoldsCancelRequest = {
 };
 
 /** @internal */
+export const HoldsCancelRequest$inboundSchema: z.ZodType<
+    HoldsCancelRequest,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    holdId: z.string(),
+});
+
+/** @internal */
+export type HoldsCancelRequest$Outbound = {
+    holdId: string;
+};
+
+/** @internal */
+export const HoldsCancelRequest$outboundSchema: z.ZodType<
+    HoldsCancelRequest$Outbound,
+    z.ZodTypeDef,
+    HoldsCancelRequest
+> = z.object({
+    holdId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace HoldsCancelRequest$ {
-    export const inboundSchema: z.ZodType<HoldsCancelRequest, z.ZodTypeDef, unknown> = z.object({
-        holdId: z.string(),
-    });
-
-    export type Outbound = {
-        holdId: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, HoldsCancelRequest> = z.object({
-        holdId: z.string(),
-    });
+    /** @deprecated use `HoldsCancelRequest$inboundSchema` instead. */
+    export const inboundSchema = HoldsCancelRequest$inboundSchema;
+    /** @deprecated use `HoldsCancelRequest$outboundSchema` instead. */
+    export const outboundSchema = HoldsCancelRequest$outboundSchema;
+    /** @deprecated use `HoldsCancelRequest$Outbound` instead. */
+    export type Outbound = HoldsCancelRequest$Outbound;
 }

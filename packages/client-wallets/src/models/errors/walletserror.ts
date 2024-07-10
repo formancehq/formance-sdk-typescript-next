@@ -24,44 +24,60 @@ export class WalletsError extends Error {
     data$: WalletsErrorData;
 
     constructor(err: WalletsErrorData) {
-        super("");
+        const message =
+            "message" in err && typeof err.message === "string"
+                ? err.message
+                : `API error occurred: ${JSON.stringify(err)}`;
+        super(message);
         this.data$ = err;
 
         this.errorCode = err.errorCode;
         this.errorMessage = err.errorMessage;
-
-        this.message =
-            "message" in err && typeof err.message === "string"
-                ? err.message
-                : "API error occurred";
 
         this.name = "WalletsError";
     }
 }
 
 /** @internal */
-export namespace WalletsError$ {
-    export const inboundSchema: z.ZodType<WalletsError, z.ZodTypeDef, unknown> = z
-        .object({
-            errorCode: components.WalletsErrorCodes$.inboundSchema,
+export const WalletsError$inboundSchema: z.ZodType<WalletsError, z.ZodTypeDef, unknown> = z
+    .object({
+        errorCode: components.WalletsErrorCodes$inboundSchema,
+        errorMessage: z.string(),
+    })
+    .transform((v) => {
+        return new WalletsError(v);
+    });
+
+/** @internal */
+export type WalletsError$Outbound = {
+    errorCode: string;
+    errorMessage: string;
+};
+
+/** @internal */
+export const WalletsError$outboundSchema: z.ZodType<
+    WalletsError$Outbound,
+    z.ZodTypeDef,
+    WalletsError
+> = z
+    .instanceof(WalletsError)
+    .transform((v) => v.data$)
+    .pipe(
+        z.object({
+            errorCode: components.WalletsErrorCodes$outboundSchema,
             errorMessage: z.string(),
         })
-        .transform((v) => {
-            return new WalletsError(v);
-        });
+    );
 
-    export type Outbound = {
-        errorCode: string;
-        errorMessage: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WalletsError> = z
-        .instanceof(WalletsError)
-        .transform((v) => v.data$)
-        .pipe(
-            z.object({
-                errorCode: components.WalletsErrorCodes$.outboundSchema,
-                errorMessage: z.string(),
-            })
-        );
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace WalletsError$ {
+    /** @deprecated use `WalletsError$inboundSchema` instead. */
+    export const inboundSchema = WalletsError$inboundSchema;
+    /** @deprecated use `WalletsError$outboundSchema` instead. */
+    export const outboundSchema = WalletsError$outboundSchema;
+    /** @deprecated use `WalletsError$Outbound` instead. */
+    export type Outbound = WalletsError$Outbound;
 }

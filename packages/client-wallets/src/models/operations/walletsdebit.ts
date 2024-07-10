@@ -19,48 +19,88 @@ export type WalletsDebitResponseBody = {
 };
 
 /** @internal */
+export const WalletsDebitRequest$inboundSchema: z.ZodType<
+    WalletsDebitRequest,
+    z.ZodTypeDef,
+    unknown
+> = z
+    .object({
+        id: z.string(),
+        DebitWalletInput: components.DebitWalletInput$inboundSchema,
+    })
+    .transform((v) => {
+        return remap$(v, {
+            DebitWalletInput: "debitWalletInput",
+        });
+    });
+
+/** @internal */
+export type WalletsDebitRequest$Outbound = {
+    id: string;
+    DebitWalletInput: components.DebitWalletInput$Outbound;
+};
+
+/** @internal */
+export const WalletsDebitRequest$outboundSchema: z.ZodType<
+    WalletsDebitRequest$Outbound,
+    z.ZodTypeDef,
+    WalletsDebitRequest
+> = z
+    .object({
+        id: z.string(),
+        debitWalletInput: components.DebitWalletInput$outboundSchema,
+    })
+    .transform((v) => {
+        return remap$(v, {
+            debitWalletInput: "DebitWalletInput",
+        });
+    });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WalletsDebitRequest$ {
-    export const inboundSchema: z.ZodType<WalletsDebitRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.string(),
-            DebitWalletInput: components.DebitWalletInput$.inboundSchema,
-        })
-        .transform((v) => {
-            return remap$(v, {
-                DebitWalletInput: "debitWalletInput",
-            });
-        });
-
-    export type Outbound = {
-        id: string;
-        DebitWalletInput: components.DebitWalletInput$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WalletsDebitRequest> = z
-        .object({
-            id: z.string(),
-            debitWalletInput: components.DebitWalletInput$.outboundSchema,
-        })
-        .transform((v) => {
-            return remap$(v, {
-                debitWalletInput: "DebitWalletInput",
-            });
-        });
+    /** @deprecated use `WalletsDebitRequest$inboundSchema` instead. */
+    export const inboundSchema = WalletsDebitRequest$inboundSchema;
+    /** @deprecated use `WalletsDebitRequest$outboundSchema` instead. */
+    export const outboundSchema = WalletsDebitRequest$outboundSchema;
+    /** @deprecated use `WalletsDebitRequest$Outbound` instead. */
+    export type Outbound = WalletsDebitRequest$Outbound;
 }
 
 /** @internal */
+export const WalletsDebitResponseBody$inboundSchema: z.ZodType<
+    WalletsDebitResponseBody,
+    z.ZodTypeDef,
+    unknown
+> = z.object({
+    data: components.Hold$inboundSchema,
+});
+
+/** @internal */
+export type WalletsDebitResponseBody$Outbound = {
+    data: components.Hold$Outbound;
+};
+
+/** @internal */
+export const WalletsDebitResponseBody$outboundSchema: z.ZodType<
+    WalletsDebitResponseBody$Outbound,
+    z.ZodTypeDef,
+    WalletsDebitResponseBody
+> = z.object({
+    data: components.Hold$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
 export namespace WalletsDebitResponseBody$ {
-    export const inboundSchema: z.ZodType<WalletsDebitResponseBody, z.ZodTypeDef, unknown> =
-        z.object({
-            data: components.Hold$.inboundSchema,
-        });
-
-    export type Outbound = {
-        data: components.Hold$.Outbound;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, WalletsDebitResponseBody> =
-        z.object({
-            data: components.Hold$.outboundSchema,
-        });
+    /** @deprecated use `WalletsDebitResponseBody$inboundSchema` instead. */
+    export const inboundSchema = WalletsDebitResponseBody$inboundSchema;
+    /** @deprecated use `WalletsDebitResponseBody$outboundSchema` instead. */
+    export const outboundSchema = WalletsDebitResponseBody$outboundSchema;
+    /** @deprecated use `WalletsDebitResponseBody$Outbound` instead. */
+    export type Outbound = WalletsDebitResponseBody$Outbound;
 }

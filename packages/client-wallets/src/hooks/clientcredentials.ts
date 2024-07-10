@@ -168,7 +168,7 @@ export class ClientCredentialsHook implements SDKInitHook, BeforeRequestHook, Af
         }
         const out = parse(
             security,
-            (val) => components.Security$.outboundSchema.parse(val),
+            (val) => components.Security$outboundSchema.parse(val),
             "unexpected security type"
         );
 
