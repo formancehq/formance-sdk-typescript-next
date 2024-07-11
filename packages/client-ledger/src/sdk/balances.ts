@@ -4,6 +4,7 @@
 
 import { SDKHooks } from "../hooks/hooks.js";
 import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
+import { dlv } from "../lib/dlv.js";
 import {
     encodeFormQuery as encodeFormQuery$,
     encodeSimple as encodeSimple$,
@@ -15,7 +16,6 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as errors from "../models/errors/index.js";
 import * as operations from "../models/operations/index.js";
 import { createPageIterator, PageIterator, Paginator } from "../types/operations.js";
-import jp from "jsonpath";
 
 export class Balances extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
@@ -232,11 +232,13 @@ export class Balances extends ClientSDK {
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.BalancesVolumesResponse> => {
-            const nextCursor = jp.value(responseData, "$.cursor.next");
+            const nextCursor = dlv(responseData, "cursornext");
+
             if (nextCursor == null) {
                 return () => null;
             }
-            const results = jp.value(responseData, "$.cursor.data");
+
+            const results = dlv(responseData, "cursordata");
             if (!results.length) {
                 return () => null;
             }
