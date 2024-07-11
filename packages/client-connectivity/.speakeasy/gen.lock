@@ -3,10 +3,10 @@ id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
   docChecksum: 00309fe8f1f0a66ef07772d3cff3db4c
   docVersion: 0.0.0
-  speakeasyVersion: 1.330.0
-  generationVersion: 2.361.10
-  releaseVersion: 1.0.0-alpha.2
-  configChecksum: 51a3b6a66c2c35770acb5c32322848f5
+  speakeasyVersion: 1.331.0
+  generationVersion: 2.365.0
+  releaseVersion: 1.0.0-alpha.3
+  configChecksum: 55584dd896a64ad4a59b2c5c7025c224
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-connectivity
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-connectivity
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
-    core: 3.11.5
+    core: 3.11.6
     deprecations: 2.81.1
     errors: 2.81.11
     flattening: 2.81.1
@@ -25,7 +25,7 @@ features:
     groups: 2.81.2
     nameOverrides: 2.81.2
     oauth2ClientCredentials: 0.1.4
-    pagination: 2.82.2
+    pagination: 2.82.3
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.1.0
@@ -46,6 +46,7 @@ generatedFiles:
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
+  - src/lib/dlv.ts
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
