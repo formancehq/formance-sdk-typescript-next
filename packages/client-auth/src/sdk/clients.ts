@@ -4,6 +4,7 @@
 
 import { SDKHooks } from "../hooks/hooks.js";
 import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
+import { dlv } from "../lib/dlv.js";
 import {
     encodeFormQuery as encodeFormQuery$,
     encodeJSON as encodeJSON$,
@@ -16,7 +17,6 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { createPageIterator, PageIterator, Paginator } from "../types/operations.js";
-import jp from "jsonpath";
 import * as z from "zod";
 
 export class Clients extends ClientSDK {
@@ -129,11 +129,13 @@ export class Clients extends ClientSDK {
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.ClientsListResponse> => {
-            const nextCursor = jp.value(responseData, "$.cursor.next");
+            const nextCursor = dlv(responseData, "cursornext");
+
             if (nextCursor == null) {
                 return () => null;
             }
-            const results = jp.value(responseData, "$.cursor.data");
+
+            const results = dlv(responseData, "cursordata");
             if (!results.length) {
                 return () => null;
             }
