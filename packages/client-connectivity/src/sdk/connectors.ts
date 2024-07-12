@@ -102,6 +102,7 @@ export class Connectors extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -196,6 +197,7 @@ export class Connectors extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -293,6 +295,7 @@ export class Connectors extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -387,6 +390,7 @@ export class Connectors extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -481,6 +485,7 @@ export class Connectors extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -582,6 +587,7 @@ export class Connectors extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -618,13 +624,13 @@ export class Connectors extends ClientSDK {
         const nextFunc = (
             responseData: unknown
         ): Paginator<operations.ConnectorsListTaskResponse> => {
-            const nextCursor = dlv(responseData, "cursornext");
+            const nextCursor = dlv(responseData, "cursor.next");
 
             if (nextCursor == null) {
                 return () => null;
             }
 
-            const results = dlv(responseData, "cursordata");
+            const results = dlv(responseData, "cursor.data");
             if (!results.length) {
                 return () => null;
             }
@@ -700,6 +706,7 @@ export class Connectors extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );

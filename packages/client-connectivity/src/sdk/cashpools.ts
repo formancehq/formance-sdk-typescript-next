@@ -95,6 +95,7 @@ export class CashPools extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -129,13 +130,13 @@ export class CashPools extends ClientSDK {
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.CashPoolsListResponse> => {
-            const nextCursor = dlv(responseData, "cursornext");
+            const nextCursor = dlv(responseData, "cursor.next");
 
             if (nextCursor == null) {
                 return () => null;
             }
 
-            const results = dlv(responseData, "cursordata");
+            const results = dlv(responseData, "cursor.data");
             if (!results.length) {
                 return () => null;
             }
@@ -190,6 +191,7 @@ export class CashPools extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -276,6 +278,7 @@ export class CashPools extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -362,6 +365,7 @@ export class CashPools extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -453,6 +457,7 @@ export class CashPools extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -547,6 +552,7 @@ export class CashPools extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -639,6 +645,7 @@ export class CashPools extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );

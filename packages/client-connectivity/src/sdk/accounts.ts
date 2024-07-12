@@ -100,6 +100,7 @@ export class Accounts extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -134,13 +135,13 @@ export class Accounts extends ClientSDK {
             .match(response, { extraFields: responseFields$ });
 
         const nextFunc = (responseData: unknown): Paginator<operations.AccountsListResponse> => {
-            const nextCursor = dlv(responseData, "cursornext");
+            const nextCursor = dlv(responseData, "cursor.next");
 
             if (nextCursor == null) {
                 return () => null;
             }
 
-            const results = dlv(responseData, "cursordata");
+            const results = dlv(responseData, "cursor.data");
             if (!results.length) {
                 return () => null;
             }
@@ -195,6 +196,7 @@ export class Accounts extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -281,6 +283,7 @@ export class Accounts extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -375,6 +378,7 @@ export class Accounts extends ClientSDK {
                 headers: headers$,
                 query: query$,
                 body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
             },
             options
         );
@@ -411,13 +415,13 @@ export class Accounts extends ClientSDK {
         const nextFunc = (
             responseData: unknown
         ): Paginator<operations.AccountsBalancesResponse> => {
-            const nextCursor = dlv(responseData, "cursornext");
+            const nextCursor = dlv(responseData, "cursor.next");
 
             if (nextCursor == null) {
                 return () => null;
             }
 
-            const results = dlv(responseData, "cursordata");
+            const results = dlv(responseData, "cursor.data");
             if (!results.length) {
                 return () => null;
             }
