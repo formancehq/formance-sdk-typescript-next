@@ -5,7 +5,6 @@
 import { SDKHooks } from "../hooks/hooks.js";
 import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import { Accounts } from "./accounts.js";
@@ -60,9 +59,7 @@ export class LedgerClient extends ClientSDK {
         return (this._transactions ??= new Transactions(this.options$));
     }
 
-    async info(
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<components.ServerInfo> {
+    async info(options?: RequestOptions): Promise<components.ServerInfo> {
         const path$ = this.templateURLComponent("/api/ledger/v2/_info")();
 
         const query$ = "";
@@ -96,25 +93,22 @@ export class LedgerClient extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const [result$] = await this.matcher<components.ServerInfo>()
             .json(200, components.ServerInfo$inboundSchema)
