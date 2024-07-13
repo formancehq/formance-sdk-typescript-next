@@ -5,7 +5,6 @@
 import { SDKHooks } from "../hooks/hooks.js";
 import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as errors from "../models/errors/index.js";
@@ -73,9 +72,7 @@ export class ConnectivityClient extends ClientSDK {
         return (this._transferInitiations ??= new TransferInitiations(this.options$));
     }
 
-    async info(
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<components.ServerInfo> {
+    async info(options?: RequestOptions): Promise<components.ServerInfo> {
         const path$ = this.templateURLComponent("/api/payments/_info")();
 
         const query$ = "";
@@ -109,25 +106,22 @@ export class ConnectivityClient extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },

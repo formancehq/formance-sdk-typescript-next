@@ -11,7 +11,6 @@ import {
     encodeSimple as encodeSimple$,
 } from "../lib/encodings.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -49,7 +48,7 @@ export class PaymentsV1 extends ClientSDK {
 
     async create(
         request: components.CreatePaymentRequest,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.PaymentsV1CreateResponseBody> {
         const input$ = request;
 
@@ -95,25 +94,22 @@ export class PaymentsV1 extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -132,7 +128,7 @@ export class PaymentsV1 extends ClientSDK {
         cursor?: string | undefined,
         sort?: Array<string> | undefined,
         query?: string | undefined,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<PageIterator<operations.PaymentsV1ListResponse>> {
         const input$: operations.PaymentsV1ListRequest = {
             pageSize: pageSize,
@@ -187,25 +183,22 @@ export class PaymentsV1 extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -237,7 +230,7 @@ export class PaymentsV1 extends ClientSDK {
 
     async get(
         payementId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.PaymentsV1GetResponseBody> {
         const input$: operations.PaymentsV1GetRequest = {
             payementId: payementId,
@@ -290,25 +283,22 @@ export class PaymentsV1 extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const [result$] = await this.matcher<operations.PaymentsV1GetResponseBody>()
             .json(200, operations.PaymentsV1GetResponseBody$inboundSchema)
@@ -321,7 +311,7 @@ export class PaymentsV1 extends ClientSDK {
     async updateMetatdata(
         paymentId: string,
         requestBody: { [k: string]: string },
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$: operations.PaymentsV1UpdateMetatdataRequest = {
             paymentId: paymentId,
@@ -378,25 +368,22 @@ export class PaymentsV1 extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },

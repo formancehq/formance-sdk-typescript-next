@@ -11,7 +11,6 @@ import {
     encodeSimple as encodeSimple$,
 } from "../lib/encodings.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as errors from "../models/errors/index.js";
@@ -48,7 +47,7 @@ export class BankAccounts extends ClientSDK {
 
     async create(
         request: operations.BankAccountsCreateRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.BankAccountsCreateResponseBody> {
         const input$ = request;
 
@@ -94,25 +93,22 @@ export class BankAccounts extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -130,7 +126,7 @@ export class BankAccounts extends ClientSDK {
         cursor?: string | undefined,
         pageSize?: number | undefined,
         sort?: Array<string> | undefined,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<PageIterator<operations.BankAccountsListResponse>> {
         const input$: operations.BankAccountsListRequest = {
             cursor: cursor,
@@ -183,25 +179,22 @@ export class BankAccounts extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -235,7 +228,7 @@ export class BankAccounts extends ClientSDK {
 
     async get(
         bankAccountId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.BankAccountsGetResponseBody> {
         const input$: operations.BankAccountsGetRequest = {
             bankAccountId: bankAccountId,
@@ -290,25 +283,22 @@ export class BankAccounts extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -325,7 +315,7 @@ export class BankAccounts extends ClientSDK {
     async forward(
         bankAccountId: string,
         requestBody: operations.BankAccountsForwardRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.BankAccountsForwardResponseBody> {
         const input$: operations.BankAccountsForwardRequest = {
             bankAccountId: bankAccountId,
@@ -382,25 +372,22 @@ export class BankAccounts extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -417,7 +404,7 @@ export class BankAccounts extends ClientSDK {
     async updateMetatdata(
         bankAccountId: string,
         requestBody: operations.BankAccountsUpdateMetatdataRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$: operations.BankAccountsUpdateMetatdataRequest = {
             bankAccountId: bankAccountId,
@@ -474,25 +461,22 @@ export class BankAccounts extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },

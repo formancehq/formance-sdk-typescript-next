@@ -11,7 +11,6 @@ import {
     encodeSimple as encodeSimple$,
 } from "../lib/encodings.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -50,7 +49,7 @@ export class Connectors extends ClientSDK {
     async install(
         connector: components.Connector,
         requestBody: operations.ConnectorsInstallRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.ConnectorsInstallResponseBody> {
         const input$: operations.ConnectorsInstallRequest = {
             connector: connector,
@@ -107,25 +106,22 @@ export class Connectors extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -142,7 +138,7 @@ export class Connectors extends ClientSDK {
     async uninstall(
         connector: components.Connector,
         connectorID: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$: operations.ConnectorsUninstallRequest = {
             connector: connector,
@@ -202,25 +198,22 @@ export class Connectors extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -238,7 +231,7 @@ export class Connectors extends ClientSDK {
         connector: components.Connector,
         connectorID: string,
         requestBody: operations.ConnectorsUpdateRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$: operations.ConnectorsUpdateRequest = {
             connector: connector,
@@ -300,25 +293,22 @@ export class Connectors extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -335,7 +325,7 @@ export class Connectors extends ClientSDK {
     async get(
         connector: components.Connector,
         connectorId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.ConnectorsGetResponseBody> {
         const input$: operations.ConnectorsGetRequest = {
             connector: connector,
@@ -395,25 +385,22 @@ export class Connectors extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -430,7 +417,7 @@ export class Connectors extends ClientSDK {
     async reset(
         connector: components.Connector,
         connectorId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$: operations.ConnectorsResetRequest = {
             connector: connector,
@@ -490,25 +477,22 @@ export class Connectors extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -527,7 +511,7 @@ export class Connectors extends ClientSDK {
         connectorId: string,
         pageSize?: number | undefined,
         cursor?: string | undefined,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<PageIterator<operations.ConnectorsListTaskResponse>> {
         const input$: operations.ConnectorsListTaskRequest = {
             connector: connector,
@@ -592,25 +576,22 @@ export class Connectors extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -646,7 +627,7 @@ export class Connectors extends ClientSDK {
         connector: components.Connector,
         connectorId: string,
         taskId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.ConnectorsGetTaskResponseBody> {
         const input$: operations.ConnectorsGetTaskRequest = {
             connector: connector,
@@ -711,25 +692,22 @@ export class Connectors extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },

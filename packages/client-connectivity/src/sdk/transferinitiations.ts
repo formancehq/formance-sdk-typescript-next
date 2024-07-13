@@ -11,7 +11,6 @@ import {
     encodeSimple as encodeSimple$,
 } from "../lib/encodings.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as errors from "../models/errors/index.js";
@@ -51,7 +50,7 @@ export class TransferInitiations extends ClientSDK {
         pageSize?: number | undefined,
         sort?: Array<string> | undefined,
         query?: { [k: string]: any } | undefined,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<PageIterator<operations.TransferInitiationsListResponse>> {
         const input$: operations.TransferInitiationsListRequest = {
             cursor: cursor,
@@ -106,25 +105,22 @@ export class TransferInitiations extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -158,7 +154,7 @@ export class TransferInitiations extends ClientSDK {
 
     async create(
         request: operations.TransferInitiationsCreateRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.TransferInitiationsCreateResponseBody> {
         const input$ = request;
 
@@ -205,25 +201,22 @@ export class TransferInitiations extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -239,7 +232,7 @@ export class TransferInitiations extends ClientSDK {
 
     async get(
         transferId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<operations.TransferInitiationsGetResponseBody> {
         const input$: operations.TransferInitiationsGetRequest = {
             transferId: transferId,
@@ -294,25 +287,22 @@ export class TransferInitiations extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -326,10 +316,7 @@ export class TransferInitiations extends ClientSDK {
         return result$;
     }
 
-    async delete(
-        transferId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<void> {
+    async delete(transferId: string, options?: RequestOptions): Promise<void> {
         const input$: operations.TransferInitiationsDeleteRequest = {
             transferId: transferId,
         };
@@ -383,25 +370,22 @@ export class TransferInitiations extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -415,10 +399,7 @@ export class TransferInitiations extends ClientSDK {
         return result$;
     }
 
-    async retry(
-        transferId: string,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<void> {
+    async retry(transferId: string, options?: RequestOptions): Promise<void> {
         const input$: operations.TransferInitiationsRetryRequest = {
             transferId: transferId,
         };
@@ -472,25 +453,22 @@ export class TransferInitiations extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -507,7 +485,7 @@ export class TransferInitiations extends ClientSDK {
     async reverse(
         transferId: string,
         requestBody: operations.TransferInitiationsReverseRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$: operations.TransferInitiationsReverseRequest = {
             transferId: transferId,
@@ -564,25 +542,22 @@ export class TransferInitiations extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -599,7 +574,7 @@ export class TransferInitiations extends ClientSDK {
     async updateStatus(
         transferId: string,
         requestBody: operations.TransferInitiationsUpdateStatusRequestBody,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$: operations.TransferInitiationsUpdateStatusRequest = {
             transferId: transferId,
@@ -657,25 +632,22 @@ export class TransferInitiations extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, { context, errorCodes: ["default"] });
-            },
-            { config: retryConfig, statusCodes: ["5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
