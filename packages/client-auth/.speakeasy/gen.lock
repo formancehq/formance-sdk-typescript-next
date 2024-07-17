@@ -3,10 +3,10 @@ id: 5e195e2d-c807-4e79-be37-df9d38941730
 management:
   docChecksum: 71c491105c59e5be4f6f15ec68ca9b9c
   docVersion: 0.0.0
-  speakeasyVersion: 1.335.2
-  generationVersion: 2.372.3
-  releaseVersion: 1.0.0-alpha.6
-  configChecksum: f17a0ccf002223456bb2e60d4460d8c1
+  speakeasyVersion: 1.337.1
+  generationVersion: 2.373.2
+  releaseVersion: 1.0.0-alpha.7
+  configChecksum: 09e68c833435cde15bfdfc371571b5cd
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-auth
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth
@@ -14,9 +14,9 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.6
+    core: 3.11.7
     defaultEnabledRetries: 0.1.0
-    errors: 2.81.11
+    errors: 2.81.12
     flattening: 2.81.1
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
@@ -118,3 +118,4 @@ generatedFiles:
   - src/hooks/types.ts
   - src/hooks/index.ts
   - src/hooks/clientcredentials.ts
+  - CONTRIBUTING.md
