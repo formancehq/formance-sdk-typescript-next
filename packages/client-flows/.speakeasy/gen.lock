@@ -3,10 +3,10 @@ id: 2b5389df-1a66-48db-9240-ca449edd6793
 management:
   docChecksum: 033c4c71d0489744ce276eb3a594162c
   docVersion: 0.0.0
-  speakeasyVersion: 1.335.0
-  generationVersion: 2.370.2
-  releaseVersion: 1.0.0-alpha.5
-  configChecksum: 349b79a3e96414cc9234b0f9e74ecd9a
+  speakeasyVersion: 1.337.1
+  generationVersion: 2.373.2
+  releaseVersion: 1.0.0-alpha.6
+  configChecksum: bf949d18862a68bd9cca0ec5c4b09f75
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-flows
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-flows
@@ -14,9 +14,9 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.6
+    core: 3.11.7
     defaultEnabledRetries: 0.1.0
-    errors: 2.81.11
+    errors: 2.81.12
     flattening: 2.81.1
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
@@ -264,3 +264,4 @@ generatedFiles:
   - src/hooks/types.ts
   - src/hooks/index.ts
   - src/hooks/clientcredentials.ts
+  - CONTRIBUTING.md
