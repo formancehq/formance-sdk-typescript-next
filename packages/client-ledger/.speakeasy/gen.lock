@@ -3,10 +3,10 @@ id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
   docChecksum: dc955ea3053b83108400b9b62d84fce7
   docVersion: 0.0.0
-  speakeasyVersion: 1.335.0
-  generationVersion: 2.370.2
-  releaseVersion: 1.0.0-alpha.6
-  configChecksum: f4fa389bfbc13206379f5b01c433f225
+  speakeasyVersion: 1.337.1
+  generationVersion: 2.373.2
+  releaseVersion: 1.0.0-alpha.7
+  configChecksum: dc58e8b973b935c81824d2428262aa15
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
@@ -14,9 +14,9 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.6
+    core: 3.11.7
     defaultEnabledRetries: 0.1.0
-    errors: 2.81.11
+    errors: 2.81.12
     flattening: 2.81.1
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
@@ -240,3 +240,4 @@ generatedFiles:
   - src/hooks/types.ts
   - src/hooks/index.ts
   - src/hooks/clientcredentials.ts
+  - CONTRIBUTING.md
