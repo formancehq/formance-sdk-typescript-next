@@ -135,9 +135,8 @@ export class Accounts extends ClientSDK {
             if (nextCursor == null) {
                 return () => null;
             }
-
             const results = dlv(responseData, "cursor.data");
-            if (!results.length) {
+            if (!Array.isArray(results) || !results.length) {
                 return () => null;
             }
 
