@@ -3,10 +3,10 @@ id: 547ff383-26ff-4651-b099-ec0df7c6565b
 management:
   docChecksum: db197f636b9eff831bbf1ce038033a73
   docVersion: 0.0.0
-  speakeasyVersion: 1.335.0
-  generationVersion: 2.370.2
-  releaseVersion: 1.0.0-alpha.3
-  configChecksum: ccf875d505dffd6b8d880901670c0786
+  speakeasyVersion: 1.344.0
+  generationVersion: 2.376.0
+  releaseVersion: 1.0.0-alpha.4
+  configChecksum: fb5a544412d7ad8368fd405137061ed6
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-reconciliation
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
@@ -15,9 +15,9 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
-    core: 3.11.6
+    core: 3.11.7
     defaultEnabledRetries: 0.1.0
-    errors: 2.81.11
+    errors: 2.81.12
     flattening: 2.81.1
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
@@ -25,7 +25,7 @@ features:
     groups: 2.81.2
     nameOverrides: 2.81.2
     oauth2ClientCredentials: 0.1.4
-    pagination: 2.82.5
+    pagination: 2.82.6
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.1.0
@@ -110,3 +110,4 @@ generatedFiles:
   - src/hooks/types.ts
   - src/hooks/index.ts
   - src/hooks/clientcredentials.ts
+  - CONTRIBUTING.md
