@@ -1,4 +1,4 @@
-# LedgersListLogsCursor
+# LogsListCursor
 
 
 ## Fields

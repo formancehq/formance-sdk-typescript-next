@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
-  docChecksum: dc955ea3053b83108400b9b62d84fce7
+  docChecksum: 844301b449a020faa92cf022fcf1423c
   docVersion: 0.0.0
-  speakeasyVersion: 1.340.0
-  generationVersion: 2.375.5
-  releaseVersion: 1.0.0-alpha.8
-  configChecksum: 043551b7a67f2f1ea282466cd67e4840
+  speakeasyVersion: 1.346.0
+  generationVersion: 2.379.3
+  releaseVersion: 1.0.0-alpha.9
+  configChecksum: 17f8348a91a821d4c83c7356f6b1e8ae
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.7
+    core: 3.11.10
     defaultEnabledRetries: 0.1.0
     errors: 2.81.12
     flattening: 2.81.1
@@ -33,6 +33,7 @@ generatedFiles:
   - src/sdk/ledgers.ts
   - src/sdk/accounts.ts
   - src/sdk/balances.ts
+  - src/sdk/logs.ts
   - src/sdk/transactions.ts
   - src/sdk/sdk.ts
   - .eslintrc.cjs
@@ -88,11 +89,11 @@ generatedFiles:
   - src/models/components/ledgerinfo.ts
   - src/models/components/migration.ts
   - src/models/components/migrationstate.ts
-  - src/models/components/logentry.ts
-  - src/models/components/logentrytype.ts
   - src/models/components/account.ts
   - src/models/components/volume.ts
   - src/models/components/volumeitem.ts
+  - src/models/components/logentry.ts
+  - src/models/components/logentrytype.ts
   - src/models/components/expendedtransaction.ts
   - src/models/components/security.ts
   - src/models/components/schemeformanceoauth.ts
@@ -101,7 +102,6 @@ generatedFiles:
   - src/models/operations/ledgerscreate.ts
   - src/models/operations/ledgersbulk.ts
   - src/models/operations/ledgersinfo.ts
-  - src/models/operations/ledgerslistlogs.ts
   - src/models/operations/ledgersaddmetadata.ts
   - src/models/operations/ledgersremovemetadata.ts
   - src/models/operations/ledgersstats.ts
@@ -112,6 +112,9 @@ generatedFiles:
   - src/models/operations/accountsremovemetadata.ts
   - src/models/operations/balancesaggregate.ts
   - src/models/operations/balancesvolumes.ts
+  - src/models/operations/logslist.ts
+  - src/models/operations/logsexport.ts
+  - src/models/operations/logsingest.ts
   - src/models/operations/transactionscount.ts
   - src/models/operations/transactionslist.ts
   - src/models/operations/transactionscreate.ts
@@ -165,11 +168,11 @@ generatedFiles:
   - docs/models/components/ledgerinfo.md
   - docs/models/components/migration.md
   - docs/models/components/migrationstate.md
-  - docs/models/components/logentry.md
-  - docs/models/components/logentrytype.md
   - docs/models/components/account.md
   - docs/models/components/volume.md
   - docs/models/components/volumeitem.md
+  - docs/models/components/logentry.md
+  - docs/models/components/logentrytype.md
   - docs/models/components/expendedtransaction.md
   - docs/models/components/security.md
   - docs/models/components/schemeformanceoauth.md
@@ -185,10 +188,6 @@ generatedFiles:
   - docs/models/operations/ledgersbulkresponsebody.md
   - docs/models/operations/ledgersinforequest.md
   - docs/models/operations/ledgersinforesponsebody.md
-  - docs/models/operations/ledgerslistlogsrequest.md
-  - docs/models/operations/ledgerslistlogscursor.md
-  - docs/models/operations/ledgerslistlogsresponsebody.md
-  - docs/models/operations/ledgerslistlogsresponse.md
   - docs/models/operations/ledgersaddmetadatarequest.md
   - docs/models/operations/ledgersremovemetadatarequest.md
   - docs/models/operations/ledgersstatsrequest.md
@@ -211,6 +210,12 @@ generatedFiles:
   - docs/models/operations/balancesvolumescursor.md
   - docs/models/operations/balancesvolumesresponsebody.md
   - docs/models/operations/balancesvolumesresponse.md
+  - docs/models/operations/logslistrequest.md
+  - docs/models/operations/logslistcursor.md
+  - docs/models/operations/logslistresponsebody.md
+  - docs/models/operations/logslistresponse.md
+  - docs/models/operations/logsexportrequest.md
+  - docs/models/operations/logsingestrequest.md
   - docs/models/operations/transactionscountrequest.md
   - docs/models/operations/transactionscountresponse.md
   - docs/models/operations/transactionslistrequest.md
@@ -233,6 +238,7 @@ generatedFiles:
   - docs/sdks/ledgers/README.md
   - docs/sdks/accounts/README.md
   - docs/sdks/balances/README.md
+  - docs/sdks/logs/README.md
   - docs/sdks/transactions/README.md
   - USAGE.md
   - .gitattributes

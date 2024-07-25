@@ -15,8 +15,9 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as errors from "../models/errors/index.js";
 import * as operations from "../models/operations/index.js";
 import { createPageIterator, PageIterator, Paginator } from "../types/operations.js";
+import * as z from "zod";
 
-export class Balances extends ClientSDK {
+export class Logs extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
 
     constructor(options: SDKOptions = {}) {
@@ -43,23 +44,21 @@ export class Balances extends ClientSDK {
         void this.options$;
     }
 
-    async aggregate(
+    async list(
         ledger: string,
-        query: { [k: string]: any },
-        pit?: Date | undefined,
-        useInsertionDate?: boolean | undefined,
+        cursor?: string | undefined,
+        pageSize?: number | undefined,
         options?: RequestOptions
-    ): Promise<operations.BalancesAggregateResponseBody> {
-        const input$: operations.BalancesAggregateRequest = {
+    ): Promise<PageIterator<operations.LogsListResponse>> {
+        const input$: operations.LogsListRequest = {
             ledger: ledger,
-            pit: pit,
-            useInsertionDate: useInsertionDate,
-            query: query,
+            cursor: cursor,
+            pageSize: pageSize,
         };
 
         const payload$ = schemas$.parse(
             input$,
-            (value$) => operations.BalancesAggregateRequest$outboundSchema.parse(value$),
+            (value$) => operations.LogsListRequest$outboundSchema.parse(value$),
             "Input validation failed"
         );
         const body$ = null;
@@ -70,104 +69,11 @@ export class Balances extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/aggregate/balances")(
-            pathParams$
-        );
-
-        const query$ = encodeFormQuery$({
-            pit: payload$.pit,
-            query: payload$.query,
-            useInsertionDate: payload$.useInsertionDate,
-        });
-
-        const headers$ = new Headers({
-            Accept: "application/json",
-        });
-
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
-        const context = {
-            operationID: "Balances_aggregate",
-            oAuth2Scopes: ["ledger:read"],
-            securitySource: this.options$.security,
-        };
-        const securitySettings$ = this.resolveGlobalSecurity(security$);
-
-        const request$ = this.createRequest$(
-            context,
-            {
-                security: securitySettings$,
-                method: "GET",
-                path: path$,
-                headers: headers$,
-                query: query$,
-                body: body$,
-                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
-            },
-            options
-        );
-
-        const response = await this.do$(request$, {
-            context,
-            errorCodes: ["default"],
-            retryConfig: options?.retries ||
-                this.options$.retryConfig || {
-                    strategy: "backoff",
-                    backoff: {
-                        initialInterval: 500,
-                        maxInterval: 60000,
-                        exponent: 1.5,
-                        maxElapsedTime: 3600000,
-                    },
-                    retryConnectionErrors: true,
-                },
-            retryCodes: options?.retryCodes || ["5XX"],
-        });
-
-        const responseFields$ = {
-            HttpMeta: { Response: response, Request: request$ },
-        };
-
-        const [result$] = await this.matcher<operations.BalancesAggregateResponseBody>()
-            .json(200, operations.BalancesAggregateResponseBody$inboundSchema)
-            .json("default", errors.LedgerError$inboundSchema, { err: true })
-            .match(response, { extraFields: responseFields$ });
-
-        return result$;
-    }
-
-    async volumes(
-        request: operations.BalancesVolumesRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.BalancesVolumesResponse>> {
-        const input$ = request;
-
-        const payload$ = schemas$.parse(
-            input$,
-            (value$) => operations.BalancesVolumesRequest$outboundSchema.parse(value$),
-            "Input validation failed"
-        );
-        const body$ = null;
-
-        const pathParams$ = {
-            ledger: encodeSimple$("ledger", payload$.ledger, {
-                explode: false,
-                charEncoding: "percent",
-            }),
-        };
-        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/volumes")(pathParams$);
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/logs")(pathParams$);
 
         const query$ = encodeFormQuery$({
             cursor: payload$.cursor,
-            endTime: payload$.endTime,
-            groupBy: payload$.groupBy,
-            inseritionDate: payload$.inseritionDate,
             pageSize: payload$.pageSize,
-            query: payload$.query,
-            startTime: payload$.startTime,
         });
 
         const headers$ = new Headers({
@@ -180,7 +86,7 @@ export class Balances extends ClientSDK {
                 : this.options$.security;
 
         const context = {
-            operationID: "Balances_volumes",
+            operationID: "Logs_list",
             oAuth2Scopes: ["ledger:read"],
             securitySource: this.options$.security,
         };
@@ -221,12 +127,12 @@ export class Balances extends ClientSDK {
             HttpMeta: { Response: response, Request: request$ },
         };
 
-        const [result$, raw$] = await this.matcher<operations.BalancesVolumesResponse>()
-            .json(200, operations.BalancesVolumesResponse$inboundSchema, { key: "Result" })
-            .json("default", errors.LedgerError$inboundSchema, { err: true })
+        const [result$, raw$] = await this.matcher<operations.LogsListResponse>()
+            .json(200, operations.LogsListResponse$inboundSchema, { key: "Result" })
+            .fail("default")
             .match(response, { extraFields: responseFields$ });
 
-        const nextFunc = (responseData: unknown): Paginator<operations.BalancesVolumesResponse> => {
+        const nextFunc = (responseData: unknown): Paginator<operations.LogsListResponse> => {
             const nextCursor = dlv(responseData, "cursor.next");
 
             if (nextCursor == null) {
@@ -237,17 +143,174 @@ export class Balances extends ClientSDK {
                 return () => null;
             }
 
-            return () =>
-                this.volumes(
-                    {
-                        ...input$,
-                        cursor: nextCursor,
-                    },
-                    options
-                );
+            return () => this.list(ledger, nextCursor, pageSize, options);
         };
 
         const page$ = { ...result$, next: nextFunc(raw$) };
         return { ...page$, ...createPageIterator(page$) };
+    }
+
+    async export(ledger: string, options?: RequestOptions): Promise<string> {
+        const input$: operations.LogsExportRequest = {
+            ledger: ledger,
+        };
+
+        const payload$ = schemas$.parse(
+            input$,
+            (value$) => operations.LogsExportRequest$outboundSchema.parse(value$),
+            "Input validation failed"
+        );
+        const body$ = null;
+
+        const pathParams$ = {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
+                explode: false,
+                charEncoding: "percent",
+            }),
+        };
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/logs/export")(pathParams$);
+
+        const query$ = "";
+
+        const headers$ = new Headers({
+            Accept: "application/octet-stream",
+        });
+
+        const security$ =
+            typeof this.options$.security === "function"
+                ? await this.options$.security()
+                : this.options$.security;
+
+        const context = {
+            operationID: "Logs_export",
+            oAuth2Scopes: ["ledger:read"],
+            securitySource: this.options$.security,
+        };
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
+
+        const request$ = this.createRequest$(
+            context,
+            {
+                security: securitySettings$,
+                method: "POST",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
+            },
+            options
+        );
+
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
+                },
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
+
+        const responseFields$ = {
+            HttpMeta: { Response: response, Request: request$ },
+        };
+
+        const [result$] = await this.matcher<string>()
+            .text(200, z.string(), { ctype: "application/octet-stream" })
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
+            .match(response, { extraFields: responseFields$ });
+
+        return result$;
+    }
+
+    async ingest(ledger: string, requestBody: string, options?: RequestOptions): Promise<void> {
+        const input$: operations.LogsIngestRequest = {
+            ledger: ledger,
+            requestBody: requestBody,
+        };
+
+        const payload$ = schemas$.parse(
+            input$,
+            (value$) => operations.LogsIngestRequest$outboundSchema.parse(value$),
+            "Input validation failed"
+        );
+        const body$ = payload$.RequestBody;
+
+        const pathParams$ = {
+            ledger: encodeSimple$("ledger", payload$.ledger, {
+                explode: false,
+                charEncoding: "percent",
+            }),
+        };
+        const path$ = this.templateURLComponent("/api/ledger/v2/{ledger}/logs/import")(pathParams$);
+
+        const query$ = "";
+
+        const headers$ = new Headers({
+            "Content-Type": "application/octet-stream",
+            Accept: "application/json",
+        });
+
+        const security$ =
+            typeof this.options$.security === "function"
+                ? await this.options$.security()
+                : this.options$.security;
+
+        const context = {
+            operationID: "Logs_ingest",
+            oAuth2Scopes: ["ledger:write"],
+            securitySource: this.options$.security,
+        };
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
+
+        const request$ = this.createRequest$(
+            context,
+            {
+                security: securitySettings$,
+                method: "POST",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+                timeoutMs: options?.timeoutMs || this.options$.timeoutMs || -1,
+            },
+            options
+        );
+
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["default"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
+                },
+            retryCodes: options?.retryCodes || ["5XX"],
+        });
+
+        const responseFields$ = {
+            HttpMeta: { Response: response, Request: request$ },
+        };
+
+        const [result$] = await this.matcher<void>()
+            .void(204, z.void())
+            .json("default", errors.LedgerError$inboundSchema, { err: true })
+            .match(response, { extraFields: responseFields$ });
+
+        return result$;
     }
 }

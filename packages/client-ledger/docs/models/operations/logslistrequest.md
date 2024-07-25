@@ -1,4 +1,4 @@
-# LedgersListLogsRequest
+# LogsListRequest
 
 
 ## Fields
