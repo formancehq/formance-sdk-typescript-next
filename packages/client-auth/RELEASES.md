@@ -139,3 +139,13 @@ Based on:
 - [typescript v1.0.0-alpha.13] packages/client-auth
 ### Releases
 - [NPM v1.0.0-alpha.13] https://www.npmjs.com/package/@formance/sdk-auth/v/1.0.0-alpha.13 - packages/client-auth
+
+## 2024-07-27 00:08:57
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.346.3 (2.379.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.0.0-alpha.14] packages/client-auth
+### Releases
+- [NPM v1.0.0-alpha.14] https://www.npmjs.com/package/@formance/sdk-auth/v/1.0.0-alpha.14 - packages/client-auth
