@@ -3,10 +3,10 @@ id: a70888d9-795e-48d6-b8d1-99347eb16e34
 management:
   docChecksum: 058a866d8b8522f52f13e0af0bd7c816
   docVersion: 0.0.0
-  speakeasyVersion: 1.344.0
-  generationVersion: 2.376.0
-  releaseVersion: 1.0.0-alpha.6
-  configChecksum: b508b0bb1aafd1b5f1b8df0e5daa92cf
+  speakeasyVersion: 1.346.3
+  generationVersion: 2.379.6
+  releaseVersion: 1.0.0-alpha.7
+  configChecksum: a58247ceb5d68b681a23e1c9b8f59729
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-wallets
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.7
+    core: 3.11.10
     defaultEnabledRetries: 0.1.0
     errors: 2.81.12
     flattening: 2.81.1
