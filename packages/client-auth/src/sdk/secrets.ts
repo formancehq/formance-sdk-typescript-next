@@ -8,6 +8,7 @@ import { encodeJSON as encodeJSON$, encodeSimple as encodeSimple$ } from "../lib
 import { HTTPClient } from "../lib/http.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { extractSecurity } from "../lib/security.js";
 import * as operations from "../models/operations/index.js";
 import * as z from "zod";
 
@@ -70,11 +71,7 @@ export class Secrets extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "Secrets_create",
             oAuth2Scopes: ["auth:write"],
@@ -154,11 +151,7 @@ export class Secrets extends ClientSDK {
             Accept: "*/*",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "Secrets_delete",
             oAuth2Scopes: ["auth:write"],
