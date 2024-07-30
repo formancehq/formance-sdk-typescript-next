@@ -63,7 +63,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
@@ -130,7 +130,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
@@ -158,7 +158,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
@@ -200,7 +200,7 @@ const flowsClient = new FlowsClient({
         retryConnectionErrors: false,
     },
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
@@ -235,7 +235,7 @@ import { SDKValidationError } from "@formance/sdk-flows/models/errors";
 
 const flowsClient = new FlowsClient({
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
@@ -289,7 +289,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 const flowsClient = new FlowsClient({
     serverIdx: 0,
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
@@ -315,7 +315,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 const flowsClient = new FlowsClient({
     serverURL: "http://localhost",
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
@@ -398,7 +398,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
     security: {
-        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 

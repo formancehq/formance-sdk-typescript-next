@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks/hooks.js";
 import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import { HTTPClient } from "../lib/http.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { extractSecurity } from "../lib/security.js";
 import * as components from "../models/components/index.js";
 import { Instances } from "./instances.js";
 import { Triggers } from "./triggers.js";
@@ -62,11 +63,7 @@ export class FlowsClient extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "_info",
             oAuth2Scopes: ["flows:read"],
