@@ -13,6 +13,7 @@ import {
 import { HTTPClient } from "../lib/http.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { extractSecurity } from "../lib/security.js";
 import * as components from "../models/components/index.js";
 import * as errors from "../models/errors/index.js";
 import * as operations from "../models/operations/index.js";
@@ -80,11 +81,7 @@ export class Wallets extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "wallets_list",
             oAuth2Scopes: ["wallets:read"],
@@ -172,11 +169,7 @@ export class Wallets extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "wallets_create",
             oAuth2Scopes: ["wallets:write"],
@@ -253,11 +246,7 @@ export class Wallets extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "wallets_get",
             oAuth2Scopes: ["wallets:read"],
@@ -338,11 +327,7 @@ export class Wallets extends ClientSDK {
             Accept: "*/*",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "wallets_update",
             oAuth2Scopes: ["wallets:write"],
@@ -418,11 +403,7 @@ export class Wallets extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "wallets_credit",
             oAuth2Scopes: ["wallets:write"],
@@ -502,11 +483,7 @@ export class Wallets extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "wallets_debit",
             oAuth2Scopes: ["wallets:write"],
@@ -584,11 +561,7 @@ export class Wallets extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "wallets_summary",
             oAuth2Scopes: ["wallets:read"],

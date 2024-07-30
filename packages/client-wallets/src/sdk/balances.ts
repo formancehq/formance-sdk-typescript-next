@@ -13,6 +13,7 @@ import {
 import { HTTPClient } from "../lib/http.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { extractSecurity } from "../lib/security.js";
 import * as errors from "../models/errors/index.js";
 import * as operations from "../models/operations/index.js";
 import { createPageIterator, PageIterator, Paginator } from "../types/operations.js";
@@ -78,11 +79,7 @@ export class Balances extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "Balances_create",
             oAuth2Scopes: ["wallets:write"],
@@ -171,11 +168,7 @@ export class Balances extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "Balances_list",
             oAuth2Scopes: ["wallets:read"],
@@ -278,11 +271,7 @@ export class Balances extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "Balances_get",
             oAuth2Scopes: ["wallets:read"],
