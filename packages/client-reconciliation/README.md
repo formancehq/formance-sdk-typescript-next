@@ -64,9 +64,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
@@ -122,9 +122,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
@@ -154,9 +154,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
@@ -200,9 +200,9 @@ const reconciliationClient = new ReconciliationClient({
     },
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
@@ -239,9 +239,9 @@ import { SDKValidationError } from "@formance/sdk-reconciliation/models/errors";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
@@ -296,9 +296,9 @@ const reconciliationClient = new ReconciliationClient({
     serverIdx: 0,
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
@@ -326,9 +326,9 @@ const reconciliationClient = new ReconciliationClient({
     serverURL: "http://localhost",
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
@@ -413,9 +413,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "<YOUR_CLIENT_ID_HERE>",
-            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-            tokenURL: "<YOUR_TOKEN_URL_HERE>",
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            tokenURL: process.env.TOKEN_URL,
         },
     },
 });
