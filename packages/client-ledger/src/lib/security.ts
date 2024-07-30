@@ -184,8 +184,21 @@ export function resolveGlobalSecurity(
         [
             {
                 type: "oauth2:client_credentials",
-                value: security?.formanceOAuth,
+                value: {
+                    clientID: security?.formanceOAuth?.clientID,
+                    clientSecret: security?.formanceOAuth?.clientSecret,
+                },
             },
         ]
     );
+}
+
+export async function extractSecurity<T extends string | Record<string, unknown>>(
+    sec: T | (() => Promise<T>) | undefined
+): Promise<T | undefined> {
+    if (sec == null) {
+        return;
+    }
+
+    return typeof sec === "function" ? sec() : sec;
 }

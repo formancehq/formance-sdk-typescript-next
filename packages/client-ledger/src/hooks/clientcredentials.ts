@@ -173,9 +173,9 @@ export class ClientCredentialsHook implements SDKInitHook, BeforeRequestHook, Af
         );
 
         return {
-            clientID: out.FormanceOAuth?.ClientID ?? "",
-            clientSecret: out.FormanceOAuth?.ClientSecret ?? "",
-            tokenURL: out.FormanceOAuth?.TokenURL,
+            clientID: out?.FormanceOAuth?.ClientID ?? "",
+            clientSecret: out?.FormanceOAuth?.ClientSecret ?? "",
+            tokenURL: out?.FormanceOAuth?.TokenURL ?? "",
         };
     }
 

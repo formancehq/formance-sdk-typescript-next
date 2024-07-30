@@ -107,3 +107,13 @@ Based on:
 - [typescript v1.0.0-alpha.10] packages/client-ledger
 ### Releases
 - [NPM v1.0.0-alpha.10] https://www.npmjs.com/package/@formance/sdk-ledger/v/1.0.0-alpha.10 - packages/client-ledger
+
+## 2024-07-30 00:16:03
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.348.1 (2.380.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.0.0-alpha.11] packages/client-ledger
+### Releases
+- [NPM v1.0.0-alpha.11] https://www.npmjs.com/package/@formance/sdk-ledger/v/1.0.0-alpha.11 - packages/client-ledger

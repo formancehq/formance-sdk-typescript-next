@@ -18,7 +18,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -64,7 +64,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -112,7 +112,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -158,7 +158,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -206,7 +206,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
