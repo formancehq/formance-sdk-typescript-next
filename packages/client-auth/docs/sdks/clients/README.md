@@ -18,12 +18,12 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: BEARER_AUTH,
   },
 });
 
 async function run() {
-  const result = await authClient.clients.list("<value>", 768578);
+  const result = await authClient.clients.list();
 
   for await (const page of result) {
     // handle page
@@ -62,7 +62,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: BEARER_AUTH,
   },
 });
 
@@ -106,7 +106,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: BEARER_AUTH,
   },
 });
 
@@ -148,7 +148,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: BEARER_AUTH,
   },
 });
 
@@ -193,7 +193,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: BEARER_AUTH,
   },
 });
 
