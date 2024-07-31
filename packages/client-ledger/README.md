@@ -63,7 +63,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
@@ -144,12 +144,12 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
 async function run() {
-    const result = await ledgerClient.ledgers.list("<value>", 768578);
+    const result = await ledgerClient.ledgers.list();
 
     for await (const page of result) {
         // handle page
@@ -172,7 +172,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
@@ -214,7 +214,7 @@ const ledgerClient = new LedgerClient({
         retryConnectionErrors: false,
     },
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
@@ -249,14 +249,14 @@ import { SDKValidationError } from "@formance/sdk-ledger/models/errors";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
 async function run() {
     let result;
     try {
-        result = await ledgerClient.ledgers.list("<value>", 768578);
+        result = await ledgerClient.ledgers.list();
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
@@ -303,7 +303,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 const ledgerClient = new LedgerClient({
     serverIdx: 0,
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
@@ -329,7 +329,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 const ledgerClient = new LedgerClient({
     serverURL: "http://localhost",
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
@@ -412,7 +412,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: BEARER_AUTH,
     },
 });
 
