@@ -21,15 +21,15 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "",
+      clientSecret: "",
+      tokenURL: TOKEN_URL,
     },
   },
 });
 
 async function run() {
-  const result = await connectivityClient.cashPools.list("<value>", 768578);
+  const result = await connectivityClient.cashPools.list();
 
   for await (const page of result) {
     // handle page
@@ -70,9 +70,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "",
+      clientSecret: "",
+      tokenURL: TOKEN_URL,
     },
   },
 });
@@ -122,9 +122,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "",
+      clientSecret: "",
+      tokenURL: TOKEN_URL,
     },
   },
 });
@@ -169,9 +169,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "",
+      clientSecret: "",
+      tokenURL: TOKEN_URL,
     },
   },
 });
@@ -215,9 +215,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "",
+      clientSecret: "",
+      tokenURL: TOKEN_URL,
     },
   },
 });
@@ -264,9 +264,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "",
+      clientSecret: "",
+      tokenURL: TOKEN_URL,
     },
   },
 });
@@ -311,9 +311,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "",
+      clientSecret: "",
+      tokenURL: TOKEN_URL,
     },
   },
 });
