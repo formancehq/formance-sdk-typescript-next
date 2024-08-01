@@ -15,12 +15,12 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
 async function run() {
-  const result = await authClient.users.list();
+  const result = await authClient.users.list("<value>", 768578);
 
   for await (const page of result) {
     // handle page
@@ -59,7 +59,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 

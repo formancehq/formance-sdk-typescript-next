@@ -16,7 +16,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
