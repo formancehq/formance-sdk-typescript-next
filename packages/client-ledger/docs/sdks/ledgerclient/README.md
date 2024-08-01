@@ -16,7 +16,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 

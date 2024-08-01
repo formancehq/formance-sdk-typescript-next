@@ -21,12 +21,12 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
 async function run() {
-  const result = await ledgerClient.ledgers.list();
+  const result = await ledgerClient.ledgers.list("<value>", 768578);
 
   for await (const page of result) {
     // handle page
@@ -66,7 +66,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -109,7 +109,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -152,7 +152,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -207,7 +207,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -250,7 +250,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -295,7 +295,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -338,7 +338,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 

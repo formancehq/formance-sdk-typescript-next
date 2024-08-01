@@ -15,14 +15,14 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
 async function run() {
   const result = await ledgerClient.balances.aggregate("<value>", {
     "key": "<value>",
-  });
+  }, new Date("2024-04-27T06:41:03.617Z"), false);
 
   // Handle the result
   console.log(result)
@@ -63,7 +63,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
