@@ -19,12 +19,12 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
 async function run() {
-  const result = await flowsClient.triggers.list();
+  const result = await flowsClient.triggers.list("<value>", "<value>", 768578);
 
   for await (const page of result) {
     // handle page
@@ -65,7 +65,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -111,7 +111,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -154,7 +154,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
@@ -196,12 +196,12 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 
 async function run() {
-  const result = await flowsClient.triggers.listOccurences("<value>");
+  const result = await flowsClient.triggers.listOccurences("<value>", "<value>", 751319);
 
   for await (const page of result) {
     // handle page
@@ -241,7 +241,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: BEARER_AUTH,
+    bearerAuth: process.env.BEARER_AUTH,
   },
 });
 

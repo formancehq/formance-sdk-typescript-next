@@ -4,7 +4,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
     security: {
-        bearerAuth: BEARER_AUTH,
+        bearerAuth: process.env.BEARER_AUTH,
     },
 });
 
