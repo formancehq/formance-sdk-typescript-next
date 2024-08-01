@@ -3,10 +3,10 @@ id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
   docChecksum: 00309fe8f1f0a66ef07772d3cff3db4c
   docVersion: 0.0.0
-  speakeasyVersion: 1.349.0
-  generationVersion: 2.382.0
-  releaseVersion: 1.0.0-alpha.11
-  configChecksum: 86d63c34a3a58e9c65196f2241d5aa3f
+  speakeasyVersion: 1.349.2
+  generationVersion: 2.382.2
+  releaseVersion: 1.0.0-alpha.12
+  configChecksum: 0bce0422933dd974fb1d3d74c19b64e1
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-connectivity
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-connectivity

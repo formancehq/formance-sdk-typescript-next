@@ -17,9 +17,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: TOKEN_URL,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });

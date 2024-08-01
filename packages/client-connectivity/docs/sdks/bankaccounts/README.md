@@ -19,9 +19,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: TOKEN_URL,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });
@@ -70,15 +70,17 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: TOKEN_URL,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });
 
 async function run() {
-  const result = await connectivityClient.bankAccounts.list();
+  const result = await connectivityClient.bankAccounts.list("<value>", 768578, [
+    "<value>",
+  ]);
 
   for await (const page of result) {
     // handle page
@@ -120,9 +122,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: TOKEN_URL,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });
@@ -167,9 +169,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: TOKEN_URL,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });
@@ -217,9 +219,9 @@ import { ConnectivityClient } from "@formance/sdk-connectivity";
 const connectivityClient = new ConnectivityClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: TOKEN_URL,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });
