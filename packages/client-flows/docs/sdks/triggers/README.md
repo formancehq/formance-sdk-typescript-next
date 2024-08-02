@@ -24,7 +24,7 @@ const flowsClient = new FlowsClient({
 });
 
 async function run() {
-  const result = await flowsClient.triggers.list("<value>", "<value>", 768578);
+  const result = await flowsClient.triggers.list();
 
   for await (const page of result) {
     // handle page
@@ -201,7 +201,7 @@ const flowsClient = new FlowsClient({
 });
 
 async function run() {
-  const result = await flowsClient.triggers.listOccurences("<value>", "<value>", 751319);
+  const result = await flowsClient.triggers.listOccurences("<value>");
 
   for await (const page of result) {
     // handle page

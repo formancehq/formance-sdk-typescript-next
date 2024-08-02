@@ -3,10 +3,10 @@ id: 2b5389df-1a66-48db-9240-ca449edd6793
 management:
   docChecksum: 033c4c71d0489744ce276eb3a594162c
   docVersion: 0.0.0
-  speakeasyVersion: 1.349.2
-  generationVersion: 2.382.2
-  releaseVersion: 1.0.0-alpha.12
-  configChecksum: 2ee32bdd6b0df4f9651f4fb36e50af99
+  speakeasyVersion: 1.351.3
+  generationVersion: 2.384.4
+  releaseVersion: 1.0.0-alpha.13
+  configChecksum: 1ad0e3e88cbc0e6b27a34d7ecf68b073
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-flows
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-flows
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.11
+    core: 3.11.12
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.0
     errors: 2.81.12

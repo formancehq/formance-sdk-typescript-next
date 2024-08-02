@@ -23,7 +23,7 @@ const flowsClient = new FlowsClient({
 });
 
 async function run() {
-  const result = await flowsClient.workflows.list("<value>", 768578);
+  const result = await flowsClient.workflows.list();
 
   for await (const page of result) {
     // handle page
@@ -204,7 +204,7 @@ const flowsClient = new FlowsClient({
 async function run() {
   const result = await flowsClient.workflows.run("<value>", {
     "key": "<value>",
-  }, false);
+  });
 
   // Handle the result
   console.log(result)

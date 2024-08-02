@@ -135,7 +135,7 @@ const flowsClient = new FlowsClient({
 });
 
 async function run() {
-    const result = await flowsClient.instances.list("<value>", false, "<value>", 768578);
+    const result = await flowsClient.instances.list("<value>", false);
 
     for await (const page of result) {
         // handle page
@@ -242,7 +242,7 @@ const flowsClient = new FlowsClient({
 async function run() {
     let result;
     try {
-        result = await flowsClient.instances.list("<value>", false, "<value>", 768578);
+        result = await flowsClient.instances.list("<value>", false);
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
