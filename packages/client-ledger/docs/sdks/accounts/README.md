@@ -71,7 +71,7 @@ const ledgerClient = new LedgerClient({
 async function run() {
   const result = await ledgerClient.accounts.count("<value>", "<value>", {
     "key": "<value>",
-  }, new Date("2022-10-17T12:37:59.262Z"));
+  });
 
   // Handle the result
   console.log(result)
@@ -117,7 +117,7 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-  const result = await ledgerClient.accounts.get("<value>", "<value>", new Date("2024-02-07T13:54:48.780Z"), "<value>");
+  const result = await ledgerClient.accounts.get("<value>", "<value>");
 
   // Handle the result
   console.log(result)

@@ -25,9 +25,7 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-  const result = await ledgerClient.transactions.count("<value>", new Date("2022-10-17T12:37:59.262Z"), {
-    "key": "<value>",
-  });
+  const result = await ledgerClient.transactions.count("<value>");
 
   // Handle the result
   console.log(result)
@@ -130,7 +128,7 @@ async function run() {
           source: "<value>",
         },
       ],
-    }, "<value>", false);
+    });
 
   // Handle the result
   console.log(result)
@@ -176,7 +174,7 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-  const result = await ledgerClient.transactions.get("<value>", 700347, "<value>", new Date("2022-04-09T17:04:24.706Z"));
+  const result = await ledgerClient.transactions.get("<value>", 700347);
 
   // Handle the result
   console.log(result)
@@ -316,7 +314,7 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-  const result = await ledgerClient.transactions.revert("<value>", 130652, false, new Date("2022-02-10T19:36:59.956Z"));
+  const result = await ledgerClient.transactions.revert("<value>", 130652);
 
   // Handle the result
   console.log(result)

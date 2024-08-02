@@ -21,7 +21,7 @@ const ledgerClient = new LedgerClient({
 });
 
 async function run() {
-  const result = await ledgerClient.logs.list("<value>", "<value>", 768578);
+  const result = await ledgerClient.logs.list("<value>");
 
   for await (const page of result) {
     // handle page

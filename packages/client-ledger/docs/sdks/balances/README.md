@@ -22,7 +22,7 @@ const ledgerClient = new LedgerClient({
 async function run() {
   const result = await ledgerClient.balances.aggregate("<value>", {
     "key": "<value>",
-  }, new Date("2024-04-27T06:41:03.617Z"), false);
+  });
 
   // Handle the result
   console.log(result)
