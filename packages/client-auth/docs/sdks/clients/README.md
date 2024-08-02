@@ -23,7 +23,7 @@ const authClient = new AuthClient({
 });
 
 async function run() {
-  const result = await authClient.clients.list("<value>", 768578);
+  const result = await authClient.clients.list();
 
   for await (const page of result) {
     // handle page
