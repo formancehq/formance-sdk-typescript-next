@@ -129,3 +129,13 @@ Based on:
 - [typescript v1.0.0-alpha.12] packages/client-connectivity
 ### Releases
 - [NPM v1.0.0-alpha.12] https://www.npmjs.com/package/@formance/sdk-connectivity/v/1.0.0-alpha.12 - packages/client-connectivity
+
+## 2024-08-02 00:21:42
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.351.3 (2.384.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.0.0-alpha.13] packages/client-connectivity
+### Releases
+- [NPM v1.0.0-alpha.13] https://www.npmjs.com/package/@formance/sdk-connectivity/v/1.0.0-alpha.13 - packages/client-connectivity
