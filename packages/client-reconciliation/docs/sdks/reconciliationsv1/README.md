@@ -16,15 +16,15 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
   security: {
     formanceOAuth: {
-      clientID: "<YOUR_CLIENT_ID_HERE>",
-      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+      clientID: "",
+      clientSecret: "",
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });
 
 async function run() {
-  const result = await reconciliationClient.reconciliationsV1.list(100, "<value>");
+  const result = await reconciliationClient.reconciliationsV1.list();
 
   for await (const page of result) {
     // handle page
@@ -65,9 +65,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
   security: {
     formanceOAuth: {
-      clientID: "<YOUR_CLIENT_ID_HERE>",
-      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+      clientID: "",
+      clientSecret: "",
+      tokenURL: process.env.TOKEN_URL,
     },
   },
 });

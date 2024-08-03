@@ -8,6 +8,7 @@ import { encodeJSON as encodeJSON$, encodeSimple as encodeSimple$ } from "../lib
 import { HTTPClient } from "../lib/http.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { extractSecurity } from "../lib/security.js";
 import * as errors from "../models/errors/index.js";
 import * as operations from "../models/operations/index.js";
 import { PoliciesV1 } from "./policiesv1.js";
@@ -59,11 +60,7 @@ export class ReconciliationClient extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "_info",
             oAuth2Scopes: ["reconciliation:read"],
@@ -147,11 +144,7 @@ export class ReconciliationClient extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "_reconcile",
             oAuth2Scopes: [],

@@ -13,6 +13,7 @@ import {
 import { HTTPClient } from "../lib/http.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { extractSecurity } from "../lib/security.js";
 import * as errors from "../models/errors/index.js";
 import * as operations from "../models/operations/index.js";
 import { createPageIterator, PageIterator, Paginator } from "../types/operations.js";
@@ -67,11 +68,7 @@ export class PoliciesV1 extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "PoliciesV1_create",
             oAuth2Scopes: ["reconciliation:read"],
@@ -150,11 +147,7 @@ export class PoliciesV1 extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "PoliciesV1_list",
             oAuth2Scopes: ["reconciliation:read"],
@@ -248,11 +241,7 @@ export class PoliciesV1 extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "PoliciesV1_delete",
             oAuth2Scopes: ["reconciliation:write"],
@@ -334,11 +323,7 @@ export class PoliciesV1 extends ClientSDK {
             Accept: "application/json",
         });
 
-        const security$ =
-            typeof this.options$.security === "function"
-                ? await this.options$.security()
-                : this.options$.security;
-
+        const security$ = await extractSecurity(this.options$.security);
         const context = {
             operationID: "PoliciesV1_get",
             oAuth2Scopes: ["reconciliation:read"],
