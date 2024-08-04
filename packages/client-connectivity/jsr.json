@@ -2,7 +2,7 @@
 
 {
   "name": "@formance/sdk-connectivity",
-  "version": "1.0.0-alpha.13",
+  "version": "1.0.0-alpha.14",
   "exports": {
     ".": "./src/index.ts",    
     "./models/errors": "./src/models/errors/index.ts",    
