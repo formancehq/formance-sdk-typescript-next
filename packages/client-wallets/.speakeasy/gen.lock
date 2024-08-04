@@ -3,10 +3,10 @@ id: a70888d9-795e-48d6-b8d1-99347eb16e34
 management:
   docChecksum: 058a866d8b8522f52f13e0af0bd7c816
   docVersion: 0.0.0
-  speakeasyVersion: 1.352.0
-  generationVersion: 2.384.4
-  releaseVersion: 1.0.0-alpha.8
-  configChecksum: fb23bbdb338be70b2e09c4f4cd0978d0
+  speakeasyVersion: 1.352.1
+  generationVersion: 2.385.1
+  releaseVersion: 1.0.0-alpha.9
+  configChecksum: 5c75302253f9fcdbd0595b0856605b9a
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-wallets
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
@@ -14,10 +14,10 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.12
+    core: 3.11.13
     defaultEnabledRetries: 0.1.0
-    envVarSecurityUsage: 0.1.0
-    errors: 2.81.12
+    envVarSecurityUsage: 0.1.1
+    errors: 2.82.0
     flattening: 2.81.1
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
@@ -47,6 +47,7 @@ generatedFiles:
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/matchers.ts
   - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
@@ -54,10 +55,12 @@ generatedFiles:
   - src/lib/security.ts
   - src/lib/url.ts
   - src/sdk/index.ts
+  - src/models/errors/httpclienterrors.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/types/blobs.ts
   - src/types/enums.ts
+  - src/types/fp.ts
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
