@@ -63,7 +63,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -144,7 +144,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -172,7 +172,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -214,7 +214,7 @@ const ledgerClient = new LedgerClient({
         retryConnectionErrors: false,
     },
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -249,7 +249,7 @@ import { SDKValidationError } from "@formance/sdk-ledger/models/errors";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -303,7 +303,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 const ledgerClient = new LedgerClient({
     serverIdx: 0,
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -329,7 +329,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 const ledgerClient = new LedgerClient({
     serverURL: "http://localhost",
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -412,7 +412,7 @@ import { LedgerClient } from "@formance/sdk-ledger";
 
 const ledgerClient = new LedgerClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
