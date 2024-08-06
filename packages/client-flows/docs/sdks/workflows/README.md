@@ -18,7 +18,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -63,7 +63,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -112,7 +112,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -155,7 +155,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
@@ -197,7 +197,7 @@ import { FlowsClient } from "@formance/sdk-flows";
 
 const flowsClient = new FlowsClient({
   security: {
-    bearerAuth: process.env.BEARER_AUTH,
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
   },
 });
 
