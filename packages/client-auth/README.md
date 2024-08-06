@@ -63,7 +63,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -122,7 +122,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -150,7 +150,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -192,7 +192,7 @@ const authClient = new AuthClient({
         retryConnectionErrors: false,
     },
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -226,7 +226,7 @@ import { SDKValidationError } from "@formance/sdk-auth/models/errors";
 
 const authClient = new AuthClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -275,7 +275,7 @@ import { AuthClient } from "@formance/sdk-auth";
 const authClient = new AuthClient({
     serverIdx: 0,
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -301,7 +301,7 @@ import { AuthClient } from "@formance/sdk-auth";
 const authClient = new AuthClient({
     serverURL: "http://localhost",
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
@@ -384,7 +384,7 @@ import { AuthClient } from "@formance/sdk-auth";
 
 const authClient = new AuthClient({
     security: {
-        bearerAuth: process.env.BEARER_AUTH,
+        bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
     },
 });
 
