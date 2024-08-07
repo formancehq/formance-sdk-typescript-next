@@ -3,10 +3,10 @@ id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
   docChecksum: 00309fe8f1f0a66ef07772d3cff3db4c
   docVersion: 0.0.0
-  speakeasyVersion: 1.352.2
-  generationVersion: 2.385.2
-  releaseVersion: 1.0.0-alpha.15
-  configChecksum: cfb90491a0e0f3257c7c112394da6803
+  speakeasyVersion: 1.355.0
+  generationVersion: 2.387.0
+  releaseVersion: 1.0.0-alpha.16
+  configChecksum: 1b529b467c8863d65f2e0e998b877d3a
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-connectivity
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-connectivity
@@ -14,8 +14,8 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.5
-    core: 3.11.13
+    constsAndDefaults: 0.1.6
+    core: 3.12.1
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     envVarSecurityUsage: 0.1.1
@@ -33,6 +33,41 @@ features:
     sdkHooks: 0.1.0
     unions: 2.85.6
 generatedFiles:
+  - src/funcs/info.ts
+  - src/funcs/accountsList.ts
+  - src/funcs/accountsCreate.ts
+  - src/funcs/accountsGet.ts
+  - src/funcs/accountsBalances.ts
+  - src/funcs/bankAccountsCreate.ts
+  - src/funcs/bankAccountsList.ts
+  - src/funcs/bankAccountsGet.ts
+  - src/funcs/bankAccountsForward.ts
+  - src/funcs/bankAccountsUpdateMetatdata.ts
+  - src/funcs/connectorsInstall.ts
+  - src/funcs/connectorsUninstall.ts
+  - src/funcs/connectorsUpdate.ts
+  - src/funcs/connectorsGet.ts
+  - src/funcs/connectorsReset.ts
+  - src/funcs/connectorsListTask.ts
+  - src/funcs/connectorsGetTask.ts
+  - src/funcs/paymentsV1Create.ts
+  - src/funcs/paymentsV1List.ts
+  - src/funcs/paymentsV1Get.ts
+  - src/funcs/paymentsV1UpdateMetatdata.ts
+  - src/funcs/cashPoolsList.ts
+  - src/funcs/cashPoolsCreate.ts
+  - src/funcs/cashPoolsGet.ts
+  - src/funcs/cashPoolsDelete.ts
+  - src/funcs/cashPoolsAddAccount.ts
+  - src/funcs/cashPoolsRemoveAccount.ts
+  - src/funcs/cashPoolsBalances.ts
+  - src/funcs/transferInitiationsList.ts
+  - src/funcs/transferInitiationsCreate.ts
+  - src/funcs/transferInitiationsGet.ts
+  - src/funcs/transferInitiationsDelete.ts
+  - src/funcs/transferInitiationsRetry.ts
+  - src/funcs/transferInitiationsReverse.ts
+  - src/funcs/transferInitiationsUpdateStatus.ts
   - src/sdk/accounts.ts
   - src/sdk/bankaccounts.ts
   - src/sdk/connectors.ts
@@ -45,6 +80,7 @@ generatedFiles:
   - RUNTIMES.md
   - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
