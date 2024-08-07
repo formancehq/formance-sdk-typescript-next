@@ -3,10 +3,10 @@ id: 2b5389df-1a66-48db-9240-ca449edd6793
 management:
   docChecksum: 033c4c71d0489744ce276eb3a594162c
   docVersion: 0.0.0
-  speakeasyVersion: 1.352.2
-  generationVersion: 2.385.2
-  releaseVersion: 1.0.0-alpha.15
-  configChecksum: 49e9c6a7c837d29e8dcdf98b3a82de0f
+  speakeasyVersion: 1.355.0
+  generationVersion: 2.387.0
+  releaseVersion: 1.0.0-alpha.16
+  configChecksum: c84bb3a5b2bd6aa618d782a1f866d578
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-flows
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-flows
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.13
+    core: 3.12.1
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     errors: 2.82.0
@@ -31,6 +31,24 @@ features:
     sdkHooks: 0.1.0
     unions: 2.85.6
 generatedFiles:
+  - src/funcs/info.ts
+  - src/funcs/instancesList.ts
+  - src/funcs/instancesGet.ts
+  - src/funcs/instancesAbort.ts
+  - src/funcs/instancesSend.ts
+  - src/funcs/instancesGetHistory.ts
+  - src/funcs/instancesGetStageHistory.ts
+  - src/funcs/triggersList.ts
+  - src/funcs/triggersCreate.ts
+  - src/funcs/triggersGet.ts
+  - src/funcs/triggersDelete.ts
+  - src/funcs/triggersListOccurences.ts
+  - src/funcs/triggersTest.ts
+  - src/funcs/workflowsList.ts
+  - src/funcs/workflowsCreate.ts
+  - src/funcs/workflowsGet.ts
+  - src/funcs/workflowsDelete.ts
+  - src/funcs/workflowsRun.ts
   - src/sdk/instances.ts
   - src/sdk/triggers.ts
   - src/sdk/workflows.ts
@@ -40,6 +58,7 @@ generatedFiles:
   - RUNTIMES.md
   - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
