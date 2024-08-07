@@ -3,10 +3,10 @@ id: 64fb2c32-9472-4d55-bf1c-59dd7cd1f2f0
 management:
   docChecksum: 844301b449a020faa92cf022fcf1423c
   docVersion: 0.0.0
-  speakeasyVersion: 1.352.2
-  generationVersion: 2.385.2
-  releaseVersion: 1.0.0-alpha.16
-  configChecksum: aabe02c6f06e882056c0506771c6299d
+  speakeasyVersion: 1.355.0
+  generationVersion: 2.387.0
+  releaseVersion: 1.0.0-alpha.17
+  configChecksum: 69c1b1288f7e6504661246baf6cdcac4
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-ledger
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-ledger
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.13
+    core: 3.12.1
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     errors: 2.82.0
@@ -31,6 +31,32 @@ features:
     sdkHooks: 0.1.0
     unions: 2.85.6
 generatedFiles:
+  - src/funcs/info.ts
+  - src/funcs/ledgersList.ts
+  - src/funcs/ledgersGet.ts
+  - src/funcs/ledgersCreate.ts
+  - src/funcs/ledgersBulk.ts
+  - src/funcs/ledgersInfo.ts
+  - src/funcs/ledgersAddMetadata.ts
+  - src/funcs/ledgersRemoveMetadata.ts
+  - src/funcs/ledgersStats.ts
+  - src/funcs/accountsList.ts
+  - src/funcs/accountsCount.ts
+  - src/funcs/accountsGet.ts
+  - src/funcs/accountsAddMetadata.ts
+  - src/funcs/accountsRemoveMetadata.ts
+  - src/funcs/balancesAggregate.ts
+  - src/funcs/balancesVolumes.ts
+  - src/funcs/logsList.ts
+  - src/funcs/logsExport.ts
+  - src/funcs/logsIngest.ts
+  - src/funcs/transactionsCount.ts
+  - src/funcs/transactionsList.ts
+  - src/funcs/transactionsCreate.ts
+  - src/funcs/transactionsGet.ts
+  - src/funcs/transactionsAddMetadata.ts
+  - src/funcs/transactionsDeleteMetadata.ts
+  - src/funcs/transactionsRevert.ts
   - src/sdk/ledgers.ts
   - src/sdk/accounts.ts
   - src/sdk/balances.ts
@@ -42,6 +68,7 @@ generatedFiles:
   - RUNTIMES.md
   - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
