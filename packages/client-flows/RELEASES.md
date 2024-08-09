@@ -169,3 +169,13 @@ Based on:
 - [typescript v1.0.0-alpha.16] packages/client-flows
 ### Releases
 - [NPM v1.0.0-alpha.16] https://www.npmjs.com/package/@formance/sdk-flows/v/1.0.0-alpha.16 - packages/client-flows
+
+## 2024-08-09 00:12:04
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.358.0 (2.390.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.0.0-alpha.17] packages/client-flows
+### Releases
+- [NPM v1.0.0-alpha.17] https://www.npmjs.com/package/@formance/sdk-flows/v/1.0.0-alpha.17 - packages/client-flows
