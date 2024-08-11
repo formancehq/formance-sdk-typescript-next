@@ -3,10 +3,10 @@ id: a70888d9-795e-48d6-b8d1-99347eb16e34
 management:
   docChecksum: 058a866d8b8522f52f13e0af0bd7c816
   docVersion: 0.0.0
-  speakeasyVersion: 1.352.1
-  generationVersion: 2.385.1
-  releaseVersion: 1.0.0-alpha.9
-  configChecksum: 5c75302253f9fcdbd0595b0856605b9a
+  speakeasyVersion: 1.361.1
+  generationVersion: 2.393.4
+  releaseVersion: 1.0.0-alpha.10
+  configChecksum: cfd69c5010e858777238089f8821c01a
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-wallets
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-wallets
@@ -14,12 +14,12 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.11.13
+    core: 3.13.1
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
-    errors: 2.82.0
+    errors: 2.82.1
     flattening: 2.81.1
-    globalSecurity: 2.82.9
+    globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
@@ -29,8 +29,23 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.1.0
-    unions: 2.85.6
+    unions: 2.85.7
 generatedFiles:
+  - src/funcs/info.ts
+  - src/funcs/holdsList.ts
+  - src/funcs/holdsGet.ts
+  - src/funcs/holdsConfirm.ts
+  - src/funcs/holdsCancel.ts
+  - src/funcs/walletsList.ts
+  - src/funcs/walletsCreate.ts
+  - src/funcs/walletsGet.ts
+  - src/funcs/walletsUpdate.ts
+  - src/funcs/walletsCredit.ts
+  - src/funcs/walletsDebit.ts
+  - src/funcs/walletsSummary.ts
+  - src/funcs/balancesCreate.ts
+  - src/funcs/balancesList.ts
+  - src/funcs/balancesGet.ts
   - src/sdk/holds.ts
   - src/sdk/wallets.ts
   - src/sdk/balances.ts
@@ -40,6 +55,7 @@ generatedFiles:
   - RUNTIMES.md
   - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
@@ -47,6 +63,7 @@ generatedFiles:
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
   - src/lib/matchers.ts
   - src/lib/primitives.ts
   - src/lib/retries.ts
@@ -59,6 +76,7 @@ generatedFiles:
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/types/blobs.ts
+  - src/types/constdatetime.ts
   - src/types/enums.ts
   - src/types/fp.ts
   - src/types/index.ts

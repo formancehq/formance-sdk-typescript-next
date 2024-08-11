@@ -4,6 +4,7 @@
 
 import * as components from "../models/components/index.js";
 import { HTTPClient } from "./http.js";
+import { Logger } from "./logger.js";
 import { RetryConfig } from "./retries.js";
 import { Params, pathToFunc } from "./url.js";
 
@@ -37,6 +38,7 @@ export type SDKOptions = {
      */
     retryConfig?: RetryConfig;
     timeoutMs?: number;
+    debugLogger?: Logger;
 };
 
 export function serverURLFromOptions(options: SDKOptions): URL | null {
@@ -59,7 +61,7 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
     language: "typescript",
     openapiDocVersion: "0.0.0",
-    sdkVersion: "1.0.0-alpha.9",
-    genVersion: "2.385.1",
-    userAgent: "speakeasy-sdk/typescript 1.0.0-alpha.9 2.385.1 0.0.0 @formance/sdk-wallets",
+    sdkVersion: "1.0.0-alpha.10",
+    genVersion: "2.393.4",
+    userAgent: "speakeasy-sdk/typescript 1.0.0-alpha.10 2.393.4 0.0.0 @formance/sdk-wallets",
 } as const;

@@ -64,9 +64,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -132,9 +132,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -164,9 +164,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -210,9 +210,9 @@ const walletsClient = new WalletsClient({
     },
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -249,9 +249,9 @@ import { SDKValidationError } from "@formance/sdk-wallets/models/errors";
 const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -307,9 +307,9 @@ const walletsClient = new WalletsClient({
     serverIdx: 0,
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -337,9 +337,9 @@ const walletsClient = new WalletsClient({
     serverURL: "http://localhost",
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -424,9 +424,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -442,6 +442,21 @@ run();
 
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+To log HTTP requests and responses, you can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { WalletsClient } from "@formance/sdk-wallets";
+
+const sdk = new WalletsClient({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

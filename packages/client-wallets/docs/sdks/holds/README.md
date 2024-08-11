@@ -18,9 +18,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
     },
   },
 });
@@ -68,9 +68,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
     },
   },
 });
@@ -115,9 +115,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
     },
   },
 });
@@ -162,9 +162,9 @@ import { WalletsClient } from "@formance/sdk-wallets";
 const walletsClient = new WalletsClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
     },
   },
 });
