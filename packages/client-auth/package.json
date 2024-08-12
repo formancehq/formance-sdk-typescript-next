@@ -1,6 +1,6 @@
 {
   "name": "@formance/sdk-auth",
-  "version": "1.0.0-alpha.24",
+  "version": "1.0.0-alpha.25",
   "author": "Formance",
   "main": "./index.js",
   "sideEffects": false,
