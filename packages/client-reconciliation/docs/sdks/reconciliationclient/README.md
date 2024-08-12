@@ -18,9 +18,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
     },
   },
 });
@@ -64,9 +64,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
   security: {
     formanceOAuth: {
-      clientID: "",
-      clientSecret: "",
-      tokenURL: process.env.TOKEN_URL,
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
     },
   },
 });

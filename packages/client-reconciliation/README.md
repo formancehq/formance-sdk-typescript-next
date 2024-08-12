@@ -64,9 +64,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -122,9 +122,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -154,9 +154,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -200,9 +200,9 @@ const reconciliationClient = new ReconciliationClient({
     },
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -239,9 +239,9 @@ import { SDKValidationError } from "@formance/sdk-reconciliation/models/errors";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -296,9 +296,9 @@ const reconciliationClient = new ReconciliationClient({
     serverIdx: 0,
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -326,9 +326,9 @@ const reconciliationClient = new ReconciliationClient({
     serverURL: "http://localhost",
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -413,9 +413,9 @@ import { ReconciliationClient } from "@formance/sdk-reconciliation";
 const reconciliationClient = new ReconciliationClient({
     security: {
         formanceOAuth: {
-            clientID: "",
-            clientSecret: "",
-            tokenURL: process.env.TOKEN_URL,
+            clientID: "<YOUR_CLIENT_ID_HERE>",
+            clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            tokenURL: "<YOUR_TOKEN_URL_HERE>",
         },
     },
 });
@@ -431,6 +431,21 @@ run();
 
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+To log HTTP requests and responses, you can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { ReconciliationClient } from "@formance/sdk-reconciliation";
+
+const sdk = new ReconciliationClient({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

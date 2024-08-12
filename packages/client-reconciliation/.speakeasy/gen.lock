@@ -3,10 +3,10 @@ id: 547ff383-26ff-4651-b099-ec0df7c6565b
 management:
   docChecksum: db197f636b9eff831bbf1ce038033a73
   docVersion: 0.0.0
-  speakeasyVersion: 1.352.1
-  generationVersion: 2.385.1
-  releaseVersion: 1.0.0-alpha.8
-  configChecksum: 0b7a82df66f37b9120477997c4015aa9
+  speakeasyVersion: 1.361.1
+  generationVersion: 2.393.4
+  releaseVersion: 1.0.0-alpha.9
+  configChecksum: d21fda446b89dd9572029e29d3f366be
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-reconciliation
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-reconciliation
@@ -14,13 +14,13 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.5
-    core: 3.11.13
+    constsAndDefaults: 0.1.7
+    core: 3.13.1
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
-    errors: 2.82.0
+    errors: 2.82.1
     flattening: 2.81.1
-    globalSecurity: 2.82.9
+    globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
@@ -31,6 +31,14 @@ features:
     retries: 2.83.0
     sdkHooks: 0.1.0
 generatedFiles:
+  - src/funcs/info.ts
+  - src/funcs/reconcile.ts
+  - src/funcs/policiesV1Create.ts
+  - src/funcs/policiesV1List.ts
+  - src/funcs/policiesV1Delete.ts
+  - src/funcs/policiesV1Get.ts
+  - src/funcs/reconciliationsV1List.ts
+  - src/funcs/reconciliationsV1Get.ts
   - src/sdk/policiesv1.ts
   - src/sdk/reconciliationsv1.ts
   - src/sdk/sdk.ts
@@ -39,6 +47,7 @@ generatedFiles:
   - RUNTIMES.md
   - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
@@ -46,6 +55,7 @@ generatedFiles:
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
   - src/lib/matchers.ts
   - src/lib/primitives.ts
   - src/lib/retries.ts
@@ -58,6 +68,7 @@ generatedFiles:
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/types/blobs.ts
+  - src/types/constdatetime.ts
   - src/types/enums.ts
   - src/types/fp.ts
   - src/types/index.ts
