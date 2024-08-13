@@ -34,6 +34,43 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { info } from "@formance/sdk-connectivity/funcs/info.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await info(connectivityClient);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |

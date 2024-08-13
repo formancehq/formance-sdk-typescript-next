@@ -42,6 +42,47 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { connectorsInstall } from "@formance/sdk-connectivity/funcs/connectorsInstall.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await connectorsInstall(connectivityClient, "ADYEN", {
+      name: "<value>",
+      accessKey: "<value>",
+      secret: "<value>",
+    });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -82,6 +123,42 @@ const connectivityClient = new ConnectivityClient({
 
 async function run() {
   await connectivityClient.connectors.uninstall("MONEYCORP", "<value>");
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { connectorsUninstall } from "@formance/sdk-connectivity/funcs/connectorsUninstall.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await connectorsUninstall(connectivityClient, "BANKING-CIRCLE", "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
@@ -139,6 +216,47 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { connectorsUpdate } from "@formance/sdk-connectivity/funcs/connectorsUpdate.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await connectorsUpdate(connectivityClient, "MODULR", "<value>", {
+      name: "<value>",
+      clientID: "<value>",
+      apiKey: "<value>",
+      endpoint: "<value>",
+    });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -188,6 +306,43 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { connectorsGet } from "@formance/sdk-connectivity/funcs/connectorsGet.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await connectorsGet(connectivityClient, "MANGOPAY", "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -228,6 +383,42 @@ const connectivityClient = new ConnectivityClient({
 
 async function run() {
   await connectivityClient.connectors.reset("MODULR", "<value>");
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { connectorsReset } from "@formance/sdk-connectivity/funcs/connectorsReset.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await connectorsReset(connectivityClient, "WISE", "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
@@ -284,6 +475,44 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { connectorsListTask } from "@formance/sdk-connectivity/funcs/connectorsListTask.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await connectorsListTask(connectivityClient, "BANKING-CIRCLE", "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -326,6 +555,43 @@ const connectivityClient = new ConnectivityClient({
 
 async function run() {
   const result = await connectivityClient.connectors.getTask("ATLAR", "<value>", "<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { connectorsGetTask } from "@formance/sdk-connectivity/funcs/connectorsGetTask.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await connectorsGetTask(connectivityClient, "STRIPE", "<value>", "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

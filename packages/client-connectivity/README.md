@@ -486,6 +486,61 @@ const sdk = new ConnectivityClient({ debugLogger: console });
 ```
 <!-- End Debugging [debug] -->
 
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [accountsBalances](docs/sdks/accounts/README.md#balances)
+- [accountsCreate](docs/sdks/accounts/README.md#create)
+- [accountsGet](docs/sdks/accounts/README.md#get)
+- [accountsList](docs/sdks/accounts/README.md#list)
+- [bankAccountsCreate](docs/sdks/bankaccounts/README.md#create)
+- [bankAccountsForward](docs/sdks/bankaccounts/README.md#forward)
+- [bankAccountsGet](docs/sdks/bankaccounts/README.md#get)
+- [bankAccountsList](docs/sdks/bankaccounts/README.md#list)
+- [bankAccountsUpdateMetatdata](docs/sdks/bankaccounts/README.md#updatemetatdata)
+- [cashPoolsAddAccount](docs/sdks/cashpools/README.md#addaccount)
+- [cashPoolsBalances](docs/sdks/cashpools/README.md#balances)
+- [cashPoolsCreate](docs/sdks/cashpools/README.md#create)
+- [cashPoolsDelete](docs/sdks/cashpools/README.md#delete)
+- [cashPoolsGet](docs/sdks/cashpools/README.md#get)
+- [cashPoolsList](docs/sdks/cashpools/README.md#list)
+- [cashPoolsRemoveAccount](docs/sdks/cashpools/README.md#removeaccount)
+- [connectorsGetTask](docs/sdks/connectors/README.md#gettask)
+- [connectorsGet](docs/sdks/connectors/README.md#get)
+- [connectorsInstall](docs/sdks/connectors/README.md#install)
+- [connectorsListTask](docs/sdks/connectors/README.md#listtask)
+- [connectorsReset](docs/sdks/connectors/README.md#reset)
+- [connectorsUninstall](docs/sdks/connectors/README.md#uninstall)
+- [connectorsUpdate](docs/sdks/connectors/README.md#update)
+- [info](docs/sdks/connectivityclient/README.md#info)
+- [paymentsV1Create](docs/sdks/paymentsv1/README.md#create)
+- [paymentsV1Get](docs/sdks/paymentsv1/README.md#get)
+- [paymentsV1List](docs/sdks/paymentsv1/README.md#list)
+- [paymentsV1UpdateMetatdata](docs/sdks/paymentsv1/README.md#updatemetatdata)
+- [transferInitiationsCreate](docs/sdks/transferinitiations/README.md#create)
+- [transferInitiationsDelete](docs/sdks/transferinitiations/README.md#delete)
+- [transferInitiationsGet](docs/sdks/transferinitiations/README.md#get)
+- [transferInitiationsList](docs/sdks/transferinitiations/README.md#list)
+- [transferInitiationsRetry](docs/sdks/transferinitiations/README.md#retry)
+- [transferInitiationsReverse](docs/sdks/transferinitiations/README.md#reverse)
+- [transferInitiationsUpdateStatus](docs/sdks/transferinitiations/README.md#updatestatus)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development

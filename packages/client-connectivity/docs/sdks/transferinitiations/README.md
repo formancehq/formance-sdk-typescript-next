@@ -39,6 +39,44 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { transferInitiationsList } from "@formance/sdk-connectivity/funcs/transferInitiationsList.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await transferInitiationsList(connectivityClient);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -99,6 +137,53 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { transferInitiationsCreate } from "@formance/sdk-connectivity/funcs/transferInitiationsCreate.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await transferInitiationsCreate(connectivityClient, {
+    reference: "<value>",
+    scheduledAt: new Date("2024-11-08T08:43:39.140Z"),
+    description: "Total 24 hour hub",
+    sourceAccountID: "<value>",
+    destinationAccountID: "<value>",
+    type: "TRANSFER",
+    amount: 301510,
+    asset: "<value>",
+    validated: false,
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -138,6 +223,43 @@ const connectivityClient = new ConnectivityClient({
 
 async function run() {
   const result = await connectivityClient.transferInitiations.get("<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { transferInitiationsGet } from "@formance/sdk-connectivity/funcs/transferInitiationsGet.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await transferInitiationsGet(connectivityClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -192,6 +314,42 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { transferInitiationsDelete } from "@formance/sdk-connectivity/funcs/transferInitiationsDelete.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await transferInitiationsDelete(connectivityClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -231,6 +389,42 @@ const connectivityClient = new ConnectivityClient({
 
 async function run() {
   await connectivityClient.transferInitiations.retry("<value>");
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { transferInitiationsRetry } from "@formance/sdk-connectivity/funcs/transferInitiationsRetry.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await transferInitiationsRetry(connectivityClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
@@ -289,6 +483,47 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { transferInitiationsReverse } from "@formance/sdk-connectivity/funcs/transferInitiationsReverse.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await transferInitiationsReverse(connectivityClient, "<value>", {
+    reference: "<value>",
+    description: "Reduced multimedia access",
+    amount: 434262,
+    asset: "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -331,6 +566,44 @@ async function run() {
   await connectivityClient.transferInitiations.updateStatus("<value>", {
     status: "REJECTED",
   });
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ConnectivityClientCore } from "@formance/sdk-connectivity/core.js";
+import { transferInitiationsUpdateStatus } from "@formance/sdk-connectivity/funcs/transferInitiationsUpdateStatus.js";
+
+// Use `ConnectivityClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const connectivityClient = new ConnectivityClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await transferInitiationsUpdateStatus(connectivityClient, "<value>", {
+    status: "VALIDATED",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
