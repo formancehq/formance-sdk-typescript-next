@@ -429,6 +429,44 @@ const sdk = new FlowsClient({ debugLogger: console });
 ```
 <!-- End Debugging [debug] -->
 
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [info](docs/sdks/flowsclient/README.md#info)
+- [instancesAbort](docs/sdks/instances/README.md#abort)
+- [instancesGetHistory](docs/sdks/instances/README.md#gethistory)
+- [instancesGetStageHistory](docs/sdks/instances/README.md#getstagehistory)
+- [instancesGet](docs/sdks/instances/README.md#get)
+- [instancesList](docs/sdks/instances/README.md#list)
+- [instancesSend](docs/sdks/instances/README.md#send)
+- [triggersCreate](docs/sdks/triggers/README.md#create)
+- [triggersDelete](docs/sdks/triggers/README.md#delete)
+- [triggersGet](docs/sdks/triggers/README.md#get)
+- [triggersListOccurences](docs/sdks/triggers/README.md#listoccurences)
+- [triggersList](docs/sdks/triggers/README.md#list)
+- [triggersTest](docs/sdks/triggers/README.md#test)
+- [workflowsCreate](docs/sdks/workflows/README.md#create)
+- [workflowsDelete](docs/sdks/workflows/README.md#delete)
+- [workflowsGet](docs/sdks/workflows/README.md#get)
+- [workflowsList](docs/sdks/workflows/README.md#list)
+- [workflowsRun](docs/sdks/workflows/README.md#run)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development

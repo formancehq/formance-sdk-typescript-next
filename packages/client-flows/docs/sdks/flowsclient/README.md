@@ -30,6 +30,39 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FlowsClientCore } from "@formance/sdk-flows/core.js";
+import { info } from "@formance/sdk-flows/funcs/info.js";
+
+// Use `FlowsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const flowsClient = new FlowsClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await info(flowsClient);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |

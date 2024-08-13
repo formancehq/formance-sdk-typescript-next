@@ -34,6 +34,40 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FlowsClientCore } from "@formance/sdk-flows/core.js";
+import { instancesList } from "@formance/sdk-flows/funcs/instancesList.js";
+
+// Use `FlowsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const flowsClient = new FlowsClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await instancesList(flowsClient, "<value>", false);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -80,6 +114,39 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FlowsClientCore } from "@formance/sdk-flows/core.js";
+import { instancesGet } from "@formance/sdk-flows/funcs/instancesGet.js";
+
+// Use `FlowsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const flowsClient = new FlowsClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await instancesGet(flowsClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -115,6 +182,38 @@ const flowsClient = new FlowsClient({
 
 async function run() {
   await flowsClient.instances.abort("<value>");
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FlowsClientCore } from "@formance/sdk-flows/core.js";
+import { instancesAbort } from "@formance/sdk-flows/funcs/instancesAbort.js";
+
+// Use `FlowsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const flowsClient = new FlowsClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await instancesAbort(flowsClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
@@ -166,6 +265,40 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FlowsClientCore } from "@formance/sdk-flows/core.js";
+import { instancesSend } from "@formance/sdk-flows/funcs/instancesSend.js";
+
+// Use `FlowsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const flowsClient = new FlowsClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await instancesSend(flowsClient, "<value>", {
+    name: "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -210,6 +343,39 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FlowsClientCore } from "@formance/sdk-flows/core.js";
+import { instancesGetHistory } from "@formance/sdk-flows/funcs/instancesGetHistory.js";
+
+// Use `FlowsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const flowsClient = new FlowsClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await instancesGetHistory(flowsClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -244,6 +410,39 @@ const flowsClient = new FlowsClient({
 
 async function run() {
   const result = await flowsClient.instances.getStageHistory("<value>", 881892);
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FlowsClientCore } from "@formance/sdk-flows/core.js";
+import { instancesGetStageHistory } from "@formance/sdk-flows/funcs/instancesGetStageHistory.js";
+
+// Use `FlowsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const flowsClient = new FlowsClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await instancesGetStageHistory(flowsClient, "<value>", 842278);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
