@@ -458,6 +458,41 @@ const sdk = new WalletsClient({ debugLogger: console });
 ```
 <!-- End Debugging [debug] -->
 
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [balancesCreate](docs/sdks/balances/README.md#create)
+- [balancesGet](docs/sdks/balances/README.md#get)
+- [balancesList](docs/sdks/balances/README.md#list)
+- [holdsCancel](docs/sdks/holds/README.md#cancel)
+- [holdsConfirm](docs/sdks/holds/README.md#confirm)
+- [holdsGet](docs/sdks/holds/README.md#get)
+- [holdsList](docs/sdks/holds/README.md#list)
+- [info](docs/sdks/walletsclient/README.md#info)
+- [walletsCreate](docs/sdks/wallets/README.md#create)
+- [walletsCredit](docs/sdks/wallets/README.md#credit)
+- [walletsDebit](docs/sdks/wallets/README.md#debit)
+- [walletsGet](docs/sdks/wallets/README.md#get)
+- [walletsList](docs/sdks/wallets/README.md#list)
+- [walletsSummary](docs/sdks/wallets/README.md#summary)
+- [walletsUpdate](docs/sdks/wallets/README.md#update)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development
