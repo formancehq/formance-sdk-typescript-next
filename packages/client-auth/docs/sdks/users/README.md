@@ -30,6 +30,40 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthClientCore } from "@formance/sdk-auth/core.js";
+import { usersList } from "@formance/sdk-auth/funcs/usersList.js";
+
+// Use `AuthClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authClient = new AuthClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await usersList(authClient);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -65,6 +99,39 @@ const authClient = new AuthClient({
 
 async function run() {
   const result = await authClient.users.get("<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthClientCore } from "@formance/sdk-auth/core.js";
+import { usersGet } from "@formance/sdk-auth/funcs/usersGet.js";
+
+// Use `AuthClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authClient = new AuthClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await usersGet(authClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

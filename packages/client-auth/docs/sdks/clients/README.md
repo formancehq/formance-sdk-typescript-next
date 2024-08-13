@@ -33,6 +33,40 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthClientCore } from "@formance/sdk-auth/core.js";
+import { clientsList } from "@formance/sdk-auth/funcs/clientsList.js";
+
+// Use `AuthClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authClient = new AuthClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await clientsList(authClient);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -78,6 +112,41 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthClientCore } from "@formance/sdk-auth/core.js";
+import { clientsCreate } from "@formance/sdk-auth/funcs/clientsCreate.js";
+
+// Use `AuthClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authClient = new AuthClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await clientsCreate(authClient, {
+    name: "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -112,6 +181,39 @@ const authClient = new AuthClient({
 
 async function run() {
   const result = await authClient.clients.get("<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthClientCore } from "@formance/sdk-auth/core.js";
+import { clientsGet } from "@formance/sdk-auth/funcs/clientsGet.js";
+
+// Use `AuthClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authClient = new AuthClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await clientsGet(authClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -164,6 +266,41 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthClientCore } from "@formance/sdk-auth/core.js";
+import { clientsUpdate } from "@formance/sdk-auth/funcs/clientsUpdate.js";
+
+// Use `AuthClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authClient = new AuthClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await clientsUpdate(authClient, "<value>", {
+    name: "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -199,6 +336,38 @@ const authClient = new AuthClient({
 
 async function run() {
   await authClient.clients.delete("<value>");
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthClientCore } from "@formance/sdk-auth/core.js";
+import { clientsDelete } from "@formance/sdk-auth/funcs/clientsDelete.js";
+
+// Use `AuthClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authClient = new AuthClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await clientsDelete(authClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
