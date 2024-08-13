@@ -7,7 +7,7 @@ import * as z from "zod";
 export type SchemeFormanceOAuth = {
     clientID: string;
     clientSecret: string;
-    tokenURL?: "/api/auth/oauth/token" | undefined;
+    tokenURL?: string | undefined;
 };
 
 /** @internal */
@@ -18,14 +18,14 @@ export const SchemeFormanceOAuth$inboundSchema: z.ZodType<
 > = z.object({
     clientID: z.string(),
     clientSecret: z.string(),
-    tokenURL: z.literal("/api/auth/oauth/token").optional(),
+    tokenURL: z.string().default("/api/auth/oauth/token"),
 });
 
 /** @internal */
 export type SchemeFormanceOAuth$Outbound = {
     clientID: string;
     clientSecret: string;
-    tokenURL: "/api/auth/oauth/token";
+    tokenURL: string;
 };
 
 /** @internal */
@@ -36,7 +36,7 @@ export const SchemeFormanceOAuth$outboundSchema: z.ZodType<
 > = z.object({
     clientID: z.string(),
     clientSecret: z.string(),
-    tokenURL: z.literal("/api/auth/oauth/token").default("/api/auth/oauth/token" as const),
+    tokenURL: z.string().default("/api/auth/oauth/token"),
 });
 
 /**

@@ -42,6 +42,50 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ReconciliationClientCore } from "@formance/sdk-reconciliation/core.js";
+import { policiesV1Create } from "@formance/sdk-reconciliation/funcs/policiesV1Create.js";
+
+// Use `ReconciliationClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const reconciliationClient = new ReconciliationClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await policiesV1Create(reconciliationClient, {
+    name: "<value>",
+    ledgerName: "<value>",
+    ledgerQuery: {
+      "key": "<value>",
+    },
+    paymentsPoolID: "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -81,6 +125,44 @@ const reconciliationClient = new ReconciliationClient({
 
 async function run() {
   const result = await reconciliationClient.policiesV1.list(15);
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ReconciliationClientCore } from "@formance/sdk-reconciliation/core.js";
+import { policiesV1List } from "@formance/sdk-reconciliation/funcs/policiesV1List.js";
+
+// Use `ReconciliationClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const reconciliationClient = new ReconciliationClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await policiesV1List(reconciliationClient, 15);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   for await (const page of result) {
     // handle page
@@ -137,6 +219,42 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ReconciliationClientCore } from "@formance/sdk-reconciliation/core.js";
+import { policiesV1Delete } from "@formance/sdk-reconciliation/funcs/policiesV1Delete.js";
+
+// Use `ReconciliationClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const reconciliationClient = new ReconciliationClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await policiesV1Delete(reconciliationClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -176,6 +294,43 @@ const reconciliationClient = new ReconciliationClient({
 
 async function run() {
   const result = await reconciliationClient.policiesV1.get("<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ReconciliationClientCore } from "@formance/sdk-reconciliation/core.js";
+import { policiesV1Get } from "@formance/sdk-reconciliation/funcs/policiesV1Get.js";
+
+// Use `ReconciliationClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const reconciliationClient = new ReconciliationClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await policiesV1Get(reconciliationClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
