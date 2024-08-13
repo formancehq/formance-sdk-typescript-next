@@ -443,6 +443,52 @@ const sdk = new LedgerClient({ debugLogger: console });
 ```
 <!-- End Debugging [debug] -->
 
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [accountsAddMetadata](docs/sdks/accounts/README.md#addmetadata)
+- [accountsCount](docs/sdks/accounts/README.md#count)
+- [accountsGet](docs/sdks/accounts/README.md#get)
+- [accountsList](docs/sdks/accounts/README.md#list)
+- [accountsRemoveMetadata](docs/sdks/accounts/README.md#removemetadata)
+- [balancesAggregate](docs/sdks/balances/README.md#aggregate)
+- [balancesVolumes](docs/sdks/balances/README.md#volumes)
+- [info](docs/sdks/ledgerclient/README.md#info)
+- [ledgersAddMetadata](docs/sdks/ledgers/README.md#addmetadata)
+- [ledgersBulk](docs/sdks/ledgers/README.md#bulk)
+- [ledgersCreate](docs/sdks/ledgers/README.md#create)
+- [ledgersGet](docs/sdks/ledgers/README.md#get)
+- [ledgersInfo](docs/sdks/ledgers/README.md#info)
+- [ledgersList](docs/sdks/ledgers/README.md#list)
+- [ledgersRemoveMetadata](docs/sdks/ledgers/README.md#removemetadata)
+- [ledgersStats](docs/sdks/ledgers/README.md#stats)
+- [logsExport](docs/sdks/logs/README.md#export)
+- [logsIngest](docs/sdks/logs/README.md#ingest)
+- [logsList](docs/sdks/logs/README.md#list)
+- [transactionsAddMetadata](docs/sdks/transactions/README.md#addmetadata)
+- [transactionsCount](docs/sdks/transactions/README.md#count)
+- [transactionsCreate](docs/sdks/transactions/README.md#create)
+- [transactionsDeleteMetadata](docs/sdks/transactions/README.md#deletemetadata)
+- [transactionsGet](docs/sdks/transactions/README.md#get)
+- [transactionsList](docs/sdks/transactions/README.md#list)
+- [transactionsRevert](docs/sdks/transactions/README.md#revert)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development

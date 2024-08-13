@@ -34,6 +34,39 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { transactionsCount } from "@formance/sdk-ledger/funcs/transactionsCount.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await transactionsCount(ledgerClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -73,6 +106,42 @@ async function run() {
   const result = await ledgerClient.transactions.list({
     ledger: "<value>",
   });
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { transactionsList } from "@formance/sdk-ledger/funcs/transactionsList.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await transactionsList(ledgerClient, {
+    ledger: "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   for await (const page of result) {
     // handle page
@@ -137,6 +206,46 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { transactionsCreate } from "@formance/sdk-ledger/funcs/transactionsCreate.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await transactionsCreate(ledgerClient, "<value>", {
+      metadata: {
+        "key": "<value>",
+      },
+      script: {
+        plain: "<value>",
+      },
+    });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -175,6 +284,39 @@ const ledgerClient = new LedgerClient({
 
 async function run() {
   const result = await ledgerClient.transactions.get("<value>", 700347);
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { transactionsGet } from "@formance/sdk-ledger/funcs/transactionsGet.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await transactionsGet(ledgerClient, "<value>", 558834);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -236,6 +378,46 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { transactionsAddMetadata } from "@formance/sdk-ledger/funcs/transactionsAddMetadata.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await transactionsAddMetadata(ledgerClient, {
+    ledger: "<value>",
+    id: 695243,
+    requestBody: {
+      metadata: {
+        "key": "<value>",
+      },
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -271,6 +453,38 @@ const ledgerClient = new LedgerClient({
 
 async function run() {
   await ledgerClient.transactions.deleteMetadata("<value>", "<value>", "<value>");
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { transactionsDeleteMetadata } from "@formance/sdk-ledger/funcs/transactionsDeleteMetadata.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await transactionsDeleteMetadata(ledgerClient, "<value>", "<value>", "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
@@ -315,6 +529,39 @@ const ledgerClient = new LedgerClient({
 
 async function run() {
   const result = await ledgerClient.transactions.revert("<value>", 130652);
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { transactionsRevert } from "@formance/sdk-ledger/funcs/transactionsRevert.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await transactionsRevert(ledgerClient, "<value>", 634978);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

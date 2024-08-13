@@ -31,6 +31,40 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { logsList } from "@formance/sdk-ledger/funcs/logsList.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await logsList(ledgerClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -75,6 +109,39 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { logsExport } from "@formance/sdk-ledger/funcs/logsExport.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await logsExport(ledgerClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -110,6 +177,38 @@ const ledgerClient = new LedgerClient({
 
 async function run() {
   await ledgerClient.logs.ingest("<value>", "<value>");
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { LedgerClientCore } from "@formance/sdk-ledger/core.js";
+import { logsIngest } from "@formance/sdk-ledger/funcs/logsIngest.js";
+
+// Use `LedgerClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ledgerClient = new LedgerClientCore({
+  security: {
+    bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  },
+});
+
+async function run() {
+  const res = await logsIngest(ledgerClient, "<value>", "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
