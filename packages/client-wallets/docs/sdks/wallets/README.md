@@ -41,6 +41,46 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { WalletsClientCore } from "@formance/sdk-wallets/core.js";
+import { walletsList } from "@formance/sdk-wallets/funcs/walletsList.js";
+
+// Use `WalletsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const walletsClient = new WalletsClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await walletsList(walletsClient, "<value>", {
+    "key": "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -95,6 +135,47 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { WalletsClientCore } from "@formance/sdk-wallets/core.js";
+import { walletsCreate } from "@formance/sdk-wallets/funcs/walletsCreate.js";
+
+// Use `WalletsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const walletsClient = new WalletsClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await walletsCreate(walletsClient, {
+    name: "<value>",
+    metadata: {
+      "key": "<value>",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -142,6 +223,43 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { WalletsClientCore } from "@formance/sdk-wallets/core.js";
+import { walletsGet } from "@formance/sdk-wallets/funcs/walletsGet.js";
+
+// Use `WalletsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const walletsClient = new WalletsClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await walletsGet(walletsClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -181,6 +299,42 @@ const walletsClient = new WalletsClient({
 
 async function run() {
   await walletsClient.wallets.update("<value>", {});
+
+  
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { WalletsClientCore } from "@formance/sdk-wallets/core.js";
+import { walletsUpdate } from "@formance/sdk-wallets/funcs/walletsUpdate.js";
+
+// Use `WalletsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const walletsClient = new WalletsClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await walletsUpdate(walletsClient, "<value>", {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
@@ -246,6 +400,54 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { WalletsClientCore } from "@formance/sdk-wallets/core.js";
+import { walletsCredit } from "@formance/sdk-wallets/funcs/walletsCredit.js";
+
+// Use `WalletsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const walletsClient = new WalletsClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await walletsCredit(walletsClient, "<value>", {
+    amount: {
+      asset: "<value>",
+      amount: 750531,
+    },
+    metadata: {
+      "key": "<value>",
+    },
+  source:     {
+        type: "WALLET",
+        identifier: "<value>",
+      },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -302,6 +504,51 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { WalletsClientCore } from "@formance/sdk-wallets/core.js";
+import { walletsDebit } from "@formance/sdk-wallets/funcs/walletsDebit.js";
+
+// Use `WalletsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const walletsClient = new WalletsClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await walletsDebit(walletsClient, "<value>", {
+    amount: {
+      asset: "<value>",
+      amount: 479458,
+    },
+    metadata: {
+      "key": "<value>",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -342,6 +589,43 @@ const walletsClient = new WalletsClient({
 
 async function run() {
   const result = await walletsClient.wallets.summary("<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { WalletsClientCore } from "@formance/sdk-wallets/core.js";
+import { walletsSummary } from "@formance/sdk-wallets/funcs/walletsSummary.js";
+
+// Use `WalletsClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const walletsClient = new WalletsClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await walletsSummary(walletsClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
