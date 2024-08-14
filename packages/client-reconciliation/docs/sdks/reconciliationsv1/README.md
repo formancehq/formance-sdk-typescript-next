@@ -34,6 +34,44 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ReconciliationClientCore } from "@formance/sdk-reconciliation/core.js";
+import { reconciliationsV1List } from "@formance/sdk-reconciliation/funcs/reconciliationsV1List.js";
+
+// Use `ReconciliationClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const reconciliationClient = new ReconciliationClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await reconciliationsV1List(reconciliationClient);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  for await (const page of result) {
+    // handle page
+  }
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -74,6 +112,43 @@ const reconciliationClient = new ReconciliationClient({
 
 async function run() {
   const result = await reconciliationClient.reconciliationsV1.get("<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ReconciliationClientCore } from "@formance/sdk-reconciliation/core.js";
+import { reconciliationsV1Get } from "@formance/sdk-reconciliation/funcs/reconciliationsV1Get.js";
+
+// Use `ReconciliationClientCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const reconciliationClient = new ReconciliationClientCore({
+  security: {
+    formanceOAuth: {
+      clientID: "<YOUR_CLIENT_ID_HERE>",
+      clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+      tokenURL: "<YOUR_TOKEN_URL_HERE>",
+    },
+  },
+});
+
+async function run() {
+  const res = await reconciliationsV1Get(reconciliationClient, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

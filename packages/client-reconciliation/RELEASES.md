@@ -119,3 +119,13 @@ Based on:
 - [typescript v1.0.0-alpha.9] packages/client-reconciliation
 ### Releases
 - [NPM v1.0.0-alpha.9] https://www.npmjs.com/package/@formance/sdk-reconciliation/v/1.0.0-alpha.9 - packages/client-reconciliation
+
+## 2024-08-14 00:15:58
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.366.0 (2.396.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.0.0-alpha.10] packages/client-reconciliation
+### Releases
+- [NPM v1.0.0-alpha.10] https://www.npmjs.com/package/@formance/sdk-reconciliation/v/1.0.0-alpha.10 - packages/client-reconciliation
