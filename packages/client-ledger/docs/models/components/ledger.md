@@ -1,5 +1,16 @@
 # Ledger
 
+## Example Usage
+
+```typescript
+import { Ledger } from "@formance/sdk-ledger/models/components";
+
+let value: Ledger = {
+    name: "<value>",
+    addedAt: new Date("2023-08-25T11:59:25.313Z"),
+    bucket: "<value>",
+};
+```
 
 ## Fields
 

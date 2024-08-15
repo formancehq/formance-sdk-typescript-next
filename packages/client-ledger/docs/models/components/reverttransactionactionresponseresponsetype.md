@@ -1,8 +1,15 @@
 # RevertTransactionActionResponseResponseType
 
+## Example Usage
+
+```typescript
+import { RevertTransactionActionResponseResponseType } from "@formance/sdk-ledger/models/components";
+
+let value: RevertTransactionActionResponseResponseType = "REVERT_TRANSACTION";
+```
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `RevertTransaction` | REVERT_TRANSACTION  |
+```typescript
+"REVERT_TRANSACTION"
+```

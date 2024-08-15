@@ -1,5 +1,22 @@
 # TransactionsCreateRequest
 
+## Example Usage
+
+```typescript
+import { TransactionsCreateRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: TransactionsCreateRequest = {
+    ledger: "<value>",
+    requestBody: {
+        metadata: {
+            key: "<value>",
+        },
+        script: {
+            plain: "<value>",
+        },
+    },
+};
+```
 
 ## Fields
 

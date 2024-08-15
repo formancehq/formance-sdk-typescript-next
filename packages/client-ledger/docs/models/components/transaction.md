@@ -1,5 +1,27 @@
 # Transaction
 
+## Example Usage
+
+```typescript
+import { Transaction } from "@formance/sdk-ledger/models/components";
+
+let value: Transaction = {
+    timestamp: new Date("2024-07-29T07:24:05.705Z"),
+    postings: [
+        {
+            amount: 544883,
+            asset: "<value>",
+            destination: "<value>",
+            source: "<value>",
+        },
+    ],
+    metadata: {
+        key: "<value>",
+    },
+    id: "<id>",
+    reverted: false,
+};
+```
 
 ## Fields
 

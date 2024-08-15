@@ -1,5 +1,16 @@
 # AccountsRemoveMetadataRequest
 
+## Example Usage
+
+```typescript
+import { AccountsRemoveMetadataRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsRemoveMetadataRequest = {
+    ledger: "<value>",
+    address: "4426 Eugene Corner",
+    key: "<key>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,18 @@
 # AccountsCountRequest
 
+## Example Usage
+
+```typescript
+import { AccountsCountRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsCountRequest = {
+    ledger: "<value>",
+    address: "3649 Boyle Cape",
+    query: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

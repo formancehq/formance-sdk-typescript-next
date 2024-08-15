@@ -1,5 +1,12 @@
 # LedgersCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { LedgersCreateRequestBody } from "@formance/sdk-ledger/models/operations";
+
+let value: LedgersCreateRequestBody = {};
+```
 
 ## Fields
 

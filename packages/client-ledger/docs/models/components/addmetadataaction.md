@@ -1,5 +1,21 @@
 # AddMetadataAction
 
+## Example Usage
+
+```typescript
+import { AddMetadataAction } from "@formance/sdk-ledger/models/components";
+
+let value: AddMetadataAction = {
+    action: "ADD_METADATA",
+    data: {
+        targetType: "TRANSACTION",
+        targetId: 272656,
+        metadata: {
+            key: "<value>",
+        },
+    },
+};
+```
 
 ## Fields
 

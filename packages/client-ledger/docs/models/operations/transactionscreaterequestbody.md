@@ -1,5 +1,19 @@
 # TransactionsCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { TransactionsCreateRequestBody } from "@formance/sdk-ledger/models/operations";
+
+let value: TransactionsCreateRequestBody = {
+    metadata: {
+        key: "<value>",
+    },
+    script: {
+        plain: "<value>",
+    },
+};
+```
 
 ## Supported Types
 

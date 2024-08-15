@@ -1,5 +1,15 @@
 # LogsIngestRequest
 
+## Example Usage
+
+```typescript
+import { LogsIngestRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: LogsIngestRequest = {
+    ledger: "<value>",
+    requestBody: "<value>",
+};
+```
 
 ## Fields
 

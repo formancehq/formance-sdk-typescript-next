@@ -1,5 +1,15 @@
 # LedgersRemoveMetadataRequest
 
+## Example Usage
+
+```typescript
+import { LedgersRemoveMetadataRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: LedgersRemoveMetadataRequest = {
+    ledger: "<value>",
+    key: "<key>",
+};
+```
 
 ## Fields
 

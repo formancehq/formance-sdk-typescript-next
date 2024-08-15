@@ -2,6 +2,15 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { LedgersBulkResponseBody } from "@formance/sdk-ledger/models/operations";
+
+let value: LedgersBulkResponseBody = {
+    data: [],
+};
+```
 
 ## Fields
 

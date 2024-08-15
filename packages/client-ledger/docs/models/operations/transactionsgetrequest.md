@@ -1,5 +1,15 @@
 # TransactionsGetRequest
 
+## Example Usage
+
+```typescript
+import { TransactionsGetRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: TransactionsGetRequest = {
+    ledger: "<value>",
+    id: 921158,
+};
+```
 
 ## Fields
 

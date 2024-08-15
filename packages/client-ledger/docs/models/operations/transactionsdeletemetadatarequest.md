@@ -1,5 +1,16 @@
 # TransactionsDeleteMetadataRequest
 
+## Example Usage
+
+```typescript
+import { TransactionsDeleteMetadataRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: TransactionsDeleteMetadataRequest = {
+    ledger: "<value>",
+    id: "<id>",
+    key: "<key>",
+};
+```
 
 ## Fields
 

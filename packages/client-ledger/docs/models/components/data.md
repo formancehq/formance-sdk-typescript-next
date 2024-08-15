@@ -1,5 +1,24 @@
 # Data
 
+## Example Usage
+
+```typescript
+import { Data } from "@formance/sdk-ledger/models/components";
+
+let value: Data = {
+    metadata: {
+        key: "<value>",
+    },
+    postings: [
+        {
+            amount: 437587,
+            asset: "<value>",
+            destination: "<value>",
+            source: "<value>",
+        },
+    ],
+};
+```
 
 ## Supported Types
 

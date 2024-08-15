@@ -1,5 +1,20 @@
 # AccountsAddMetadataRequest
 
+## Example Usage
+
+```typescript
+import { AccountsAddMetadataRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsAddMetadataRequest = {
+    ledger: "<value>",
+    address: "2619 McCullough Flat",
+    requestBody: {
+        metadata: {
+            key: "<value>",
+        },
+    },
+};
+```
 
 ## Fields
 

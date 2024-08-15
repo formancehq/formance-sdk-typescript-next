@@ -1,5 +1,19 @@
 # CreateTransactionWithNumscript
 
+## Example Usage
+
+```typescript
+import { CreateTransactionWithNumscript } from "@formance/sdk-ledger/models/components";
+
+let value: CreateTransactionWithNumscript = {
+    metadata: {
+        key: "<value>",
+    },
+    script: {
+        plain: "<value>",
+    },
+};
+```
 
 ## Fields
 

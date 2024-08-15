@@ -1,5 +1,14 @@
 # TransactionsCountRequest
 
+## Example Usage
+
+```typescript
+import { TransactionsCountRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: TransactionsCountRequest = {
+    ledger: "<value>",
+};
+```
 
 ## Fields
 

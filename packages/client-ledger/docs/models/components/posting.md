@@ -1,5 +1,17 @@
 # Posting
 
+## Example Usage
+
+```typescript
+import { Posting } from "@formance/sdk-ledger/models/components";
+
+let value: Posting = {
+    amount: 847252,
+    asset: "<value>",
+    destination: "<value>",
+    source: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # ServerInfo
 
+## Example Usage
+
+```typescript
+import { ServerInfo } from "@formance/sdk-ledger/models/components";
+
+let value: ServerInfo = {
+    version: "<value>",
+};
+```
 
 ## Fields
 

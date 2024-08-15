@@ -1,5 +1,17 @@
 # BulkAction
 
+## Example Usage
+
+```typescript
+import { BulkAction } from "@formance/sdk-ledger/models/components";
+
+let value: BulkAction = {
+    action: "REVERT_TRANSACTION",
+    data: {
+        id: "<id>",
+    },
+};
+```
 
 ## Supported Types
 

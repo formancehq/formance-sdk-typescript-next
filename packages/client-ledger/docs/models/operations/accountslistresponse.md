@@ -1,5 +1,18 @@
 # AccountsListResponse
 
+## Example Usage
+
+```typescript
+import { AccountsListResponse } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsListResponse = {
+    result: {
+        cursor: {
+            data: [],
+        },
+    },
+};
+```
 
 ## Fields
 

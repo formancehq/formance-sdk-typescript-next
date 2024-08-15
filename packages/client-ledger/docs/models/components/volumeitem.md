@@ -1,5 +1,18 @@
 # VolumeItem
 
+## Example Usage
+
+```typescript
+import { VolumeItem } from "@formance/sdk-ledger/models/components";
+
+let value: VolumeItem = {
+    account: "17651597",
+    asset: "<value>",
+    input: 521848,
+    output: 105907,
+    balance: 414662,
+};
+```
 
 ## Fields
 

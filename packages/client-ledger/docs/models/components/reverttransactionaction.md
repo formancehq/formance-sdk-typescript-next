@@ -1,5 +1,17 @@
 # RevertTransactionAction
 
+## Example Usage
+
+```typescript
+import { RevertTransactionAction } from "@formance/sdk-ledger/models/components";
+
+let value: RevertTransactionAction = {
+    action: "REVERT_TRANSACTION",
+    data: {
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

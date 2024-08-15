@@ -1,10 +1,15 @@
 # LogEntryType
 
+## Example Usage
+
+```typescript
+import { LogEntryType } from "@formance/sdk-ledger/models/components";
+
+let value: LogEntryType = "REVERT_TRANSACTION";
+```
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `NewTransaction`    | NEW_TRANSACTION     |
-| `SetMetadata`       | SET_METADATA        |
-| `RevertTransaction` | REVERT_TRANSACTION  |
+```typescript
+"NEW_TRANSACTION" | "SET_METADATA" | "REVERT_TRANSACTION"
+```

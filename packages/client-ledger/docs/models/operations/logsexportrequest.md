@@ -1,5 +1,14 @@
 # LogsExportRequest
 
+## Example Usage
+
+```typescript
+import { LogsExportRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: LogsExportRequest = {
+    ledger: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,8 +1,15 @@
 # RevertTransactionActionAction
 
+## Example Usage
+
+```typescript
+import { RevertTransactionActionAction } from "@formance/sdk-ledger/models/components";
+
+let value: RevertTransactionActionAction = "REVERT_TRANSACTION";
+```
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `RevertTransaction` | REVERT_TRANSACTION  |
+```typescript
+"REVERT_TRANSACTION"
+```

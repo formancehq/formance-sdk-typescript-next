@@ -1,5 +1,16 @@
 # DeleteMetadataTargetAccount
 
+## Example Usage
+
+```typescript
+import { DeleteMetadataTargetAccount } from "@formance/sdk-ledger/models/components";
+
+let value: DeleteMetadataTargetAccount = {
+    targetId: "<value>",
+    targetType: "ACCOUNT",
+    key: "<key>",
+};
+```
 
 ## Fields
 

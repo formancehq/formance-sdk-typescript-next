@@ -1,5 +1,15 @@
 # TransactionsRevertRequest
 
+## Example Usage
+
+```typescript
+import { TransactionsRevertRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: TransactionsRevertRequest = {
+    ledger: "<value>",
+    id: 277718,
+};
+```
 
 ## Fields
 

@@ -1,5 +1,24 @@
 # CreateTransactionWithPostings
 
+## Example Usage
+
+```typescript
+import { CreateTransactionWithPostings } from "@formance/sdk-ledger/models/components";
+
+let value: CreateTransactionWithPostings = {
+    metadata: {
+        key: "<value>",
+    },
+    postings: [
+        {
+            amount: 56713,
+            asset: "<value>",
+            destination: "<value>",
+            source: "<value>",
+        },
+    ],
+};
+```
 
 ## Fields
 

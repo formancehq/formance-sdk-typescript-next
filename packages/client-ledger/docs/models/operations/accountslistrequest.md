@@ -1,5 +1,14 @@
 # AccountsListRequest
 
+## Example Usage
+
+```typescript
+import { AccountsListRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsListRequest = {
+    ledger: "<value>",
+};
+```
 
 ## Fields
 

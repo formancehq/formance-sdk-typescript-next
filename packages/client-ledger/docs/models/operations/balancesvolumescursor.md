@@ -1,5 +1,22 @@
 # BalancesVolumesCursor
 
+## Example Usage
+
+```typescript
+import { BalancesVolumesCursor } from "@formance/sdk-ledger/models/operations";
+
+let value: BalancesVolumesCursor = {
+    data: [
+        {
+            account: "66317193",
+            asset: "<value>",
+            input: 662527,
+            output: 820994,
+            balance: 13571,
+        },
+    ],
+};
+```
 
 ## Fields
 

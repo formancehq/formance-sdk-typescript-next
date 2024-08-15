@@ -1,5 +1,20 @@
 # Cursor
 
+## Example Usage
+
+```typescript
+import { Cursor } from "@formance/sdk-ledger/models/operations";
+
+let value: Cursor = {
+    data: [
+        {
+            name: "<value>",
+            addedAt: new Date("2022-08-26T08:08:26.098Z"),
+            bucket: "<value>",
+        },
+    ],
+};
+```
 
 ## Fields
 

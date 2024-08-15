@@ -1,5 +1,14 @@
 # DeleteMetadataActionResponse
 
+## Example Usage
+
+```typescript
+import { DeleteMetadataActionResponse } from "@formance/sdk-ledger/models/components";
+
+let value: DeleteMetadataActionResponse = {
+    responseType: "DELETE_METADATA",
+};
+```
 
 ## Fields
 

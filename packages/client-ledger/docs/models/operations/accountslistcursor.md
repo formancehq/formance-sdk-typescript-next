@@ -1,5 +1,14 @@
 # AccountsListCursor
 
+## Example Usage
+
+```typescript
+import { AccountsListCursor } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsListCursor = {
+    data: [],
+};
+```
 
 ## Fields
 

@@ -1,8 +1,15 @@
 # AddMetadataActionResponseResponseType
 
+## Example Usage
+
+```typescript
+import { AddMetadataActionResponseResponseType } from "@formance/sdk-ledger/models/components";
+
+let value: AddMetadataActionResponseResponseType = "ADD_METADATA";
+```
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `AddMetadata` | ADD_METADATA  |
+```typescript
+"ADD_METADATA"
+```

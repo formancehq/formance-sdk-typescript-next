@@ -1,5 +1,17 @@
 # BalancesVolumesRequest
 
+## Example Usage
+
+```typescript
+import { BalancesVolumesRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: BalancesVolumesRequest = {
+    ledger: "<value>",
+    query: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

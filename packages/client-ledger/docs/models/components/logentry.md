@@ -1,5 +1,18 @@
 # LogEntry
 
+## Example Usage
+
+```typescript
+import { LogEntry } from "@formance/sdk-ledger/models/components";
+
+let value: LogEntry = {
+    id: 473600,
+    type: "NEW_TRANSACTION",
+    data: "<value>",
+    hash: "<value>",
+    date: new Date("2022-07-24T05:17:09.567Z"),
+};
+```
 
 ## Fields
 

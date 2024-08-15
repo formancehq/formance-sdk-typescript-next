@@ -1,5 +1,15 @@
 # AccountsGetRequest
 
+## Example Usage
+
+```typescript
+import { AccountsGetRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsGetRequest = {
+    ledger: "<value>",
+    address: "666 Corrine Harbor",
+};
+```
 
 ## Fields
 

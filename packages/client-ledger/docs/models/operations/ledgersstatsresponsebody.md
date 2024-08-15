@@ -2,6 +2,18 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { LedgersStatsResponseBody } from "@formance/sdk-ledger/models/operations";
+
+let value: LedgersStatsResponseBody = {
+    data: {
+        account: 902599,
+        transactions: 681820,
+    },
+};
+```
 
 ## Fields
 

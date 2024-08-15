@@ -1,5 +1,19 @@
 # DeleteMetadataAction
 
+## Example Usage
+
+```typescript
+import { DeleteMetadataAction } from "@formance/sdk-ledger/models/components";
+
+let value: DeleteMetadataAction = {
+    action: "DELETE_METADATA",
+    data: {
+        targetId: 812169,
+        targetType: "TRANSACTION",
+        key: "<key>",
+    },
+};
+```
 
 ## Fields
 

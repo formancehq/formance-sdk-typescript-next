@@ -1,5 +1,15 @@
 # Volume
 
+## Example Usage
+
+```typescript
+import { Volume } from "@formance/sdk-ledger/models/components";
+
+let value: Volume = {
+    input: 780529,
+    output: 678880,
+};
+```
 
 ## Fields
 

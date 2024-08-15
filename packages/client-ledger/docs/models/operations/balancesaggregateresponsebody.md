@@ -2,6 +2,17 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { BalancesAggregateResponseBody } from "@formance/sdk-ledger/models/operations";
+
+let value: BalancesAggregateResponseBody = {
+    data: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

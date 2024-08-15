@@ -1,5 +1,20 @@
 # TransactionsAddMetadataRequest
 
+## Example Usage
+
+```typescript
+import { TransactionsAddMetadataRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: TransactionsAddMetadataRequest = {
+    ledger: "<value>",
+    id: 929297,
+    requestBody: {
+        metadata: {
+            key: "<value>",
+        },
+    },
+};
+```
 
 ## Fields
 

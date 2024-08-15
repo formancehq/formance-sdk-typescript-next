@@ -1,5 +1,18 @@
 # AddMetadataTargetAccount
 
+## Example Usage
+
+```typescript
+import { AddMetadataTargetAccount } from "@formance/sdk-ledger/models/components";
+
+let value: AddMetadataTargetAccount = {
+    targetType: "ACCOUNT",
+    targetId: "<value>",
+    metadata: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

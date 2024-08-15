@@ -1,5 +1,27 @@
 # ExpendedTransaction
 
+## Example Usage
+
+```typescript
+import { ExpendedTransaction } from "@formance/sdk-ledger/models/components";
+
+let value: ExpendedTransaction = {
+    timestamp: new Date("2024-03-18T15:53:44.708Z"),
+    postings: [
+        {
+            amount: 456150,
+            asset: "<value>",
+            destination: "<value>",
+            source: "<value>",
+        },
+    ],
+    metadata: {
+        key: "<value>",
+    },
+    id: "<id>",
+    reverted: false,
+};
+```
 
 ## Fields
 

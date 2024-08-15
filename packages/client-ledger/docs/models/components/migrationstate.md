@@ -1,9 +1,15 @@
 # MigrationState
 
+## Example Usage
+
+```typescript
+import { MigrationState } from "@formance/sdk-ledger/models/components";
+
+let value: MigrationState = "DONE";
+```
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `ToDo` | TO DO  |
-| `Done` | DONE   |
+```typescript
+"TO DO" | "DONE"
+```

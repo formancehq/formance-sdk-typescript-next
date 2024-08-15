@@ -1,5 +1,17 @@
 # BalancesAggregateRequest
 
+## Example Usage
+
+```typescript
+import { BalancesAggregateRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: BalancesAggregateRequest = {
+    ledger: "<value>",
+    query: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

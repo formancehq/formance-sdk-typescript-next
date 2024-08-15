@@ -1,5 +1,17 @@
 # Migration
 
+## Example Usage
+
+```typescript
+import { Migration } from "@formance/sdk-ledger/models/components";
+
+let value: Migration = {
+    version: 648172,
+    name: "<value>",
+    date: new Date("2022-01-23T03:49:29.173Z"),
+    state: "TO DO",
+};
+```
 
 ## Fields
 

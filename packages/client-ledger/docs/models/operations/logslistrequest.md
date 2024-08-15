@@ -1,5 +1,14 @@
 # LogsListRequest
 
+## Example Usage
+
+```typescript
+import { LogsListRequest } from "@formance/sdk-ledger/models/operations";
+
+let value: LogsListRequest = {
+    ledger: "<value>",
+};
+```
 
 ## Fields
 

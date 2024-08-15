@@ -2,6 +2,17 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { AccountsListResponseBody } from "@formance/sdk-ledger/models/operations";
+
+let value: AccountsListResponseBody = {
+    cursor: {
+        data: [],
+    },
+};
+```
 
 ## Fields
 

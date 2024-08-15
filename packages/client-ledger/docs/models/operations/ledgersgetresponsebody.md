@@ -2,6 +2,19 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { LedgersGetResponseBody } from "@formance/sdk-ledger/models/operations";
+
+let value: LedgersGetResponseBody = {
+    data: {
+        name: "<value>",
+        addedAt: new Date("2022-01-21T14:14:48.649Z"),
+        bucket: "<value>",
+    },
+};
+```
 
 ## Fields
 

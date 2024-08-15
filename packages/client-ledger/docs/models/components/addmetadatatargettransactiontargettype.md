@@ -1,8 +1,15 @@
 # AddMetadataTargetTransactionTargetType
 
+## Example Usage
+
+```typescript
+import { AddMetadataTargetTransactionTargetType } from "@formance/sdk-ledger/models/components";
+
+let value: AddMetadataTargetTransactionTargetType = "TRANSACTION";
+```
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `Transaction` | TRANSACTION   |
+```typescript
+"TRANSACTION"
+```

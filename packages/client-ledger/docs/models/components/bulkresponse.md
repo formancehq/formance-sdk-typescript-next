@@ -1,5 +1,14 @@
 # BulkResponse
 
+## Example Usage
+
+```typescript
+import { BulkResponse } from "@formance/sdk-ledger/models/components";
+
+let value: BulkResponse = {
+    responseType: "ADD_METADATA",
+};
+```
 
 ## Supported Types
 

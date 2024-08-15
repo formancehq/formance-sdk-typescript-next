@@ -2,6 +2,13 @@
 
 An unexpected error response.
 
+## Example Usage
+
+```typescript
+import { LedgerError } from "@formance/sdk-ledger/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 
