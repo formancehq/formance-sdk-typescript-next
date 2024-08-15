@@ -1,5 +1,39 @@
 # Payment
 
+## Example Usage
+
+```typescript
+import { Payment } from "@formance/sdk-connectivity/models/components";
+
+let value: Payment = {
+    reference: "<value>",
+    connectorID: "<value>",
+    amount: 807319,
+    type: "PAYOUT",
+    status: "REFUNDED_FAILURE",
+    scheme: "mastercard",
+    asset: "<value>",
+    id: "<id>",
+    sourceAccountID: "<value>",
+    destinationAccountID: "<value>",
+    initialAmount: 407183,
+    createdAt: new Date("2022-02-06T09:52:53.944Z"),
+    raw: {
+        key: "<value>",
+    },
+    adjustments: [
+        {
+            reference: "<value>",
+            createdAt: new Date("2022-03-17T19:22:06.639Z"),
+            status: "OTHER",
+            amount: 697429,
+            raw: {
+                key: "<value>",
+            },
+        },
+    ],
+};
+```
 
 ## Fields
 

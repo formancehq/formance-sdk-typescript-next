@@ -1,5 +1,14 @@
 # ConnectorsListTaskCursor
 
+## Example Usage
+
+```typescript
+import { ConnectorsListTaskCursor } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsListTaskCursor = {
+    data: [],
+};
+```
 
 ## Fields
 

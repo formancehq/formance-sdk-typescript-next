@@ -1,5 +1,14 @@
 # CashPoolsDeleteRequest
 
+## Example Usage
+
+```typescript
+import { CashPoolsDeleteRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: CashPoolsDeleteRequest = {
+    poolId: "<value>",
+};
+```
 
 ## Fields
 

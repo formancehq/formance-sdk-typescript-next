@@ -1,5 +1,16 @@
 # CashPool
 
+## Example Usage
+
+```typescript
+import { CashPool } from "@formance/sdk-connectivity/models/components";
+
+let value: CashPool = {
+    id: "<id>",
+    name: "<value>",
+    accounts: ["<value>"],
+};
+```
 
 ## Fields
 

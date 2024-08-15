@@ -1,5 +1,22 @@
 # TaskMangoPay
 
+## Example Usage
+
+```typescript
+import { TaskMangoPay } from "@formance/sdk-connectivity/models/components";
+
+let value: TaskMangoPay = {
+    id: "f3a66997-074b-4a44-a9b6-e2141959890a",
+    connectorID: "<value>",
+    createdAt: new Date("2024-11-27T23:34:13.054Z"),
+    updatedAt: new Date("2023-12-16T16:55:28.304Z"),
+    status: "FAILED",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Fields
 

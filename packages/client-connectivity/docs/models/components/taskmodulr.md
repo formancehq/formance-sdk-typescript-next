@@ -1,5 +1,22 @@
 # TaskModulr
 
+## Example Usage
+
+```typescript
+import { TaskModulr } from "@formance/sdk-connectivity/models/components";
+
+let value: TaskModulr = {
+    id: "91e450ad-2abd-4442-a980-2d502a94bb4f",
+    connectorID: "<value>",
+    createdAt: new Date("2023-04-20T21:12:33.234Z"),
+    updatedAt: new Date("2022-09-30T15:12:09.316Z"),
+    status: "DISPUTE_WON",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Fields
 

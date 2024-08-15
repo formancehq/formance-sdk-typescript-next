@@ -1,5 +1,17 @@
 # AccountsCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { AccountsCreateRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: AccountsCreateRequestBody = {
+    reference: "<value>",
+    connectorID: "<value>",
+    createdAt: new Date("2024-08-16T12:46:01.899Z"),
+    type: "UNKNOWN",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,16 @@
 # BankAccountsUpdateMetatdataRequestBody
 
+## Example Usage
+
+```typescript
+import { BankAccountsUpdateMetatdataRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: BankAccountsUpdateMetatdataRequestBody = {
+    metadata: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

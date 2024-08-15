@@ -1,5 +1,15 @@
 # PoolBalance
 
+## Example Usage
+
+```typescript
+import { PoolBalance } from "@formance/sdk-connectivity/models/components";
+
+let value: PoolBalance = {
+    amount: 855804,
+    asset: "<value>",
+};
+```
 
 ## Fields
 

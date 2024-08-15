@@ -1,5 +1,26 @@
 # Account
 
+## Example Usage
+
+```typescript
+import { Account } from "@formance/sdk-connectivity/models/components";
+
+let value: Account = {
+    id: "<id>",
+    createdAt: new Date("2023-10-12T18:11:05.242Z"),
+    reference: "<value>",
+    connectorID: "<value>",
+    defaultCurrency: "<value>",
+    defaultAsset: "<value>",
+    accountName: "<value>",
+    type: "EXTERNAL",
+    pools: ["<value>"],
+    metadata: {
+        key: "<value>",
+    },
+    raw: "<value>",
+};
+```
 
 ## Fields
 

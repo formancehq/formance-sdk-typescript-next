@@ -1,5 +1,22 @@
 # TaskStripe
 
+## Example Usage
+
+```typescript
+import { TaskStripe } from "@formance/sdk-connectivity/models/components";
+
+let value: TaskStripe = {
+    id: "df7cc78c-a1ba-4928-bc81-6742cb739205",
+    connectorID: "<value>",
+    createdAt: new Date("2023-11-08T22:17:03.172Z"),
+    updatedAt: new Date("2022-06-14T01:02:51.421Z"),
+    status: "REFUNDED_FAILURE",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Fields
 

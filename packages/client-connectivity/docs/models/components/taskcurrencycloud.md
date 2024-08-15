@@ -1,5 +1,22 @@
 # TaskCurrencyCloud
 
+## Example Usage
+
+```typescript
+import { TaskCurrencyCloud } from "@formance/sdk-connectivity/models/components";
+
+let value: TaskCurrencyCloud = {
+    id: "3a2fa946-7739-4251-aa52-c3f5ad019da1",
+    connectorID: "<value>",
+    createdAt: new Date("2024-12-01T06:02:28.509Z"),
+    updatedAt: new Date("2024-12-06T04:47:23.184Z"),
+    status: "DISPUTE_LOST",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Fields
 

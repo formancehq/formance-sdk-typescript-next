@@ -1,5 +1,17 @@
 # MoneycorpConfig
 
+## Example Usage
+
+```typescript
+import { MoneycorpConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: MoneycorpConfig = {
+    name: "<value>",
+    clientID: "<value>",
+    apiKey: "<value>",
+    endpoint: "<value>",
+};
+```
 
 ## Fields
 

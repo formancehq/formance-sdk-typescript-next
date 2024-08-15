@@ -2,6 +2,17 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsListResponseBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsListResponseBody = {
+    cursor: {
+        data: [],
+    },
+};
+```
 
 ## Fields
 

@@ -1,5 +1,16 @@
 # ConnectorsUpdateRequestBody
 
+## Example Usage
+
+```typescript
+import { ConnectorsUpdateRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsUpdateRequestBody = {
+    name: "<value>",
+    apiKey: "<value>",
+    endpoint: "<value>",
+};
+```
 
 ## Supported Types
 

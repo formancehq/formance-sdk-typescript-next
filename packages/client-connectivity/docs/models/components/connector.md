@@ -1,18 +1,15 @@
 # Connector
 
+## Example Usage
+
+```typescript
+import { Connector } from "@formance/sdk-connectivity/models/components";
+
+let value: Connector = "MANGOPAY";
+```
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Stripe`        | STRIPE          |
-| `DummyPay`      | DUMMY-PAY       |
-| `Wise`          | WISE            |
-| `Modulr`        | MODULR          |
-| `CurrencyCloud` | CURRENCY-CLOUD  |
-| `BankingCircle` | BANKING-CIRCLE  |
-| `Mangopay`      | MANGOPAY        |
-| `Moneycorp`     | MONEYCORP       |
-| `Atlar`         | ATLAR           |
-| `Adyen`         | ADYEN           |
-| `Generic`       | GENERIC         |
+```typescript
+"STRIPE" | "DUMMY-PAY" | "WISE" | "MODULR" | "CURRENCY-CLOUD" | "BANKING-CIRCLE" | "MANGOPAY" | "MONEYCORP" | "ATLAR" | "ADYEN" | "GENERIC"
+```

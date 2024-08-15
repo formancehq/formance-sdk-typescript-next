@@ -1,5 +1,12 @@
 # PaymentsV1ListRequest
 
+## Example Usage
+
+```typescript
+import { PaymentsV1ListRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: PaymentsV1ListRequest = {};
+```
 
 ## Fields
 

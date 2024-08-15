@@ -1,5 +1,16 @@
 # SchemeFormanceOAuth
 
+## Example Usage
+
+```typescript
+import { SchemeFormanceOAuth } from "@formance/sdk-connectivity/models/components";
+
+let value: SchemeFormanceOAuth = {
+    clientID: "<value>",
+    clientSecret: "<value>",
+    tokenURL: "/api/auth/oauth/token",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,15 @@
 # StripeConfig
 
+## Example Usage
+
+```typescript
+import { StripeConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: StripeConfig = {
+    name: "<value>",
+    apiKey: "<value>",
+};
+```
 
 ## Fields
 

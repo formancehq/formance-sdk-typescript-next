@@ -1,5 +1,16 @@
 # AtlarConfig
 
+## Example Usage
+
+```typescript
+import { AtlarConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: AtlarConfig = {
+    name: "<value>",
+    accessKey: "<value>",
+    secret: "<value>",
+};
+```
 
 ## Fields
 

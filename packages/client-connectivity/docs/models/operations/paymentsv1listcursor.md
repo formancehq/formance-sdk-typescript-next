@@ -1,5 +1,14 @@
 # PaymentsV1ListCursor
 
+## Example Usage
+
+```typescript
+import { PaymentsV1ListCursor } from "@formance/sdk-connectivity/models/operations";
+
+let value: PaymentsV1ListCursor = {
+    data: [],
+};
+```
 
 ## Fields
 

@@ -1,10 +1,15 @@
 # AccountType
 
+## Example Usage
+
+```typescript
+import { AccountType } from "@formance/sdk-connectivity/models/components";
+
+let value: AccountType = "EXTERNAL";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Internal` | INTERNAL   |
-| `Unknown`  | UNKNOWN    |
-| `External` | EXTERNAL   |
+```typescript
+"INTERNAL" | "UNKNOWN" | "EXTERNAL"
+```

@@ -1,5 +1,15 @@
 # DumypayConfig
 
+## Example Usage
+
+```typescript
+import { DumypayConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: DumypayConfig = {
+    name: "<value>",
+    directory: "/opt/share",
+};
+```
 
 ## Fields
 

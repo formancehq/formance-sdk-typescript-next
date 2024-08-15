@@ -1,5 +1,16 @@
 # AdyenConfig
 
+## Example Usage
+
+```typescript
+import { AdyenConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: AdyenConfig = {
+    name: "<value>",
+    apiKey: "<value>",
+    hmacKey: "<value>",
+};
+```
 
 ## Fields
 

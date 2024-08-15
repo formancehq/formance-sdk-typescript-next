@@ -1,5 +1,22 @@
 # TaskBankingCircle
 
+## Example Usage
+
+```typescript
+import { TaskBankingCircle } from "@formance/sdk-connectivity/models/components";
+
+let value: TaskBankingCircle = {
+    id: "969e9a3e-fa77-4dfb-94cd-66ae395efb9b",
+    connectorID: "<value>",
+    createdAt: new Date("2023-12-24T23:55:04.678Z"),
+    updatedAt: new Date("2023-07-04T10:50:11.661Z"),
+    status: "REFUNDED",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Fields
 

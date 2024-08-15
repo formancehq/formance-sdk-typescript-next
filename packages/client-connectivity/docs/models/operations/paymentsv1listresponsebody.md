@@ -2,6 +2,17 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { PaymentsV1ListResponseBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: PaymentsV1ListResponseBody = {
+    cursor: {
+        data: [],
+    },
+};
+```
 
 ## Fields
 

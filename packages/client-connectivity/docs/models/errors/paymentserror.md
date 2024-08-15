@@ -2,6 +2,13 @@
 
 An unexpected error response.
 
+## Example Usage
+
+```typescript
+import { PaymentsError } from "@formance/sdk-connectivity/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

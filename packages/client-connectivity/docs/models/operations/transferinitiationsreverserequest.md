@@ -1,5 +1,20 @@
 # TransferInitiationsReverseRequest
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsReverseRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsReverseRequest = {
+    transferId: "<value>",
+    requestBody: {
+        reference: "<value>",
+        description: "Networked 24 hour model",
+        amount: 269479,
+        asset: "<value>",
+    },
+};
+```
 
 ## Fields
 

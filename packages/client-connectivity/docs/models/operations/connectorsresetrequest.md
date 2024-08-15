@@ -1,5 +1,15 @@
 # ConnectorsResetRequest
 
+## Example Usage
+
+```typescript
+import { ConnectorsResetRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsResetRequest = {
+    connector: "MONEYCORP",
+    connectorId: "<value>",
+};
+```
 
 ## Fields
 

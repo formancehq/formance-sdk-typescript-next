@@ -1,5 +1,14 @@
 # TransferInitiationsListCursor
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsListCursor } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsListCursor = {
+    data: [],
+};
+```
 
 ## Fields
 

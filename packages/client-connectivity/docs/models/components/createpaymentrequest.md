@@ -1,5 +1,20 @@
 # CreatePaymentRequest
 
+## Example Usage
+
+```typescript
+import { CreatePaymentRequest } from "@formance/sdk-connectivity/models/components";
+
+let value: CreatePaymentRequest = {
+    reference: "<value>",
+    connectorID: "<value>",
+    amount: 866383,
+    type: "PAYOUT",
+    status: "OTHER",
+    scheme: "unknown",
+    asset: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,20 @@
 # BankingCircleConfig
 
+## Example Usage
+
+```typescript
+import { BankingCircleConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: BankingCircleConfig = {
+    name: "<value>",
+    username: "Eli96",
+    password: "ENlnSNVFxpACpjs",
+    endpoint: "<value>",
+    authorizationEndpoint: "<value>",
+    userCertificate: "<value>",
+    userCertificateKey: "<value>",
+};
+```
 
 ## Fields
 

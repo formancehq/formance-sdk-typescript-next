@@ -1,5 +1,16 @@
 # CurrencyCloudConfig
 
+## Example Usage
+
+```typescript
+import { CurrencyCloudConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: CurrencyCloudConfig = {
+    name: "<value>",
+    apiKey: "<value>",
+    loginID: "<value>",
+};
+```
 
 ## Fields
 

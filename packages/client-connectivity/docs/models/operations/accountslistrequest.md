@@ -1,5 +1,12 @@
 # AccountsListRequest
 
+## Example Usage
+
+```typescript
+import { AccountsListRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: AccountsListRequest = {};
+```
 
 ## Fields
 

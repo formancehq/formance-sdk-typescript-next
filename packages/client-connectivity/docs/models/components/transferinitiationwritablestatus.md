@@ -1,13 +1,15 @@
 # TransferInitiationWritableStatus
 
+## Example Usage
+
+```typescript
+import { TransferInitiationWritableStatus } from "@formance/sdk-connectivity/models/components";
+
+let value: TransferInitiationWritableStatus = "PROCESSING";
+```
 
 ## Values
 
-| Name                   | Value                  |
-| ---------------------- | ---------------------- |
-| `WaitingForValidation` | WAITING_FOR_VALIDATION |
-| `Processing`           | PROCESSING             |
-| `Processed`            | PROCESSED              |
-| `Failed`               | FAILED                 |
-| `Rejected`             | REJECTED               |
-| `Validated`            | VALIDATED              |
+```typescript
+"WAITING_FOR_VALIDATION" | "PROCESSING" | "PROCESSED" | "FAILED" | "REJECTED" | "VALIDATED"
+```

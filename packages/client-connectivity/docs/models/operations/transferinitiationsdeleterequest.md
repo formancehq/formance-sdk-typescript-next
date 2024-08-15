@@ -1,5 +1,14 @@
 # TransferInitiationsDeleteRequest
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsDeleteRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsDeleteRequest = {
+    transferId: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,27 @@
 # TransferInitiation
 
+## Example Usage
+
+```typescript
+import { TransferInitiation } from "@formance/sdk-connectivity/models/components";
+
+let value: TransferInitiation = {
+    id: "<id>",
+    reference: "<value>",
+    createdAt: new Date("2022-09-10T21:26:47.593Z"),
+    scheduledAt: new Date("2022-01-13T20:07:37.920Z"),
+    description: "Right-sized executive throughput",
+    sourceAccountID: "<value>",
+    destinationAccountID: "<value>",
+    connectorID: "<value>",
+    type: "PAYOUT",
+    amount: 749999,
+    initialAmount: 171629,
+    asset: "<value>",
+    status: "REJECTED",
+    error: "<value>",
+};
+```
 
 ## Fields
 

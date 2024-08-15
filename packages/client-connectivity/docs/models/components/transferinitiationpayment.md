@@ -1,5 +1,17 @@
 # TransferInitiationPayment
 
+## Example Usage
+
+```typescript
+import { TransferInitiationPayment } from "@formance/sdk-connectivity/models/components";
+
+let value: TransferInitiationPayment = {
+    paymentID: "<value>",
+    createdAt: new Date("2023-07-26T01:20:48.501Z"),
+    status: "VALIDATED",
+    error: "<value>",
+};
+```
 
 ## Fields
 

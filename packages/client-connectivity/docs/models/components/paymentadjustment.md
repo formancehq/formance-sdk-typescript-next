@@ -1,5 +1,20 @@
 # PaymentAdjustment
 
+## Example Usage
+
+```typescript
+import { PaymentAdjustment } from "@formance/sdk-connectivity/models/components";
+
+let value: PaymentAdjustment = {
+    reference: "<value>",
+    createdAt: new Date("2023-02-14T03:02:23.858Z"),
+    status: "EXPIRED",
+    amount: 420075,
+    raw: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

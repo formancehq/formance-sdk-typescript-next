@@ -1,5 +1,12 @@
 # TransferInitiationsListRequest
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsListRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsListRequest = {};
+```
 
 ## Fields
 

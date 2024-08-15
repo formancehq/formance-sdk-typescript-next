@@ -3,10 +3,10 @@ id: 77bcf672-4bd4-4149-b809-35407f8403f3
 management:
   docChecksum: 00309fe8f1f0a66ef07772d3cff3db4c
   docVersion: 0.0.0
-  speakeasyVersion: 1.363.1
-  generationVersion: 2.396.0
-  releaseVersion: 1.0.0-alpha.20
-  configChecksum: f51bcf94bcfd8e65b19ac8851221bb01
+  speakeasyVersion: 1.368.0
+  generationVersion: 2.399.0
+  releaseVersion: 1.0.0-alpha.21
+  configChecksum: 93067ef5444f04c6a420dafe7aa9a356
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-connectivity
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-connectivity
@@ -14,8 +14,8 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.7
-    core: 3.13.1
+    constsAndDefaults: 0.1.8
+    core: 3.13.2
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     envVarSecurityUsage: 0.1.1

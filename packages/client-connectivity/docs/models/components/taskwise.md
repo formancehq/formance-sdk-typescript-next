@@ -1,5 +1,22 @@
 # TaskWise
 
+## Example Usage
+
+```typescript
+import { TaskWise } from "@formance/sdk-connectivity/models/components";
+
+let value: TaskWise = {
+    id: "96fea759-6eb1-40fa-aa23-52c5955907af",
+    connectorID: "<value>",
+    createdAt: new Date("2024-11-17T00:12:05.684Z"),
+    updatedAt: new Date("2022-04-22T20:11:11.754Z"),
+    status: "DISPUTE",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Fields
 

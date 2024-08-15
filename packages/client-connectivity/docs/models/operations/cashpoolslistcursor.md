@@ -1,5 +1,20 @@
 # CashPoolsListCursor
 
+## Example Usage
+
+```typescript
+import { CashPoolsListCursor } from "@formance/sdk-connectivity/models/operations";
+
+let value: CashPoolsListCursor = {
+    data: [
+        {
+            id: "<id>",
+            name: "<value>",
+            accounts: ["<value>"],
+        },
+    ],
+};
+```
 
 ## Fields
 

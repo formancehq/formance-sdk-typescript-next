@@ -1,5 +1,18 @@
 # ConnectorsInstallRequest
 
+## Example Usage
+
+```typescript
+import { ConnectorsInstallRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsInstallRequest = {
+    connector: "WISE",
+    requestBody: {
+        name: "<value>",
+        apiKey: "<value>",
+    },
+};
+```
 
 ## Fields
 

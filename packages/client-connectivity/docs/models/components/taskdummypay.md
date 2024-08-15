@@ -1,5 +1,22 @@
 # TaskDummyPay
 
+## Example Usage
+
+```typescript
+import { TaskDummyPay } from "@formance/sdk-connectivity/models/components";
+
+let value: TaskDummyPay = {
+    id: "78f097b0-074f-4154-b1b5-e6e13b99d488",
+    connectorID: "<value>",
+    createdAt: new Date("2024-10-01T17:28:50.340Z"),
+    updatedAt: new Date("2022-04-13T23:00:39.850Z"),
+    status: "OTHER",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Fields
 

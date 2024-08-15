@@ -1,9 +1,15 @@
 # TransferInitiationType
 
+## Example Usage
+
+```typescript
+import { TransferInitiationType } from "@formance/sdk-connectivity/models/components";
+
+let value: TransferInitiationType = "TRANSFER";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Transfer` | TRANSFER   |
-| `Payout`   | PAYOUT     |
+```typescript
+"TRANSFER" | "PAYOUT"
+```

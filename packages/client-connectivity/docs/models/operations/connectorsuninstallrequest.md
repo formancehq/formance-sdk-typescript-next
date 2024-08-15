@@ -1,5 +1,15 @@
 # ConnectorsUninstallRequest
 
+## Example Usage
+
+```typescript
+import { ConnectorsUninstallRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsUninstallRequest = {
+    connector: "WISE",
+    connectorID: "<value>",
+};
+```
 
 ## Fields
 

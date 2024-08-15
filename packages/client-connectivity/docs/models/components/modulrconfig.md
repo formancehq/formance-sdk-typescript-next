@@ -1,5 +1,16 @@
 # ModulrConfig
 
+## Example Usage
+
+```typescript
+import { ModulrConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: ModulrConfig = {
+    name: "<value>",
+    apiKey: "<value>",
+    apiSecret: "<value>",
+};
+```
 
 ## Fields
 

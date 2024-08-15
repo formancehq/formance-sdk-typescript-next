@@ -1,10 +1,15 @@
 # PaymentErrorCodes
 
+## Example Usage
+
+```typescript
+import { PaymentErrorCodes } from "@formance/sdk-connectivity/models/components";
+
+let value: PaymentErrorCodes = "VALIDATION";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Internal`   | INTERNAL     |
-| `Validation` | VALIDATION   |
-| `NotFound`   | NOT_FOUND    |
+```typescript
+"INTERNAL" | "VALIDATION" | "NOT_FOUND"
+```

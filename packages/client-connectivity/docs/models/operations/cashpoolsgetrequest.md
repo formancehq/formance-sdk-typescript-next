@@ -1,5 +1,14 @@
 # CashPoolsGetRequest
 
+## Example Usage
+
+```typescript
+import { CashPoolsGetRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: CashPoolsGetRequest = {
+    poolId: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # TransferInitiationsRetryRequest
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsRetryRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsRetryRequest = {
+    transferId: "<value>",
+};
+```
 
 ## Fields
 

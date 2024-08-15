@@ -1,5 +1,15 @@
 # WiseConfig
 
+## Example Usage
+
+```typescript
+import { WiseConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: WiseConfig = {
+    name: "<value>",
+    apiKey: "<value>",
+};
+```
 
 ## Fields
 

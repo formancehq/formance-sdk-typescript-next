@@ -1,5 +1,15 @@
 # AccountsBalancesRequest
 
+## Example Usage
+
+```typescript
+import { AccountsBalancesRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: AccountsBalancesRequest = {
+    accountId: "<value>",
+    sort: ["<value>"],
+};
+```
 
 ## Fields
 

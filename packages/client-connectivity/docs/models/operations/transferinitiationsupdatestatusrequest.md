@@ -1,5 +1,17 @@
 # TransferInitiationsUpdateStatusRequest
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsUpdateStatusRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsUpdateStatusRequest = {
+    transferId: "<value>",
+    requestBody: {
+        status: "PROCESSED",
+    },
+};
+```
 
 ## Fields
 

@@ -1,5 +1,22 @@
 # TransferInitiationsCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsCreateRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsCreateRequestBody = {
+    reference: "<value>",
+    scheduledAt: new Date("2022-09-11T22:40:46.407Z"),
+    description: "Synergized value-added initiative",
+    sourceAccountID: "<value>",
+    destinationAccountID: "<value>",
+    type: "PAYOUT",
+    amount: 715561,
+    asset: "<value>",
+    validated: false,
+};
+```
 
 ## Fields
 

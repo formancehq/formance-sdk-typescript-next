@@ -1,5 +1,16 @@
 # BankAccountsCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { BankAccountsCreateRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: BankAccountsCreateRequestBody = {
+    country: "Estonia",
+    connectorID: "<value>",
+    name: "<value>",
+};
+```
 
 ## Fields
 

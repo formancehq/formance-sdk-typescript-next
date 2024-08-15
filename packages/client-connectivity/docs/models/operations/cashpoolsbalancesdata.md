@@ -1,5 +1,19 @@
 # CashPoolsBalancesData
 
+## Example Usage
+
+```typescript
+import { CashPoolsBalancesData } from "@formance/sdk-connectivity/models/operations";
+
+let value: CashPoolsBalancesData = {
+    balances: [
+        {
+            amount: 961571,
+            asset: "<value>",
+        },
+    ],
+};
+```
 
 ## Fields
 

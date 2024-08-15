@@ -1,5 +1,15 @@
 # CashPoolsBalancesRequest
 
+## Example Usage
+
+```typescript
+import { CashPoolsBalancesRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: CashPoolsBalancesRequest = {
+    poolId: "<value>",
+    at: new Date("2022-08-28T08:52:06.660Z"),
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # CashPoolsListRequest
 
+## Example Usage
+
+```typescript
+import { CashPoolsListRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: CashPoolsListRequest = {};
+```
 
 ## Fields
 

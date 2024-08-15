@@ -1,5 +1,22 @@
 # ConnectorsListTaskData
 
+## Example Usage
+
+```typescript
+import { ConnectorsListTaskData } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsListTaskData = {
+    id: "37ae4203-ce5e-46a9-9d8a-0d446ce2af7a",
+    connectorID: "<value>",
+    createdAt: new Date("2023-06-14T19:34:48.994Z"),
+    updatedAt: new Date("2022-08-25T04:42:50.240Z"),
+    status: "DISPUTE_WON",
+    state: {
+        key: "<value>",
+    },
+    descriptor: "<value>",
+};
+```
 
 ## Supported Types
 

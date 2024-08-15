@@ -1,19 +1,15 @@
 # TransferInitiationStatus
 
+## Example Usage
+
+```typescript
+import { TransferInitiationStatus } from "@formance/sdk-connectivity/models/components";
+
+let value: TransferInitiationStatus = "WAITING_FOR_VALIDATION";
+```
 
 ## Values
 
-| Name                   | Value                  |
-| ---------------------- | ---------------------- |
-| `WaitingForValidation` | WAITING_FOR_VALIDATION |
-| `Processing`           | PROCESSING             |
-| `Processed`            | PROCESSED              |
-| `Failed`               | FAILED                 |
-| `Rejected`             | REJECTED               |
-| `Validated`            | VALIDATED              |
-| `AskRetried`           | ASK_RETRIED            |
-| `AskReversed`          | ASK_REVERSED           |
-| `ReverseProcessing`    | REVERSE_PROCESSING     |
-| `ReverseFailed`        | REVERSE_FAILED         |
-| `PartiallyReversed`    | PARTIALLY_REVERSED     |
-| `Reversed`             | REVERSED               |
+```typescript
+"WAITING_FOR_VALIDATION" | "PROCESSING" | "PROCESSED" | "FAILED" | "REJECTED" | "VALIDATED" | "ASK_RETRIED" | "ASK_REVERSED" | "REVERSE_PROCESSING" | "REVERSE_FAILED" | "PARTIALLY_REVERSED" | "REVERSED"
+```

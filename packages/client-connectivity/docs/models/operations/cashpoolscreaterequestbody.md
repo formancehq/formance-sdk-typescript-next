@@ -1,5 +1,15 @@
 # CashPoolsCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { CashPoolsCreateRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: CashPoolsCreateRequestBody = {
+    name: "<value>",
+    accountIDs: ["<value>"],
+};
+```
 
 ## Fields
 

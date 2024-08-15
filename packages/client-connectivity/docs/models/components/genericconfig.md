@@ -1,5 +1,16 @@
 # GenericConfig
 
+## Example Usage
+
+```typescript
+import { GenericConfig } from "@formance/sdk-connectivity/models/components";
+
+let value: GenericConfig = {
+    name: "<value>",
+    apiKey: "<value>",
+    endpoint: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,15 @@
 # ConnectorsGetRequest
 
+## Example Usage
+
+```typescript
+import { ConnectorsGetRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsGetRequest = {
+    connector: "CURRENCY-CLOUD",
+    connectorId: "<value>",
+};
+```
 
 ## Fields
 

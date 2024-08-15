@@ -1,5 +1,19 @@
 # AccountBalance
 
+## Example Usage
+
+```typescript
+import { AccountBalance } from "@formance/sdk-connectivity/models/components";
+
+let value: AccountBalance = {
+    accountId: "<value>",
+    createdAt: new Date("2024-07-29T07:24:05.705Z"),
+    lastUpdatedAt: new Date("2023-08-21T04:36:25.552Z"),
+    currency: "Uzbekistan Sum",
+    asset: "<value>",
+    balance: 423655,
+};
+```
 
 ## Fields
 

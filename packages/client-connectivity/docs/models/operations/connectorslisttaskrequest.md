@@ -1,5 +1,15 @@
 # ConnectorsListTaskRequest
 
+## Example Usage
+
+```typescript
+import { ConnectorsListTaskRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsListTaskRequest = {
+    connector: "GENERIC",
+    connectorId: "<value>",
+};
+```
 
 ## Fields
 

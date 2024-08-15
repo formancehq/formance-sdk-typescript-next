@@ -1,5 +1,14 @@
 # TransferInitiationsGetRequest
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsGetRequest } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsGetRequest = {
+    transferId: "<value>",
+};
+```
 
 ## Fields
 

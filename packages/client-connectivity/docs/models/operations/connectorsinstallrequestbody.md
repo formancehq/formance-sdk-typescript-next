@@ -1,5 +1,15 @@
 # ConnectorsInstallRequestBody
 
+## Example Usage
+
+```typescript
+import { ConnectorsInstallRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsInstallRequestBody = {
+    name: "<value>",
+    apiKey: "<value>",
+};
+```
 
 ## Supported Types
 

@@ -1,5 +1,17 @@
 # TransferInitiationsReverseRequestBody
 
+## Example Usage
+
+```typescript
+import { TransferInitiationsReverseRequestBody } from "@formance/sdk-connectivity/models/operations";
+
+let value: TransferInitiationsReverseRequestBody = {
+    reference: "<value>",
+    description: "Visionary zero defect info-mediaries",
+    amount: 753570,
+    asset: "<value>",
+};
+```
 
 ## Fields
 

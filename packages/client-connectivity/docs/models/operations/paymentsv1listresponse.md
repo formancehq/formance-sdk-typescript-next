@@ -1,5 +1,18 @@
 # PaymentsV1ListResponse
 
+## Example Usage
+
+```typescript
+import { PaymentsV1ListResponse } from "@formance/sdk-connectivity/models/operations";
+
+let value: PaymentsV1ListResponse = {
+    result: {
+        cursor: {
+            data: [],
+        },
+    },
+};
+```
 
 ## Fields
 

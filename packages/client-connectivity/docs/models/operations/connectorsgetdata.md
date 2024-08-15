@@ -1,5 +1,20 @@
 # ConnectorsGetData
 
+## Example Usage
+
+```typescript
+import { ConnectorsGetData } from "@formance/sdk-connectivity/models/operations";
+
+let value: ConnectorsGetData = {
+    name: "<value>",
+    username: "Waldo.Farrell8",
+    password: "JOtcD2TrgaNLaSZ",
+    endpoint: "<value>",
+    authorizationEndpoint: "<value>",
+    userCertificate: "<value>",
+    userCertificateKey: "<value>",
+};
+```
 
 ## Supported Types
 
