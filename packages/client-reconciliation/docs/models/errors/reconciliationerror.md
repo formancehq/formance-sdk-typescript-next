@@ -2,6 +2,13 @@
 
 An unexpected error response.
 
+## Example Usage
+
+```typescript
+import { ReconciliationError } from "@formance/sdk-reconciliation/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

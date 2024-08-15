@@ -1,5 +1,14 @@
 # ReconciliationsV1GetRequest
 
+## Example Usage
+
+```typescript
+import { ReconciliationsV1GetRequest } from "@formance/sdk-reconciliation/models/operations";
+
+let value: ReconciliationsV1GetRequest = {
+    reconciliationId: "<value>",
+};
+```
 
 ## Fields
 

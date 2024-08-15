@@ -1,5 +1,28 @@
 # Reconciliation
 
+## Example Usage
+
+```typescript
+import { Reconciliation } from "@formance/sdk-reconciliation/models/components";
+
+let value: Reconciliation = {
+    id: "<id>",
+    policyID: "<value>",
+    createdAt: new Date("2024-08-11T14:46:30.188Z"),
+    reconciliedAtLedger: new Date("2024-12-08T13:34:36.810Z"),
+    reconciliedAtPayments: new Date("2023-06-04T01:47:09.185Z"),
+    status: "<value>",
+    paymentsBalances: {
+        key: 799159,
+    },
+    ledgerBalances: {
+        key: 800911,
+    },
+    driftBalances: {
+        key: 461479,
+    },
+};
+```
 
 ## Fields
 
