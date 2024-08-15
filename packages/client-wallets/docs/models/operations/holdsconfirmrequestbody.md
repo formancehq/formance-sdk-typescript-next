@@ -1,5 +1,12 @@
 # HoldsConfirmRequestBody
 
+## Example Usage
+
+```typescript
+import { HoldsConfirmRequestBody } from "@formance/sdk-wallets/models/operations";
+
+let value: HoldsConfirmRequestBody = {};
+```
 
 ## Fields
 

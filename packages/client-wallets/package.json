@@ -1,6 +1,6 @@
 {
   "name": "@formance/sdk-wallets",
-  "version": "1.0.0-alpha.11",
+  "version": "1.0.0-alpha.12",
   "author": "Formance",
   "main": "./index.js",
   "sideEffects": false,

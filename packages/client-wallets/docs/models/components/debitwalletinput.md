@@ -1,5 +1,20 @@
 # DebitWalletInput
 
+## Example Usage
+
+```typescript
+import { DebitWalletInput } from "@formance/sdk-wallets/models/components";
+
+let value: DebitWalletInput = {
+    amount: {
+        asset: "<value>",
+        amount: 222321,
+    },
+    metadata: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

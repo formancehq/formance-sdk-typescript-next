@@ -1,5 +1,31 @@
 # WalletSummary
 
+## Example Usage
+
+```typescript
+import { WalletSummary } from "@formance/sdk-wallets/models/components";
+
+let value: WalletSummary = {
+    balances: {
+        name: "<value>",
+        assets: {
+            key: 616934,
+        },
+    },
+    availableFunds: {
+        key: 386489,
+    },
+    expiredFunds: {
+        key: 943749,
+    },
+    expirableFunds: {
+        key: 902599,
+    },
+    holdFunds: {
+        key: 681820,
+    },
+};
+```
 
 ## Fields
 

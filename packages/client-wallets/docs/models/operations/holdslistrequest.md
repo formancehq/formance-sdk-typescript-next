@@ -1,5 +1,14 @@
 # HoldsListRequest
 
+## Example Usage
+
+```typescript
+import { HoldsListRequest } from "@formance/sdk-wallets/models/operations";
+
+let value: HoldsListRequest = {
+    walletID: "<value>",
+};
+```
 
 ## Fields
 

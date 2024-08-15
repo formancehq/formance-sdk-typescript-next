@@ -1,5 +1,14 @@
 # WalletsSummaryRequest
 
+## Example Usage
+
+```typescript
+import { WalletsSummaryRequest } from "@formance/sdk-wallets/models/operations";
+
+let value: WalletsSummaryRequest = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

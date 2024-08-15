@@ -1,5 +1,20 @@
 # Wallet
 
+## Example Usage
+
+```typescript
+import { Wallet } from "@formance/sdk-wallets/models/components";
+
+let value: Wallet = {
+    id: "2ddf7cc7-8ca1-4ba9-a8fc-816742cb7392",
+    metadata: {
+        key: "<value>",
+    },
+    name: "<value>",
+    createdAt: new Date("2022-01-21T14:14:48.649Z"),
+    ledger: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,18 @@
 # BalancesListCursor
 
+## Example Usage
+
+```typescript
+import { BalancesListCursor } from "@formance/sdk-wallets/models/operations";
+
+let value: BalancesListCursor = {
+    data: [
+        {
+            name: "<value>",
+        },
+    ],
+};
+```
 
 ## Fields
 

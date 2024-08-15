@@ -2,6 +2,13 @@
 
 An unexpected error response.
 
+## Example Usage
+
+```typescript
+import { WalletsError } from "@formance/sdk-wallets/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 
