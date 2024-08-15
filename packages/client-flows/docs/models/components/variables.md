@@ -1,5 +1,12 @@
 # Variables
 
+## Example Usage
+
+```typescript
+import { Variables } from "@formance/sdk-flows/models/components";
+
+let value: Variables = {};
+```
 
 ## Fields
 

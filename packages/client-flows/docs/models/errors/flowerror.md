@@ -2,6 +2,13 @@
 
 An unexpected error response.
 
+## Example Usage
+
+```typescript
+import { FlowError } from "@formance/sdk-flows/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

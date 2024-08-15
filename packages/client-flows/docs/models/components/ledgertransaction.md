@@ -1,5 +1,27 @@
 # LedgerTransaction
 
+## Example Usage
+
+```typescript
+import { LedgerTransaction } from "@formance/sdk-flows/models/components";
+
+let value: LedgerTransaction = {
+    timestamp: new Date("2024-09-20T10:25:17.071Z"),
+    postings: [
+        {
+            amount: 263322,
+            asset: "<value>",
+            destination: "<value>",
+            source: "<value>",
+        },
+    ],
+    metadata: {
+        key: "<value>",
+    },
+    id: "<id>",
+    reverted: false,
+};
+```
 
 ## Fields
 

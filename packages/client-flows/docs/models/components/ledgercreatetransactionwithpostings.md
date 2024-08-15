@@ -1,5 +1,24 @@
 # LedgerCreateTransactionWithPostings
 
+## Example Usage
+
+```typescript
+import { LedgerCreateTransactionWithPostings } from "@formance/sdk-flows/models/components";
+
+let value: LedgerCreateTransactionWithPostings = {
+    metadata: {
+        key: "<value>",
+    },
+    postings: [
+        {
+            amount: 552193,
+            asset: "<value>",
+            destination: "<value>",
+            source: "<value>",
+        },
+    ],
+};
+```
 
 ## Fields
 

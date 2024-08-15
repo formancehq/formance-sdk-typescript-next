@@ -1,5 +1,14 @@
 # InstancesSendRequestBody
 
+## Example Usage
+
+```typescript
+import { InstancesSendRequestBody } from "@formance/sdk-flows/models/operations";
+
+let value: InstancesSendRequestBody = {
+    name: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # WorkflowsListRequest
 
+## Example Usage
+
+```typescript
+import { WorkflowsListRequest } from "@formance/sdk-flows/models/operations";
+
+let value: WorkflowsListRequest = {};
+```
 
 ## Fields
 

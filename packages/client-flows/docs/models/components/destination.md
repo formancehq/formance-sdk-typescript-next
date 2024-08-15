@@ -1,5 +1,16 @@
 # Destination
 
+## Example Usage
+
+```typescript
+import { Destination } from "@formance/sdk-flows/models/components";
+
+let value: Destination = {
+    account: {
+        id: "<id>",
+    },
+};
+```
 
 ## Supported Types
 

@@ -1,5 +1,14 @@
 # Nine
 
+## Example Usage
+
+```typescript
+import { Nine } from "@formance/sdk-flows/models/components";
+
+let value: Nine = {
+    listWallets: {},
+};
+```
 
 ## Fields
 

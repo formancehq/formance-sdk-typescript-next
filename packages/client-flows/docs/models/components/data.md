@@ -1,5 +1,19 @@
 # Data
 
+## Example Usage
+
+```typescript
+import { Data } from "@formance/sdk-flows/models/components";
+
+let value: Data = {
+    metadata: {
+        key: "<value>",
+    },
+    script: {
+        plain: "<value>",
+    },
+};
+```
 
 ## Supported Types
 

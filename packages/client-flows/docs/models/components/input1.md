@@ -1,5 +1,17 @@
 # Input1
 
+## Example Usage
+
+```typescript
+import { Input1 } from "@formance/sdk-flows/models/components";
+
+let value: Input1 = {
+    getAccount: {
+        id: "<id>",
+        ledger: "<value>",
+    },
+};
+```
 
 ## Fields
 

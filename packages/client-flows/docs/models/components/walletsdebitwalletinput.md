@@ -1,5 +1,20 @@
 # WalletsDebitWalletInput
 
+## Example Usage
+
+```typescript
+import { WalletsDebitWalletInput } from "@formance/sdk-flows/models/components";
+
+let value: WalletsDebitWalletInput = {
+    amount: {
+        asset: "<value>",
+        amount: 209157,
+    },
+    metadata: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # Ten
 
+## Example Usage
+
+```typescript
+import { Ten } from "@formance/sdk-flows/models/components";
+
+let value: Ten = {
+    stripeTransfer: {},
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # SourceAccount
 
+## Example Usage
+
+```typescript
+import { SourceAccount } from "@formance/sdk-flows/models/components";
+
+let value: SourceAccount = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,19 @@
 # LedgerCreateTransactionWithNumscript
 
+## Example Usage
+
+```typescript
+import { LedgerCreateTransactionWithNumscript } from "@formance/sdk-flows/models/components";
+
+let value: LedgerCreateTransactionWithNumscript = {
+    metadata: {
+        key: "<value>",
+    },
+    script: {
+        plain: "<value>",
+    },
+};
+```
 
 ## Fields
 

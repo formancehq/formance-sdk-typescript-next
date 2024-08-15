@@ -1,5 +1,15 @@
 # LedgerVolume
 
+## Example Usage
+
+```typescript
+import { LedgerVolume } from "@formance/sdk-flows/models/components";
+
+let value: LedgerVolume = {
+    input: 456015,
+    output: 663078,
+};
+```
 
 ## Fields
 

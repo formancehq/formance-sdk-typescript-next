@@ -1,5 +1,16 @@
 # Four
 
+## Example Usage
+
+```typescript
+import { Four } from "@formance/sdk-flows/models/components";
+
+let value: Four = {
+    confirmHold: {
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

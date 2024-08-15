@@ -1,5 +1,17 @@
 # LedgerPosting
 
+## Example Usage
+
+```typescript
+import { LedgerPosting } from "@formance/sdk-flows/models/components";
+
+let value: LedgerPosting = {
+    amount: 137220,
+    asset: "<value>",
+    destination: "<value>",
+    source: "<value>",
+};
+```
 
 ## Fields
 

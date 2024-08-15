@@ -1,5 +1,14 @@
 # Paymnts
 
+## Example Usage
+
+```typescript
+import { Paymnts } from "@formance/sdk-flows/models/components";
+
+let value: Paymnts = {
+    psp: "<value>",
+};
+```
 
 ## Fields
 

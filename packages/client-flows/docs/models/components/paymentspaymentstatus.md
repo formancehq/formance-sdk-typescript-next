@@ -1,18 +1,15 @@
 # PaymentsPaymentStatus
 
+## Example Usage
+
+```typescript
+import { PaymentsPaymentStatus } from "@formance/sdk-flows/models/components";
+
+let value: PaymentsPaymentStatus = "REFUNDED_FAILURE";
+```
 
 ## Values
 
-| Name              | Value             |
-| ----------------- | ----------------- |
-| `Pending`         | PENDING           |
-| `Succeeded`       | SUCCEEDED         |
-| `Cancelled`       | CANCELLED         |
-| `Failed`          | FAILED            |
-| `Expired`         | EXPIRED           |
-| `Refunded`        | REFUNDED          |
-| `RefundedFailure` | REFUNDED_FAILURE  |
-| `Dispute`         | DISPUTE           |
-| `DisputeWon`      | DISPUTE_WON       |
-| `DisputeLost`     | DISPUTE_LOST      |
-| `Other`           | OTHER             |
+```typescript
+"PENDING" | "SUCCEEDED" | "CANCELLED" | "FAILED" | "EXPIRED" | "REFUNDED" | "REFUNDED_FAILURE" | "DISPUTE" | "DISPUTE_WON" | "DISPUTE_LOST" | "OTHER"
+```

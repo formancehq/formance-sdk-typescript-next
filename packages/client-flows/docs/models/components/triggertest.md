@@ -1,5 +1,12 @@
 # TriggerTest
 
+## Example Usage
+
+```typescript
+import { TriggerTest } from "@formance/sdk-flows/models/components";
+
+let value: TriggerTest = {};
+```
 
 ## Fields
 

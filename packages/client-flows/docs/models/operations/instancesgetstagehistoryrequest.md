@@ -1,5 +1,15 @@
 # InstancesGetStageHistoryRequest
 
+## Example Usage
+
+```typescript
+import { InstancesGetStageHistoryRequest } from "@formance/sdk-flows/models/operations";
+
+let value: InstancesGetStageHistoryRequest = {
+    id: "<id>",
+    stageIndex: 281730,
+};
+```
 
 ## Fields
 

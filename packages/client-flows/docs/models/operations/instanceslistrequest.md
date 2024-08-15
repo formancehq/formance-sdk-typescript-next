@@ -1,5 +1,15 @@
 # InstancesListRequest
 
+## Example Usage
+
+```typescript
+import { InstancesListRequest } from "@formance/sdk-flows/models/operations";
+
+let value: InstancesListRequest = {
+    workflowId: "<value>",
+    running: false,
+};
+```
 
 ## Fields
 

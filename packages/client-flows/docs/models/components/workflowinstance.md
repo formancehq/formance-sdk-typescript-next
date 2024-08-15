@@ -1,5 +1,18 @@
 # WorkflowInstance
 
+## Example Usage
+
+```typescript
+import { WorkflowInstance } from "@formance/sdk-flows/models/components";
+
+let value: WorkflowInstance = {
+    workflowId: "<value>",
+    id: "<id>",
+    createdAt: new Date("2023-08-25T11:59:25.313Z"),
+    updatedAt: new Date("2023-10-12T18:11:05.242Z"),
+    terminated: false,
+};
+```
 
 ## Fields
 

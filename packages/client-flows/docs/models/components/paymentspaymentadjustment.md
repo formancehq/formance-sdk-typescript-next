@@ -1,5 +1,20 @@
 # PaymentsPaymentAdjustment
 
+## Example Usage
+
+```typescript
+import { PaymentsPaymentAdjustment } from "@formance/sdk-flows/models/components";
+
+let value: PaymentsPaymentAdjustment = {
+    reference: "<value>",
+    createdAt: new Date("2022-12-22T20:27:39.283Z"),
+    status: "DISPUTE_LOST",
+    amount: 519711,
+    raw: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

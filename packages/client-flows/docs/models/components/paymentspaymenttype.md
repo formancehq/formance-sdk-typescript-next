@@ -1,11 +1,15 @@
 # PaymentsPaymentType
 
+## Example Usage
+
+```typescript
+import { PaymentsPaymentType } from "@formance/sdk-flows/models/components";
+
+let value: PaymentsPaymentType = "PAYOUT";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `PayIn`    | PAY-IN     |
-| `Payout`   | PAYOUT     |
-| `Transfer` | TRANSFER   |
-| `Other`    | OTHER      |
+```typescript
+"PAY-IN" | "PAYOUT" | "TRANSFER" | "OTHER"
+```

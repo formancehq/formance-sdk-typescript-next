@@ -1,5 +1,16 @@
 # Source3
 
+## Example Usage
+
+```typescript
+import { Source3 } from "@formance/sdk-flows/models/components";
+
+let value: Source3 = {
+    paymnts: {
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

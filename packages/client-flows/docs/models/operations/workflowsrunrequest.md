@@ -1,5 +1,17 @@
 # WorkflowsRunRequest
 
+## Example Usage
+
+```typescript
+import { WorkflowsRunRequest } from "@formance/sdk-flows/models/operations";
+
+let value: WorkflowsRunRequest = {
+    id: "<id>",
+    requestBody: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

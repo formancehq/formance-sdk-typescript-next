@@ -1,5 +1,15 @@
 # Amount
 
+## Example Usage
+
+```typescript
+import { Amount } from "@formance/sdk-flows/models/components";
+
+let value: Amount = {
+    asset: "<value>",
+    amount: 423655,
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # InstancesGetHistoryRequest
 
+## Example Usage
+
+```typescript
+import { InstancesGetHistoryRequest } from "@formance/sdk-flows/models/operations";
+
+let value: InstancesGetHistoryRequest = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

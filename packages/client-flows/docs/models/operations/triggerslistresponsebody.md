@@ -2,6 +2,26 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { TriggersListResponseBody } from "@formance/sdk-flows/models/operations";
+
+let value: TriggersListResponseBody = {
+    cursor: {
+        data: [
+            [
+                {
+                    event: "<value>",
+                    workflowId: "<value>",
+                    id: "<id>",
+                    createdAt: new Date("2023-07-16T13:59:51.779Z"),
+                },
+            ],
+        ],
+    },
+};
+```
 
 ## Fields
 

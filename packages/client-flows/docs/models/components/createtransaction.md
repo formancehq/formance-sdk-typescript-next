@@ -1,5 +1,21 @@
 # CreateTransaction
 
+## Example Usage
+
+```typescript
+import { CreateTransaction } from "@formance/sdk-flows/models/components";
+
+let value: CreateTransaction = {
+    data: {
+        metadata: {
+            key: "<value>",
+        },
+        script: {
+            plain: "<value>",
+        },
+    },
+};
+```
 
 ## Fields
 

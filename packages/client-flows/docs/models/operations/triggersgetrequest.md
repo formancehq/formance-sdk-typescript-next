@@ -1,5 +1,14 @@
 # TriggersGetRequest
 
+## Example Usage
+
+```typescript
+import { TriggersGetRequest } from "@formance/sdk-flows/models/operations";
+
+let value: TriggersGetRequest = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

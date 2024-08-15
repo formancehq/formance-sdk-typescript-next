@@ -1,5 +1,15 @@
 # WalletsCreditWalletInputAmount
 
+## Example Usage
+
+```typescript
+import { WalletsCreditWalletInputAmount } from "@formance/sdk-flows/models/components";
+
+let value: WalletsCreditWalletInputAmount = {
+    asset: "<value>",
+    amount: 731694,
+};
+```
 
 ## Fields
 

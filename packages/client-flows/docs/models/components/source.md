@@ -1,5 +1,16 @@
 # Source
 
+## Example Usage
+
+```typescript
+import { Source } from "@formance/sdk-flows/models/components";
+
+let value: Source = {
+    account: {
+        id: "<id>",
+    },
+};
+```
 
 ## Supported Types
 

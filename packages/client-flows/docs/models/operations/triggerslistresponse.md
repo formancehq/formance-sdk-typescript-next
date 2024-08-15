@@ -1,5 +1,27 @@
 # TriggersListResponse
 
+## Example Usage
+
+```typescript
+import { TriggersListResponse } from "@formance/sdk-flows/models/operations";
+
+let value: TriggersListResponse = {
+    result: {
+        cursor: {
+            data: [
+                [
+                    {
+                        event: "<value>",
+                        workflowId: "<value>",
+                        id: "<id>",
+                        createdAt: new Date("2023-06-17T05:56:53.587Z"),
+                    },
+                ],
+            ],
+        },
+    },
+};
+```
 
 ## Fields
 

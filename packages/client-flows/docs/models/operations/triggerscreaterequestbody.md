@@ -1,5 +1,15 @@
 # TriggersCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { TriggersCreateRequestBody } from "@formance/sdk-flows/models/operations";
+
+let value: TriggersCreateRequestBody = {
+    event: "<value>",
+    workflowId: "<value>",
+};
+```
 
 ## Fields
 

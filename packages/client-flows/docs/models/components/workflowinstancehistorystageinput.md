@@ -1,5 +1,28 @@
 # WorkflowInstanceHistoryStageInput
 
+## Example Usage
+
+```typescript
+import { WorkflowInstanceHistoryStageInput } from "@formance/sdk-flows/models/components";
+
+let value: WorkflowInstanceHistoryStageInput = {
+    creditWallet: {
+        data: {
+            amount: {
+                asset: "<value>",
+                amount: 568045,
+            },
+            metadata: {
+                key: "<value>",
+            },
+            source: {
+                type: "ACCOUNT",
+                identifier: "<value>",
+            },
+        },
+    },
+};
+```
 
 ## Supported Types
 

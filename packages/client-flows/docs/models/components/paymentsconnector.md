@@ -1,18 +1,15 @@
 # PaymentsConnector
 
+## Example Usage
+
+```typescript
+import { PaymentsConnector } from "@formance/sdk-flows/models/components";
+
+let value: PaymentsConnector = "STRIPE";
+```
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Stripe`        | STRIPE          |
-| `DummyPay`      | DUMMY-PAY       |
-| `Wise`          | WISE            |
-| `Modulr`        | MODULR          |
-| `CurrencyCloud` | CURRENCY-CLOUD  |
-| `BankingCircle` | BANKING-CIRCLE  |
-| `Mangopay`      | MANGOPAY        |
-| `Moneycorp`     | MONEYCORP       |
-| `Atlar`         | ATLAR           |
-| `Adyen`         | ADYEN           |
-| `Generic`       | GENERIC         |
+```typescript
+"STRIPE" | "DUMMY-PAY" | "WISE" | "MODULR" | "CURRENCY-CLOUD" | "BANKING-CIRCLE" | "MANGOPAY" | "MONEYCORP" | "ATLAR" | "ADYEN" | "GENERIC"
+```

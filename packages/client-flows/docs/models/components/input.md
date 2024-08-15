@@ -1,5 +1,14 @@
 # Input
 
+## Example Usage
+
+```typescript
+import { Input } from "@formance/sdk-flows/models/components";
+
+let value: Input = {
+    event: "<value>",
+};
+```
 
 ## Supported Types
 

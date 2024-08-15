@@ -1,5 +1,16 @@
 # WorkflowStatus
 
+## Example Usage
+
+```typescript
+import { WorkflowStatus } from "@formance/sdk-flows/models/components";
+
+let value: WorkflowStatus = {
+    stage: 715190,
+    instanceId: "<value>",
+    startedAt: new Date("2024-07-14T07:33:58.078Z"),
+};
+```
 
 ## Fields
 

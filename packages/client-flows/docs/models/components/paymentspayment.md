@@ -1,5 +1,39 @@
 # PaymentsPayment
 
+## Example Usage
+
+```typescript
+import { PaymentsPayment } from "@formance/sdk-flows/models/components";
+
+let value: PaymentsPayment = {
+    reference: "<value>",
+    connectorID: "<value>",
+    amount: 20651,
+    type: "PAY-IN",
+    status: "DISPUTE_WON",
+    scheme: "ach debit",
+    asset: "<value>",
+    id: "<id>",
+    sourceAccountID: "<value>",
+    destinationAccountID: "<value>",
+    initialAmount: 320017,
+    createdAt: new Date("2024-09-18T05:59:40.567Z"),
+    raw: {
+        key: "<value>",
+    },
+    adjustments: [
+        {
+            reference: "<value>",
+            createdAt: new Date("2023-02-25T06:38:03.101Z"),
+            status: "DISPUTE",
+            amount: 588317,
+            raw: {
+                key: "<value>",
+            },
+        },
+    ],
+};
+```
 
 ## Fields
 

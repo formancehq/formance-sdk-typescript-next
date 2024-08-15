@@ -1,5 +1,16 @@
 # Input3
 
+## Example Usage
+
+```typescript
+import { Input3 } from "@formance/sdk-flows/models/components";
+
+let value: Input3 = {
+    getPayment: {
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

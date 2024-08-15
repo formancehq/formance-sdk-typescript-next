@@ -1,5 +1,18 @@
 # WorkflowConfig
 
+## Example Usage
+
+```typescript
+import { WorkflowConfig } from "@formance/sdk-flows/models/components";
+
+let value: WorkflowConfig = {
+    stages: [
+        {
+            key: "<value>",
+        },
+    ],
+};
+```
 
 ## Fields
 

@@ -1,10 +1,15 @@
 # FlowErrors
 
+## Example Usage
+
+```typescript
+import { FlowErrors } from "@formance/sdk-flows/models/components";
+
+let value: FlowErrors = "NOT_FOUND";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Validation` | VALIDATION   |
-| `NotFound`   | NOT_FOUND    |
-| `Internal`   | INTERNAL     |
+```typescript
+"VALIDATION" | "NOT_FOUND" | "INTERNAL"
+```

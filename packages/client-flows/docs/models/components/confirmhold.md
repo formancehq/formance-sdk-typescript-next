@@ -1,5 +1,14 @@
 # ConfirmHold
 
+## Example Usage
+
+```typescript
+import { ConfirmHold } from "@formance/sdk-flows/models/components";
+
+let value: ConfirmHold = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

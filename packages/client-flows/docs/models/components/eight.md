@@ -1,5 +1,16 @@
 # Eight
 
+## Example Usage
+
+```typescript
+import { Eight } from "@formance/sdk-flows/models/components";
+
+let value: Eight = {
+    voidHold: {
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

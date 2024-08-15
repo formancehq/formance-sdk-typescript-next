@@ -1,5 +1,14 @@
 # Script
 
+## Example Usage
+
+```typescript
+import { Script } from "@formance/sdk-flows/models/components";
+
+let value: Script = {
+    plain: "<value>",
+};
+```
 
 ## Fields
 

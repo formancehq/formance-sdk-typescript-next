@@ -1,5 +1,12 @@
 # TriggersListRequest
 
+## Example Usage
+
+```typescript
+import { TriggersListRequest } from "@formance/sdk-flows/models/operations";
+
+let value: TriggersListRequest = {};
+```
 
 ## Fields
 

@@ -1,5 +1,17 @@
 # TriggersTestRequest
 
+## Example Usage
+
+```typescript
+import { TriggersTestRequest } from "@formance/sdk-flows/models/operations";
+
+let value: TriggersTestRequest = {
+    id: "<id>",
+    requestBody: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

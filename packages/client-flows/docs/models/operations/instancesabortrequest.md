@@ -1,5 +1,14 @@
 # InstancesAbortRequest
 
+## Example Usage
+
+```typescript
+import { InstancesAbortRequest } from "@formance/sdk-flows/models/operations";
+
+let value: InstancesAbortRequest = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,29 @@
 # LedgerAccount
 
+## Example Usage
+
+```typescript
+import { LedgerAccount } from "@formance/sdk-flows/models/components";
+
+let value: LedgerAccount = {
+    address: "76446 Mohr Turnpike",
+    metadata: {
+        key: "<value>",
+    },
+    volumes: {
+        key: {
+            input: 714697,
+            output: 990339,
+        },
+    },
+    effectiveVolumes: {
+        key: {
+            input: 469497,
+            output: 216897,
+        },
+    },
+};
+```
 
 ## Fields
 

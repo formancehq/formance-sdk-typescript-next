@@ -1,5 +1,16 @@
 # One
 
+## Example Usage
+
+```typescript
+import { One } from "@formance/sdk-flows/models/components";
+
+let value: One = {
+    wallet: {
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

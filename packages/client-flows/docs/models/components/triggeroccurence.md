@@ -1,5 +1,16 @@
 # TriggerOccurence
 
+## Example Usage
+
+```typescript
+import { TriggerOccurence } from "@formance/sdk-flows/models/components";
+
+let value: TriggerOccurence = {
+    date: new Date("2022-11-11T11:00:48.081Z"),
+    triggerID: "<value>",
+    event: "<value>",
+};
+```
 
 ## Fields
 

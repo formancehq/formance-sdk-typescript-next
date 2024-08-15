@@ -2,6 +2,15 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { TriggersTestResponseBody } from "@formance/sdk-flows/models/operations";
+
+let value: TriggersTestResponseBody = {
+    data: {},
+};
+```
 
 ## Fields
 

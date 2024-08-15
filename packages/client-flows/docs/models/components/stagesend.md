@@ -1,5 +1,24 @@
 # StageSend
 
+## Example Usage
+
+```typescript
+import { StageSend } from "@formance/sdk-flows/models/components";
+
+let value: StageSend = {
+    destination: {
+        account: {
+            id: "<id>",
+        },
+    },
+    source: {
+        account: {
+            id: "<id>",
+        },
+    },
+    timestamp: new Date("2022-11-23T02:21:00.924Z"),
+};
+```
 
 ## Fields
 

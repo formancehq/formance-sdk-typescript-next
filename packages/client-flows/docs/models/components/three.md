@@ -1,5 +1,16 @@
 # Three
 
+## Example Usage
+
+```typescript
+import { Three } from "@formance/sdk-flows/models/components";
+
+let value: Three = {
+    paymnts: {
+        psp: "<value>",
+    },
+};
+```
 
 ## Fields
 

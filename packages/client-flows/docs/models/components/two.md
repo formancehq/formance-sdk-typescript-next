@@ -1,5 +1,16 @@
 # Two
 
+## Example Usage
+
+```typescript
+import { Two } from "@formance/sdk-flows/models/components";
+
+let value: Two = {
+    account: {
+        id: "<id>",
+    },
+};
+```
 
 ## Fields
 

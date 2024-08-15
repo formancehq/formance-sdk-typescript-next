@@ -1,5 +1,12 @@
 # Security
 
+## Example Usage
+
+```typescript
+import { Security } from "@formance/sdk-flows/models/components";
+
+let value: Security = {};
+```
 
 ## Fields
 

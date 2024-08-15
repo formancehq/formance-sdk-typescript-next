@@ -1,5 +1,14 @@
 # WorkflowsGetRequest
 
+## Example Usage
+
+```typescript
+import { WorkflowsGetRequest } from "@formance/sdk-flows/models/operations";
+
+let value: WorkflowsGetRequest = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # SourceWallet
 
+## Example Usage
+
+```typescript
+import { SourceWallet } from "@formance/sdk-flows/models/components";
+
+let value: SourceWallet = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

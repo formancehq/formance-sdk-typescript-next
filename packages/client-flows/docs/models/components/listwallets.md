@@ -1,5 +1,12 @@
 # ListWallets
 
+## Example Usage
+
+```typescript
+import { ListWallets } from "@formance/sdk-flows/models/components";
+
+let value: ListWallets = {};
+```
 
 ## Fields
 

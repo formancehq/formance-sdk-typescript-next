@@ -1,5 +1,12 @@
 # StripeTransfer
 
+## Example Usage
+
+```typescript
+import { StripeTransfer } from "@formance/sdk-flows/models/components";
+
+let value: StripeTransfer = {};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # StageWaitEvent
 
+## Example Usage
+
+```typescript
+import { StageWaitEvent } from "@formance/sdk-flows/models/components";
+
+let value: StageWaitEvent = {
+    event: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # Filter
 
+## Example Usage
+
+```typescript
+import { Filter } from "@formance/sdk-flows/models/components";
+
+let value: Filter = {};
+```
 
 ## Fields
 
