@@ -1,5 +1,12 @@
 # ClientsListRequest
 
+## Example Usage
+
+```typescript
+import { ClientsListRequest } from "@formance/sdk-auth/models/operations";
+
+let value: ClientsListRequest = {};
+```
 
 ## Fields
 

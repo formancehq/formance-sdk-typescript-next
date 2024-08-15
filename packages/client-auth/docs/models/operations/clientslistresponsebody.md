@@ -2,6 +2,23 @@
 
 The request has succeeded.
 
+## Example Usage
+
+```typescript
+import { ClientsListResponseBody } from "@formance/sdk-auth/models/operations";
+
+let value: ClientsListResponseBody = {
+    cursor: {
+        data: [
+            {
+                name: "<value>",
+                trusted: false,
+                id: "<id>",
+            },
+        ],
+    },
+};
+```
 
 ## Fields
 

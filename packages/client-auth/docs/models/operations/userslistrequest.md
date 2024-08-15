@@ -1,5 +1,12 @@
 # UsersListRequest
 
+## Example Usage
+
+```typescript
+import { UsersListRequest } from "@formance/sdk-auth/models/operations";
+
+let value: UsersListRequest = {};
+```
 
 ## Fields
 

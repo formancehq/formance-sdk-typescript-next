@@ -1,5 +1,17 @@
 # SecretsCreateRequest
 
+## Example Usage
+
+```typescript
+import { SecretsCreateRequest } from "@formance/sdk-auth/models/operations";
+
+let value: SecretsCreateRequest = {
+    clientId: "<value>",
+    requestBody: {
+        name: "<value>",
+    },
+};
+```
 
 ## Fields
 

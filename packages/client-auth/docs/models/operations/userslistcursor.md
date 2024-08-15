@@ -1,5 +1,20 @@
 # UsersListCursor
 
+## Example Usage
+
+```typescript
+import { UsersListCursor } from "@formance/sdk-auth/models/operations";
+
+let value: UsersListCursor = {
+    data: [
+        {
+            id: "<id>",
+            subject: "<value>",
+            email: "Roselyn_Kassulke@yahoo.com",
+        },
+    ],
+};
+```
 
 ## Fields
 

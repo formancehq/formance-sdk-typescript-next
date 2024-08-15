@@ -1,5 +1,14 @@
 # ClientData
 
+## Example Usage
+
+```typescript
+import { ClientData } from "@formance/sdk-auth/models/components";
+
+let value: ClientData = {
+    name: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,20 @@
 # Cursor
 
+## Example Usage
+
+```typescript
+import { Cursor } from "@formance/sdk-auth/models/operations";
+
+let value: Cursor = {
+    data: [
+        {
+            name: "<value>",
+            trusted: false,
+            id: "<id>",
+        },
+    ],
+};
+```
 
 ## Fields
 

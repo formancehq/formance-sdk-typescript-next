@@ -1,5 +1,24 @@
 # ClientsListResponse
 
+## Example Usage
+
+```typescript
+import { ClientsListResponse } from "@formance/sdk-auth/models/operations";
+
+let value: ClientsListResponse = {
+    result: {
+        cursor: {
+            data: [
+                {
+                    name: "<value>",
+                    trusted: false,
+                    id: "<id>",
+                },
+            ],
+        },
+    },
+};
+```
 
 ## Fields
 

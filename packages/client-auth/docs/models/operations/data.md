@@ -1,5 +1,17 @@
 # Data
 
+## Example Usage
+
+```typescript
+import { Data } from "@formance/sdk-auth/models/operations";
+
+let value: Data = {
+    lastDigits: "<value>",
+    name: "<value>",
+    id: "<id>",
+    clear: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # ClientsGetRequest
 
+## Example Usage
+
+```typescript
+import { ClientsGetRequest } from "@formance/sdk-auth/models/operations";
+
+let value: ClientsGetRequest = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

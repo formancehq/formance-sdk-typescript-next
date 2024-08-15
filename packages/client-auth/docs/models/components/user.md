@@ -1,5 +1,16 @@
 # User
 
+## Example Usage
+
+```typescript
+import { User } from "@formance/sdk-auth/models/components";
+
+let value: User = {
+    id: "<id>",
+    subject: "<value>",
+    email: "Larue_Rau85@yahoo.com",
+};
+```
 
 ## Fields
 

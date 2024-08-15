@@ -1,5 +1,16 @@
 # Secret
 
+## Example Usage
+
+```typescript
+import { Secret } from "@formance/sdk-auth/models/components";
+
+let value: Secret = {
+    lastDigits: "<value>",
+    name: "<value>",
+    id: "<id>",
+};
+```
 
 ## Fields
 

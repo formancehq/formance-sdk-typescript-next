@@ -1,5 +1,17 @@
 # ClientsUpdateRequest
 
+## Example Usage
+
+```typescript
+import { ClientsUpdateRequest } from "@formance/sdk-auth/models/operations";
+
+let value: ClientsUpdateRequest = {
+    id: "<id>",
+    clientData: {
+        name: "<value>",
+    },
+};
+```
 
 ## Fields
 
