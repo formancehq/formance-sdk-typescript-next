@@ -14,6 +14,13 @@ sources:
         tags:
             - latest
             - main
+    ledger:
+        sourceNamespace: ledger
+        sourceRevisionDigest: sha256:7fbdfd0f69b1a6ca03bf5c85a1413c35b431e2dacc2f1ebf69c5bc41aa81eb03
+        sourceBlobDigest: sha256:7da664a8ac6f699bbedf49be73de3bea2e06695dacc039f9a19734786746eb78
+        tags:
+            - latest
+            - main
 targets:
     ts-auth:
         source: auth
@@ -32,6 +39,9 @@ targets:
         outLocation: packages/client-flows
     ts-ledger:
         source: ledger
+        sourceNamespace: ledger
+        sourceRevisionDigest: sha256:7fbdfd0f69b1a6ca03bf5c85a1413c35b431e2dacc2f1ebf69c5bc41aa81eb03
+        sourceBlobDigest: sha256:7da664a8ac6f699bbedf49be73de3bea2e06695dacc039f9a19734786746eb78
         outLocation: packages/client-ledger
     ts-payments:
         source: payments
