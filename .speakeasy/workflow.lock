@@ -1,8 +1,18 @@
-speakeasyVersion: 1.368.0
-sources: {}
+speakeasyVersion: 1.372.0
+sources:
+    auth:
+        sourceNamespace: auth
+        sourceRevisionDigest: sha256:c6bfb0259e21298964bb59e34cd2b0ebd5b9d96eea15141c6d34beaeb06e9a63
+        sourceBlobDigest: sha256:b1403aac668dfcd1423f080d7e170848c8bc5f17c508ac901760e529bef8b222
+        tags:
+            - latest
+            - main
 targets:
     ts-auth:
         source: auth
+        sourceNamespace: auth
+        sourceRevisionDigest: sha256:c6bfb0259e21298964bb59e34cd2b0ebd5b9d96eea15141c6d34beaeb06e9a63
+        sourceBlobDigest: sha256:b1403aac668dfcd1423f080d7e170848c8bc5f17c508ac901760e529bef8b222
         outLocation: packages/client-auth
     ts-connectivity:
         source: payments

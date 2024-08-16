@@ -3,10 +3,10 @@ id: 5e195e2d-c807-4e79-be37-df9d38941730
 management:
   docChecksum: 71c491105c59e5be4f6f15ec68ca9b9c
   docVersion: 0.0.0
-  speakeasyVersion: 1.368.0
+  speakeasyVersion: 1.372.0
   generationVersion: 2.399.0
-  releaseVersion: 1.0.0-alpha.28
-  configChecksum: 68ddf7823f400960858e2ad333582ede
+  releaseVersion: 1.0.0-alpha.29
+  configChecksum: 470fc9a65e457d8c712b40e63317279b
   repoURL: https://github.com/formancehq/formance-sdk-typescript-next.git
   repoSubDirectory: packages/client-auth
   installationURL: https://gitpkg.now.sh/formancehq/formance-sdk-typescript-next/packages/client-auth
