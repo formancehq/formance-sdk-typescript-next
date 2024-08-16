@@ -21,6 +21,13 @@ sources:
         tags:
             - latest
             - main
+    payments:
+        sourceNamespace: payments
+        sourceRevisionDigest: sha256:e5a108206583376b46b7a708362cd216dae7be22f834efbda24cb2f1844f60e2
+        sourceBlobDigest: sha256:dc72489689175e5267bd3b8575ebd4fb71d5f6a144a71cc726681b3d302f996d
+        tags:
+            - latest
+            - main
 targets:
     ts-auth:
         source: auth
@@ -30,6 +37,9 @@ targets:
         outLocation: packages/client-auth
     ts-connectivity:
         source: payments
+        sourceNamespace: payments
+        sourceRevisionDigest: sha256:e5a108206583376b46b7a708362cd216dae7be22f834efbda24cb2f1844f60e2
+        sourceBlobDigest: sha256:dc72489689175e5267bd3b8575ebd4fb71d5f6a144a71cc726681b3d302f996d
         outLocation: packages/client-connectivity
     ts-flows:
         source: flows
