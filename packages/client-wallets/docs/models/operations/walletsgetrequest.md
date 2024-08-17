@@ -1,5 +1,14 @@
 # WalletsGetRequest
 
+## Example Usage
+
+```typescript
+import { WalletsGetRequest } from "@formance/sdk-wallets/models/operations";
+
+let value: WalletsGetRequest = {
+    id: "<id>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # BalancesListRequest
 
+## Example Usage
+
+```typescript
+import { BalancesListRequest } from "@formance/sdk-wallets/models/operations";
+
+let value: BalancesListRequest = {
+    walletId: "<value>",
+};
+```
 
 ## Fields
 

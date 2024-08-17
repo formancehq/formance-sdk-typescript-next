@@ -1,4 +1,4 @@
-speakeasyVersion: 1.372.0
+speakeasyVersion: 1.374.2
 sources:
     auth:
         sourceNamespace: auth
@@ -25,6 +25,13 @@ sources:
         sourceNamespace: payments
         sourceRevisionDigest: sha256:e5a108206583376b46b7a708362cd216dae7be22f834efbda24cb2f1844f60e2
         sourceBlobDigest: sha256:dc72489689175e5267bd3b8575ebd4fb71d5f6a144a71cc726681b3d302f996d
+        tags:
+            - latest
+            - main
+    wallets:
+        sourceNamespace: wallets
+        sourceRevisionDigest: sha256:1547ec6ec3a4f13a2889bbf0061dbec0511d26cd48e40dcbfe05bd6703965470
+        sourceBlobDigest: sha256:17afed72119fdb23773447c1b55b85a68c150abc92f2ff4773d633533d9433b5
         tags:
             - latest
             - main
@@ -61,6 +68,9 @@ targets:
         outLocation: packages/client-reconciliation
     ts-wallets:
         source: wallets
+        sourceNamespace: wallets
+        sourceRevisionDigest: sha256:1547ec6ec3a4f13a2889bbf0061dbec0511d26cd48e40dcbfe05bd6703965470
+        sourceBlobDigest: sha256:17afed72119fdb23773447c1b55b85a68c150abc92f2ff4773d633533d9433b5
         outLocation: packages/client-wallets
 workflow:
     workflowVersion: 1.0.0

@@ -1,5 +1,24 @@
 # CreditWalletInput
 
+## Example Usage
+
+```typescript
+import { CreditWalletInput } from "@formance/sdk-wallets/models/components";
+
+let value: CreditWalletInput = {
+    amount: {
+        asset: "<value>",
+        amount: 617636,
+    },
+    metadata: {
+        key: "<value>",
+    },
+    source: {
+        type: "ACCOUNT",
+        identifier: "<value>",
+    },
+};
+```
 
 ## Fields
 

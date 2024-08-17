@@ -1,5 +1,17 @@
 # BalancesWithAssets
 
+## Example Usage
+
+```typescript
+import { BalancesWithAssets } from "@formance/sdk-wallets/models/components";
+
+let value: BalancesWithAssets = {
+    name: "<value>",
+    assets: {
+        key: 449950,
+    },
+};
+```
 
 ## Fields
 

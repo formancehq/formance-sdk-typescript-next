@@ -99,3 +99,13 @@ Based on:
 - [typescript v1.0.0-alpha.11] packages/client-wallets
 ### Releases
 - [NPM v1.0.0-alpha.11] https://www.npmjs.com/package/@formance/sdk-wallets/v/1.0.0-alpha.11 - packages/client-wallets
+
+## 2024-08-17 00:11:17
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.374.2 (2.401.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.0.0-alpha.12] packages/client-wallets
+### Releases
+- [NPM v1.0.0-alpha.12] https://www.npmjs.com/package/@formance/sdk-wallets/v/1.0.0-alpha.12 - packages/client-wallets

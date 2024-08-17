@@ -1,5 +1,22 @@
 # BalancesListResponse
 
+## Example Usage
+
+```typescript
+import { BalancesListResponse } from "@formance/sdk-wallets/models/operations";
+
+let value: BalancesListResponse = {
+    result: {
+        cursor: {
+            data: [
+                {
+                    name: "<value>",
+                },
+            ],
+        },
+    },
+};
+```
 
 ## Fields
 

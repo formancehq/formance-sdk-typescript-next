@@ -1,5 +1,14 @@
 # BalancesCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { BalancesCreateRequestBody } from "@formance/sdk-wallets/models/operations";
+
+let value: BalancesCreateRequestBody = {
+    name: "<value>",
+};
+```
 
 ## Fields
 

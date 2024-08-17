@@ -1,5 +1,17 @@
 # WalletsCreateRequestBody
 
+## Example Usage
+
+```typescript
+import { WalletsCreateRequestBody } from "@formance/sdk-wallets/models/operations";
+
+let value: WalletsCreateRequestBody = {
+    name: "<value>",
+    metadata: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

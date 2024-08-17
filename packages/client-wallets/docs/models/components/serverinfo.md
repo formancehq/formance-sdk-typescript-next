@@ -1,5 +1,14 @@
 # ServerInfo
 
+## Example Usage
+
+```typescript
+import { ServerInfo } from "@formance/sdk-wallets/models/components";
+
+let value: ServerInfo = {
+    version: "<value>",
+};
+```
 
 ## Fields
 

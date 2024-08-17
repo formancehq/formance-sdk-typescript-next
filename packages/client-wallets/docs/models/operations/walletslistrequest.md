@@ -1,5 +1,17 @@
 # WalletsListRequest
 
+## Example Usage
+
+```typescript
+import { WalletsListRequest } from "@formance/sdk-wallets/models/operations";
+
+let value: WalletsListRequest = {
+    name: "<value>",
+    metadata: {
+        key: "<value>",
+    },
+};
+```
 
 ## Fields
 

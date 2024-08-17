@@ -1,5 +1,12 @@
 # WalletsUpdateRequestBody
 
+## Example Usage
+
+```typescript
+import { WalletsUpdateRequestBody } from "@formance/sdk-wallets/models/operations";
+
+let value: WalletsUpdateRequestBody = {};
+```
 
 ## Fields
 

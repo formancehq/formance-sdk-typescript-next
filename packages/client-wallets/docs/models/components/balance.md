@@ -1,5 +1,14 @@
 # Balance
 
+## Example Usage
+
+```typescript
+import { Balance } from "@formance/sdk-wallets/models/components";
+
+let value: Balance = {
+    name: "<value>",
+};
+```
 
 ## Fields
 

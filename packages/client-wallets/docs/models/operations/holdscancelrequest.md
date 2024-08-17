@@ -1,5 +1,14 @@
 # HoldsCancelRequest
 
+## Example Usage
+
+```typescript
+import { HoldsCancelRequest } from "@formance/sdk-wallets/models/operations";
+
+let value: HoldsCancelRequest = {
+    holdId: "<value>",
+};
+```
 
 ## Fields
 

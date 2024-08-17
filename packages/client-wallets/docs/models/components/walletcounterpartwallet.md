@@ -1,5 +1,15 @@
 # WalletCounterpartWallet
 
+## Example Usage
+
+```typescript
+import { WalletCounterpartWallet } from "@formance/sdk-wallets/models/components";
+
+let value: WalletCounterpartWallet = {
+    type: "WALLET",
+    identifier: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,11 +1,15 @@
 # WalletsErrorCodes
 
+## Example Usage
+
+```typescript
+import { WalletsErrorCodes } from "@formance/sdk-wallets/models/components";
+
+let value: WalletsErrorCodes = "HOLD_CLOSED";
+```
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `Validation`       | VALIDATION         |
-| `InternalError`    | INTERNAL_ERROR     |
-| `InsufficientFund` | INSUFFICIENT_FUND  |
-| `HoldClosed`       | HOLD_CLOSED        |
+```typescript
+"VALIDATION" | "INTERNAL_ERROR" | "INSUFFICIENT_FUND" | "HOLD_CLOSED"
+```
