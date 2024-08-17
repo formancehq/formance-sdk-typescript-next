@@ -28,6 +28,13 @@ sources:
         tags:
             - latest
             - main
+    reconciliation:
+        sourceNamespace: reconciliation
+        sourceRevisionDigest: sha256:d399741529b1140cfa502206f0e9d61bd09c799bb8005492437443e429020778
+        sourceBlobDigest: sha256:6f805ab538b44babad551676009769b22e89704ab78136cab80b5c21b936f67b
+        tags:
+            - latest
+            - main
     wallets:
         sourceNamespace: wallets
         sourceRevisionDigest: sha256:1547ec6ec3a4f13a2889bbf0061dbec0511d26cd48e40dcbfe05bd6703965470
@@ -65,6 +72,9 @@ targets:
         outLocation: ./packages/client-payments
     ts-reconciliation:
         source: reconciliation
+        sourceNamespace: reconciliation
+        sourceRevisionDigest: sha256:d399741529b1140cfa502206f0e9d61bd09c799bb8005492437443e429020778
+        sourceBlobDigest: sha256:6f805ab538b44babad551676009769b22e89704ab78136cab80b5c21b936f67b
         outLocation: packages/client-reconciliation
     ts-wallets:
         source: wallets

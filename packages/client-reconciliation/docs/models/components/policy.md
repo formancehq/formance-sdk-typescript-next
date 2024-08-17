@@ -1,5 +1,21 @@
 # Policy
 
+## Example Usage
+
+```typescript
+import { Policy } from "@formance/sdk-reconciliation/models/components";
+
+let value: Policy = {
+    id: "<id>",
+    name: "<value>",
+    createdAt: new Date("2023-07-25T10:38:22.728Z"),
+    ledgerName: "<value>",
+    ledgerQuery: {
+        key: "<value>",
+    },
+    paymentsPoolID: "<value>",
+};
+```
 
 ## Fields
 

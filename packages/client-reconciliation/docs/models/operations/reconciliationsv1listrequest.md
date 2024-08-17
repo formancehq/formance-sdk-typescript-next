@@ -1,5 +1,12 @@
 # ReconciliationsV1ListRequest
 
+## Example Usage
+
+```typescript
+import { ReconciliationsV1ListRequest } from "@formance/sdk-reconciliation/models/operations";
+
+let value: ReconciliationsV1ListRequest = {};
+```
 
 ## Fields
 
